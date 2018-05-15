@@ -1,11 +1,20 @@
 vendor/
+node_modules/
+npm-debug.log
 
-fonts/festivo_letters/no18/
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
 
-fonts/festivo_letters/no7/
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+storage/*.key
+.env.*.php
+.env.php
+.env
+Homestead.yaml
+Homestead.json
 
-fonts/material-icons/
-
-fonts/open-sans/
-
-fonts/streamline/
+# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
+.rocketeer/
