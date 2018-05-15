@@ -1,0 +1,59 @@
+@import "_config/_getConfig.scss";
+
+.col {
+	img.logo {
+		width: 100%;
+		max-width: 300px;
+	}
+}
+
+#contact-map {
+	height: 500px;
+}
+
+nav {
+	padding-top: 25px;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+
+	&.bullets {
+		list-style: inherit;
+		padding-left: $padding-medium / 1.25;
+	}
+}
+
+@media only screen and (min-width:1px) {
+	body {
+		padding-bottom: $padding-medium;
+	}
+
+	section {
+		padding: $padding-small;
+	}
+}
+
+@media only screen and (max-width:481px) {
+	nav.space-h-medium {
+		padding-right: $padding-small;
+		padding-left: $padding-small;
+	}
+}
+
+@media only screen and (min-width:769px) {
+	body {
+		padding: $padding-medium;
+	}
+
+	section {
+		padding: $padding-small;
+	}
+}
+
+@media only screen and (min-width:1025px) {
+	section {
+		padding: $padding-medium;
+	}
+}

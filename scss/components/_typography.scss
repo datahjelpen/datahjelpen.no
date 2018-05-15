@@ -1,0 +1,71 @@
+.font {
+	&-huge {
+		font-size: 5em;
+	}
+
+	&-large {
+		font-size: 4em;
+	}
+
+	&-medium {
+		font-size: 3em;
+	}
+
+	&-small {
+		font-size: 2em;
+	}
+
+	&-tiny {
+		font-size: 1em;
+	}
+
+	&-mini {
+		font-size: 0.7em;
+	}
+
+	&-italic {
+		font-style: italic;
+		font-family: 'open_sansitalic', $fonts;
+	}
+
+	&-thickest {
+		font-weight: bloder;
+		font-family: 'open_sansbold', $fonts;
+	}
+
+	&-thick {
+		font-weight: blod;
+		font-family: 'open_sansbold', $fonts;
+	}
+
+	&-regular {
+		font-weight: normal;
+		font-family: 'open_sansregular', $fonts;
+	}
+
+	&-thin {
+		font-weight: lighter;
+		font-family: 'open_sanslight', $fonts;
+	}
+
+	&-fancy1 {
+		font-family: 'festivo18', $fonts !important;
+		font-weight: lighter !important;
+	}
+
+	&-fancy2 {
+		font-family: 'festivo7', $fonts !important;
+		font-weight: lighter !important;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'open_sansbold', $fonts;
+	word-break: break-word;
+	word-wrap: break-word;
+}

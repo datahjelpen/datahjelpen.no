@@ -1,0 +1,137 @@
+@import "_config/_getConfig.scss";
+
+#select-category {
+	.col {
+		position: relative;
+
+		.row {
+			position: relative;
+
+			.col {
+				height: 100%;
+			}
+		}
+	}
+
+	> .col {
+		.category {
+			@include transition(0.1s);
+			display: block;
+			height: 100%;
+			outline: 5px solid $color-white;
+			outline-offset: 15px;
+
+			&:hover {
+				outline-offset: -15px;
+			}
+
+			h2,
+			ul {
+				text-shadow: 0 0 10px rgba($color-black, 0.75);
+			}
+
+			h2 {
+				text-align: center;
+				text-transform: uppercase;
+				margin: 0;
+				width: 100%;
+				font-size: 2em;
+			}
+
+			ul {
+				@include center('block');
+				max-width: 300px;
+				font-size: 1.25em;
+			}
+
+		}
+
+		&:first-child {
+			.category {
+				&:hover {
+					outline-color: $color-datahjelp;
+				}
+			}
+		}
+
+		&:not(:first-child):not(:last-child) {
+			.category {
+				&:hover {
+					outline-color: $color-opplaring;
+				}
+			}
+		}
+
+		&:last-child {
+			.category {
+				&:hover {
+					outline-color: $color-web_design;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $medium-screen) and (max-width: $large-screen) {
+	#select-category {
+		> .col {
+			.category {
+				.row {
+					height: 250px - $padding-small * 2;
+
+					.col {
+						h2,
+						ul {
+							margin: 0 auto;
+							@include center('vertically');
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media #{$large-and-down} {
+	#select-category {
+		> .col {
+			margin-top: 25px;
+			height: 250px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+@media #{$large-and-up} {
+	#select-category {
+		> .col {
+			height: 350px;
+
+			.category {
+				width: 95%;
+				background-size: 350px;
+			}
+
+			&:first-child {
+				.category {
+					float: left;
+				}
+			}
+
+			&:not(:first-child):not(:last-child) {
+				.category {
+					@include center('block');
+				}
+			}
+
+			&:last-child {
+				.category {
+					float: right;
+				}
+			}
+		}
+	}
+}
