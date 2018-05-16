@@ -50,6 +50,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function providerPrecheck(String $provider)
+    {
+        return view('auth.register-precheck', compact('provider'));
+    }
+
     /**
      * Redirect the user to the Google authentication page.
      *

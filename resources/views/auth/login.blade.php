@@ -22,5 +22,5 @@
         </a>
     </form>
 
-    <a href="/login/google">Login via Google</a>
+    <a href="/login/google/precheck">Login via Google</a>
 @endsection
