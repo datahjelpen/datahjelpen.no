@@ -44,7 +44,7 @@
 	<h1 class="font-medium font-fancy2 white-text space-h-medium">Markedsføring</h1>
 	<section class="white-bg">
 		<h2>Google Adwords</h2>
-		<h3>Prisliste</h3>
+		<h3>Prisliste (per måned)</h3>
 		<p>Priser er eks. mva</p>
 		<table>
 			<thead>
