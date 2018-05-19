@@ -50,9 +50,18 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function providerPrecheck(String $provider)
+    public function providerPrecheckShow(String $provider)
     {
         return view('auth.register-precheck', compact('provider'));
+    }
+
+    public function providerPrecheck(Request $request, String $provider)
+    {
+        $this->validate($request, [
+            'agree_to_tos_privacy' => 'required',
+        ]);
+
+        return redirect()->route('login.oauth', $provider);
     }
 
     /**
