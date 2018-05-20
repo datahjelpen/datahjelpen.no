@@ -22,5 +22,5 @@
         </a>
     </form>
 
-    <a href="{{ route('login.oauth.precheck', 'google') }}">Login via Google</a>
+    <a href="{{ route('login.oauth', 'google') }}">Login via Google</a>
 @endsection

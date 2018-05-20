@@ -50,18 +50,82 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function providerPrecheckShow(String $provider)
+    public function oauthTos(String $provider)
     {
-        return view('auth.register-precheck', compact('provider'));
+        $user_data = session('user_data');
+
+        if ($user_data != null) {
+            return view('auth.oauth-tos', compact('provider', 'user_data'));
+        }
+
+        Session::flash('error', 'Noe gikk galt, denne siden trenger cookies for å fungere.');
+        return redirect()->route('login');
     }
 
-    public function providerPrecheck(Request $request, String $provider)
+    public function oauthComplete(Request $request, String $provider)
     {
         $this->validate($request, [
             'agree_to_tos_privacy' => 'required',
+            'user_name'   => 'required|string',
+            'user_email'  => 'required|email',
+            'user_avatar' => 'image',
         ]);
 
-        return redirect()->route('login.oauth', $provider);
+
+        $user_data = session('user_data');
+        if ($user_data != null) {
+            $existing_user = User::where('email', $user_data->email)->first();
+
+            if ($existing_user) {
+                Session::flash('error', 'Noe gikk galt, denne brukeren finnes allerede.');
+                return redirect()->route('login');
+            }
+
+            $user = new User;
+            $user->name = $request->user_name;
+            $user->email = $user_data->email;
+            $user->provider = $user_data->provider;
+            $user->provider_id = $user_data->provider_id;
+            $user->verified = true;
+
+            $user->save();
+
+            if ($request->has('user_avatar')) {
+                $user_data->avatar = $request->user_avatar;
+            }
+
+            // Try to get the user's avatar
+            if ($user_data->avatar != null) {
+                try {
+                    $image_edit = ImageEditor::make( $user_data->avatar );
+                    $new_user_image = new Image;
+                    $new_user_image->size_name = 'full';
+                    $image_edit->widen(512,    function ($constraint) { $constraint->upsize(); });
+                    $image_edit->heighten(512, function ($constraint) { $constraint->upsize(); });
+                    $new_user_image->alt_tag = $user->name . ' avatar';
+                    $new_user_image->size_width = $image_edit->width();
+                    $new_user_image->size_height = $image_edit->height();
+                    $new_user_image->url = 'avatars/full/' . str_random(20) . '.jpg';
+                    Storage::put($new_user_image->url, $image_edit->stream('jpg', 90)->__toString());
+                    $new_user_image->save();
+                    $user->image_id = $new_user_image->id;
+                    $user->save();
+                } catch (\Intervention\Image\Exception\NotReadableException $e) {
+                    Log::error($e);
+                } catch (Exception $e) {
+                    Log::error($e);
+                }
+            }
+
+            // Login the user
+            Auth::login($user);
+
+            return redirect()->route('home');
+        }
+
+        Session::flash('error', 'Noe gikk galt, denne siden trenger cookies for å fungere.');
+        return redirect()->route('login');
+
     }
 
     /**
@@ -133,41 +197,10 @@ class LoginController extends Controller
                 return redirect()->route('login');
             }
 
-            // We didn't have the user in our db. Make a new user
-            $user = new User;
-            $user->name = $user_data->name;
-            $user->email = $user_data->email;
-            $user->provider = $provider;
-            $user->provider_id = $user_data->provider_id;
-            $user->verified = true;
-            $user->save();
-
-            // Try to get the user's avatar
-            if ($user_data->avatar != null) {
-                try {
-                    $image_edit = ImageEditor::make( $user_data->avatar );
-                    $new_user_image = new Image;
-                    $new_user_image->size_name = 'full';
-                    $image_edit->widen(512,    function ($constraint) { $constraint->upsize(); });
-                    $image_edit->heighten(512, function ($constraint) { $constraint->upsize(); });
-                    $new_user_image->alt_tag = $user->name . ' avatar';
-                    $new_user_image->size_width = $image_edit->width();
-                    $new_user_image->size_height = $image_edit->height();
-                    $new_user_image->url = 'avatars/full/' . str_random(20) . '.jpg';
-                    Storage::put($new_user_image->url, $image_edit->stream('jpg', 90)->__toString());
-                    $new_user_image->save();
-
-                    $user->image_id = $new_user_image->id;
-                    $user->save();
-                } catch (\Intervention\Image\Exception\NotReadableException $e) {
-                    Log::error($e);
-                }
-            }
-
-            // Login the user
-            Auth::login($user);
-
-            return redirect()->route('home');
+            // We didn't have the user in our db.
+            // Save user_data in session and send user to complete registration
+            session(['user_data' => $user_data]);
+            return redirect()->route('login.oauth.tos', $provider);
         } else {
             Session::flash('error', 'Beklager, noe gikk galt under login.');
         }

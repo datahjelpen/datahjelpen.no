@@ -26,8 +26,8 @@ Route::get('/auth/send_confirmation_code', 'Reauthenticates@getReauthenticate');
 Route::post('/auth/deauthenticate', 'Reauthenticates@deauthenticate')->name('reauthenticate.deauthenticate');
 
 // Socialite routes
-Route::get('/login/{provider}/precheck',  'Auth\LoginController@providerPrecheckShow')->name('login.oauth.precheck');
-Route::post('/login/{provider}/precheck', 'Auth\LoginController@providerPrecheck');
+Route::get('/login/{provider}/terms_of_service',  'Auth\LoginController@oauthTos')->name('login.oauth.tos');
+Route::post('/login/{provider}/complete_signup', 'Auth\LoginController@oauthComplete')->name('login.oauth.complete');
 Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')->name('login.oauth');
 Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('login.oauth.callback');
 
