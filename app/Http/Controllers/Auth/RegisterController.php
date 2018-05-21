@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 use Auth;
 use App\User;
@@ -72,6 +73,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'email_token' => bin2hex(random_bytes(16)) . str_shuffle(str_slug($data['email'])),
+            'agree_tos' => true,
+            'agree_tos_latest' => Carbon::now()->toDateTimeString(),
         ]);
     }
 

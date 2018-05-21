@@ -28,6 +28,10 @@ class CreateUsersTable extends Migration
             $table->boolean('verified')->default(false);
             $table->string('email_token')->nullable()->default(null);
 
+            // GDPR
+            $table->boolean('agree_tos')->default(false);
+            $table->dateTime('agree_tos_latest');
+
             // Extra security
             $table->integer('failed_attempts')->default(0);
             $table->dateTime('last_login')->nullable();

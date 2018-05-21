@@ -21,7 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'phone', 'password', 'email_token', 'verified', 'last_login',
         'failed_attempts', 'enabled_2fa', 'secret_2fa', 'confirmation_code',
-        'confirmation_code_valid_until', 'image_id'
+        'confirmation_code_valid_until', 'image_id', 'agree_tos', 'agree_tos_latest'
     ];
 
     /**

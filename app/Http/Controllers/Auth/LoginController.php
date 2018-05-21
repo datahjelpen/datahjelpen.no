@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use guzzlehttp\guzzle\src\Exception\RequestException;
+use Carbon\Carbon;
 
 use Log;
 use Auth;
@@ -87,6 +88,8 @@ class LoginController extends Controller
             $user->provider = $user_data->provider;
             $user->provider_id = $user_data->provider_id;
             $user->verified = true;
+            $user->agree_tos = true;
+            $user->agree_tos_latest = Carbon::now()->toDateTimeString();
 
             $user->save();
 
