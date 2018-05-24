@@ -22,6 +22,7 @@ class CreateMenuTables extends Migration
         Schema::create('menu_entries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('order');
+            $table->string('slug');
             $table->string('text');
             $table->string('icon');
             $table->string('title');
@@ -33,6 +34,8 @@ class CreateMenuTables extends Migration
 
             $table->integer('menu_id')->unsigned()->nullable()->default(null);
             $table->foreign('menu_id')->references('id')->on('menus');
+
+            $table->unique( ['slug', 'menu_id'] );
         });
 
         Schema::table('menu_entries', function (Blueprint $table) {

@@ -15,11 +15,13 @@ class CreateEntryTables extends Migration
     {
         Schema::table('entry_types', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->string('name');
         });
 
         Schema::table('entry_categories', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->string('name');
         });
 

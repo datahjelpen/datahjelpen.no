@@ -6,5 +6,6 @@ class EntryCategory extends \Illuminate\Database\Eloquent\Model
 {
     protected $fillable = [
         'name',
+        'slug',
     ];
 }
