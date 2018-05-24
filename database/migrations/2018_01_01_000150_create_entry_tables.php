@@ -48,6 +48,7 @@ class CreateEntryTables extends Migration
         Schema::create('entry_content_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('icon');
             $table->string('css_classlist')->nullable()->default(null);
             $table->string('html_tag_open');
             $table->string('html_tag_close')->nullable()->default(null);
