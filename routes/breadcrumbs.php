@@ -1,33 +1,43 @@
 <?php
 
-Breadcrumbs::register('home', function ($breadcrumbs) {
-    $breadcrumbs->push('Hjem', route('home'));
+Breadcrumbs::for('home', function ($trail) {
+    $trail->push('Hjem', route('home'));
 });
 
-Breadcrumbs::register('dashboard', function ($breadcrumbs) {
-    $breadcrumbs->push('Kontrollpanel', route('dashboard'));
+// Dashboard start
+Breadcrumbs::for('dashboard', function ($trail) {
+    $trail->push('Kontrollpanel', route('dashboard'));
+});
+// Dashboard end
+
 });
 
-Breadcrumbs::register('user', function ($breadcrumbs) {
-    $breadcrumbs->push('Konto', route('user'));
 });
 
-Breadcrumbs::register('user.settings', function ($breadcrumbs) {
-    $breadcrumbs->parent('user');
-    $breadcrumbs->push('Innstillinger', route('user.settings'));
 });
 
-Breadcrumbs::register('user.settings.security', function ($breadcrumbs) {
-    $breadcrumbs->parent('user.settings');
-    $breadcrumbs->push('Sikkerhet', route('user.settings.security'));
+// User start
+Breadcrumbs::for('user', function ($trail) {
+    $trail->push('Konto', route('user'));
 });
 
-Breadcrumbs::register('user.setup_2fa', function ($breadcrumbs) {
-    $breadcrumbs->parent('user.settings.security');
-    $breadcrumbs->push('2fa oppsett', route('user.setup_2fa'));
+Breadcrumbs::for('user.settings', function ($trail) {
+    $trail->parent('user');
+    $trail->push('Innstillinger', route('user.settings'));
 });
 
-Breadcrumbs::register('user.disable_2fa', function ($breadcrumbs) {
-    $breadcrumbs->parent('user.settings.security');
-    $breadcrumbs->push('Skru av 2fa', route('user.setup_2fa'));
+Breadcrumbs::for('user.settings.security', function ($trail) {
+    $trail->parent('user.settings');
+    $trail->push('Sikkerhet', route('user.settings.security'));
 });
+
+Breadcrumbs::for('user.setup_2fa', function ($trail) {
+    $trail->parent('user.settings.security');
+    $trail->push('2fa oppsett', route('user.setup_2fa'));
+});
+
+Breadcrumbs::for('user.disable_2fa', function ($trail) {
+    $trail->parent('user.settings.security');
+    $trail->push('Skru av 2fa', route('user.setup_2fa'));
+});
+// User end
