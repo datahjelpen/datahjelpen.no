@@ -17,11 +17,18 @@ class RolesAndPermissionsSeeder extends Seeder
         // Reset cached roles and permissions
         app()['cache']->forget('spatie.permission.cache');
 
-        // create permissions
+        // User CRUD permissions
         $users_create = Permission::create(['name' => 'create users']);
         $users_read   = Permission::create(['name' => 'read users']);
         $users_update = Permission::create(['name' => 'update users']);
         $users_delete = Permission::create(['name' => 'delete users']);
+
+        // Entries CRUD permissions
+        $entries_create = Permission::create(['name' => 'create entries']);
+        $entries_read   = Permission::create(['name' => 'read entries']);
+        $entries_update = Permission::create(['name' => 'update entries']);
+        $entries_delete = Permission::create(['name' => 'delete entries']);
+
         $access_page_account_security = Permission::create(['name' => 'access account security page']);
 
         // create roles
@@ -42,12 +49,15 @@ class RolesAndPermissionsSeeder extends Seeder
             $users_delete
         ];
 
-        $role_moderator = new Role;
-        $role_moderator->name = 'moderator';
-        $role_moderator->save();
+        $role_author = new Role;
+        $role_author->name = 'author';
+        $role_author->save();
 
-        $moderator_permissions = [
-            $users_read
+        $author_permissions = [
+            $entries_create,
+            $entries_read,
+            $entries_update,
+            $entries_delete,
         ];
 
         $role_user_vl1 = new Role;
@@ -76,30 +86,30 @@ class RolesAndPermissionsSeeder extends Seeder
             $role_admin->givePermissionTo($permission);
         }
 
-        foreach ($moderator_permissions as $permission) {
+        foreach ($author_permissions as $permission) {
             $role_superadmin->givePermissionTo($permission);
             $role_admin->givePermissionTo($permission);
-            $role_moderator->givePermissionTo($permission);
+            $role_author->givePermissionTo($permission);
         }
 
         foreach ($user_vl1_permissions as $permission) {
             $role_superadmin->givePermissionTo($permission);
             $role_admin->givePermissionTo($permission);
-            $role_moderator->givePermissionTo($permission);
+            $role_author->givePermissionTo($permission);
             $role_user_vl1->givePermissionTo($permission);
         }
 
         foreach ($user_permissions as $permission) {
             $role_superadmin->givePermissionTo($permission);
             $role_admin->givePermissionTo($permission);
-            $role_moderator->givePermissionTo($permission);
+            $role_author->givePermissionTo($permission);
             $role_user_vl1->givePermissionTo($permission);
             $role_user->givePermissionTo($permission);
         }
 
         $role_superadmin->save();
         $role_admin->save();
-        $role_moderator->save();
+        $role_author->save();
         $role_user_vl1->save();
         $role_user->save();
     }

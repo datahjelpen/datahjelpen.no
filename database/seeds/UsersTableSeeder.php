@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
 
         $user->assignRole('superadmin');
         $user->assignRole('admin');
-        $user->assignRole('moderator');
+        $user->assignRole('author');
         // $user->assignRole('user_vl1');
         // $user->assignRole('user');
 
