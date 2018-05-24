@@ -17,12 +17,16 @@ class CreateEntryTables extends Migration
             $table->increments('id');
             $table->string('slug');
             $table->string('name');
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
 
         Schema::create('entry_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug');
             $table->string('name');
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
 
         Schema::create('entries', function (Blueprint $table) {
@@ -52,6 +56,8 @@ class CreateEntryTables extends Migration
             $table->string('css_classlist')->nullable()->default(null);
             $table->string('html_tag_open');
             $table->string('html_tag_close')->nullable()->default(null);
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
 
         Schema::create('entry_content_type_attributes', function (Blueprint $table) {
@@ -62,6 +68,8 @@ class CreateEntryTables extends Migration
 
             $table->integer('entry_content_type_id')->unsigned();
             $table->foreign('entry_content_type_id')->references('id')->on('entry_content_types');
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
 
         Schema::create('entry_contents', function (Blueprint $table) {
@@ -70,6 +78,8 @@ class CreateEntryTables extends Migration
             $table->string('css_id')->nullable()->default(null);
             $table->string('css_classlist')->nullable()->default(null);
             $table->mediumText('html_content')->nullable()->default(null);
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
 
         Schema::table('entry_contents', function (Blueprint $table) {
@@ -103,6 +113,9 @@ class CreateEntryTables extends Migration
             // For images (img tags)
             $table->integer('image_id')->unsigned()->nullable()->default(null);
             $table->foreign('image_id')->references('id')->on('images');
+
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
     }
 
