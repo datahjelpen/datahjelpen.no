@@ -15,15 +15,16 @@ class CreateEntryTables extends Migration
     {
         Schema::create('entry_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug');
+            $table->string('slug')->unqiue();
             $table->string('name');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
         });
 
+        // TODO: Many-to-many relationship
         Schema::create('entry_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug');
+            $table->string('slug')->unqiue();
             $table->string('name');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
@@ -39,6 +40,7 @@ class CreateEntryTables extends Migration
             $table->integer('entry_type_id')->unsigned()->nullable()->default(null);
             $table->foreign('entry_type_id')->references('id')->on('entry_types');
 
+            // TODO: Many-to-many relationship
             $table->integer('entry_category_id')->unsigned()->nullable()->default(null);
             $table->foreign('entry_category_id')->references('id')->on('entry_categories');
 
