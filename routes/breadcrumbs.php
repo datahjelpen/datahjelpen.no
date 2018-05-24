@@ -10,11 +10,24 @@ Breadcrumbs::for('dashboard', function ($trail) {
 });
 // Dashboard end
 
+// Dashboard - admin start
+Breadcrumbs::for('dashboard.admin', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Admin', route('dashboard.admin'));
+});
+// Dashboard - admin end
+
+// Dashboard - author start
+Breadcrumbs::for('dashboard.author', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Innhold', route('dashboard.author'));
 });
 
+Breadcrumbs::for('dashboard.author.entry_type', function ($trail, $entry_type) {
+    $trail->parent('dashboard.author');
+    $trail->push($entry_type->name, route('dashboard.author.entry_type', $entry_type));
 });
-
-});
+// Dashboard - author end
 
 // User start
 Breadcrumbs::for('user', function ($trail) {
