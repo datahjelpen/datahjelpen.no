@@ -1,8 +1,8 @@
 <?php
 
-Route::get('/',    'HomeController@index')->name('front-page');
-Route::get('home', 'HomeController@index');
-Route::get('hjem', 'HomeController@index')->name('home');
+Route::get('/',    'SiteController@index')->name('front-page');
+Route::get('home', 'SiteController@index');
+Route::get('hjem', 'SiteController@index')->name('home');
 
 Route::get('goodbye', function () {
 	return view('auth.logout-success');
@@ -57,5 +57,6 @@ Route::prefix('bruker/{user}')->group(function () {
 
 // Dashboard routes
 Route::prefix('dashboard')->group(function () {
-	Route::get('/', 'HomeController@dashboard')->name('dashboard');
+	Route::get('/', 'DashboardController@index')->name('dashboard');
+});
 });
