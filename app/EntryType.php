@@ -8,4 +8,9 @@ class EntryType extends \Illuminate\Database\Eloquent\Model
         'name',
         'slug',
     ];
+
+    public function entries()
+    {
+        return $this->hasMany('App\Entry', 'id', 'entry_id');
+    }
 }
