@@ -6,7 +6,19 @@
 			<a href="{{ route('user') }}">{{ Auth::user()->name }}</a>
 			<ul>
 				<li><a href="{{ route('user') }}">Konto</a></li>
-				<li><a href="{{ route('dashboard') }}">Kontrollpanel</a></li>
+				<li>
+					<a href="{{ route('dashboard') }}">Kontrollpanel</a>
+					@role('admin|author')
+						<ul>
+							@role('admin')
+								<li><a href="{{ route('dashboard.admin') }}">Admin</a></li>
+							@endrole
+							@role('author')
+								<li><a href="{{ route('dashboard.author') }}">Innhold</a></li>
+							@endrole
+						</ul>
+					@endrole
+				</li>
 				<li>
 					<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
