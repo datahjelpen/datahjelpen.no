@@ -58,5 +58,13 @@ Route::prefix('bruker/{user}')->group(function () {
 // Dashboard routes
 Route::prefix('dashboard')->group(function () {
 	Route::get('/', 'DashboardController@index')->name('dashboard');
+
+	Route::prefix('admin')->group(function () {
+		Route::get('/', 'AdminController@index')->name('dashboard.admin');
+	});
+
+	Route::prefix('author')->group(function () {
+		Route::get('/', 'AuthorController@index')->name('dashboard.author');
+	});
 });
 });

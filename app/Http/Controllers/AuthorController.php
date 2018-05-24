@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
-
+use App\EntryType;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AuthorController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware(['auth', 'role:author']);
     }
 
     /**
@@ -25,12 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('front-page');
-    }
-
-    public function dashboard()
-    {
         $user = Auth::user();
-        return view('dashboard', compact('user'));
+        $entry_types = EntryType::all();
+
+        return view('dashboard.author.index', compact('user', 'entry_types'));
     }
 }
