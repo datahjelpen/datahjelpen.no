@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
 {
@@ -16,6 +17,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'Bjørnar Hagen',
             'email' => 'b@datahjelpen.no',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+            'verified' => true,
+            'agree_tos' => true,
+            'agree_tos_latest' => Carbon::now()->toDateTimeString(),
         ]);
 
         $user->assignRole('superadmin');
