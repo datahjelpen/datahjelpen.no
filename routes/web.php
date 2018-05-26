@@ -61,6 +61,15 @@ Route::prefix('dashboard')->group(function () {
 
 	Route::prefix('admin')->group(function () {
 		Route::get('/', 'AdminController@index')->name('dashboard.admin');
+
+		Route::prefix('entry_type')->group(function () {
+			Route::get('ny',                      'EntryTypeController@create')->name('entry_type.create');
+			Route::post('opprett',                'EntryTypeController@store')->name('entry_type.store');
+			Route::get('{entry_type}/rediger',    'EntryTypeController@edit')->name('entry_type.edit');
+			Route::patch('{entry_type}/oppdater', 'EntryTypeController@update')->name('entry_type.update');
+			Route::get('{entry_type}/slett',      'EntryTypeController@delete')->name('entry_type.delete');
+			Route::delete('{entry_type}/slett',   'EntryTypeController@destroy')->name('entry_type.destroy');
+		});
 	});
 
 	Route::prefix('author')->group(function () {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\EntryType;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -25,6 +26,8 @@ class AdminController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('dashboard.admin.index', compact('user'));
+        $entry_types = EntryType::all();
+
+        return view('dashboard.admin.index', compact('user', 'entry_types'));
     }
 }
