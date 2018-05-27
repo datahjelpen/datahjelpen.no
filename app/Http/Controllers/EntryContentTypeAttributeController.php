@@ -50,7 +50,7 @@ class EntryContentTypeAttributeController extends Controller
         $entry_content_type_attribute->name = $request->name;
         $entry_content_type_attribute->html_attribute = $request->html_attribute;
         $entry_content_type_attribute->required = $request->required;
-        // $entry_content_type_attribute->content_type->associate($entry_content_type);
+        // TODO: Fix this (relationship): $entry_content_type_attribute->content_type->associate($entry_content_type);
         $entry_content_type_attribute->entry_content_type_id = $entry_content_type->id;
         $entry_content_type_attribute->save();
 
