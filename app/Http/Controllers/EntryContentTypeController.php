@@ -27,7 +27,7 @@ class EntryContentTypeController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data, $entry_content_type_id = null)
+    protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
