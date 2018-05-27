@@ -15,6 +15,26 @@ Breadcrumbs::for('dashboard.admin', function ($trail) {
     $trail->parent('dashboard');
     $trail->push('Admin', route('dashboard.admin'));
 });
+
+Breadcrumbs::for('dashboard.admin.entry_types', function ($trail) {
+    $trail->parent('dashboard.admin');
+    $trail->push('EntryTypes', route('dashboard.admin.entry_types'));
+});
+
+Breadcrumbs::for('entry_type.create', function ($trail) {
+    $trail->parent('dashboard.admin.entry_types');
+    $trail->push('Lag ny', route('entry_type.create'));
+});
+
+Breadcrumbs::for('entry_type.edit', function ($trail, $entry_type) {
+    $trail->parent('dashboard.admin.entry_types');
+    $trail->push('Rediger: ' . $entry_type->name, route('entry_type.edit', $entry_type));
+});
+
+Breadcrumbs::for('entry_type.delete', function ($trail, $entry_type) {
+    $trail->parent('dashboard.admin.entry_types');
+    $trail->push('Slett: ' . $entry_type->name, route('entry_type.delete', $entry_type));
+});
 // Dashboard - admin end
 
 // Dashboard - author start
