@@ -82,6 +82,6 @@ class EntryContentTypeAttributeController extends Controller
     public function destroy(EntryContentType $entry_content_type, EntryContentTypeAttribute $entry_content_type_attribute)
     {
         $entry_content_type_attribute->delete();
-        return redirect()->route('dashboard.admin.entry_content_type_attributes');
+        return redirect()->route('dashboard.admin.entry_content_types');
     }
 }
