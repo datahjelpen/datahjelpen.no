@@ -1,5 +1,8 @@
 <?php
 
+use App\EntryContentType;
+use App\EntryContentTypeAttribute;
+
 Breadcrumbs::for('home', function ($trail) {
     $trail->push('Hjem', route('home'));
 });
@@ -56,6 +59,25 @@ Breadcrumbs::for('entry_content_type.edit', function ($trail, $entry_content_typ
 Breadcrumbs::for('entry_content_type.delete', function ($trail, $entry_content_type) {
     $trail->parent('dashboard.admin.entry_content_types');
     $trail->push('Slett: ' . $entry_content_type->name, route('entry_content_type.delete', $entry_content_type));
+});
+
+// Entry content type attribute
+Breadcrumbs::for('entry_content_type_attribute.create', function ($trail, EntryContentType $entry_content_type) {
+    $trail->parent('dashboard.admin.entry_content_types');
+    $trail->push($entry_content_type->name, route('dashboard.admin.entry_content_types'));
+    $trail->push('Ny attribute', route('entry_content_type_attribute.create', $entry_content_type));
+});
+
+Breadcrumbs::for('entry_content_type_attribute.edit', function ($trail, $entry_content_type, $entry_content_type_attribute) {
+    $trail->parent('dashboard.admin.entry_content_types');
+    $trail->push($entry_content_type->name, route('dashboard.admin.entry_content_types'));
+    $trail->push('Rediger attribute: ' . $entry_content_type_attribute->name, route('entry_content_type_attribute.edit', [$entry_content_type, $entry_content_type_attribute]));
+});
+
+Breadcrumbs::for('entry_content_type_attribute.delete', function ($trail, $entry_content_type, $entry_content_type_attribute) {
+    $trail->parent('dashboard.admin.entry_content_types');
+    $trail->push($entry_content_type->name, route('dashboard.admin.entry_content_types'));
+    $trail->push('Slett attribute: ' . $entry_content_type_attribute->name, route('entry_content_type_attribute.delete', [$entry_content_type, $entry_content_type_attribute]));
 });
 // Dashboard - admin end
 
