@@ -39,15 +39,9 @@ class UserController extends Controller
         $current_user = Auth::user();
         if ($user === null) $user = $current_user;
 
-        if ($current_user->avatar) {
-            $current_user->avatar->url = Storage::temporaryUrl(
-                $current_user->avatar->url, now()->addMinutes(30)
-            );
-        } else {
-            $current_user->avatar = new \StdClass;
-            $current_user->avatar->url = config('app.user.default_image');
-            $current_user->avatar->alt_tag = config('app.user.default_image');
-        }
+        $current_user->avatar->url = Storage::temporaryUrl(
+            $current_user->avatar->url, now()->addMinutes(30)
+        );
 
         return view('user.show', compact('user', 'current_user'));
     }

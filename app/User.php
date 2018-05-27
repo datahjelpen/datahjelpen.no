@@ -67,6 +67,9 @@ class User extends Authenticatable
 
     public function avatar()
     {
-        return $this->hasOne('App\Image', 'id', 'image_id');
-    }
+        return $this->hasOne('App\Image', 'id', 'image_id')->withDefault(function ($image) {
+            $image->url = config('app.user.default_image');
+            $image->alt_tag = config('app.user.default_image');
+        });
+   }
 }
