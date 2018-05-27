@@ -26,8 +26,13 @@ class AdminController extends Controller
     public function index()
     {
         $user = Auth::user();
+        return view('dashboard.admin.index', compact('user'));
+    }
+
+    public function entry_types()
+    {
         $entry_types = EntryType::all();
 
-        return view('dashboard.admin.index', compact('user', 'entry_types'));
+        return view('dashboard.admin.entry_type.index', compact('entry_types'));
     }
 }

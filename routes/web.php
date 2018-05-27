@@ -63,6 +63,7 @@ Route::prefix('dashboard')->group(function () {
 		Route::get('/', 'AdminController@index')->name('dashboard.admin');
 
 		Route::prefix('entry_type')->group(function () {
+			Route::get('/',                       'AdminController@entry_types')->name('dashboard.admin.entry_types');
 			Route::get('ny',                      'EntryTypeController@create')->name('entry_type.create');
 			Route::post('opprett',                'EntryTypeController@store')->name('entry_type.store');
 			Route::get('{entry_type}/rediger',    'EntryTypeController@edit')->name('entry_type.edit');
