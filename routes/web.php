@@ -80,6 +80,15 @@ Route::prefix('dashboard')->group(function () {
 			Route::patch('{entry_content_type}/oppdater', 'EntryContentTypeController@update')->name('entry_content_type.update');
 			Route::get('{entry_content_type}/slett',      'EntryContentTypeController@delete')->name('entry_content_type.delete');
 			Route::delete('{entry_content_type}/slett',   'EntryContentTypeController@destroy')->name('entry_content_type.destroy');
+
+			Route::prefix('{entry_content_type}/attributes')->group(function () {
+				Route::get('ny',                                        'EntryContentTypeAttributeController@create')->name('entry_content_type_attribute.create');
+				Route::post('opprett',                                  'EntryContentTypeAttributeController@store')->name('entry_content_type_attribute.store');
+				Route::get('{entry_content_type_attribute}/rediger',    'EntryContentTypeAttributeController@edit')->name('entry_content_type_attribute.edit');
+				Route::patch('{entry_content_type_attribute}/oppdater', 'EntryContentTypeAttributeController@update')->name('entry_content_type_attribute.update');
+				Route::get('{entry_content_type_attribute}/slett',      'EntryContentTypeAttributeController@delete')->name('entry_content_type_attribute.delete');
+				Route::delete('{entry_content_type_attribute}/slett',   'EntryContentTypeAttributeController@destroy')->name('entry_content_type_attribute.destroy');
+			});
 		});
 	});
 
