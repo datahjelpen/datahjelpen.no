@@ -62,7 +62,7 @@ Route::prefix('dashboard')->group(function () {
 	Route::prefix('admin')->group(function () {
 		Route::get('/', 'AdminController@index')->name('dashboard.admin');
 
-		Route::prefix('entry_type')->group(function () {
+		Route::prefix('entry_types')->group(function () {
 			Route::get('/',                       'AdminController@entry_types')->name('dashboard.admin.entry_types');
 			Route::get('ny',                      'EntryTypeController@create')->name('entry_type.create');
 			Route::post('opprett',                'EntryTypeController@store')->name('entry_type.store');
@@ -72,7 +72,7 @@ Route::prefix('dashboard')->group(function () {
 			Route::delete('{entry_type}/slett',   'EntryTypeController@destroy')->name('entry_type.destroy');
 		});
 
-		Route::prefix('entry_content_type')->group(function () {
+		Route::prefix('entry_content_types')->group(function () {
 			Route::get('/',                               'AdminController@entry_content_types')->name('dashboard.admin.entry_content_types');
 			Route::get('ny',                              'EntryContentTypeController@create')->name('entry_content_type.create');
 			Route::post('opprett',                        'EntryContentTypeController@store')->name('entry_content_type.store');
