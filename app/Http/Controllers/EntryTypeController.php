@@ -36,12 +36,6 @@ class EntryTypeController extends Controller
         ]);
     }
 
-
-    public function index(EntryType $entry_type)
-    {
-        return view('dashboard.author.entry_type.index', compact('entry_type'));
-    }
-
     public function create()
     {
         return view('dashboard.admin.entry_type.create');

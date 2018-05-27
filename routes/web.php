@@ -75,7 +75,7 @@ Route::prefix('dashboard')->group(function () {
 
 	Route::prefix('author')->group(function () {
 		Route::get('/', 'AuthorController@index')->name('dashboard.author');
-		Route::get('/{entry_type}', 'EntryTypeController@index')->name('dashboard.author.entry_type');
+		Route::get('{entry_type}', 'AuthorController@entry_type')->name('dashboard.author.entry_type');
 	});
 });
 });

@@ -30,4 +30,9 @@ class AuthorController extends Controller
 
         return view('dashboard.author.index', compact('user', 'entry_types'));
     }
+
+    public function entry_type(EntryType $entry_type)
+    {
+        return view('dashboard.author.entry_type.show', compact('entry_type'));
+    }
 }
