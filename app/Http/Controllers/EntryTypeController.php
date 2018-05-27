@@ -50,7 +50,7 @@ class EntryTypeController extends Controller
         $entry_type->slug = str_slug($request->slug);
         $entry_type->save();
 
-        return back();
+        return redirect()->route('dashboard.admin.entry_types');
     }
 
     public function edit(EntryType $entry_type)
@@ -77,6 +77,6 @@ class EntryTypeController extends Controller
     public function destroy(EntryType $entry_type)
     {
         $entry_type->delete();
-        return redirect()->route('dashboard.admin');
+        return redirect()->route('dashboard.admin.entry_types');
     }
 }
