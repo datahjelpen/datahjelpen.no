@@ -11,6 +11,12 @@ class EntryContentType extends \Illuminate\Database\Eloquent\Model
         'html_tag_open',
         'html_tag_close',
     ];
+
+    public function html_attributes()
+    {
+        return $this->hasMany('App\EntryContentTypeAttribute', 'entry_content_type_id', 'id');
+    }
+
     public function output($content = null)
     {
         $css_class_attr = '';
