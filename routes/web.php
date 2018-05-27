@@ -71,6 +71,16 @@ Route::prefix('dashboard')->group(function () {
 			Route::get('{entry_type}/slett',      'EntryTypeController@delete')->name('entry_type.delete');
 			Route::delete('{entry_type}/slett',   'EntryTypeController@destroy')->name('entry_type.destroy');
 		});
+
+		Route::prefix('entry_content_type')->group(function () {
+			Route::get('/',                               'AdminController@entry_content_types')->name('dashboard.admin.entry_content_types');
+			Route::get('ny',                              'EntryContentTypeController@create')->name('entry_content_type.create');
+			Route::post('opprett',                        'EntryContentTypeController@store')->name('entry_content_type.store');
+			Route::get('{entry_content_type}/rediger',    'EntryContentTypeController@edit')->name('entry_content_type.edit');
+			Route::patch('{entry_content_type}/oppdater', 'EntryContentTypeController@update')->name('entry_content_type.update');
+			Route::get('{entry_content_type}/slett',      'EntryContentTypeController@delete')->name('entry_content_type.delete');
+			Route::delete('{entry_content_type}/slett',   'EntryContentTypeController@destroy')->name('entry_content_type.destroy');
+		});
 	});
 
 	Route::prefix('author')->group(function () {

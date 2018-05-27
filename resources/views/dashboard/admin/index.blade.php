@@ -4,7 +4,10 @@
 	<h1>Admin Dashboard</h1>
 	<p>Hei {{ $user->name }}</p>
 
-	<a href="{{ route('dashboard.admin.entry_types') }}">EntryTypes</a><br>
+	<ul>
+		<li><a href="{{ route('dashboard.admin.entry_types') }}">EntryTypes</a></li>
+		<li><a href="{{ route('dashboard.admin.entry_content_types') }}">EntryContentTypes</a></li>
+	</ul>
 
 	@role('superadmin')
 		I am a superadmin! <br>
