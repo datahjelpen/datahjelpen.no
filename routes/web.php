@@ -95,6 +95,16 @@ Route::prefix('dashboard')->group(function () {
 	Route::prefix('author')->group(function () {
 		Route::get('/', 'AuthorController@index')->name('dashboard.author');
 		Route::get('{entry_type}', 'AuthorController@entry_type')->name('dashboard.author.entry_type');
+
+		Route::prefix('{entry_type}/entries')->group(function () {
+			Route::get('ny',                 'EntryController@create')->name('entry.create');
+			Route::post('opprett',           'EntryController@store')->name('entry.store');
+			Route::get('{entry}',            'EntryController@show')->name('entry.show');
+			Route::get('{entry}/rediger',    'EntryController@edit')->name('entry.edit');
+			Route::patch('{entry}/oppdater', 'EntryController@update')->name('entry.update');
+			Route::get('{entry}/slett',      'EntryController@delete')->name('entry.delete');
+			Route::delete('{entry}/slett',   'EntryController@destroy')->name('entry.destroy');
+		});
 	});
 });
 });
