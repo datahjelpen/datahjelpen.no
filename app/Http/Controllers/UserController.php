@@ -188,12 +188,12 @@ class UserController extends Controller
 
         if ($user->save()) {
             Session::flash('success', 'Du har nå skrudd på to-faktor autentisering.');
+                return redirect()->route('user.settings.security');
+            }
+
+            Session::flash('error', 'Noe gikk galt, vi kunne ikke fullføre oppsetting av to-faktor autentisering');
             return redirect()->route('user.settings.security');
         }
-
-        Session::flash('error', 'Noe gikk galt, vi kunne ikke fullføre oppsetting av to-faktor autentisering');
-        return redirect()->route('user.settings.security');
-    }
 
     public function disable_2fa()
     {
@@ -207,17 +207,25 @@ class UserController extends Controller
         return view('user.security-disable-2fa', compact('user'));
     }
 
-    public function disable_2fa_complete()
+    public function disable_2fa_complete(Request $request)
     {
         $user = Auth::user();
 
+        // Make sure user has turned on 2fa
         if (!$user->enabled_2fa) {
             Session::flash('info', 'Du har ikke satt opp to-faktor autentisering.');
             return redirect()->route('user.settings.security');
         }
 
-        $user->enabled_2fa = false;
-        $user->secret_2fa = null;
+        $this->validate($request, [
+            'one_time_password' => 'required|string'
+        ]);
+
+        $authenticator = app(Authenticator::class)->boot($request);
+        if ($authenticator->verifyGoogle2FA($user->secret_2fa, $request->one_time_password)) {
+
+            $user->enabled_2fa = false;
+            $user->secret_2fa = null;
 
         if ($user->save()) {
             Session::flash('success', 'Du har nå skrudd av to-faktor autentisering.');
@@ -226,6 +234,10 @@ class UserController extends Controller
 
         Session::flash('error', 'Noe gikk galt, vi kunne ikke fullføre deaktiveringen av to-faktor autentisering');
         return redirect()->route('user.settings.security');
+    }
+
+        Session::flash('error', 'Feil engangskode');
+        return redirect()->route('user.disable_2fa');
     }
 
     public function verify($token)
