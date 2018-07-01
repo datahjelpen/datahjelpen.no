@@ -14,13 +14,13 @@ Auth::routes();
 // Reauthentication routes (also used for 2fa)
 Route::get('auth/reauthenticate', 'Reauthenticates@getReauthenticate')->name('reauthenticate.show');
 Route::post('auth/reauthenticate', 'Reauthenticates@postReauthenticate')->name('reauthenticate.post');
-Route::post('auth/send_confirmation_code', 'Reauthenticates@sendConfirmationCode')->name('reauthenticate.send_confirmation_code');
-Route::get('auth/send_confirmation_code', 'Reauthenticates@getReauthenticate');
+Route::post('auth/send-confirmation-code', 'Reauthenticates@sendConfirmationCode')->name('reauthenticate.send_confirmation_code');
+Route::get('auth/send-confirmation-code', 'Reauthenticates@getReauthenticate');
 Route::post('auth/deauthenticate', 'Reauthenticates@deauthenticate')->name('reauthenticate.deauthenticate');
 
 // Socialite routes
-Route::get('login/{provider}/terms_of_service',  'Auth\LoginController@oauthTos')->name('login.oauth.tos');
-Route::post('login/{provider}/complete_signup', 'Auth\LoginController@oauthComplete')->name('login.oauth.complete');
+Route::get('login/{provider}/terms-of-service',  'Auth\LoginController@oauthTos')->name('login.oauth.tos');
+Route::post('login/{provider}/complete-signup', 'Auth\LoginController@oauthComplete')->name('login.oauth.complete');
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider')->name('login.oauth');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('login.oauth.callback');
 
@@ -37,13 +37,13 @@ Route::prefix('konto')->group(function () {
 
 			Route::get('bekreft/{token}', 'UserController@verify')->name('user.verify');
 
-			Route::get('2fa_oppsett',  'UserController@setup_2fa')->name('user.setup_2fa');
-			Route::post('2fa_oppsett', 'UserController@setup_2fa_complete')->name('user.setup_2fa_complete');
+			Route::get('2fa-oppsett',  'UserController@setup_2fa')->name('user.setup_2fa');
+			Route::post('2fa-oppsett', 'UserController@setup_2fa_complete')->name('user.setup_2fa_complete');
 
-			Route::get('2fa_deaktiver',  'UserController@disable_2fa')->name('user.disable_2fa');
-			Route::post('2fa_deaktiver', 'UserController@disable_2fa_complete')->name('user.disable_2fa_complete');
+			Route::get('2fa-deaktiver',  'UserController@disable_2fa')->name('user.disable_2fa');
+			Route::post('2fa-deaktiver', 'UserController@disable_2fa_complete')->name('user.disable_2fa_complete');
 
-			Route::post('2fa_ny_hemmelighet', 'UserController@setup_2fa_new_secret')->name('user.setup_2fa_new_secret');
+			Route::post('2fa-ny-hemmelighet', 'UserController@setup_2fa_new_secret')->name('user.setup_2fa_new_secret');
 		});
 	});
 });
@@ -62,7 +62,7 @@ Route::prefix('dashboard')->group(function () {
 	Route::prefix('admin')->group(function () {
 		Route::get('/', 'AdminController@index')->name('dashboard.admin');
 
-		Route::prefix('entry_types')->group(function () {
+		Route::prefix('entry-types')->group(function () {
 			Route::get('/',                       'AdminController@entry_types')->name('dashboard.admin.entry_types');
 			Route::get('ny',                      'EntryTypeController@create')->name('entry_type.create');
 			Route::post('opprett',                'EntryTypeController@store')->name('entry_type.store');
@@ -72,7 +72,7 @@ Route::prefix('dashboard')->group(function () {
 			Route::delete('{entry_type}/slett',   'EntryTypeController@destroy')->name('entry_type.destroy');
 		});
 
-		Route::prefix('entry_content_types')->group(function () {
+		Route::prefix('entry-content-types')->group(function () {
 			Route::get('/',                               'AdminController@entry_content_types')->name('dashboard.admin.entry_content_types');
 			Route::get('ny',                              'EntryContentTypeController@create')->name('entry_content_type.create');
 			Route::post('opprett',                        'EntryContentTypeController@store')->name('entry_content_type.store');
