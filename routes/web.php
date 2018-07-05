@@ -104,7 +104,16 @@ Route::prefix('dashboard')->group(function () {
 			Route::patch('{entry}/oppdater', 'EntryController@update')->name('entry.update');
 			Route::get('{entry}/slett',      'EntryController@delete')->name('entry.delete');
 			Route::delete('{entry}/slett',   'EntryController@destroy')->name('entry.destroy');
+
+			Route::prefix('{entry}/contents')->group(function () {
+				Route::get('ny',                         'EntryContentController@create')->name('entry_content.create');
+				Route::post('opprett',                   'EntryContentController@store')->name('entry_content.store');
+				Route::get('{entry_content}',            'EntryContentController@show')->name('entry_content.show');
+				Route::get('{entry_content}/rediger',    'EntryContentController@edit')->name('entry_content.edit');
+				Route::patch('{entry_content}/oppdater', 'EntryContentController@update')->name('entry_content.update');
+				Route::get('{entry_content}/slett',      'EntryContentController@delete')->name('entry_content.delete');
+				Route::delete('{entry_content}/slett',   'EntryContentController@destroy')->name('entry_content.destroy');
+			});
 		});
 	});
-});
 });

@@ -38,6 +38,15 @@ class EntryContentTypeController extends Controller
         ]);
     }
 
+    public function show(Request $request, EntryContentType $entry_content_type)
+    {
+        if ($request->ajax()) {
+            $entry_content_type->output = $entry_content_type->output();
+            $entry_content_type->html_attributes = $entry_content_type->html_attributes;
+            return $entry_content_type;
+        }
+    }
+
     public function create()
     {
         return view('dashboard.admin.entry_content_type.create');

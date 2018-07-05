@@ -10,6 +10,10 @@
 				<a href="{{ route('entry.show', [$entry_type, $entry]) }}">{{ $entry->name }}</a>
 				| <a href="{{ route('entry.edit', [$entry_type, $entry]) }}">Rediger</a>
 				| <a href="{{ route('entry.delete', [$entry_type, $entry]) }}">Slett</a>
+
+				<ul>
+					<li><a href="{{ route('entry_content.create', [$entry_type, $entry]) }}">Lag entry_content</a></li>
+				</ul>
 			</li>
 		@endforeach
 		<li><a href="{{ route('entry.create', $entry_type) }}">Lag ny</a></li>
