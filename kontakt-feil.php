@@ -34,15 +34,17 @@
 							Du kan sende e-post til <a class="link" href="mailto:post@datahjelpen.no">post@datahjelpen.no</a>
 						</p>
 						<p>
-							Ring oss gjerne på <a class="link" href="tel:90717232">907 17 232</a> mellom 16 og 21.
+							Ring oss gjerne på <a class="link" href="tel:46531170">465 31 170</a>.
 						</p>
 						<div class="space-v-small"></div>
-						<p class="font-thick">
-							Feilmelding:
-						</p>
-						<p>
-							<pre><?= $msg_error; ?></pre>
-						</p>
+						<?php if (isset($msg_error)): ?>
+							<p class="font-thick">
+								Feilmelding:
+							</p>
+							<p>
+								<pre><?= $msg_error; ?></pre>
+							</p>
+						<?php endif ?>
 						<div class="space-v-small center-align">
 							<a class="btn font-small" href="/kontakt">Prøv igjen</a>
 						</div>

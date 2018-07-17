@@ -35,7 +35,7 @@
 							Vi svarer så fort vi har mulighet!
 						</p>
 						<p>
-							Ring oss gjerne på <a class="link" href="tel:41558490">415 58 490</a> mellom 16 og 21.
+							Ring oss gjerne på <a class="link" href="tel:46531170">465 31 170</a>.
 						</p>
 						<div class="space-v-small"></div>
 						<p class="font-thick">
