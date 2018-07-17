@@ -1,6 +1,10 @@
 <?php
 
 return [
+	'500' => [
+		'heading' => 'Error 500, intern server feil',
+		'text' => 'Serveren opplevde en uventet tilstand som forhindret den i å oppfylle forespørselen',
+	],
 	'404' => [
 		'heading' => 'Error 404, ikke funnet',
 		'text' => 'Vi kunne ikke finne siden du leter etter',

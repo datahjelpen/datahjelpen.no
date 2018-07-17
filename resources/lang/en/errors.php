@@ -1,6 +1,10 @@
 <?php
 
 return [
+	'500' => [
+		'heading' => 'Error 500, internal server error',
+		'text' => 'The server encountered an unexpected condition that prevented it from fulfilling the request',
+	],
 	'404' => [
 		'heading' => 'Error 404, not found',
 		'text' => 'We could not find the page you are looking for',

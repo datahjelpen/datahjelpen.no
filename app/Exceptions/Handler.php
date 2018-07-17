@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Auth;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -36,6 +37,26 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        if (app()->bound('sentry') && $this->shouldReport($exception)) {
+            $sentry = app('sentry');
+
+            if (Auth::check()) {
+                $user = Auth::user();
+                $sentry->user_context([
+                    'id' => $user->id,
+                    'username' => $user->name,
+                    'email' => $user->email,
+                    'ip_address' => $_SERVER['REMOTE_HOST']
+                ]);
+            } else {
+                $sentry->user_context([
+                    'ip_address' => $_SERVER['REMOTE_HOST']
+                ]);
+            }
+
+            $sentry->captureException($exception);
+        }
+
         parent::report($exception);
     }
 

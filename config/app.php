@@ -182,7 +182,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Spatie\Permission\PermissionServiceProvider::class,
-        DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class
+        DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class,
+        Sentry\SentryLaravel\SentryLaravelServiceProvider::class
     ],
 
     /*
@@ -233,6 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'ImageEditor' => Intervention\Image\Facades\Image::class,
         'Google2FA' => PragmaRX\Google2FALaravel\Facade::class,
+        'Sentry' => Sentry\SentryLaravel\SentryFacade::class
     ],
 
 ];
