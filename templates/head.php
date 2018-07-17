@@ -34,9 +34,9 @@
 	<meta name="application-name" content="Datahjelpen">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="theme-color" content="#f25b6c">
-	<meta name="msapplication-TileColor" content="#f25b6c">
-	<meta name="msapplication-navbutton-color" content="#f25b6c">
+	<meta name="theme-color" content="#ff2014">
+	<meta name="msapplication-TileColor" content="#ff2014">
+	<meta name="msapplication-navbutton-color" content="#ff2014">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<!-- Icons -->
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
