@@ -24,10 +24,10 @@
 	<meta property="og:description" content="Datahjelpen leverer tjenester til privat- og bedriftsmarkedet. Vi tilbyr oppsett av nettsider, generell datahjelp og en-til-en opplæring.">
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="@datahjelpen_org">
+	<meta name="twitter:site" content="@datahjelpen_no">
 	<meta name="twitter:title" content="Datahjelpen AS">
 	<meta name="twitter:description" content="Datahjelpen leverer tjenester til privat- og bedriftsmarkedet. Vi tilbyr oppsett av nettsider, generell datahjelp og en-til-en opplæring.">
-	<meta name="twitter:creator" content="@datahjelpen_org">
+	<meta name="twitter:creator" content="@datahjelpen_no">
 	<meta name="twitter:image" content="https://datahjelpen.no/image.jpg">
 	<!-- App information -->
 	<link rel="manifest" href="/manifest.json">
