@@ -1,13 +1,3 @@
-vendor/
-
-fonts/festivo_letters/no18/
-
-fonts/festivo_letters/no7/
-
-fonts/material-icons/
-
-fonts/open-sans/
-
-fonts/streamline/
-
 node_modules/
+
+dist/assets/

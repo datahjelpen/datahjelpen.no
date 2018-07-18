@@ -1,0 +1,38 @@
+@import 'config/variables';
+@import 'modules/utilities';
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+
+  &::before,
+  &::after {
+    text-decoration: inherit;
+    vertical-align: inherit;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: $font-size-mobile;
+  line-height: $line-height-mobile;
+
+  @media screen and (min-width: $size-m-up) {
+    font-size: $font-size-desktop;
+    line-height: $line-height-desktop;
+  }
+}
+
+body {
+  position: relative;
+}
