@@ -41,5 +41,20 @@ body {
 	display: none;
 }
 
+.page-header,
+.page-section {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+
+	> .inner-wrapper {
+		width: 100%;
+		max-width: $size-l;
+		padding: 0 1em;
+	}
+}
+
 @import 'modules/media';
 @import 'modules/navigation';
