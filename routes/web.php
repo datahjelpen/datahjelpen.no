@@ -24,6 +24,10 @@ Route::prefix('referanser')->group(function () {
 	Route::get('/', 'SiteController@index')->name('references');
 });
 
+Route::prefix('prosjekter')->group(function () {
+	Route::get('/', 'SiteController@index')->name('projects');
+});
+
 Route::prefix('blog')->group(function () {
 		Route::get('/', 'SiteController@index')->name('blog');
 		Route::get('windows-10-slett-midlertidige-filer', 'SiteController@index');

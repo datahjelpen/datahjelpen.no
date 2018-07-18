@@ -27,11 +27,11 @@
 			</div>
 		</div>
 	</section>
-	<section id="references" class="page-section">
+	<section id="projects" class="page-section">
 		<div class="inner-wrapper">
-			<h2>Referanser</h2>
+			<h2>Utvalgte prosjekter</h2>
 			@php
-				$references = [
+				$projects = [
 					[
 						'name' => 'Bewa.no',
 						'slug' => 'bewa.no',
@@ -72,19 +72,19 @@
 					]
 				];
 			@endphp
-			<ul class="references">
-				@foreach ($references as $reference)
-					<li class="reference">
-						<div class="reference-graphic" style="background-image: url('/images/projects/{{ $reference['slug'] }}/project-image.jpg');">
-							<img class="reference-logo" src="/images/projects/{{ $reference['slug'] }}/logo-{{ $reference['logo'] }}.png" alt="{{ $reference['name'] }} logo">
+			<ul class="projects">
+				@foreach ($projects as $project)
+					<li class="project">
+						<div class="project-graphic" style="background-image: url('/images/projects/{{ $project['slug'] }}/project-image.jpg');">
+							<img class="project-logo" src="/images/projects/{{ $project['slug'] }}/logo-{{ $project['logo'] }}.png" alt="{{ $project['name'] }} logo">
 						</div>
-						<h3 class="reference-title">{{ $reference['name'] }}</h3>
-{{-- 						<ul class="reference-categories">
-							@foreach ($reference['categories'] as $category)
+						<h3 class="project-title">{{ $project['name'] }}</h3>
+{{-- 						<ul class="project-categories">
+							@foreach ($project['categories'] as $category)
 								@php
 									$category = $categories[$category];
 								@endphp
-								<li class="reference-category">
+								<li class="project-category">
 									<a href="#">
 										<span>{{ $category['name'] }}</span>
 										<i class="icon" data-feather="{{ $category['icon'] }}"></i>
