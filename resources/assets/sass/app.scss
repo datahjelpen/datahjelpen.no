@@ -1,24 +1,45 @@
-@import "variables";
+@import 'config/variables';
+@import 'modules/utilities';
 
-.breadcrumb {
-	list-style-type: none;
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 
-	li {
-		display: inline-block;
-
-		&:after {
-			content: '/';
-		}
-
-		&:last-child {
-			a {
-				cursor: default;
-				text-decoration: none;
-			}
-
-			&:after {
-				content: '';
-			}
-		}
-	}
+  &::before,
+  &::after {
+    text-decoration: inherit;
+    vertical-align: inherit;
+  }
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: $font-size-mobile;
+  line-height: $line-height-mobile;
+
+  @media screen and (min-width: $size-m-up) {
+    font-size: $font-size-desktop;
+    line-height: $line-height-desktop;
+  }
+}
+
+body {
+  position: relative;
+}
+
+#flash-message {
+	display: none;
+}
+
+@import 'modules/media';
+@import 'modules/navigation';

@@ -1,0 +1,49 @@
+@import 'colors';
+@import 'typography';
+
+$size-xs:     239 / $font-base + 'rem';
+$size-xs-up:  240 / $font-base + 'rem';
+$size-s:      479 / $font-base + 'rem';
+$size-s-up:   480 / $font-base + 'rem';
+$size-m:      767 / $font-base + 'rem';
+$size-m-up:   768 / $font-base + 'rem';
+$size-l:      1023 / $font-base + 'rem';
+$size-l-up:   1024 / $font-base + 'rem';
+$size-xl:     1365 / $font-base + 'rem';
+$size-xl-up:  1366 / $font-base + 'rem';
+$size-xxl:    1919 / $font-base + 'rem';
+$size-xxl-up: 1920 / $font-base + 'rem';
+
+$navigation-height: 12rem;
+
+
+// Styles we can get the same variables in JS via getComputedStyle()
+#size-xs-up {
+	display: none;
+	width: $size-xs-up;
+}
+
+#size-s-up {
+	display: none;
+	width: $size-s-up;
+}
+
+#size-m-up {
+	display: none;
+	width: $size-m-up;
+}
+
+#size-l-up {
+	display: none;
+	width: $size-l-up;
+}
+
+#size-xl-up {
+	display: none;
+	width: $size-xl-up;
+}
+
+#size-xxl-up {
+	display: none;
+	width: $size-xxl-up;
+}
