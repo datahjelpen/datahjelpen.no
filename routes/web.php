@@ -9,6 +9,9 @@ Route::get('kontakt-oss', 'SiteController@index');
 Route::get('om',          'SiteController@index')->name('about');
 Route::get('om-oss',      'SiteController@index');
 
+Route::get('personvern', 'SiteController@index')->name('privacy');
+Route::get('gdpr',       'SiteController@index');
+
 Route::prefix('tjenester')->group(function () {
 	Route::get('/', 'SiteController@index')->name('services');
 	Route::get('/oversikt', 'SiteController@index');

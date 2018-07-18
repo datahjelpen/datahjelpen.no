@@ -97,8 +97,10 @@
 
 					&:focus,
 					&:hover {
-						color: $color-nav-link-hover-text;
-						background-color: $color-nav-link-hover-bg;
+						@media screen and (min-width: $size-s-up) {
+							color: $color-nav-link-hover-text;
+							background-color: $color-nav-link-hover-bg;
+						}
 					}
 				}
 			}
