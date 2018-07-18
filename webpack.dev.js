@@ -4,7 +4,6 @@ const path = require('path');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Critters = require('critters-webpack-plugin');
 
 module.exports = merge(common, {
@@ -52,10 +51,6 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'datahjelpen.[chunkhash].css',
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: path.resolve(__dirname, 'src/html/index.html')
     }),
     // new Critters({
     //   preload: 'swap'
