@@ -8,6 +8,7 @@
 	width: 100%;
 	height: $navigation-height;
 	padding: 1em;
+	background-color: $color-nav-bg;
 
 	ul {
 		position: relative;
@@ -25,7 +26,11 @@
 			justify-content: center;
 			align-content: center;
 			align-items: center;
+
 			a {
+				text-decoration: none;
+				font-weight: $font-weight-light;
+				text-transform: uppercase;
 			}
 		}
 	}
@@ -73,18 +78,27 @@
 				flex-direction: row;
 			}
 
+
 			li {
 				a {
 					display: flex;
 					justify-content: center;
 					align-content: center;
 					align-items: center;
+					color: $color-nav-link-normal-text;
+					background-color: $color-nav-link-normal-bg;
 
 					@media (max-width: $size-m) {
 					}
 
 					@media (min-width: $size-m-up ) {
 						padding: 0.5em 1em;
+					}
+
+					&:focus,
+					&:hover {
+						color: $color-nav-link-hover-text;
+						background-color: $color-nav-link-hover-bg;
 					}
 				}
 			}

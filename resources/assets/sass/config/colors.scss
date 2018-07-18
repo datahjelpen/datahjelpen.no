@@ -181,12 +181,12 @@ $color-neutral-dark:  $gray7;
 $color-shadow: $indigo9;
 
 // Layout
-$color-body-bg: $gray1;
+$color-body-bg: $gray0_cold;
 
 // Typography
-$color-font-body:       $gray9;
-$color-font-headings:   $gray9;
-$color-font-light:      $gray9;
+$color-font-body:       $gray9_cold;
+$color-font-headings:   $black_blue0;
+$color-font-light:      $gray9_cold;
 
 $color-font-figcaption: $color-font-body;
 
@@ -204,8 +204,8 @@ $color-link-visited:    $violet5;
 
 // Navigation
 $color-nav-bg: $white;
-$color-nav-link-normal-text: $color-font-body;
-$color-nav-link-normal-bg:   $color-body-bg;
-$color-nav-link-hover-text:  $color-font-body;
-$color-nav-link-hover-bg:    $color-body-bg;
+$color-nav-link-normal-text: $gray9_cold;
+$color-nav-link-normal-bg:   $color-nav-bg;
+$color-nav-link-hover-text:  $color-nav-bg;
+$color-nav-link-hover-bg:    $color-primary;
 $color-nav-backdrop-bg:      rgba($color-shadow, 0.25);

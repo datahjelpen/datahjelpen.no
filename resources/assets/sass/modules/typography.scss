@@ -7,6 +7,7 @@ body {
 h1, h2,
 h3, h4,
 h5 {
+	color: $color-font-headings;
 	font-weight: $font-headings-weight;
 	font-family: $font-headings;
 }
@@ -189,8 +190,8 @@ dl dt {
 a {
 	background: transparent;
 	color: $color-link-normal;
-	@include transition('color');
-	text-decoration-skip: objects; // Make underline skip over text
+	@include transition('color, background-color');
+	text-decoration-skip-ink: auto; // Make underline skip over text
 
 	&:active,
 	&:hover {
