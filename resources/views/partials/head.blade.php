@@ -14,6 +14,8 @@
 	<link rel="manifest" href="/manifest.json">
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#202147">
 	<meta name="theme-color" content="#ffffff">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400" rel="stylesheet">
+	<link href="https://cdn.datahjelpen.no/fonts/butler/butler-700.css" rel="stylesheet">
 	{{-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72567544-8"></script> --}}
 	<script>
 		window.dnt = false;
