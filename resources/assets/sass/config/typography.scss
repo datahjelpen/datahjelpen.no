@@ -1,7 +1,51 @@
+// Fonts
+$font-sans:  'Rubik', sans-serif;
+$font-sans-italic: $font-sans;
+$font-serif: 'Butler', 'Playfair Display', serif;
+$font-serif-italic: $font-serif;
+$font-mono:  'IBM Plex Mono', monospace;
+$font-mono-italic: $font-mono;
+
+// Weights
+$font-weight-light:  300;
+$font-weight-normal: 400;
+$font-weight-bold:   700;
+
+// Body, headings and code setup
+$font-body: $font-sans;
+$font-body-italic: $font-sans-italic;
+$font-body-weight: $font-weight-normal;
+
+$font-headings: $font-serif;
+$font-headings-italic: $font-serif-italic;
+$font-headings-weight: $font-weight-bold;
+
+$font-code: $font-mono;
+$font-code-italic: $font-mono-italic;
+$font-code-weight: $font-weight-normal;
+
+// sizes
 $font-base: 16;
-
-$font-size-mobile: 1.125em;
+$font-size: 1.125em;
 $font-size-desktop: 1em;
-
-$line-height-mobile: 1.8;
+$line-height: 1.8;
 $line-height-desktop: 1.625;
+
+// Headings: font-size, line-height, margin-top, margin-bottom
+$headings-desktop: (
+	h1: (3.998, 1.4, 1.414, 0.5),
+	h2: (2.827, 1.4, 1.414, 0.5),
+	h3: (1.999, 1.4, 1.414, 0.5),
+	h4: (1.414, 1.4, 1.414, 0.5),
+	h5: (1.125, 1.4, 1.414, 0.5),
+	h6: (1.000, 1.4, 1.414, 0.5)
+);
+
+$headings: (
+	h1: (3.998/4*3, 1.2, 1.414, 0.5),
+	h2: (2.827/4*3, 1.2, 1.414, 0.5),
+	h3: (1.999/4*3, 1.2, 1.414, 0.5),
+	h4: (1.414/4*3, 1.2, 1.414, 0.5),
+	h5: (1.125/4*3, 1.2, 1.414, 0.5),
+	h6: (1.000/4*3, 1.2, 1.414, 0.5)
+);
