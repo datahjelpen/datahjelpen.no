@@ -14,7 +14,7 @@
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
-		width: unquote($size-s);
+		width: $size-s;
 
 		@media (min-width: $size-m-up ) {
 			height: 50%;
