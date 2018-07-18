@@ -46,11 +46,11 @@ class Handler extends ExceptionHandler
                     'id' => $user->id,
                     'username' => $user->name,
                     'email' => $user->email,
-                    'ip_address' => $_SERVER['REMOTE_HOST']
+                    'ip_address' => null
                 ]);
             } else {
                 $sentry->user_context([
-                    'ip_address' => $_SERVER['REMOTE_HOST']
+                    'ip_address' => null
                 ]);
             }
 
