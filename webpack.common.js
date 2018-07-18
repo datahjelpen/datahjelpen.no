@@ -15,10 +15,12 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([distRoot], {
       exclude: [
+        '_',
         'assets'
       ]
     }),
     new CopyWebpackPlugin([
+      { from: srcRoot+'/html/_/', to: distRoot+'/_/' },
       { from: srcRoot+'/html/google8d3b08b7cd2acf75.html', to: distRoot+'/[name].[ext]' },
       { from: srcRoot+'/html/google8978bc95082897d7.html', to: distRoot+'/[name].[ext]' },
       { from: srcRoot+'/html/z0wd1adbmfpuyqg4il25zgkjnaz0xq.html', to: distRoot+'/[name].[ext]' },
