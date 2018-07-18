@@ -1,36 +1,17 @@
-<nav>
-	<a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
-
-	@auth
+<nav id="main-navigation">
+	<ul class="main-navigation-brand">
 		<li>
-			<a href="{{ route('user') }}">{{ Auth::user()->name }}</a>
-			<ul>
-				<li><a href="{{ route('user') }}">Konto</a></li>
-				<li>
-					<a href="{{ route('dashboard') }}">Kontrollpanel</a>
-					@role('admin|author')
-						<ul>
-							@role('admin')
-								<li><a href="{{ route('dashboard.admin') }}">Admin</a></li>
-							@endrole
-							@role('author')
-								<li><a href="{{ route('dashboard.author') }}">Innhold</a></li>
-							@endrole
-						</ul>
-					@endrole
-				</li>
-				<li>
-					<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-						{{ csrf_field() }}
-					</form>
-				</li>
-			</ul>
+			<a href="{{ route('front-page') }}">
+				<img src="/images/logo/logo-only/g_p.svg" alt="{{ config('app.name') }} logo">
+			</a>
 		</li>
-	@else
-		<li><a href="{{ route('login') }}">Login</a></li>
-		<li><a href="{{ route('register') }}">Register</a></li>
-	@endauth
+	</ul>
+	<ul class="main-navigation-links">
+		<li><a href="{{ route('services') }}">Tjenester</a></li>
+		<li><a href="{{ route('references') }}">Referanser</a></li>
+		<li><a href="{{ route('contact') }}">Kontakt</a></li>
+		<li><a href="{{ route('about') }}">Om oss</a></li>
+	</ul>
 </nav>
 <nav>
 	{{ Breadcrumbs::render() }}
