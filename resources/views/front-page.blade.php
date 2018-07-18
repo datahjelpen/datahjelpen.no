@@ -1,11 +1,13 @@
 @extends('partials.master')
 @section('content-main')
-	<header>
-    <h1>Datahjelpen</h1>
-    <p>Vi er et kreativt teknologibyrå, fokusert på å hjelpe selskaper skille seg ut i den digitale verden.</p>
+	<header class="page-header">
+		<div class="inner-wrapper">
+    	<h1>Datahjelpen</h1>
+    	<p>Vi er et kreativt teknologibyrå, fokusert på å hjelpe selskaper skille seg ut i den digitale verden.</p>
+  	</div>
 	</header>
-	<section>
-		<div>
+	<section id="services" class="page-section">
+		<div class="inner-wrapper">
 			<h2>Våre tjenester — Digitale opplevelser som folk elsker</h2>
 			<ul>
 				<li><a href="#">Nettsider</a></li>
@@ -14,20 +16,20 @@
 				<li><a href="#">Analyser</a></li>
 				<li><a href="#">SEO</a></li>
 			</ul>
-			<a href="#">
+			<a class="button" href="#">
 				<span>Tjenester</span>
 				<i class="icon" data-feather="arrow-right"></i>
 			</a>
 		</div>
 	</section>
-	<section>
-		<div>
+	<section id="references" class="page-section">
+		<div class="inner-wrapper">
 			<h2>Referanser</h2>
-			<ul>
-				<li>
+			<ul class="references">
+				<li class="reference">
 					<img src="#" alt="bilde">
 					<h3>Takshop.no</h3>
-					<ul>
+					<ul class="reference-categories">
 						<li>
 							<a href="#">
 								<span>Kategori 1</span>
@@ -43,10 +45,10 @@
 					</ul>
 					<a href="#">Link</a>
 				</li>
-				<li>
+				<li class="reference">
 					<img src="#" alt="bilde">
 					<h3>Bewa.no</h3>
-					<ul>
+					<ul class="reference-categories">
 						<li>
 							<a href="#">
 								<span>Kategori 1</span>
@@ -62,10 +64,10 @@
 					</ul>
 					<a href="#">Link</a>
 				</li>
-				<li>
+				<li class="reference">
 					<img src="#" alt="bilde">
 					<h3>Loax.no</h3>
-					<ul>
+					<ul class="reference-categories">
 						<li>
 							<a href="#">
 								<span>Kategori 1</span>
