@@ -123,7 +123,7 @@ class LoginController extends Controller
             // Login the user
             Auth::login($user);
 
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         }
 
         Session::flash('error', 'Noe gikk galt, denne siden trenger cookies for å fungere.');
@@ -182,7 +182,7 @@ class LoginController extends Controller
                     if ($existing_user->provider == $user_data->provider && $existing_user->provider_id == $user_data->provider_id) {
                         // User is the same as existing, login
                         Auth::login($existing_user);
-                        return redirect()->route('home');
+                        return redirect()->route('dashboard');
                     } else {
                         // User is provided by another provider
                         Session::flash('error', 'Denne e-posten er allerede i bruk av en konto via ' . $existing_user->provider);
