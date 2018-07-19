@@ -1,6 +1,11 @@
 @extends('partials.master')
 
 @section('content-main')
-	<h1>Logout completed</h1>
-	<p>See you again!</p>
+	<section class="page-section">
+		<div class="inner-wrapper">
+			<h1 class="page-title">Hadebra</h1>
+			<div class="content-text">
+			<p>Ses igjen! :)</p>
+		</div>
+	</div>
 @endsection
