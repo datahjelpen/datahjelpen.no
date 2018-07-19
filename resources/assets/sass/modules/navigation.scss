@@ -96,6 +96,7 @@
 					align-items: center;
 					color: $color-nav-link-normal-text;
 					background-color: $color-nav-link-normal-bg;
+					border-radius: $border-radius-s;
 
 					@media (max-width: $size-m) {
 					}
