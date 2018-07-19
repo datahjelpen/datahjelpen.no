@@ -194,229 +194,229 @@ label {
 	}
 
 
-	// &-checkbox,
-	// &-radio,
-	// &-switch {
-	// 	flex-direction: row;
+	&-checkbox,
+	&-radio,
+	&-switch {
+		flex-direction: row;
 
-	// 	.form-label {
-	// 		position: relative;
-	// 		width: auto;
-	// 		padding-left: 2em;
-	// 		border-bottom: 1px solid transparent;
+		.form-label {
+			position: relative;
+			width: auto;
+			padding-left: 2em;
+			border-bottom: 1px solid transparent;
 
-	// 		&::-moz-selection {
-	// 			color: inherit;
-	// 			background-color: transparent;
-	// 		}
+			&::-moz-selection {
+				color: inherit;
+				background-color: transparent;
+			}
 
-	// 		&::selection {
-	// 			color: inherit;
-	// 			background-color: transparent;
-	// 		}
+			&::selection {
+				color: inherit;
+				background-color: transparent;
+			}
 
-	// 		&:before {
-	// 			@include transition('background-color, color');
-	// 			position: absolute;
-	// 			content: ' ';
-	// 			left: 0;
-	// 			top: 0;
-	// 			bottom: 0;
-	// 			text-align: center;
-	// 			vertical-align: middle;
-	// 			display: block;
-	// 			margin: auto 0;
-	// 			height: 1.25em;
-	// 			line-height: 1.25em;
-	// 			color: $color-input;
-	// 			border: 1px solid $color-input-border;
-	// 			background-color: $color-input-bg;
-	// 		}
-	// 	}
+			&:before {
+				@include transition('background-color, color');
+				position: absolute;
+				content: ' ';
+				left: 0;
+				top: 0;
+				bottom: 0;
+				text-align: center;
+				vertical-align: middle;
+				display: block;
+				margin: auto 0;
+				height: 1.25em;
+				line-height: 1.25em;
+				color: $color-input;
+				border: 1px solid $color-input-border;
+				background-color: $color-input-bg;
+			}
+		}
 
-	// 	.form-input {
-	// 		position: absolute;
-	// 		clip: rect(0 0 0 0);
-	// 		width: 1px;
-	// 		height: 1px;
-	// 		font-size: 1px;
-	// 		opacity: 0.01;
-	// 		line-height: 0;
-	// 		overflow: hidden;
-	// 		z-index: -1;
+		.form-input {
+			position: absolute;
+			clip: rect(0 0 0 0);
+			width: 1px;
+			height: 1px;
+			font-size: 1px;
+			opacity: 0.01;
+			line-height: 0;
+			overflow: hidden;
+			z-index: -1;
 
-	// 		&:hover + .form-label,
-	// 		&:focus + .form-label {
-	// 			border-bottom: 1px solid $color-input-focus-border;
+			&:hover + .form-label,
+			&:focus + .form-label {
+				border-bottom: 1px solid $color-input-focus-border;
 
-	// 			&:before {
-	// 				border-color: $color-input-focus-border;
-	// 				background-color: $color-input-focus-bg;
-	// 			}
-	// 		}
+				&:before {
+					border-color: $color-input-focus-border;
+					background-color: $color-input-focus-bg;
+				}
+			}
 
-	// 		&[disabled] + .form-label {
-	// 			cursor: default;
-	// 			border-bottom: none;
-	// 			color: $color-input-disabled;
+			&[disabled] + .form-label {
+				cursor: default;
+				border-bottom: none;
+				color: $color-input-disabled;
 
-	// 			&:before {
-	// 				color: $color-input-disabled-bg;
-	// 				border-color: $color-input-disabled-border;
-	// 				background-color: $color-input-disabled-bg;
-	// 			}
-	// 		}
-	// 	}
-	// }
+				&:before {
+					color: $color-input-disabled-bg;
+					border-color: $color-input-disabled-border;
+					background-color: $color-input-disabled-bg;
+				}
+			}
+		}
+	}
 
-	// &-checkbox,
-	// &-radio {
-	// 	.form-label {
-	// 		&:before {
-	// 			width: 1.25em;
-	// 		}
-	// 	}
-	// }
+	&-checkbox,
+	&-radio {
+		.form-label {
+			&:before {
+				width: 1.25em;
+			}
+		}
+	}
 
-	// &-checkbox {
-	// 	.form-label {
-	// 		&:before {
-	// 			content: '\2714';
-	// 			color: $color-input-bg;
-	// 			border-radius: $border-radius-s;
-	// 		}
-	// 	}
+	&-checkbox {
+		.form-label {
+			&:before {
+				content: '\2714';
+				color: $color-input-bg;
+				border-radius: $border-radius-s;
+			}
+		}
 
-	// 	.form-input {
-	// 		&:checked + .form-label {
-	// 			&:before {
-	// 				color: $color-input;
-	// 				border-color: $color-input-focus-border;
-	// 				background-color: $color-input-focus-bg;
-	// 			}
-	// 		}
+		.form-input {
+			&:checked + .form-label {
+				&:before {
+					color: $color-input;
+					border-color: $color-input-focus-border;
+					background-color: $color-input-focus-bg;
+				}
+			}
 
-	// 		&[disabled] + .form-label {
-	// 			&:before {
-	// 				color: $color-input-disabled-bg;
-	// 				border-color: $color-input-disabled-border;
-	// 				background-color: $color-input-disabled-bg;
-	// 			}
-	// 		}
+			&[disabled] + .form-label {
+				&:before {
+					color: $color-input-disabled-bg;
+					border-color: $color-input-disabled-border;
+					background-color: $color-input-disabled-bg;
+				}
+			}
 
-	// 		&:checked[disabled] + .form-label {
-	// 			&:before {
-	// 				color: $color-input-disabled;
-	// 			}
-	// 		}
-	// 	}
-	// }
+			&:checked[disabled] + .form-label {
+				&:before {
+					color: $color-input-disabled;
+				}
+			}
+		}
+	}
 
-	// &-radio,
-	// &-switch {
-	// 	.form-label {
-	// 		&:after {
-	// 			position: absolute;
-	// 			content: ' ';
-	// 			left: 0.3em;
-	// 			top: 0;
-	// 			bottom: 0;
-	// 			display: block;
-	// 			margin: auto 0;
-	// 			width: 0.65em;
-	// 			height: 0.65em;
-	// 			line-height: 0.65em;
-	// 			background-color: $color-input-bg;
-	// 		}
-	// 	}
-	// }
+	&-radio,
+	&-switch {
+		.form-label {
+			&:after {
+				position: absolute;
+				content: ' ';
+				left: 0.3em;
+				top: 0;
+				bottom: 0;
+				display: block;
+				margin: auto 0;
+				width: 0.65em;
+				height: 0.65em;
+				line-height: 0.65em;
+				background-color: $color-input-bg;
+			}
+		}
+	}
 
-	// &-radio {
-	// 	.form-label {
-	// 		&:before,
-	// 		&:after {
-	// 			border-radius: 100%;
-	// 		}
+	&-radio {
+		.form-label {
+			&:before,
+			&:after {
+				border-radius: 100%;
+			}
 
-	// 		&:after {
-	// 			@include transition('background-color');
-	// 		}
-	// 	}
+			&:after {
+				@include transition('background-color');
+			}
+		}
 
-	// 	.form-input {
-	// 		&:checked + .form-label {
-	// 			&:before {
-	// 				border-color: $color-input-focus-border;
-	// 				background-color: $color-input-focus-bg;
-	// 			}
+		.form-input {
+			&:checked + .form-label {
+				&:before {
+					border-color: $color-input-focus-border;
+					background-color: $color-input-focus-bg;
+				}
 
-	// 			&:after {
-	// 				background-color: $color-input;
-	// 			}
-	// 		}
+				&:after {
+					background-color: $color-input;
+				}
+			}
 
-	// 		&[disabled] + .form-label {
-	// 			&:after {
-	// 				background-color: $color-input-disabled-bg;
-	// 			}
-	// 		}
+			&[disabled] + .form-label {
+				&:after {
+					background-color: $color-input-disabled-bg;
+				}
+			}
 
-	// 		&:checked[disabled] + .form-label {
-	// 			&:before {
-	// 				border-color: $color-input-disabled-border;
-	// 				background-color: $color-input-disabled-bg;
-	// 			}
+			&:checked[disabled] + .form-label {
+				&:before {
+					border-color: $color-input-disabled-border;
+					background-color: $color-input-disabled-bg;
+				}
 
-	// 			&:after {
-	// 				background-color: $color-input-disabled;
-	// 			}
-	// 		}
-	// 	}
-	// }
+				&:after {
+					background-color: $color-input-disabled;
+				}
+			}
+		}
+	}
 
-	// &-switch {
-	// 	.form-label {
-	// 		&:before {
-	// 			width: 1.75em;
-	// 			border-radius: $border-radius-l;
-	// 		}
+	&-switch {
+		.form-label {
+			&:before {
+				width: 1.75em;
+				border-radius: $border-radius-l;
+			}
 
-	// 		&:after {
-	// 			@include transition('background-color, transform');
-	// 			border-radius: 100%;
-	// 			background-color: $color-input;
-	// 		}
-	// 	}
+			&:after {
+				@include transition('background-color, transform');
+				border-radius: 100%;
+				background-color: $color-input;
+			}
+		}
 
-	// 	.form-input {
-	// 		&:checked + .form-label {
-	// 			&:before {
-	// 				border-color: $color-input-focus-border;
-	// 				background-color: $color-input;
-	// 			}
+		.form-input {
+			&:checked + .form-label {
+				&:before {
+					border-color: $color-input-focus-border;
+					background-color: $color-input;
+				}
 
-	// 			&:after {
-	// 				transform: translateX(90%);
-	// 				background-color: $color-input-bg;
-	// 			}
-	// 		}
+				&:after {
+					transform: translateX(90%);
+					background-color: $color-input-bg;
+				}
+			}
 
-	// 		&[disabled] + .form-label {
-	// 			&:after {
-	// 				background-color: $color-input-disabled;
-	// 			}
-	// 		}
+			&[disabled] + .form-label {
+				&:after {
+					background-color: $color-input-disabled;
+				}
+			}
 
-	// 		&:checked[disabled] + .form-label {
-	// 			&:before {
-	// 				border-color: $color-input-disabled-border;
-	// 				background-color: $color-input-disabled;
-	// 			}
+			&:checked[disabled] + .form-label {
+				&:before {
+					border-color: $color-input-disabled-border;
+					background-color: $color-input-disabled;
+				}
 
-	// 			&:after {
-	// 				background-color: $color-input-disabled-bg;
-	// 			}
-	// 		}
-	// 	}
-	// }
+				&:after {
+					background-color: $color-input-disabled-bg;
+				}
+			}
+		}
+	}
 }

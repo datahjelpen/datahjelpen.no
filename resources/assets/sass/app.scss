@@ -100,6 +100,17 @@ body {
   }
 }
 
+a {
+  .icon,
+  span {
+    display: inline-block;
+    line-height: 1em;
+    height: 1em;
+    vertical-align: middle;
+    font-size: 1rem;
+  }
+}
+
 button,
 .button,
 a.button {
@@ -423,6 +434,22 @@ body {
       }
     }
   }
+
+  &.login {
+    .page-section {
+      > .inner-wrapper {
+        max-width: $size-s;
+      }
+    }
+  }
+
+  &.konto {
+    .page-section {
+      img {
+        width: 200px;
+      }
+    }
+  }
 }
 
 footer {
@@ -511,6 +538,30 @@ footer {
         &:hover,
         &:focus {
           color: $indigo5;
+        }
+      }
+    }
+
+    &-authed {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: center;
+      align-items: center;
+      margin-bottom: $pad-xl;
+      flex-wrap: wrap;
+
+      a {
+        margin-right: $pad-l;
+        display: flex;
+        flex-wrap: nowrap;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        @media screen and (max-width: $size-s) {
+          margin-bottom: $pad-l;
         }
       }
     }
