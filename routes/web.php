@@ -34,6 +34,6 @@ Route::prefix('prosjekter')->group(function () {
 
 Route::prefix('blog')->group(function () {
 		Route::get('/', 'SiteController@blog')->name('blog');
-		Route::get('windows-10-slett-midlertidige-filer', 'SiteController@index');
-		Route::get('mac-2-dropbox-kontoer', 'SiteController@index');
+		Route::get('windows-10-slett-midlertidige-filer', 'SiteController@blog1');
+		Route::get('mac-2-dropbox-kontoer', 'SiteController@blog2');
 });

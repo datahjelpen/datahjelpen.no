@@ -74,6 +74,11 @@ class SiteController extends Controller
         return redirect()->route('front-page');
     }
 
+    public function services_marketing_google_adwords()
+    {
+        return view('services-marketing-google_adwords');
+    }
+
     public function references()
     {
         Session::flash('info', 'Vi holder på å oppdatere nettstedet vårt. Denne siden kommer snart...');
@@ -92,8 +97,13 @@ class SiteController extends Controller
         return redirect()->route('front-page');
     }
 
-    public function services_marketing_google_adwords()
+    public function blog1()
     {
-        return view('services-marketing-google_adwords');
+        return view('blog1');
+    }
+
+    public function blog2()
+    {
+        return view('blog2');
     }
 }
