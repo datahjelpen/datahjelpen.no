@@ -65,9 +65,22 @@ class UserController extends Controller
         return view('user.settings.security.show', compact('user', 'is_reauthenticated', 'reauthenticated_time_remaining'));
     }
 
+    public function edit(Request $request, User $user = null)
+    {
+        $current_user = Auth::user();
+        if ($user === null) $user = $current_user;
+
+        $current_user->avatar->url = Storage::temporaryUrl(
+            $current_user->avatar->url, now()->addMinutes(30)
+        );
+
+        return view('user.edit', compact('user', 'current_user'));
+    }
+
     public function update(Request $request, User $user = null)
     {
         $current_user = Auth::user();
+        if ($user === null) $user = Auth::user();
         $user_info_updated = false;
 
         if ($user->hasProvider()) {
@@ -76,7 +89,7 @@ class UserController extends Controller
         }
 
         if ($request->has('email')) {
-            if ($current_user->email == $request->email) {
+            if ($user->email == $request->email) {
                 Session::flash('info', 'Din gjeldene e-post er identisk');
                 return redirect()->back();
             }
@@ -85,7 +98,7 @@ class UserController extends Controller
                 'email' => 'required|string|email|max:255|unique:users'
             ]);
 
-            $current_user->email = $request->email;
+            $user->email = $request->email;
             $user_info_updated = true;
         }
 
@@ -96,24 +109,56 @@ class UserController extends Controller
             ]);
 
             $credentials = [
-                'email' => $current_user->email,
+                'email' => $user->email,
                 'password' => $request->password_current
             ];
 
             if (Auth::attempt($credentials)) {
-                $current_user->password = Hash::make($request->password);
+                $user->password = Hash::make($request->password);
                 $user_info_updated = true;
             } else {
                 Session::flash('error', 'Feil passord');
             }
         }
 
+        if ($request->has('phone')) {
+            $now = Carbon::now()->toDateTimeString();
+            // dd($request);
+            // Carbon::now()->toDateTimeString()
+
+            $this->validate($request, [
+                'phone' => 'nullable|string',
+                'company' => 'nullable|string',
+                'company_nr' => 'nullable|string',
+                'agree_tos' => 'nullable',
+                'agree_privacy' => 'nullable',
+                'agree_dpa' => 'nullable'
+            ]);
+
+            $user->phone =                $request->phone;
+            $user->company =              $request->company;
+            $user->company_nr =           $request->company_nr;
+
+            $user->agree_tos =            $request->has('agree_tos')     ? true : false;
+            $user->agree_tos_latest =     $request->has('agree_tos')     ? $now : null;
+
+            $user->agree_privacy =        $request->has('agree_privacy') ? true : false;
+            $user->agree_privacy_latest = $request->has('agree_privacy') ? $now : null;
+
+            $user->agree_dpa =            $request->has('agree_dpa')     ? true : false;
+            $user->agree_dpa_latest =     $request->has('agree_dpa')     ? $now : null;
+
+            $user_info_updated = true;
+        }
+
         if ($user_info_updated) {
-            if ($current_user->save()) {
+            if ($user->save()) {
                 Session::flash('success', 'Konto oppdatert');
             } else {
                 Session::flash('error', 'Noe gikk galt. Vi kunne ikke oppdatere din konto.');
             }
+        } else {
+            Session::flash('info', 'Ingenting ble endret.');
         }
 
         return redirect()->back();

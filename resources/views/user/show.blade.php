@@ -21,7 +21,7 @@
 				<p><strong>Godtatt personvernserklæringen:</strong> <span>{{ $user->agree_privacy ? 'Ja' : 'Nei' }}</span></p>
 				<p><strong>Godtatt databehandleravtale:</strong> <span>{{ $user->agree_dpa ? 'Ja' : 'Nei' }}</span></p>
 
-				<p><a href="{{ route('user.settings.change') }}">Endre</a> | <a href="{{ route('user.settings.delete') }}">Slett</a></p>
+				<p><a href="{{ route('user.edit') }}">Endre</a> | <a href="{{ route('user.delete') }}">Slett</a></p>
 			</div>
 		</div>
 	</section>

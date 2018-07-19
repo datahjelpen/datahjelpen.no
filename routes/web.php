@@ -27,14 +27,14 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 // User
 Route::prefix('konto')->group(function () {
 	Route::get('/',          'UserController@show')->name('user');
-	Route::get('oppdater',   'UserController@show');
+	Route::get('oppdater',   'UserController@edit')->name('user.edit');
 	Route::patch('oppdater', 'UserController@update')->name('user.update');
+	Route::get('slett',      'UserController@show_settings')->name('user.delete');
+	Route::delete('slett',   'UserController@show_settings')->name('user.destroy');
 
 	Route::prefix('innstillinger')->group(function () {
 		Route::get('/',          'UserController@show_settings')->name('user.settings');
 
-		Route::get('mine-data', 'UserController@show_settings')->name('user.settings.change');
-		Route::get('slett-meg', 'UserController@show_settings')->name('user.settings.delete');
 
 		Route::prefix('sikkerhet')->group(function () {
 			Route::get('/',  'UserController@show_settings_security')->name('user.settings.security');
