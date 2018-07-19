@@ -1,110 +1,13 @@
 <?php
 
-Breadcrumbs::for('home', function ($trail) {
-    $trail->push('Hjem', route('home'));
+Breadcrumbs::for('privacy', function ($trail) {
+    $trail->push('Personvern', route('privacy'));
 });
 
-// Dashboard start
-Breadcrumbs::for('dashboard', function ($trail) {
-    $trail->push('Kontrollpanel', route('dashboard'));
+Breadcrumbs::for('privacy.policy', function ($trail) {
+    $trail->parent('privacy');
+    $trail->push('Personvern', route('privacy.policy'));
 });
-// Dashboard end
-
-// Dashboard - admin start
-Breadcrumbs::for('dashboard.admin', function ($trail) {
-    $trail->parent('dashboard');
-    $trail->push('Admin', route('dashboard.admin'));
-});
-
-// Entry type
-Breadcrumbs::for('dashboard.admin.entry_types', function ($trail) {
-    $trail->parent('dashboard.admin');
-    $trail->push('EntryTypes', route('dashboard.admin.entry_types'));
-});
-
-Breadcrumbs::for('entry_type.create', function ($trail) {
-    $trail->parent('dashboard.admin.entry_types');
-    $trail->push('Lag ny', route('entry_type.create'));
-});
-
-Breadcrumbs::for('entry_type.edit', function ($trail, $entry_type) {
-    $trail->parent('dashboard.admin.entry_types');
-    $trail->push('Rediger: ' . $entry_type->name, route('entry_type.edit', $entry_type));
-});
-
-Breadcrumbs::for('entry_type.delete', function ($trail, $entry_type) {
-    $trail->parent('dashboard.admin.entry_types');
-    $trail->push('Slett: ' . $entry_type->name, route('entry_type.delete', $entry_type));
-});
-
-// Entry content type
-Breadcrumbs::for('dashboard.admin.entry_content_types', function ($trail) {
-    $trail->parent('dashboard.admin');
-    $trail->push('EntryContentTypes', route('dashboard.admin.entry_content_types'));
-});
-
-Breadcrumbs::for('entry_content_type.create', function ($trail) {
-    $trail->parent('dashboard.admin.entry_content_types');
-    $trail->push('Lag ny', route('entry_content_type.create'));
-});
-
-Breadcrumbs::for('entry_content_type.edit', function ($trail, $entry_content_type) {
-    $trail->parent('dashboard.admin.entry_content_types');
-    $trail->push('Rediger: ' . $entry_content_type->name, route('entry_content_type.edit', $entry_content_type));
-});
-
-Breadcrumbs::for('entry_content_type.delete', function ($trail, $entry_content_type) {
-    $trail->parent('dashboard.admin.entry_content_types');
-    $trail->push('Slett: ' . $entry_content_type->name, route('entry_content_type.delete', $entry_content_type));
-});
-
-// Entry content type attribute
-Breadcrumbs::for('entry_content_type_attribute.create', function ($trail, $entry_content_type) {
-    $trail->parent('dashboard.admin.entry_content_types');
-    $trail->push($entry_content_type->name, route('dashboard.admin.entry_content_types'));
-    $trail->push('Ny attribute', route('entry_content_type_attribute.create', $entry_content_type));
-});
-
-Breadcrumbs::for('entry_content_type_attribute.edit', function ($trail, $entry_content_type, $entry_content_type_attribute) {
-    $trail->parent('dashboard.admin.entry_content_types');
-    $trail->push($entry_content_type->name, route('dashboard.admin.entry_content_types'));
-    $trail->push('Rediger attribute: ' . $entry_content_type_attribute->name, route('entry_content_type_attribute.edit', [$entry_content_type, $entry_content_type_attribute]));
-});
-
-Breadcrumbs::for('entry_content_type_attribute.delete', function ($trail, $entry_content_type, $entry_content_type_attribute) {
-    $trail->parent('dashboard.admin.entry_content_types');
-    $trail->push($entry_content_type->name, route('dashboard.admin.entry_content_types'));
-    $trail->push('Slett attribute: ' . $entry_content_type_attribute->name, route('entry_content_type_attribute.delete', [$entry_content_type, $entry_content_type_attribute]));
-});
-// Dashboard - admin end
-
-// Dashboard - author start
-Breadcrumbs::for('dashboard.author', function ($trail) {
-    $trail->parent('dashboard');
-    $trail->push('Innhold', route('dashboard.author'));
-});
-
-Breadcrumbs::for('dashboard.author.entry_type', function ($trail, $entry_type) {
-    $trail->parent('dashboard.author');
-    $trail->push($entry_type->name, route('dashboard.author.entry_type', $entry_type));
-});
-
-// Entry
-Breadcrumbs::for('entry.create', function ($trail, $entry_type) {
-    $trail->parent('dashboard.author.entry_type', $entry_type);
-    $trail->push('Lag ny', route('entry.create', $entry_type));
-});
-
-Breadcrumbs::for('entry.edit', function ($trail, $entry_type, $entry) {
-    $trail->parent('dashboard.author.entry_type', $entry_type);
-    $trail->push('Rediger: ' . $entry->name, route('entry.edit', [$entry_type, $entry]));
-});
-
-Breadcrumbs::for('entry.delete', function ($trail, $entry_type, $entry) {
-    $trail->parent('dashboard.author.entry_type', $entry_type);
-    $trail->push('Slett: ' . $entry->name, route('entry.delete', [$entry_type, $entry]));
-});
-// Dashboard - author end
 
 // User start
 Breadcrumbs::for('user', function ($trail) {
