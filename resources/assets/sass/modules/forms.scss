@@ -142,19 +142,22 @@ label {
 
 .form-groups {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
 	align-content: flex-start;
 	align-items: flex-start;
 
-	.form-group {
-		margin-right: $pad-l;
-		align-items: flex-start;
+	@media (min-width: $size-m-up) {
+		flex-direction: row;
 
-		&:last-child {
-			align-items: flex-end;
-			margin-left: $pad-l;
-			margin-right: 0;
+		.form-group {
+			margin-right: $pad-l;
+			align-items: flex-start;
+
+			&:last-child {
+				align-items: flex-end;
+				margin-right: 0;
+			}
 		}
 	}
 }
