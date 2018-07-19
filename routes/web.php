@@ -62,6 +62,9 @@ Route::post('kontakt',     'SiteController@contact_form');
 Route::get('om',          'SiteController@about')->name('about');
 Route::get('om-oss',      'SiteController@about');
 
+Route::get('tjenestevilkar', 'SiteController@privacy_policy')->name('tos');
+Route::get('tjenestevilkår', 'SiteController@privacy_policy');
+
 Route::prefix('personvern')->group(function () {
 	Route::get('/', 'SiteController@privacy_landing')->name('privacy');
 
