@@ -4,6 +4,58 @@ Route::get('/',    'SiteController@index')->name('front-page');
 Route::get('home', 'SiteController@index');
 Route::get('hjem', 'SiteController@index')->name('home');
 
+Route::get('goodbye', function () {
+	return view('auth.logout-success');
+})->name('goodbye');
+
+// Auth routes
+Auth::routes();
+
+// Reauthentication routes (also used for 2fa)
+Route::get('auth/reauthenticate', 'Reauthenticates@getReauthenticate')->name('reauthenticate.show');
+Route::post('auth/reauthenticate', 'Reauthenticates@postReauthenticate')->name('reauthenticate.post');
+Route::post('auth/send-confirmation-code', 'Reauthenticates@sendConfirmationCode')->name('reauthenticate.send_confirmation_code');
+Route::get('auth/send-confirmation-code', 'Reauthenticates@getReauthenticate');
+Route::post('auth/deauthenticate', 'Reauthenticates@deauthenticate')->name('reauthenticate.deauthenticate');
+
+// Socialite routes
+Route::get('login/{provider}/terms-of-service',  'Auth\LoginController@oauthTos')->name('login.oauth.tos');
+Route::post('login/{provider}/complete-signup', 'Auth\LoginController@oauthComplete')->name('login.oauth.complete');
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider')->name('login.oauth');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('login.oauth.callback');
+
+// User
+Route::prefix('konto')->group(function () {
+	Route::get('/',          'UserController@show')->name('user');
+	Route::get('oppdater',   'UserController@show');
+	Route::patch('oppdater', 'UserController@update')->name('user.update');
+
+	Route::prefix('innstillinger')->group(function () {
+		Route::get('/',          'UserController@show_settings')->name('user.settings');
+
+		Route::get('mine-data', 'UserController@show_settings')->name('user.settings.change');
+		Route::get('slett-meg', 'UserController@show_settings')->name('user.settings.delete');
+
+		Route::prefix('sikkerhet')->group(function () {
+			Route::get('/',  'UserController@show_settings_security')->name('user.settings.security');
+
+			Route::get('bekreft/{token}', 'UserController@verify')->name('user.verify');
+
+			Route::get('2fa-oppsett',  'UserController@setup_2fa')->name('user.setup_2fa');
+			Route::post('2fa-oppsett', 'UserController@setup_2fa_complete')->name('user.setup_2fa_complete');
+
+			Route::get('2fa-deaktiver',  'UserController@disable_2fa')->name('user.disable_2fa');
+			Route::post('2fa-deaktiver', 'UserController@disable_2fa_complete')->name('user.disable_2fa_complete');
+
+			Route::post('2fa-ny-hemmelighet', 'UserController@setup_2fa_new_secret')->name('user.setup_2fa_new_secret');
+		});
+	});
+});
+
+Route::prefix('dashboard')->group(function () {
+	Route::get('/', 'DashboardController@index')->name('dashboard');
+});
+
 Route::get('kontakt',     'SiteController@contact')->name('contact');
 Route::get('kontakt-oss', 'SiteController@contact');
 Route::post('kontakt',     'SiteController@contact_form');
@@ -13,7 +65,7 @@ Route::get('om-oss',      'SiteController@about');
 Route::get('personvern', 'SiteController@privacy_security')->name('privacy_security');
 Route::get('personvern-og-sikkerhet', 'SiteController@privacy_security');
 Route::get('gdpr',       'SiteController@privacy_security');
-Route::get('personvernerklaring', 'SiteController@privacy_policy')->name('privacy.policy');
+	Route::get('personvernerklaring', 'SiteController@privacy_policy')->name('privacy.policy');
 Route::get('personvernerklæring', 'SiteController@privacy_security');
 
 Route::prefix('tjenester')->group(function () {
