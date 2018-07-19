@@ -91,4 +91,9 @@ class SiteController extends Controller
         Session::flash('info', 'Vi holder på å oppdatere nettstedet vårt. Denne siden kommer snart...');
         return redirect()->route('front-page');
     }
+
+    public function services_marketing_google_adwords()
+    {
+        return view('services-marketing-google_adwords');
+    }
 }

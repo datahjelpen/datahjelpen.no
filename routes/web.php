@@ -20,7 +20,7 @@ Route::prefix('tjenester')->group(function () {
 
 	Route::prefix('markedsforing')->group(function () {
 		Route::get('/', 'SiteController@services');
-		Route::get('google-adwords', 'SiteController@index')->name('services.marketing.google-adwords');
+		Route::get('google-adwords', 'SiteController@services_marketing_google_adwords')->name('services.marketing.google-adwords');
 	});
 });
 
