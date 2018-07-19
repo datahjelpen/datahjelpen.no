@@ -106,4 +106,14 @@ class SiteController extends Controller
     {
         return view('blog2');
     }
+
+    public function privacy_security()
+    {
+        return view('privacy_security');
+    }
+
+    public function privacy_policy()
+    {
+        return view('privacy_policy');
+    }
 }

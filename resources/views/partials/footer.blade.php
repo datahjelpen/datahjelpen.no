@@ -12,7 +12,7 @@
 					<a href="{{ route('about') }}">Om oss</a>
 				</div>
 				<div class="footer-links-2">
-					<a href="{{ route('privacy') }}">Personvern</a>
+					<a href="{{ route('privacy_security') }}">Personvern{{--  & sikkerhet --}}</a>
 				</div>
 				<div class="footer-links-social">
 					<a href="https://fb.com/datahjelpen.no"><i class="icon" data-feather="facebook"></i></a>

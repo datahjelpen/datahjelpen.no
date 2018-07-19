@@ -10,8 +10,11 @@ Route::post('kontakt',     'SiteController@contact_form');
 Route::get('om',          'SiteController@about')->name('about');
 Route::get('om-oss',      'SiteController@about');
 
-Route::get('personvern', 'SiteController@index')->name('privacy');
-Route::get('gdpr',       'SiteController@index');
+Route::get('personvern', 'SiteController@privacy_security')->name('privacy_security');
+Route::get('personvern-og-sikkerhet', 'SiteController@privacy_security');
+Route::get('gdpr',       'SiteController@privacy_security');
+Route::get('personvernerklaring', 'SiteController@privacy_policy')->name('privacy.policy');
+Route::get('personvernerklæring', 'SiteController@privacy_security');
 
 Route::prefix('tjenester')->group(function () {
 	Route::get('/', 'SiteController@services')->name('services');
