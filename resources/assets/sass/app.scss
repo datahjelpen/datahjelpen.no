@@ -43,9 +43,27 @@ body {
 	display: none;
 }
 
-a {
-  // font-family: $font-code;
-  // font-weight: $font-code-weight;
+.button,
+a.button {
+  padding: 0.75em 1em;
+  color: $black_blue0;
+  background-color: $white;
+  border-radius: $border-radius-s;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  .icon,
+  span {
+    display: inline-block;
+    line-height: 1em;
+    vertical-align: middle;
+  }
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $color-primary;
+  }
 }
 
 .page-header,
@@ -288,20 +306,20 @@ footer {
     max-width: $size-l;
   }
 
-    strong {
-      color: $gray9_cold;
-      font-weight: $font-weight-bold;
-      font-family: $font-body;
-    }
+  strong {
+    color: $gray9_cold;
+    font-weight: $font-weight-bold;
+    font-family: $font-body;
+  }
 
-    a {
-      color: $indigo8;
+  a {
+    color: $indigo8;
 
-      &:hover,
-      &:focus {
-        color: $indigo5;
-      }
+    &:hover,
+    &:focus {
+      color: $indigo5;
     }
+  }
 
   section {
     display: flex;

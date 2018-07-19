@@ -16,11 +16,11 @@
 					<li><a href="#">Sikkerhet</a></li>
 					<li><a href="#">Analyser</a></li>
 					<li><a href="#">SEO</a></li>
-				</ul>{{--
+				</ul>
 				<a class="button" href="#">
 					<span>Tjenester</span>
-					<i class="icon" data-feather="arrow-right"></i>
-				</a> --}}
+					<i class="icon" data-feather="chevron-right"></i>
+				</a>
 			</div>
 			<div>
 				<img src="/images/graphics/mockup-websites.png" alt="Nettsider - mockup">
