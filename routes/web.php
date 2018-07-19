@@ -4,10 +4,10 @@ Route::get('/',    'SiteController@index')->name('front-page');
 Route::get('home', 'SiteController@index');
 Route::get('hjem', 'SiteController@index')->name('home');
 
-Route::get('kontakt',     'SiteController@index')->name('contact');
-Route::get('kontakt-oss', 'SiteController@index');
-Route::get('om',          'SiteController@index')->name('about');
-Route::get('om-oss',      'SiteController@index');
+Route::get('kontakt',     'SiteController@contact')->name('contact');
+Route::get('kontakt-oss', 'SiteController@contact');
+Route::get('om',          'SiteController@about')->name('about');
+Route::get('om-oss',      'SiteController@about');
 
 Route::get('personvern', 'SiteController@index')->name('privacy');
 Route::get('gdpr',       'SiteController@index');
