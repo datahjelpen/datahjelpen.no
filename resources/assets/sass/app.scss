@@ -162,6 +162,19 @@ a.button {
       box-shadow: 0 10px 30px -15px rgba($color-primary-dark, 1);
     }
   }
+
+  &.neutral {
+    color: darken($color-neutral-dark, 20);
+    background-color: $color-neutral;
+    box-shadow: 0 10px 25px -15px rgba($color-neutral-dark, 0.8);
+
+    &:hover,
+    &:focus {
+      color: darken($color-neutral-dark, 20);
+      background-color: $color-neutral;
+      box-shadow: 0 10px 30px -15px rgba($color-neutral-dark, 1);
+    }
+  }
 }
 
 .page-header,
