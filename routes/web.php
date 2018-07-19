@@ -62,11 +62,13 @@ Route::post('kontakt',     'SiteController@contact_form');
 Route::get('om',          'SiteController@about')->name('about');
 Route::get('om-oss',      'SiteController@about');
 
-Route::get('personvern', 'SiteController@privacy_security')->name('privacy_security');
-Route::get('personvern-og-sikkerhet', 'SiteController@privacy_security');
-Route::get('gdpr',       'SiteController@privacy_security');
+Route::prefix('personvern')->group(function () {
+	Route::get('/', 'SiteController@privacy_landing')->name('privacy');
+
 	Route::get('personvernerklaring', 'SiteController@privacy_policy')->name('privacy.policy');
-Route::get('personvernerklæring', 'SiteController@privacy_security');
+	Route::get('personvernerklæring', 'SiteController@privacy_landing');
+	Route::get('personvernerklaring#cookies', 'SiteController@privacy_policy')->name('privacy.cookies');
+});
 
 Route::prefix('tjenester')->group(function () {
 	Route::get('/', 'SiteController@services')->name('services');
