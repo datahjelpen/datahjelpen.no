@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
+            $table->string('company')->nullable()->default(null);
+            $table->string('company_nr')->nullable()->default(null);
 
             // Email verification
             $table->boolean('verified')->default(false);
@@ -30,7 +32,11 @@ class CreateUsersTable extends Migration
 
             // GDPR
             $table->boolean('agree_tos')->default(false);
-            $table->dateTime('agree_tos_latest');
+            $table->dateTime('agree_tos_latest')->nullable()->default(null);
+            $table->boolean('agree_privacy')->default(false);
+            $table->dateTime('agree_privacy_latest')->nullable()->default(null);
+            $table->boolean('agree_dpa')->default(false);
+            $table->dateTime('agree_dpa_latest')->nullable()->default(null);
 
             // Extra security
             $table->integer('failed_attempts')->default(0);
@@ -43,6 +49,7 @@ class CreateUsersTable extends Migration
             // Socialite
             $table->string('provider')->nullable()->default(null);
             $table->string('provider_id')->nullable()->default(null);
+
         });
     }
 
