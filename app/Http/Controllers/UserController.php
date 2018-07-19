@@ -13,6 +13,7 @@ use Session;
 use Carbon\Carbon;
 use App\User;
 use App\Events\EmailVerified;
+use PragmaRX\Google2FALaravel\Support\Authenticator;
 
 class UserController extends Controller
 {
@@ -249,7 +250,7 @@ class UserController extends Controller
             return redirect()->route('user.settings.security');
         }
 
-        return view('user.security-disable-2fa', compact('user'));
+        return view('user.settings.security.disable-2fa', compact('user'));
     }
 
     public function disable_2fa_complete(Request $request)
