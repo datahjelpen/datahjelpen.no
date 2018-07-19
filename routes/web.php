@@ -29,8 +29,9 @@ Route::prefix('konto')->group(function () {
 	Route::get('/',          'UserController@show')->name('user');
 	Route::get('oppdater',   'UserController@edit')->name('user.edit');
 	Route::patch('oppdater', 'UserController@update')->name('user.update');
-	Route::get('slett',      'UserController@show_settings')->name('user.delete');
-	Route::delete('slett',   'UserController@show_settings')->name('user.destroy');
+	Route::get('slett',      'UserController@delete')->name('user.delete');
+	Route::delete('slett',   'UserController@destroy')->name('user.destroy');
+	Route::get('konto-slettet',      'UserController@deleted')->name('user.deleted');
 
 	Route::prefix('innstillinger')->group(function () {
 		Route::get('/',          'UserController@show_settings')->name('user.settings');

@@ -37,6 +37,7 @@ class CreateUsersTable extends Migration
             $table->dateTime('agree_privacy_latest')->nullable()->default(null);
             $table->boolean('agree_dpa')->default(false);
             $table->dateTime('agree_dpa_latest')->nullable()->default(null);
+            $table->boolean('delete')->default(false);
 
             // Extra security
             $table->integer('failed_attempts')->default(0);

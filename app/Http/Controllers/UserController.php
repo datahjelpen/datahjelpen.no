@@ -25,8 +25,9 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('verified')->except('verify');
+        $this->middleware('auth')->except('deleted');
+        $this->middleware('deleted')->except('deleted');
+        $this->middleware('verified')->except(['verify', 'deleted']);
         $this->middleware('reauthenticate')->only([
             'show_settings_security',
             'update',
@@ -38,7 +39,8 @@ class UserController extends Controller
     public function show(Request $request, User $user = null)
     {
         $current_user = Auth::user();
-        if ($user === null) $user = $current_user;
+        // if ($user === null) $user = $current_user;
+        $user = $current_user;
 
         $current_user->avatar->url = Storage::temporaryUrl(
             $current_user->avatar->url, now()->addMinutes(30)
@@ -69,7 +71,8 @@ class UserController extends Controller
     public function edit(Request $request, User $user = null)
     {
         $current_user = Auth::user();
-        if ($user === null) $user = $current_user;
+        // if ($user === null) $user = $current_user;
+        $user = $current_user;
 
         $current_user->avatar->url = Storage::temporaryUrl(
             $current_user->avatar->url, now()->addMinutes(30)
@@ -310,5 +313,33 @@ class UserController extends Controller
         }
 
         return redirect()->route('home');
+    }
+
+    public function delete()
+    {
+        $user = Auth::user();
+
+        return view('user.delete', compact('user'));
+    }
+
+    public function deleted()
+    {
+        return view('user.deleted');
+    }
+
+    public function destroy(Request $request, User $user = null)
+    {
+        $current_user = Auth::user();
+        // if ($user === null) $user = $current_user;
+        $user = $current_user;
+
+        $user->delete = true;
+        $user->save();
+
+        Auth::logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
+
+        return redirect()->route('user.deleted');
     }
 }
