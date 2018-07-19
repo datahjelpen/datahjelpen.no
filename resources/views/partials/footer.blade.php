@@ -14,6 +14,13 @@
 				<div class="footer-links-2">
 					<a href="{{ route('privacy') }}">Personvern</a>
 				</div>
+				<div class="footer-links-social">
+					<a href="https://fb.com/datahjelpen.no"><i class="icon" data-feather="facebook"></i></a>
+					<a href="https://instagr.am/datahjelpen.no"><i class="icon" data-feather="instagram"></i></a>
+					<a href="https://twitter.com/datahjelpen_no"><i class="icon" data-feather="twitter"></i></a>
+					<a href="https://www.linkedin.com/company/datahjelpen"><i class="icon" data-feather="linkedin"></i></a>
+					<a href="https://github.com/datahjelpen"><i class="icon" data-feather="github"></i></a>
+				</div>
 				<div class="footer-extra-info">
 					<p>Org nr: 917 406 626</p>
 				</div>

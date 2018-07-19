@@ -208,18 +208,18 @@ a {
 		color: $color-link-hover;
 	}
 
-	&:visited {
-		color: $color-link-visited;
+	// &:visited {
+	// 	color: $color-link-visited;
 
-		&:focus,
-		&:hover {
-			color: $color-link-hover;
-		}
-	}
+	// 	&:focus,
+	// 	&:hover {
+	// 		color: $color-link-hover;
+	// 	}
+	// }
 
-	&:active {
-		color: $color-link-active;
-	}
+	// &:active {
+	// 	color: $color-link-active;
+	// }
 }
 
 code,
