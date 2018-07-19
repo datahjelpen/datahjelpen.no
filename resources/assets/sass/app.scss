@@ -175,12 +175,47 @@ a.button {
     @media screen and (min-width: $size-m-up) {
       padding: 5em 0;
     }
+
+    .content-text {
+      img {
+        width: 100%;
+        margin-bottom: $pad-l;
+      }
+
+      .table-wrapper {
+        @media screen and (max-width: $size-m) {
+          overflow-x: auto;
+
+          table {
+            min-width: $size-m;
+          }
+        }
+      }
+
+      table {
+        width: 100%;
+        font-family: $font-code;
+        font-weight: $font-code-weight;
+
+
+        th {
+          text-align: left;
+          font-family: $font-body;
+          font-weight: $font-weight-bold;
+        }
+      }
+
+      h2,
+      h3 {
+        font-family: $font-body;
+        font-weight: $font-weight-normal;
+      }
+    }
   }
 
   &-title {
     margin-top: 0;
   }
-
 }
 
 body {
