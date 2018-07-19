@@ -138,7 +138,7 @@ class UserController extends Controller
                 $user->secret_2fa
             );
 
-            return view('auth.setup_2fa', compact(['user', 'qr_img']));
+            return view('user.settings.security.setup-2fa', compact(['user', 'qr_img']));
         }
 
         Session::flash('error', 'Noe gikk galt, vi kunne ikke sette opp to-faktor autentisering');
