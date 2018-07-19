@@ -46,6 +46,53 @@
 	</div>
 
 	@yield('scripts-before')
+	<script>
+		(function() {
+			var root = this;
+			var messages = false;
+			@foreach (['error', 'warning', 'success', 'info'] as $msg)
+				@if (Session::has('alert-' . $msg))
+					messages = true;
+				@endif
+			@endforeach
+			@if (isset($errors) && count($errors))
+				messages = true;
+			@endif
+
+			if (messages) {
+				var messagesWrapper = document.querySelector('#flash-message');
+				messages = messagesWrapper.querySelectorAll('li');
+
+				for (var i = 0; i < messages.length; i++) {
+					messages[i].addEventListener('click', function() {
+						var message = this;
+						message.classList.add('hide');
+
+						setTimeout(function() {
+							message.classList.add('hidden');
+						}, 250);
+					});
+				}
+
+				setTimeout(function() {
+					for (var i = 0; i < messages.length; i++) {
+						hideMessage(messages[i], i);
+					}
+				}, 5000);
+			}
+
+			function hideMessage(message, timeout) {
+				var timeout = timeout*250;
+				setTimeout(function() {
+					message.classList.add('hide');
+				}, timeout);
+
+				setTimeout(function() {
+					message.classList.add('hidden');
+				}, timeout+250);
+			}
+		})();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,700" rel="stylesheet">
 	<link href="https://cdn.datahjelpen.no/fonts/butler/butler-900.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400" rel="stylesheet">
