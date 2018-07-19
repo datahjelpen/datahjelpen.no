@@ -14,6 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'email' => env('APP_EMAIL'),
     'email_support' => env('APP_EMAIL_SUPPORT'),
     'user' => [
         'default_image' => 'avatars/full/default-user.png'

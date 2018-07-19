@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+use Auth;
+use Session;
+use Carbon\Carbon;
+
+use App\Jobs\SendEmail;
 
 class SiteController extends Controller
 {
@@ -36,5 +41,30 @@ class SiteController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function contact_validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'nullable|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'message' => 'required|string|min:3',
+        ]);
+    }
+
+    public function contact_form(Request $request)
+    {
+        $this->contact_validator($request->all())->validate();
+
+        dispatch(new SendEmail($request));
+        Session::flash('success', 'Din melding ble sendt.');
+
+        return redirect()->route('contact');
     }
 }

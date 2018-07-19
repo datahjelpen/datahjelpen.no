@@ -6,6 +6,7 @@ Route::get('hjem', 'SiteController@index')->name('home');
 
 Route::get('kontakt',     'SiteController@contact')->name('contact');
 Route::get('kontakt-oss', 'SiteController@contact');
+Route::post('kontakt',     'SiteController@contact_form');
 Route::get('om',          'SiteController@about')->name('about');
 Route::get('om-oss',      'SiteController@about');
 
