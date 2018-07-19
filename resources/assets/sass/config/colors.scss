@@ -209,3 +209,14 @@ $color-nav-link-normal-bg:   $color-nav-bg;
 $color-nav-link-hover-text:  $color-nav-bg;
 $color-nav-link-hover-bg:    $color-primary;
 $color-nav-backdrop-bg:      rgba($color-shadow, 0.25);
+
+// Inputs
+$color-input:        $color-font-body;
+$color-input-bg:     $white;
+$color-input-border: $gray4_cold;
+$color-input-focus:        $gray9_cold;
+$color-input-focus-bg:     $white;
+$color-input-focus-border: $gray9_cold;
+$color-input-disabled:        $gray3_cold;
+$color-input-disabled-bg:     $gray1_cold;
+$color-input-disabled-border: $gray3_cold;

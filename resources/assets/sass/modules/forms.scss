@@ -1,0 +1,402 @@
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+	box-sizing: border-box; /* 1 */
+	color: inherit; /* 2 */
+	display: table; /* 1 */
+	max-width: 100%; /* 1 */
+	padding: 0; /* 3 */
+	white-space: normal; /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+	display: inline-block; /* 1 */
+	vertical-align: baseline; /* 2 */
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+	box-sizing: border-box; /* 1 */
+	padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+	-webkit-appearance: textfield; /* 1 */
+	outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
+
+/*
+ * Remove the tapping delay on clickable elements (opinionated).
+ * 1. Remove the tapping delay in IE 10.
+ */
+
+input,
+label,
+select,
+textarea {
+	-ms-touch-action: manipulation; /* 1 */
+	touch-action: manipulation;
+}
+
+input,
+optgroup,
+select,
+textarea {
+	margin: 0;
+}
+
+input,
+select,
+textarea {
+	max-width: 100%;
+	font-family: $font-mono;
+	font-weight: $font-weight-normal;
+	font-size: inherit;
+	line-height: inherit;
+	padding: $pad-s $pad-m;
+	color: $color-input;
+	border: 1px solid $color-input-border;
+	border-radius: $border-radius-s;
+	background-color: $color-input-bg;
+	vertical-align: middle;
+
+	&:hover,
+	&:focus {
+		outline: none;
+		color: $color-input-focus;
+		border: 1px solid $color-input-focus-border;
+		background-color: $color-input-focus-bg;
+	}
+
+	&[disabled] {
+		color: $color-input-disabled;
+		border: 1px solid $color-input-disabled-border;
+		background-color: $color-input-disabled-bg;
+	}
+}
+
+input {
+	overflow: visible;
+}
+
+select {
+	text-transform: none;
+}
+
+textarea {
+	overflow: auto;
+	resize: vertical;
+}
+
+label {
+	color: inherit;
+}
+
+.form-group {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: $pad-l;
+
+	textarea {
+		&.form-input {
+			min-height: $font-size*6;
+
+			@media (min-width: $size-m-up) {
+				min-height: $font-size-desktop*6;
+			}
+		}
+	}
+
+	.form-label {
+		cursor: pointer;
+		margin-top: $pad-m;
+		margin-bottom: $pad-s;
+		width: 100%;
+		font-size: inherit;
+		font-family: inherit;
+		line-height: inherit;
+	}
+
+	.form-input {
+		width: 100%;
+	}
+
+
+	&-checkbox,
+	&-radio,
+	&-switch {
+		flex-direction: row;
+
+		.form-label {
+			position: relative;
+			width: auto;
+			padding-left: 2em;
+			border-bottom: 1px solid transparent;
+
+			&::-moz-selection {
+				color: inherit;
+				background-color: transparent;
+			}
+
+			&::selection {
+				color: inherit;
+				background-color: transparent;
+			}
+
+			&:before {
+				@include transition('background-color, color');
+				position: absolute;
+				content: ' ';
+				left: 0;
+				top: 0;
+				bottom: 0;
+				text-align: center;
+				vertical-align: middle;
+				display: block;
+				margin: auto 0;
+				height: 1.25em;
+				line-height: 1.25em;
+				color: $color-input;
+				border: 1px solid $color-input-border;
+				background-color: $color-input-bg;
+			}
+		}
+
+		.form-input {
+			position: absolute;
+			clip: rect(0 0 0 0);
+			width: 1px;
+			height: 1px;
+			font-size: 1px;
+			opacity: 0.01;
+			line-height: 0;
+			overflow: hidden;
+			z-index: -1;
+
+			&:hover + .form-label,
+			&:focus + .form-label {
+				border-bottom: 1px solid $color-input-focus-border;
+
+				&:before {
+					border-color: $color-input-focus-border;
+					background-color: $color-input-focus-bg;
+				}
+			}
+
+			&[disabled] + .form-label {
+				cursor: default;
+				border-bottom: none;
+				color: $color-input-disabled;
+
+				&:before {
+					color: $color-input-disabled-bg;
+					border-color: $color-input-disabled-border;
+					background-color: $color-input-disabled-bg;
+				}
+			}
+		}
+	}
+
+	&-checkbox,
+	&-radio {
+		.form-label {
+			&:before {
+				width: 1.25em;
+			}
+		}
+	}
+
+	&-checkbox {
+		.form-label {
+			&:before {
+				content: '\2714';
+				color: $color-input-bg;
+				border-radius: $border-radius-s;
+			}
+		}
+
+		.form-input {
+			&:checked + .form-label {
+				&:before {
+					color: $color-input;
+					border-color: $color-input-focus-border;
+					background-color: $color-input-focus-bg;
+				}
+			}
+
+			&[disabled] + .form-label {
+				&:before {
+					color: $color-input-disabled-bg;
+					border-color: $color-input-disabled-border;
+					background-color: $color-input-disabled-bg;
+				}
+			}
+
+			&:checked[disabled] + .form-label {
+				&:before {
+					color: $color-input-disabled;
+				}
+			}
+		}
+	}
+
+	&-radio,
+	&-switch {
+		.form-label {
+			&:after {
+				position: absolute;
+				content: ' ';
+				left: 0.3em;
+				top: 0;
+				bottom: 0;
+				display: block;
+				margin: auto 0;
+				width: 0.65em;
+				height: 0.65em;
+				line-height: 0.65em;
+				background-color: $color-input-bg;
+			}
+		}
+	}
+
+	&-radio {
+		.form-label {
+			&:before,
+			&:after {
+				border-radius: 100%;
+			}
+
+			&:after {
+				@include transition('background-color');
+			}
+		}
+
+		.form-input {
+			&:checked + .form-label {
+				&:before {
+					border-color: $color-input-focus-border;
+					background-color: $color-input-focus-bg;
+				}
+
+				&:after {
+					background-color: $color-input;
+				}
+			}
+
+			&[disabled] + .form-label {
+				&:after {
+					background-color: $color-input-disabled-bg;
+				}
+			}
+
+			&:checked[disabled] + .form-label {
+				&:before {
+					border-color: $color-input-disabled-border;
+					background-color: $color-input-disabled-bg;
+				}
+
+				&:after {
+					background-color: $color-input-disabled;
+				}
+			}
+		}
+	}
+
+	&-switch {
+		.form-label {
+			&:before {
+				width: 1.75em;
+				border-radius: $border-radius-l;
+			}
+
+			&:after {
+				@include transition('background-color, transform');
+				border-radius: 100%;
+				background-color: $color-input;
+			}
+		}
+
+		.form-input {
+			&:checked + .form-label {
+				&:before {
+					border-color: $color-input-focus-border;
+					background-color: $color-input;
+				}
+
+				&:after {
+					transform: translateX(90%);
+					background-color: $color-input-bg;
+				}
+			}
+
+			&[disabled] + .form-label {
+				&:after {
+					background-color: $color-input-disabled;
+				}
+			}
+
+			&:checked[disabled] + .form-label {
+				&:before {
+					border-color: $color-input-disabled-border;
+					background-color: $color-input-disabled;
+				}
+
+				&:after {
+					background-color: $color-input-disabled-bg;
+				}
+			}
+		}
+	}
+}
