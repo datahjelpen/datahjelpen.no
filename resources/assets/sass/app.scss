@@ -122,6 +122,8 @@ a.button {
   text-decoration: none;
   text-transform: uppercase;
   border: none;
+  font-size: 1rem;
+  line-height: 1em;
   box-shadow: 0 10px 25px -15px rgba($indigo9, 0.8);
   @include transition('box-shadow, transform, color, background-color');
 
@@ -460,6 +462,18 @@ body {
     .page-section {
       img {
         width: 200px;
+      }
+    }
+
+    &-slett {
+      .breadcrumb {
+        max-width: $size-s;
+      }
+
+      .page-section {
+        > .inner-wrapper {
+          max-width: $size-s;
+        }
       }
     }
   }
