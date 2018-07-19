@@ -48,10 +48,9 @@
 	@yield('scripts-before')
 	<script>
 		(function() {
-			var root = this;
 			var messages = false;
 			@foreach (['error', 'warning', 'success', 'info'] as $msg)
-				@if (Session::has('alert-' . $msg))
+				@if (Session::has($msg))
 					messages = true;
 				@endif
 			@endforeach
