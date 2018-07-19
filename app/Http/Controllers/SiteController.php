@@ -67,4 +67,28 @@ class SiteController extends Controller
 
         return redirect()->route('contact');
     }
+
+    public function services()
+    {
+        Session::flash('info', 'Vi holder på å oppdatere nettstedet vårt. Denne siden kommer snart...');
+        return redirect()->route('front-page');
+    }
+
+    public function references()
+    {
+        Session::flash('info', 'Vi holder på å oppdatere nettstedet vårt. Denne siden kommer snart...');
+        return redirect()->route('front-page');
+    }
+
+    public function projects()
+    {
+        Session::flash('info', 'Vi holder på å oppdatere nettstedet vårt. Denne siden kommer snart...');
+        return redirect()->route('front-page');
+    }
+
+    public function blog()
+    {
+        Session::flash('info', 'Vi holder på å oppdatere nettstedet vårt. Denne siden kommer snart...');
+        return redirect()->route('front-page');
+    }
 }

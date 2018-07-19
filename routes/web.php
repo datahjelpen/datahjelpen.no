@@ -14,26 +14,26 @@ Route::get('personvern', 'SiteController@index')->name('privacy');
 Route::get('gdpr',       'SiteController@index');
 
 Route::prefix('tjenester')->group(function () {
-	Route::get('/', 'SiteController@index')->name('services');
-	Route::get('/oversikt', 'SiteController@index');
-	Route::get('web-design', 'SiteController@index')->name('services.web-design');
+	Route::get('/', 'SiteController@services')->name('services');
+	Route::get('/oversikt', 'SiteController@services');
+	Route::get('web-design', 'SiteController@services')->name('services.web-design');
 
 	Route::prefix('markedsforing')->group(function () {
-		Route::get('/', 'SiteController@index');
+		Route::get('/', 'SiteController@services');
 		Route::get('google-adwords', 'SiteController@index')->name('services.marketing.google-adwords');
 	});
 });
 
 Route::prefix('referanser')->group(function () {
-	Route::get('/', 'SiteController@index')->name('references');
+	Route::get('/', 'SiteController@references')->name('references');
 });
 
 Route::prefix('prosjekter')->group(function () {
-	Route::get('/', 'SiteController@index')->name('projects');
+	Route::get('/', 'SiteController@projects')->name('projects');
 });
 
 Route::prefix('blog')->group(function () {
-		Route::get('/', 'SiteController@index')->name('blog');
+		Route::get('/', 'SiteController@blog')->name('blog');
 		Route::get('windows-10-slett-midlertidige-filer', 'SiteController@index');
 		Route::get('mac-2-dropbox-kontoer', 'SiteController@index');
 });
