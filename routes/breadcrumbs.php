@@ -19,6 +19,16 @@ Breadcrumbs::for('user.settings', function ($trail) {
     $trail->push('Innstillinger', route('user.settings'));
 });
 
+Breadcrumbs::for('user.edit', function ($trail) {
+    $trail->parent('user.settings');
+    $trail->push('Endre konto', route('user.edit'));
+});
+
+Breadcrumbs::for('user.delete', function ($trail) {
+    $trail->parent('user.settings');
+    $trail->push('Slett konto', route('user.delete'));
+});
+
 Breadcrumbs::for('user.settings.security', function ($trail) {
     $trail->parent('user.settings');
     $trail->push('Sikkerhet', route('user.settings.security'));
