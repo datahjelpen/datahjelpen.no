@@ -1,5 +1,9 @@
 @extends('partials.master')
 @section('content-main')
-	<h1>Registration</h1>
-	<p>You have successfully registered and have been logged-in. An email is sent to you for verification.</p>
+	<section class="page-section">
+		<div class="inner-wrapper">
+			<h1 class="page-title">Registrer</h1>
+			<p>Du har registrert deg og har blitt logget inn. En e-post sendes til deg for bekreftelse.</p>
+		</div>
+	</section>
 @endsection

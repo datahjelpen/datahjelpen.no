@@ -1,28 +1,46 @@
 @extends('partials.master')
 
 @section('content-main')
-    <h1>Login</h1>
-    <form method="POST" action="{{ route('register') }}">
-        {{ csrf_field() }}
+    <section class="page-section">
+        <div class="inner-wrapper">
+            <h1 class="page-title">Registrer</h1>
+            <form method="POST" action="{{ route('register') }}">
+                {{ csrf_field() }}
 
-        <label for="name">Navn</label>
-        <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+                <div class="form-group">
+                    <label class="form-label" for="name">Navn</label>
+                    <input class="form-input" id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+                </div>
 
-        <label for="email">E-post</label>
-        <input id="email" type="email" name="email" value="{{ old('email') }}" required>
+                <div class="form-group">
+                    <label class="form-label" for="email">E-post</label>
+                    <input class="form-input" id="email" type="email" name="email" value="{{ old('email') }}" required>
+                </div>
 
-        <label for="password">Passord</label>
-        <input id="password" type="password" name="password" required>
+                <div class="form-groups">
+                    <div class="form-group">
+                        <label class="form-label" for="password">Passord</label>
+                        <input class="form-input" id="password" type="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="password_confirmation">Gjennta passord</label>
+                        <input class="form-input" id="password_confirmation" type="password" name="password_confirmation" required>
+                    </div>
+                </div>
 
-        <label for="password_confirmation">Gjennta passord</label>
-        <input id="password_confirmation" type="password" name="password_confirmation" required>
+                <div class="form-group">
+                    <button class="primary" type="submit">Registrer</button>
+                </div>
 
-        <button type="submit">Registrer</button>
+                <div class="form-group">
+                    <a class="button" href="{{ route('login.oauth', 'google') }}">
+                        <img class="icon" src="/images/google-logo.svg" alt="G logo">
+                        <span>Login via Google</span>
+                    </a>
+                </div>
 
-        <a href="{{ route('password.request') }}">
-            Glemt passord?
-        </a>
-    </form>
-
-    <a href="{{ route('login.oauth', 'google') }}">Login via Google</a>
+                <p>Eksisterende kunde? <a href="{{ route('login') }}">login</a></p>
+            </form>
+        </div>
+    </section>
 @endsection
