@@ -40,6 +40,12 @@ class SiteController extends Controller
 
     public function contact()
     {
+        $user = Auth::user();
+
+        if ($user != null) {
+            return view('contact', compact('user'));
+        }
+
         return view('contact');
     }
 

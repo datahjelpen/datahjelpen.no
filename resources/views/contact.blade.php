@@ -12,11 +12,11 @@
 				<div class="form-groups">
 					<div class="form-group">
 						<label class="form-label" for="contact-name">Navn</label>
-						<input class="form-input" id="contact-name" name="name" type="text" value="{{ old('name') }}">
+						<input class="form-input" id="contact-name" name="name" type="text" value="{{ old('name', isset($user->name) ? $user->name : null) }}">
 					</div>
 					<div class="form-group">
 						<label class="form-label" for="contact-email">E-post *</label>
-						<input class="form-input" id="contact-email" name="email" type="Email" required value="{{ old('email') }}">
+						<input class="form-input" id="contact-email" name="email" type="Email" required value="{{ old('email', isset($user->email) ? $user->email : null) }}">
 					</div>
 				</div>
 				<div class="form-group">
