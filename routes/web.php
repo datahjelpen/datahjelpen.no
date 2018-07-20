@@ -73,6 +73,7 @@ Route::prefix('personvern')->group(function () {
 	Route::get('personvernerklaring', 'SiteController@privacy_policy')->name('privacy.policy');
 	Route::get('personvernerklæring', 'SiteController@privacy_landing');
 	Route::get('personvernerklaring#cookies', 'SiteController@privacy_policy')->name('privacy.cookies');
+	Route::get('databehandleravtale', 'SiteController@privacy_dpa')->name('privacy.dpa');
 });
 
 Route::prefix('tjenester')->group(function () {

@@ -122,4 +122,9 @@ class SiteController extends Controller
     {
         return view('privacy_policy');
     }
+
+    public function privacy_dpa()
+    {
+        return view('privacy_dpa');
+    }
 }
