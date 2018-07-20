@@ -171,6 +171,21 @@ label {
 	align-items: flex-start;
 	margin-bottom: $pad-l;
 
+	&.error {
+		.form-input {
+			border-color: $color-error;
+		}
+
+		&.form-group-checkbox,
+		&.form-group-radio,
+		&.form-group-switch {
+			.form-label {
+				&:before {
+					border-color: $color-error;
+				}
+			}
+		}
+	}
 
 	textarea {
 		&.form-input {
