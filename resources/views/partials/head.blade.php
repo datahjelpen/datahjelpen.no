@@ -1,3 +1,12 @@
+@php
+	$title = ucfirst(str_replace('/', ' - ', Request::path()));
+
+	if ($title == ' - ') {
+		$title = config('app.name_legal');
+	} else {
+		$title .= ' | ' . config('app.name_legal');
+	}
+@endphp
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}"  prefix="og: http://ogp.me/ns#">
 <head>
@@ -5,7 +14,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>{{ config('app.name') }}</title>
+	<title>{{ $title }}</title>
 	<link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
 	<meta name="author" content="Datahjelpen AS">
@@ -61,6 +70,6 @@
 				gtag('config', 'UA-72567544-8');
 			})();
 		}
-	</script>
+	</script> --}}
 </head>
 <body>
