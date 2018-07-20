@@ -4,12 +4,11 @@
 	<section class="page-section">
 		<div class="inner-wrapper">
 			<h1 class="page-title">Sikkerhet</h1>
-			<div class="content-text">
 				<a href="{{ route('user.setup_2fa') }}">Skru på to-faktor autentisering</a> |
 				<a href="{{ route('user.disable_2fa') }}">Skru av to-faktor autentisering</a>
 
 {{-- 				@if ($is_reauthenticated)
-					<p>Du har bekreftet din identitet og har full tilgang (sikkerhetsnivå 2) i {{ $reauthenticated_time_remaining }} minutter.</p>
+				<p>Du har bekreftet din identitet og har full tilgang (sikkerhetsnivå 2) i {{ $reauthenticated_time_remaining }} minutter.</p>
 					<form method="POST" action="{{ route('reauthenticate.deauthenticate') }}">
 						{{ csrf_field() }}
 						<button class="neutral">Gå til sikkerhetsnivå 1</button>
@@ -60,9 +59,8 @@
 								<p>Om du endrer passord vil du bli logget ut.</p>
 							</div>
 						</div>
-					</form>
-				@endif
-			</div>
+				</form>
+			@endif
 		</div>
 	</section>
 @endsection
