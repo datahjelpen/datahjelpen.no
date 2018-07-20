@@ -33,7 +33,7 @@
 				</div>
 				<div class="footer-links-2">
 					<a href="{{ route('privacy') }}">Personvern{{--  & sikkerhet --}}</a>
-					<a href="{{ route('privacy.cookies') }}">Informasjonskaplser{{--  & sikkerhet --}}</a>
+					{{-- <a href="{{ route('privacy.cookies') }}">Informasjonskaplser</a> --}}
 				</div>
 				<div class="footer-links-social">
 					<a href="https://fb.com/datahjelpen.no"><i class="icon" data-feather="facebook"></i></a>
@@ -47,15 +47,22 @@
 				</div>
 			</div>
 			<div>
+				<div class="footer-contact">
+					<p><strong>Kontakt</strong></p>
+					<p><span>E-post: </span><a href="mailto:post@datahjelpen.no">post@datahjelpen.no</a></p>
+					<p><span>Telefon:</span><a href="tlf:46531170">465 31 170</a></p>
+				</div>
+			</div>
+			<div>
 				<div class="footer-location">
 					<p><strong>Sandefjord</strong></p>
 					<p>Søndre kullerød 2,</p>
 					<p>3241 Sandefjord</p>
 				</div>
-				<div class="footer-contact">
-					<p><strong>Kontakt</strong></p>
-					<p><span>E-post: </span><a href="mailto:post@datahjelpen.no">post@datahjelpen.no</a></p>
-					<p><span>Telefon:</span><a href="tlf:46531170">465 31 170</a></p>
+				<div class="footer-location">
+					<p><strong>Halden</strong></p>
+					<p>Grimsrødveien 6,</p>
+					<p>1786 Halden</p>
 				</div>
 			</div>
 		</section>
