@@ -235,7 +235,8 @@
 
 				<h2>16. Meddelelser</h2>
 				<p>Leverandør vil sende meddelelser skriftlig etter denne avtalen til den enhver tid
-				oppgitte kundekontakten i kundeforholdet. Kunde må sende meddelelser skriftlig til personvern@datahjelpen.no.</p>
+				oppgitte kundekontakten i kundeforholdet. Kunde må sende meddelelser skriftlig til
+				<a href="mailto:personvern@datahjelpen.no">personvern@datahjelpen.no</a>.</p>
 
 
 				<h2>17. Lovvalg og verneting</h2>
