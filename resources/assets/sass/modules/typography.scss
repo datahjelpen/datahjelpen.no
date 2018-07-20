@@ -64,6 +64,18 @@ p {
 		p {
 			margin-bottom: $pad-l;
 		}
+
+		&-legal {
+			p {
+				text-align: justify;
+			}
+
+			&-introduction {
+				p {
+					text-align: center;
+				}
+			}
+		}
 	}
 }
 

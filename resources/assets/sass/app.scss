@@ -189,9 +189,15 @@ a.button {
 
 	> .inner-wrapper {
 		width: 100%;
-		max-width: $size-l;
-		padding: 0 1em;
-	}
+    max-width: $size-l;
+    padding: 0 1em;
+  }
+
+  &.page-legal {
+    > .inner-wrapper {
+      max-width: 210mm;
+    }
+  }
 }
 
 .page {
