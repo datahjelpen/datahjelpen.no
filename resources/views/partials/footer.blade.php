@@ -43,7 +43,7 @@
 					<a href="https://github.com/datahjelpen"><i class="icon" data-feather="github"></i></a>
 				</div>
 				<div class="footer-extra-info">
-					<p>Org nr: 917 406 626</p>
+					<p>Org nr: {{ config('app.company_nr') }}</p>
 				</div>
 			</div>
 			<div>
