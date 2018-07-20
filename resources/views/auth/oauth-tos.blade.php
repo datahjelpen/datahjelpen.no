@@ -6,8 +6,8 @@
             <h1 class="page-title">Registrer</h1>
             <p>For å logge inn med {{ ucfirst($provider) }} må du først godta følgende:</p>
             <ul>
-                <li><a href="#">Tjenestevilkår</a></li>
-                <li><a href="#">Personvernserklæringen</a></li>
+                <li><a href="{{ route('tos') }}">Tjenestevilkår</a></li>
+                <li><a href="{{ route('privacy.policy') }}">Personvernserklæringen</a></li>
             </ul>
             <form method="POST" action="{{ route('login.oauth.complete', $provider) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
