@@ -8,7 +8,7 @@
 				<div>
 					<div class="footer-links-authed">
 						<a href="{{ route('user') }}"><i class="icon" data-feather="user"></i><span>Konto</span></a>
-						<a href="{{ route('dashboard') }}"><i class="icon" data-feather="layout"></i><span>Kontrollpanel</span></a>
+						{{-- <a href="{{ route('dashboard') }}"><i class="icon" data-feather="layout"></i><span>Kontrollpanel</span></a> --}}
 						<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 							<i class="icon" data-feather="log-out"></i><span>Logout</span>
 						</a>
@@ -26,7 +26,10 @@
 					<a href="{{ route('front-page') }}#projects">Prosjekter</a>
 					<a href="{{ route('contact') }}">Kontakt</a>
 					<a href="{{ route('about') }}">Om oss</a>
-					<a href="{{ route('login') }}">Kundelogin</a>
+					@auth
+					@else
+						<a href="{{ route('login') }}">Kundelogin</a>
+					@endauth
 				</div>
 				<div class="footer-links-2">
 					<a href="{{ route('privacy') }}">Personvern{{--  & sikkerhet --}}</a>
@@ -58,7 +61,7 @@
 		</section>
 		<section>
 			<div class="footer-copyright">
-				<p>© Copyright {{ Date('Y') }} - {{ config('app.name') }}</p>
+				<p>© Copyright 2016-{{ Date('Y') }} - {{ config('app.name_legal') }}</p>
 			</div>
 		</section>
 	</div>
