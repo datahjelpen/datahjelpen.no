@@ -66,10 +66,10 @@ class LoginController extends Controller
     public function oauthComplete(Request $request, String $provider)
     {
         $this->validate($request, [
-            'agree_to_tos_privacy' => 'required',
+            'agree_to_tos_privacy' => 'accepted',
             'user_name'   => 'required|string',
             'user_email'  => 'required|email',
-            'user_avatar' => 'image',
+            // 'user_avatar' => 'image',
         ]);
 
 
@@ -90,9 +90,12 @@ class LoginController extends Controller
             $user->verified = true;
             $user->agree_tos = true;
             $user->agree_tos_latest = Carbon::now()->toDateTimeString();
+            $user->agree_privacy = true;
+            $user->agree_privacy_latest = Carbon::now()->toDateTimeString();
 
             $user->save();
 
+            $user_data->avatar = null;
             if ($request->has('user_avatar')) {
                 $user_data->avatar = $request->user_avatar;
             }
@@ -169,7 +172,7 @@ class LoginController extends Controller
             $user_data->provider = $provider;
             $user_data->provider_id = $google_user->getId();
             // We change from https to http because Intervention\Image seems to be not always be able to use https URLs...
-            $user_data->avatar = str_replace('https://', 'http://', str_replace('?sz=50', '?sz=512', $google_user->getAvatar()));
+            // $user_data->avatar = str_replace('https://', 'http://', str_replace('?sz=50', '?sz=512', $google_user->getAvatar()));
         }
 
         if ($used_authorized_provder) {
