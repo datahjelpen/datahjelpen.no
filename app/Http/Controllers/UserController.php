@@ -30,7 +30,7 @@ class UserController extends Controller
         $this->middleware('verified')->except(['verify', 'deleted']);
         $this->middleware('reauthenticate')->only([
             'show_settings_security',
-            'update',
+            'update_sensitive',
             'disable_2fa_complete'
         ]);
         $this->middleware('2fa')->only('setup_2fa_complete');
@@ -81,18 +81,19 @@ class UserController extends Controller
         return view('user.edit', compact('user', 'current_user'));
     }
 
-    public function update(Request $request, User $user = null)
+    public function update_sensitive(Request $request, User $user = null)
     {
         $current_user = Auth::user();
-        if ($user === null) $user = Auth::user();
+        // if ($user === null) $user = $current_user;
+        $user = $current_user;
         $user_info_updated = false;
 
-        if ($user->hasProvider()) {
-            Session::flash('Error', 'Du er logget inn med en oAuth klient og kan ikke endre e-post eller passord.');
-            return redirect()->back();
-        }
-
         if ($request->has('email')) {
+            if ($user->hasProvider()) {
+                Session::flash('error', 'Du er logget inn med en oAuth klient og kan ikke endre e-post eller passord.');
+                return redirect()->back();
+            }
+
             if ($user->email == $request->email) {
                 Session::flash('info', 'Din gjeldene e-post er identisk');
                 return redirect()->back();
@@ -107,9 +108,13 @@ class UserController extends Controller
         }
 
         if ($request->has('password')) {
+            if ($user->hasProvider()) {
+                Session::flash('error', 'Du er logget inn med en oAuth klient og kan ikke endre e-post eller passord.');
+                return redirect()->back();
+            }
+
             $this->validate($request, [
-                'password_current' => 'required|string',
-                'password' => 'required|string|min:6|confirmed'
+                'password_current' => 'required|string'
             ]);
 
             $credentials = [
@@ -118,6 +123,10 @@ class UserController extends Controller
             ];
 
             if (Auth::attempt($credentials)) {
+                $this->validate($request, [
+                    'password' => 'required|string|min:6|confirmed'
+                ]);
+
                 $user->password = Hash::make($request->password);
                 $user_info_updated = true;
             } else {
@@ -125,12 +134,29 @@ class UserController extends Controller
             }
         }
 
-        if ($request->has('phone')) {
+        if ($user_info_updated) {
+            if ($user->save()) {
+                Session::flash('success', 'Konto oppdatert');
+            } else {
+                Session::flash('error', 'Noe gikk galt. Vi kunne ikke oppdatere din konto.');
+            }
+        } else {
+            Session::flash('info', 'Ingenting ble endret.');
+        }
+
+        return redirect()->back();
+    }
+
+    public function update(Request $request, User $user = null)
+    {
+        $current_user = Auth::user();
+        // if ($user === null) $user = $current_user;
+        $user = $current_user;
+        $user_info_updated = false;
             $now = Carbon::now()->toDateTimeString();
-            // dd($request);
-            // Carbon::now()->toDateTimeString()
 
             $this->validate($request, [
+            'name' => 'required|string',
                 'phone' => 'nullable|string',
                 'company' => 'nullable|string',
                 'company_nr' => 'nullable|string',
@@ -139,6 +165,7 @@ class UserController extends Controller
                 'agree_dpa' => 'nullable'
             ]);
 
+        $user->name =                 $request->name;
             $user->phone =                $request->phone;
             $user->company =              $request->company;
             $user->company_nr =           $request->company_nr;
@@ -153,7 +180,6 @@ class UserController extends Controller
             $user->agree_dpa_latest =     $request->has('agree_dpa')     ? $now : null;
 
             $user_info_updated = true;
-        }
 
         if ($user_info_updated) {
             if ($user->save()) {

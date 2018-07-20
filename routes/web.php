@@ -29,6 +29,7 @@ Route::prefix('konto')->group(function () {
 	Route::get('/',          'UserController@show')->name('user');
 	Route::get('oppdater',   'UserController@edit')->name('user.edit');
 	Route::patch('oppdater', 'UserController@update')->name('user.update');
+	Route::patch('oppdater-sensitiv', 'UserController@update_sensitive')->name('user.update_sensitive');
 	Route::get('slett',      'UserController@delete')->name('user.delete');
 	Route::delete('slett',   'UserController@destroy')->name('user.destroy');
 	Route::get('konto-slettet',      'UserController@deleted')->name('user.deleted');

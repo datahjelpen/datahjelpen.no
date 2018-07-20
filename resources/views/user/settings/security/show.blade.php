@@ -14,14 +14,14 @@
 						{{ csrf_field() }}
 						<button class="neutral">Gå til sikkerhetsnivå 1</button>
 					</form>
-				@endif --}}
+			@endif --}}
 
-				@if ($user->hasProvider())
+			@if ($user->hasProvider())
 					Du er logget inn med en oAuth klient og kan ikke endre e-post eller passord.
-				@else
-					<form method="POST" action="{{ route('user.update') }}">
-						{{ method_field('PATCH') }}
-						{{ csrf_field() }}
+			@else
+				<form method="POST" action="{{ route('user.update_sensitive') }}">
+					{{ method_field('PATCH') }}
+					{{ csrf_field() }}
 
 						<div class="form-group">
 							<label class="form-label" for="email">E-post</label>
@@ -30,12 +30,12 @@
 
 						<div class="form-group">
 							<button class="neutral" type="submit">Oppdater</button>
-						</div>
-					</form>
+					</div>
+				</form>
 
-					<form method="POST" action="{{ route('user.update') }}">
-						{{ method_field('PATCH') }}
-						{{ csrf_field() }}
+				<form method="POST" action="{{ route('user.update_sensitive') }}">
+					{{ method_field('PATCH') }}
+					{{ csrf_field() }}
 
 						<div class="form-group">
 							<label class="form-label" for="password_current">Nåværende passord</label>
