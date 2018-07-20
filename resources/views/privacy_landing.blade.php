@@ -10,7 +10,7 @@
 
 				<h3>Vi selger ikke dine personlige opplysninger til noen.</h3>
 				<p>Les vår <a href="{{ route('privacy.policy') }}">Personvernerklæring</a></p>
-				<p>Les om <a href="{{ route('privacy.cookies') }}">Informasjonskaplser</a></p>
+				{{-- <p>Les om <a href="{{ route('privacy.cookies') }}">Informasjonskaplser</a></p> --}}
 			</div>
 		</div>
 	</header>
