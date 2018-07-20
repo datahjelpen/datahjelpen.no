@@ -11,9 +11,9 @@
 					jf. Artikkel 32-36, inngås følgende avtale</p>
 					<p>mellom</p>
 					<p>(behandlingsansvarlig)</p>
-					<p><em>KUNENAVN AS</em></p>
+					<p>{{ $user->company }} (Org. nr.: {{ $user->company_nr }})</p>
 					<p>og</p>
-					<p><em>{{ config('app.name_legal') }}</em></p>
+					<p>{{ config('app.name_legal') }} (Org. nr.: {{ config('app.company_nr') }})</p>
 					<p>(databehandler)</p>
 					<p><strong>Databehandler</strong> er Datahjelpen AS, heretter omtalt som "Leverandør" eller
 					"databehandler".</p>

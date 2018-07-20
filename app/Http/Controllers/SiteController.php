@@ -20,7 +20,7 @@ class SiteController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth')->except('index');
+        $this->middleware('auth')->only('privacy_dpa');
     }
 
     /**
@@ -125,6 +125,13 @@ class SiteController extends Controller
 
     public function privacy_dpa()
     {
-        return view('privacy_dpa');
+        $user = Auth::user();
+
+        if (!isset($user->company) || !isset($user->company_nr)) {
+            Session::flash('error', 'For å kunne godta vår databehandleravtale, kreves det selskapsnavn og org. nr.');
+            return redirect()->back();
+        }
+
+        return view('privacy_dpa', compact('user'));
     }
 }

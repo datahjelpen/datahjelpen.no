@@ -44,7 +44,7 @@
 				</div>
 				<div class="form-group form-group-checkbox">
 					<input class="form-input form-input-checkbox" id="agree_dpa" name="agree_dpa" type="checkbox" {{ old('agree_dpa', $user->agree_dpa) ? 'checked' : '' }}>
-					<label class="form-label" for="agree_dpa">Jeg har lest og godtatt <a href="{{ route('privacy.policy') }}" target="_blank">databehandleravtalen</a></label>
+					<label class="form-label" for="agree_dpa">Jeg har lest og godtatt <a href="{{ route('privacy.dpa') }}" target="_blank">databehandleravtalen</a></label>
 				</div>
 				<div class="form-groups">
 					<div class="form-groups"></div>

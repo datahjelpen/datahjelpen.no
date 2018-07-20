@@ -15,6 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Datahjelpen'),
     'name_legal' => env('APP_NAME_LEGAL', 'Datahjelpen AS'),
+    'company_nr' => env('APP_COMPANY_NR', '917 406 626'),
     'email' => env('APP_EMAIL'),
     'email_support' => env('APP_EMAIL_SUPPORT'),
     'user' => [
