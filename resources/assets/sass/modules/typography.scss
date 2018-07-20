@@ -65,9 +65,50 @@ p {
 			margin-bottom: $pad-l;
 		}
 
+    img {
+      width: 100%;
+      margin-bottom: $pad-l;
+    }
+
+    .table-wrapper {
+      @media screen and (max-width: $size-m) {
+        overflow-x: auto;
+
+        table {
+          min-width: $size-m;
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      font-family: $font-code;
+      font-weight: $font-code-weight;
+
+
+      th {
+        text-align: left;
+        font-family: $font-body;
+        font-weight: $font-weight-bold;
+      }
+    }
+
+		h2, h3,
+		h4, h5 {
+			text-transform: uppercase;
+      font-family: $font-body;
+      font-weight: $font-weight-normal;
+    }
+
 		&-legal {
 			p {
 				text-align: justify;
+			}
+
+			h2, h3,
+			h4, h5 {
+				font-weight: $font-headings-weight;
+				font-family: $font-headings;
 			}
 
 			&-introduction {
