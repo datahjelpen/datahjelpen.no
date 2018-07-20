@@ -61,11 +61,12 @@ class Reauthenticates extends Controller
                 Session::flash('info', 'Vi støtter ikke bekreftelseskode via SMS enda, du vil motta en e-post.');
                 // Session::flash('info', 'Vi sendt deg en bekreftelseskode, sjekk telefonen din.');
                 dispatch(new SendConfirmationCodeEmail($user));
-            } else if ($request->send_with == 'dev_bypass') {
-                // $reauth = new ReauthLimiter($request);
-                $user->confirmation_code = '123';
-                $user->save();
             }
+            // else if ($request->send_with == 'dev_bypass') {
+            //     // $reauth = new ReauthLimiter($request);
+            //     $user->confirmation_code = '123';
+            //     $user->save();
+            // }
 
             return View::make('auth.reauthenticate');
         }

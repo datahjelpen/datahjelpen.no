@@ -65,7 +65,7 @@ class ReauthLimiter
         event(new ReauthenticateAttempt($user));
 
         if ($user->enabled_2fa) {
-            if ($confirmation_code != '123' && !$authenticator->verifyGoogle2FA($user->secret_2fa, $confirmation_code)) {
+            if (!$authenticator->verifyGoogle2FA($user->secret_2fa, $confirmation_code)) {
                 event(new LoginFailed($user));
                 event(new ReauthenticateFail($user));
 
@@ -77,7 +77,6 @@ class ReauthLimiter
 
             event(new LoginSucceeded($user));
         } else if ($user->confirmation_code != null && $user->confirmation_code != $confirmation_code) {
-        // } else if ('123' != $confirmation_code) {
             event(new ReauthenticateFail($user));
 
             $user->failed_attempts = $user->failed_attempts + 1;
