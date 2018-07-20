@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use App\Notifications\PasswordReset;
 
 class User extends Authenticatable
 {
@@ -21,7 +22,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'phone', 'password', 'email_token', 'verified', 'last_login',
         'failed_attempts', 'enabled_2fa', 'secret_2fa', 'confirmation_code',
-        'confirmation_code_valid_until', 'image_id', 'agree_tos', 'agree_tos_latest'
+        'confirmation_code_valid_until', 'image_id', 'agree_tos', 'agree_tos_latest', 'agree_privacy',
+        'agree_privacy_latest', 'agree_dpa', 'agree_dpa_latest',
     ];
 
     /**
@@ -71,5 +73,16 @@ class User extends Authenticatable
             $image->url = config('app.user.default_image');
             $image->alt_tag = config('app.user.default_image');
         });
-   }
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordReset($token));
+    }
 }

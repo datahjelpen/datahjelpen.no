@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         $this->middleware('auth')->except('deleted');
         $this->middleware('deleted')->except('deleted');
-        $this->middleware('verified')->except(['verify', 'deleted']);
+        $this->middleware('verified')->except(['show', 'verify', 'deleted']);
         $this->middleware('reauthenticate')->only([
             'show_settings_security',
             'update_sensitive',
@@ -153,33 +153,33 @@ class UserController extends Controller
         // if ($user === null) $user = $current_user;
         $user = $current_user;
         $user_info_updated = false;
-            $now = Carbon::now()->toDateTimeString();
+        $now = Carbon::now()->toDateTimeString();
 
-            $this->validate($request, [
+        $this->validate($request, [
             'name' => 'required|string',
-                'phone' => 'nullable|string',
-                'company' => 'nullable|string',
-                'company_nr' => 'nullable|string',
-                'agree_tos' => 'nullable',
-                'agree_privacy' => 'nullable',
-                'agree_dpa' => 'nullable'
-            ]);
+            'phone' => 'nullable|string',
+            'company' => 'nullable|string',
+            'company_nr' => 'nullable|string',
+            'agree_tos' => 'nullable',
+            'agree_privacy' => 'nullable',
+            'agree_dpa' => 'nullable'
+        ]);
 
         $user->name =                 $request->name;
-            $user->phone =                $request->phone;
-            $user->company =              $request->company;
-            $user->company_nr =           $request->company_nr;
+        $user->phone =                $request->phone;
+        $user->company =              $request->company;
+        $user->company_nr =           $request->company_nr;
 
-            $user->agree_tos =            $request->has('agree_tos')     ? true : false;
-            $user->agree_tos_latest =     $request->has('agree_tos')     ? $now : null;
+        $user->agree_tos =            $request->has('agree_tos')     ? true : false;
+        $user->agree_tos_latest =     $request->has('agree_tos')     ? $now : null;
 
-            $user->agree_privacy =        $request->has('agree_privacy') ? true : false;
-            $user->agree_privacy_latest = $request->has('agree_privacy') ? $now : null;
+        $user->agree_privacy =        $request->has('agree_privacy') ? true : false;
+        $user->agree_privacy_latest = $request->has('agree_privacy') ? $now : null;
 
-            $user->agree_dpa =            $request->has('agree_dpa')     ? true : false;
-            $user->agree_dpa_latest =     $request->has('agree_dpa')     ? $now : null;
+        $user->agree_dpa =            $request->has('agree_dpa')     ? true : false;
+        $user->agree_dpa_latest =     $request->has('agree_dpa')     ? $now : null;
 
-            $user_info_updated = true;
+        $user_info_updated = true;
 
         if ($user_info_updated) {
             if ($user->save()) {

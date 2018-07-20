@@ -25,7 +25,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('dashboard.index', compact('user'));
+        return redirect()->route('user');
+        // $user = Auth::user();
+        // return view('dashboard.index', compact('user'));
     }
 }

@@ -32,6 +32,10 @@ class ConfirmationCode extends Mailable
      */
     public function build()
     {
+        $subject = 'Bekreftelseskode - ' . config('app.name');
+        $from = config('app.email');
+        $to = $this->user->email;
+
         return $this->view('email.confirmation_code')->with([
            'user' => $this->user
         ]);

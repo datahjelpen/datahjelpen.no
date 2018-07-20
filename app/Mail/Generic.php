@@ -44,7 +44,6 @@ class Generic extends Mailable
         }
 
         $to = config('app.email_support');
-        // $to = 'bjornar@datahjelpen.no';
 
         return $this->subject($subject)->from($from)->to($to)->view('email.generic')->with([
            'fields' => $this->fields,

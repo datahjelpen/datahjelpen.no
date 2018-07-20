@@ -82,6 +82,7 @@ class LoginController extends Controller
                 return redirect()->route('login');
             }
 
+            $now = Carbon::now()->toDateTimeString();
             $user = new User;
             $user->name = $request->user_name;
             $user->email = $user_data->email;
@@ -89,9 +90,9 @@ class LoginController extends Controller
             $user->provider_id = $user_data->provider_id;
             $user->verified = true;
             $user->agree_tos = true;
-            $user->agree_tos_latest = Carbon::now()->toDateTimeString();
+            $user->agree_tos_latest = $now;
             $user->agree_privacy = true;
-            $user->agree_privacy_latest = Carbon::now()->toDateTimeString();
+            $user->agree_privacy_latest = $now;
 
             $user->save();
 

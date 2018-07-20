@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'agree_to_tos_privacy' => 'accepted',
         ]);
     }
 
@@ -68,13 +69,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $now = Carbon::now()->toDateTimeString();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'email_token' => bin2hex(random_bytes(16)) . str_shuffle(str_slug($data['email'])),
             'agree_tos' => true,
-            'agree_tos_latest' => Carbon::now()->toDateTimeString(),
+            'agree_tos_latest' => $now,
+            'agree_privacy' => true,
+            'agree_privacy_latest' => $now
         ]);
     }
 
@@ -90,6 +94,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         $user->assignRole('user');
+
         $user->save();
 
         Auth::login($user);

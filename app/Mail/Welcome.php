@@ -31,8 +31,13 @@ class Welcome extends Mailable
      */
     public function build()
     {
-        return $this->view('email.welcome')->with([
+        $subject = 'Velkommen som kunde hos ' . config('app.name_legal');
+        $from = config('app.email');
+        $to = $this->user->email;
+
+        return $this->subject($subject)->from($from)->to($to)->view('email.welcome')->with([
            'email_token' => $this->user->email_token,
+           'subject' => $subject
         ]);
     }
 }
