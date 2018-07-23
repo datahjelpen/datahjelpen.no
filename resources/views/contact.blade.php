@@ -9,6 +9,7 @@
 			</div>
 			<form action="{{ route('contact') }}" method="POST">
 				{{ csrf_field() }}
+				<input id="honey" type="text" name="firstname"> {{-- honeypot --}}
 				<div class="form-groups">
 					<div class="form-group">
 						<label class="form-label" for="contact-name">Navn</label>

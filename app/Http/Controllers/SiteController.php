@@ -58,6 +58,7 @@ class SiteController extends Controller
     protected function contact_validator(array $data)
     {
         return Validator::make($data, [
+            'firstname' => 'present', // Honeypot
             'name' => 'nullable|string|max:255',
             'email' => 'required|string|email|max:255',
             'message' => 'required|string|min:3',
@@ -67,6 +68,8 @@ class SiteController extends Controller
     public function contact_form(Request $request)
     {
         $this->contact_validator($request->all())->validate();
+
+        if ($request->firstname != null) abort(403);
 
         dispatch(new SendEmail($request));
         Session::flash('success', 'Din melding ble sendt.');

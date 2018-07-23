@@ -7,6 +7,8 @@
             <form method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
 
+                <input id="honey" type="text" name="firstname"> {{-- honeypot --}}
+
                 <div class="form-group">
                     <label class="form-label" for="name">Navn</label>
                     <input class="form-input" id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
