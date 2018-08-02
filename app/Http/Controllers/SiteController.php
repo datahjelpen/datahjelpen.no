@@ -100,22 +100,6 @@ class SiteController extends Controller
         return redirect()->route('front-page');
     }
 
-    public function blog()
-    {
-        Session::flash('info', 'Vi holder på å oppdatere nettstedet vårt. Denne siden kommer snart...');
-        return redirect()->route('front-page');
-    }
-
-    public function blog1()
-    {
-        return view('blog1');
-    }
-
-    public function blog2()
-    {
-        return view('blog2');
-    }
-
     public function privacy_landing()
     {
         return view('privacy_landing');

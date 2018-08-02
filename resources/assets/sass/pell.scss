@@ -1,0 +1,88 @@
+$pell-actionbar-color: #FFF !default;
+$pell-border-color: rgba(10, 10, 10, 0.1) !default;
+$pell-border-style: solid !default;
+$pell-border-width: 1px !default;
+$pell-button-height: 30px !default;
+$pell-button-selected-color: #F0F0F0 !default;
+$pell-button-width: 30px !default;
+$pell-content-height: 500px !default;
+$pell-content-padding: 1rem !default;
+
+.pell {
+  // border: $pell-border-width $pell-border-style $pell-border-color;
+  // box-sizing: border-box;
+}
+
+.pell-content {
+  min-height: $pell-content-height;
+  height: 100%;
+  outline: 0;
+  overflow-y: auto;
+  cursor: text;
+  background-color: rgba(white, 1.0);
+  transition-property: 'background-color', 'border';
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  border: 1px solid black;
+  border-radius: 0.5em;
+
+  &:focus {
+    border: 1px solid transparent;
+    background-color: transparent;
+  }
+}
+
+.pell-actionbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-bottom: 1px solid #f8f9fa;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.pell-button {
+  // background-color: transparent;
+  // border: none;
+  // cursor: pointer;
+  // height: $pell-button-height;
+  // outline: 0;
+  // width: $pell-button-width;
+  // vertical-align: bottom;
+  padding: 1.25em;
+  flex-grow: 1;
+  box-shadow: none;
+  background-color: transparent;
+  border-radius: 0;
+  border-right: 1px solid #f8f9fa;
+
+  &:focus,
+  &:hover {
+    transition: none;
+    transform: none;
+    box-shadow: none;
+    color: #fff;
+    background-color: #ff2014;
+  }
+}
+
+.pell-button-selected {
+  background-color: $pell-button-selected-color;
+}
+
+#article-title {
+  cursor: text;
+}
+
+#article-editor {
+  margin-bottom: 30em;
+}
+
+#article-save {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}

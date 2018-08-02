@@ -2,7 +2,7 @@
 @section('content-main')
 	<header class="page-header">
 		<div class="inner-wrapper">
-			<h1><span style="font-weight: 900;">Datahjelpen</span> — Vi skaper de digitale opplevelsene som folk elsker.</h1>
+			<h1><span style="font-weight: 900;">Datahjelpen</span> — Vi skaper de digitale opplevelsene folk elsker.</h1>
 		</div>
 		{{-- <img id="bg-graphic" src="/images/patterns/waves/waves-blue@2x.png"> --}}
 	</header>

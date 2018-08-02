@@ -1,18 +1,18 @@
 @import 'colors';
 @import 'typography';
 
-$size-xs:     239 / $font-base + rem;
-$size-xs-up:  240 / $font-base + rem;
-$size-s:      479 / $font-base + rem;
-$size-s-up:   480 / $font-base + rem;
-$size-m:      767 / $font-base + rem;
-$size-m-up:   768 / $font-base + rem;
-$size-l:      1023 / $font-base + rem;
-$size-l-up:   1024 / $font-base + rem;
-$size-xl:     1365 / $font-base + rem;
-$size-xl-up:  1366 / $font-base + rem;
-$size-xxl:    1919 / $font-base + rem;
-$size-xxl-up: 1920 / $font-base + rem;
+$size-xs:     239 / 16 + em;
+$size-xs-up:  240 / 16 + em;
+$size-s:      479 / 16 + em;
+$size-s-up:   480 / 16 + em;
+$size-m:      767 / 16 + em;
+$size-m-up:   768 / 16 + em;
+$size-l:      1023 / 16 + em;
+$size-l-up:   1024 / 16 + em;
+$size-xl:     1365 / 16 + em;
+$size-xl-up:  1366 / 16 + em;
+$size-xxl:    1919 / 16 + em;
+$size-xxl-up: 1920 / 16 + em;
 
 $navigation-height: 12rem;
 

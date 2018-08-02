@@ -96,7 +96,21 @@ Route::prefix('prosjekter')->group(function () {
 });
 
 Route::prefix('blog')->group(function () {
-		Route::get('/', 'SiteController@blog')->name('blog');
-		Route::get('windows-10-slett-midlertidige-filer', 'SiteController@blog1');
-		Route::get('mac-2-dropbox-kontoer', 'SiteController@blog2');
+		Route::get('/', 'BlogController@index')->name('blog');
+
+		Route::get('dashboard', 'BlogController@dashboard')->name('blog.dashboard');
+
+		Route::get('ny',   'BlogController@create')->name('blog.create');
+		Route::post('opprett',   'BlogController@store')->name('blog.store');
+
+		Route::prefix('{entry}')->group(function () {
+			Route::get('/',          'BlogController@show')->name('blog.show');
+			Route::get('oppdater',   'BlogController@edit')->name('blog.edit');
+			Route::patch('oppdater', 'BlogController@update')->name('blog.update');
+			Route::get('slett',      'BlogController@delete')->name('blog.delete');
+			Route::delete('slett',   'BlogController@destroy')->name('blog.destroy');
+		});
+
+		Route::get('windows-10-slett-midlertidige-filer', 'BlogController@blog1');
+		Route::get('mac-2-dropbox-kontoer', 'BlogController@blog2');
 });

@@ -5,11 +5,10 @@ body {
 }
 
 h1, h2,
-h3, h4,
-h5 {
-	color: $color-font-headings;
+h3, h4 {
 	font-weight: $font-headings-weight;
 	font-family: $font-headings;
+	color: $color-font-headings;
 }
 
 // Set headings sizes, line-heights and margins
@@ -22,22 +21,8 @@ h5 {
 	}
 }
 
-@media screen and (min-width: $size-m-up) {
-	@each $heading, $properties in $headings-desktop {
-		#{$heading} {
-			font-size:     nth($properties, 1) + em;
-			line-height:   nth($properties, 2) + em;
-			margin-top:    nth($properties, 3) + em;
-			margin-bottom: nth($properties, 4) + em;
-		}
-	}
-}
-
 // Set margins between headings
-h1 + h2 {
-	margin-top: 0;
-}
-
+h1 + h2,
 h2 + h3,
 h3 + h4,
 h4 + h5 {
@@ -48,10 +33,10 @@ h5 + h6 {
 	margin-top: -$pad-xs;
 }
 
-h6 {
+h5, h6 {
 	font-family: $font-headings;
 	font-weight: $font-body-weight;
-	font-style: $font-headings-italic;
+	color: $color-font-headings;
 }
 
 p {
@@ -60,9 +45,25 @@ p {
 }
 
 .content {
+}
+
+.content {
 	&-text {
 		p {
-			margin-bottom: $pad-l;
+			margin-bottom: #{$base/10}em;
+			font-weight: 300;
+		}
+
+		&.read-wide {
+			max-width: #{$base/10*30}em;
+		}
+
+		&.read {
+			max-width: #{$base/10*22}em;
+		}
+
+		&.read-narrow {
+			max-width: #{$base/10*16}em;
 		}
 
     img {
