@@ -106,6 +106,55 @@ const ContextMenu = function() {
   }
 }
 let pellContextMenu = new ContextMenu(); // Init
+function getCaretPosition(editableDiv) {
+  function getCaretLineElement(node, editableDiv) {
+    if (node.parentNode == editableDiv) {
+      return node;
+    }
+
+    if (node.parentNode == document.documentElement) {
+      return false;
+    }
+
+    return getCaretLineElement(node.parentNode, editableDiv);
+  }
+
+  function getCaretFocusedElement() {
+    if (window.getSelection) {
+      return window.getSelection().focusNode;
+    }
+  }
+
+  function getCaretLineNumber(node, editableDiv) {
+    for (var i = editableDiv.childNodes.length - 1; i >= 0; i--) {
+      if (node == editableDiv.childNodes[i]) {
+        return i;
+      }
+    }
+
+    return false;
+  }
+
+  function getCaretPositionInLine(lineElement) {
+    var caretPos = 0, sel, range;
+    if (window.getSelection) {
+      sel = window.getSelection();
+      if (sel.rangeCount) {
+        range = sel.getRangeAt(0);
+        caretPos = range.endOffset;
+      }
+    }
+
+    return caretPos;
+  }
+
+  let focusedElement = getCaretFocusedElement();
+  let lineElement = getCaretLineElement(focusedElement, editableDiv);
+  let caretX = getCaretPositionInLine(lineElement);
+  let caretY = getCaretLineNumber(lineElement, editableDiv);
+
+  return [caretX, caretY, focusedElement, lineElement];
+}
 export const exec = (command, value = null) => document.execCommand(command, false, value)
 
 const defaultActions = {
