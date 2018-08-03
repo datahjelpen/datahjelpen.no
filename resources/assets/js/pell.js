@@ -155,46 +155,113 @@ function getCaretPosition(editableDiv) {
 
   return [caretX, caretY, focusedElement, lineElement];
 }
+
+
+
+
+
 export const exec = (command, value = null) => document.execCommand(command, false, value)
 
 const defaultActions = {
-  undo: {
-    icon: '&#8617;',
-    title: 'Undo',
-    result: () => exec('undo')
+  // undo: {
+  //   icon: '&#8617;',
+  //   title: 'Undo',
+
+  //   result: () => exec('undo')
+  // },
+  // redo: {
+  //   icon: '&#8618;',
+  //   title: 'Redo',
+
+  //   result: () => exec('redo')
+  // },
+  heading2: {
+    showInPopUp: true,
+    icon: () => {
+      var strong = document.createElement('strong');
+      strong.appendChild(document.createTextNode('H'));
+      var sub = document.createElement('sub');
+      sub.appendChild(document.createTextNode('2'));
+      strong.appendChild(sub);
+      return strong;
     },
-  redo: {
-    icon: '&#8618;',
-    title: 'Redo',
-    result: () => exec('redo')
-    showInPopUp: true,
     id: 'pell-button-heading2',
+    title: 'Heading 2',
+    result: () => exec(formatBlock, '<h2>')
+  },
+  heading3: {
     showInPopUp: true,
+    icon: () => {
+      var strong = document.createElement('strong');
+      strong.appendChild(document.createTextNode('H'));
+      var sub = document.createElement('sub');
+      sub.appendChild(document.createTextNode('3'));
+      strong.appendChild(sub);
+      return strong;
+    },
     id: 'pell-button-heading3',
+    title: 'Heading 3',
+    result: () => exec(formatBlock, '<h3>')
+  },
+  heading4: {
     showInPopUp: true,
+    icon: () => {
+      var strong = document.createElement('strong');
+      strong.appendChild(document.createTextNode('H'));
+      var sub = document.createElement('sub');
+      sub.appendChild(document.createTextNode('4'));
+      strong.appendChild(sub);
+      return strong;
+    },
     id: 'pell-button-heading4',
+    title: 'Heading 4',
+    result: () => exec(formatBlock, '<h4>')
+  },
   paragraph: {
+    showInPopUp: true,
+    icon: () => {
+      var span = document.createElement('span');
+      span.appendChild(document.createTextNode('\u00B6'));
+      return span;
+    },
     id: 'pell-button-paragraph',
+    title: 'Paragraph',
+    result: () => exec(formatBlock, '<p>')
   },
   bold: {
-    icon: '<strong>B</strong>',
     showInPopUp: false,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'bold');
+      return i;
+    },
     id: 'pell-button-bold',
     title: 'Bold',
     state: () => queryCommandState('bold'),
     result: () => exec('bold')
   },
   italic: {
-    icon: '<em>I</em>',
     showInPopUp: false,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'italic');
+      return i;
+    },
     id: 'pell-button-italic',
     title: 'Italic',
     state: () => queryCommandState('italic'),
     result: () => exec('italic')
   },
   underline: {
-    icon: '<u>U</u>',
     showInPopUp: false,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'underline');
+      return i;
+    },
     id: 'pell-button-underline',
     title: 'Underline',
     state: () => queryCommandState('underline'),
@@ -203,137 +270,120 @@ const defaultActions = {
   strikethrough: {
     showInPopUp: false,
     icon: '<strike>S</strike>',
+    icon: () => {
+      var strike = document.createElement('strike');
+      strike.appendChild(document.createTextNode('S'));
+      return strike;
+    },
+    id: 'pell-button-icon',
     title: 'Strike-through',
     state: () => queryCommandState('strikeThrough'),
     result: () => exec('strikeThrough')
   },
-  // heading1: {
-  //   icon: '<b>H<sub>1</sub></b>',
-  //   title: 'Heading 1',
-  //   result: () => exec(formatBlock, '<h1>')
-  // },
-  heading2: {
-    icon: '<b>H<sub>2</sub></b>',
-    title: 'Heading 2',
-    result: () => exec(formatBlock, '<h2>')
-  },
-  heading3: {
-    icon: '<b>H<sub>3</sub></b>',
-    title: 'Heading 3',
-    result: () => exec(formatBlock, '<h3>')
-  },
-  heading4: {
-    icon: '<b>H<sub>4</sub></b>',
-    title: 'Heading 4',
-    result: () => exec(formatBlock, '<h4>')
+  justifyLeft: {
     showInPopUp: true,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'align-left');
+      return i;
     },
-  paragraph: {
-    icon: '&#182;',
-    title: 'Paragraph',
-    result: () => exec(formatBlock, '<p>')
     id: 'pell-button-justifyLeft',
+    title: 'Justify Left',
+    result: () => exec('justifyLeft')
   },
   justifyCenter: {
-    icon: 'C',
     showInPopUp: true,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'align-center');
+      return i;
+    },
     id: 'pell-button-justifyCenter',
     title: 'Justify Center',
     result: () => exec('justifyCenter')
   },
+  justifyRight: {
     showInPopUp: true,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'align-right');
+      return i;
+    },
     id: 'pell-button-justifyRight',
+    title: 'Justify Right',
+    result: () => exec('justifyRight')
+  },
   justifyFull: {
-    icon: 'J',
     showInPopUp: true,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'align-justify');
+      return i;
+    },
     id: 'pell-button-justifyFull',
     title: 'Justify Full',
     result: () => exec('justifyFull')
   },
-  justifyLeft: {
-    icon: 'L',
-    title: 'Justify Left',
-    result: () => exec('justifyLeft')
-    showInPopUp: true,
-    },
-  justifyRight: {
-    icon: 'R',
-    title: 'Justify Right',
-    result: () => exec('justifyRight')
-    id: 'pell-button-ulist',
-    showInPopUp: true,
-    id: 'pell-button-olist',
-    showInPopUp: false,
-    id: 'pell-button-quote',
-    showInPopUp: false,
-    id: 'pell-button-code',
-    showInPopUp: false,
-    id: 'pell-button-link',
-    showInPopUp: true,
-    id: 'pell-button-image',
-  },
-  // subscript: {
-  //   icon: '_',
-  //   title: 'Subscript',
-  //   result: () => exec('subscript')
-  // },
-  // superscript: {
-  //   icon: '^',
-  //   title: 'Superscript',
-  //   result: () => exec('superscript')
-  // },
-  // fontName: {
-  //   icon: 'Font Name',
-  //   title: 'Font Name',
-  //   result: () => exec('fontName')
-  // },
-  // fontSize: {
-  //   icon: 'Font Size',
-  //   title: 'Font Size',
-  //   result: () => exec('fontSize')
-  // },
-  indent: {
-    icon: '>',
-    title: 'Indent',
-    result: () => exec('indent')
-  },
-  outdent: {
-    icon: '<',
-    title: 'Outdent',
-    result: () => exec('outdent')
-  },
-  // clearFormatting: {
-  //   icon: 'CF',
-  //   title: 'Clear Formatting',
-  //   result: () => exec('clearFormatting')
-  // },
-  quote: {
-    icon: '&#8220; &#8221;',
-    title: 'Quote',
-    result: () => exec(formatBlock, '<blockquote>')
-  },
-  olist: {
-    icon: '&#35;',
-    title: 'Ordered List',
-    result: () => exec('insertOrderedList')
-  },
   ulist: {
-    icon: '&#8226;',
+    showInPopUp: true,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'list');
+      return i;
+    },
+    id: 'pell-button-ulist',
     title: 'Unordered List',
     result: () => exec('insertUnorderedList')
   },
+  olist: {
+    showInPopUp: true,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'hash');
+      return i;
+    },
+    id: 'pell-button-olist',
+    title: 'Ordered List',
+    result: () => exec('insertOrderedList')
+  },
+  quote: {
+    showInPopUp: false,
+    icon: () => {
+      var span = document.createElement('span');
+      span.appendChild(document.createTextNode('\u201C'));
+      return span;
+    },
+    id: 'pell-button-quote',
+    title: 'Quote',
+    result: () => exec(formatBlock, '<blockquote>')
+  },
   code: {
-    icon: '&lt;/&gt;',
+    showInPopUp: false,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'code');
+      return i;
+    },
+    id: 'pell-button-code',
     title: 'Code',
     result: () => exec(formatBlock, '<pre>')
   },
-  line: {
-    icon: '&#8213;',
-    title: 'Horizontal Line',
-    result: () => exec('insertHorizontalRule')
-  },
   link: {
-    icon: '&#128279;',
+    showInPopUp: false,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'link');
+      return i;
+    },
+    id: 'pell-button-link',
     title: 'Link',
     result: () => {
       const url = window.prompt('Enter the link URL')
@@ -341,13 +391,85 @@ const defaultActions = {
     }
   },
   image: {
-    icon: '&#128247;',
+    showInPopUp: true,
+    icon: () => {
+      var i = document.createElement('i');
+      i.classList.add('icon');
+      i.setAttribute('data-feather', 'image');
+      return i;
+    },
+    id: 'pell-button-image',
     title: 'Image',
     result: () => {
       const url = window.prompt('Enter the image URL')
       if (url) exec('insertImage', url)
     }
-  }
+  },
+  // subscript: {
+  //   icon: '_',
+  //   title: 'Subscript',
+
+  //   result: () => exec('subscript')
+  // },
+  // superscript: {
+  //   icon: '^',
+  //   title: 'Superscript',
+
+  //   result: () => exec('superscript')
+  // },
+  // fontName: {
+  //   icon: 'Font Name',
+  //   title: 'Font Name',
+
+  //   result: () => exec('fontName')
+  // },
+  // fontSize: {
+  //   icon: 'Font Size',
+  //   title: 'Font Size',
+
+  //   result: () => exec('fontSize')
+  // },
+  // outdent: {
+  //   icon: () => {
+  //     var i = document.createElement('i');
+  //     i.classList.add('icon');
+  //     i.setAttribute('data-feather', 'chevrons-left');
+  //     return i;
+  //   },
+  //   title: 'Outdent',
+
+  //   result: () => exec('outdent')
+  // },
+  // indent: {
+  //   icon: () => {
+  //     var i = document.createElement('i');
+  //     i.classList.add('icon');
+  //     i.setAttribute('data-feather', 'chevrons-right');
+  //     return i;
+  //   },
+  //   title: 'Indent',
+
+  //   result: () => exec('indent')
+  // },
+  // clearFormatting: {
+  //   icon: 'CF',
+  //   title: 'Clear Formatting',
+
+  //   result: () => exec('clearFormatting')
+  // },
+  // line: {
+  //   icon: '&#8213;',
+  //   title: 'Horizontal Line',
+
+  //   result: () => exec('insertHorizontalRule')
+  // },
+  // column: {
+  //   icon: 'COL',
+  //   title: 'Column',
+
+  //   // result: () => exec(formatBlock, '<heynow>')
+  //   result: () => exec(formatBlock, '<heynow>')
+  // }
 }
 
 const defaultClasses = {
@@ -411,7 +533,7 @@ export const init = settings => {
     const button = createElement('button')
     button.setAttribute('id', action.id)
     button.className = classes.button
-    button.innerHTML = action.icon
+    button.appendChild(action.icon())
     button.title = action.title
     button.setAttribute('type', 'button')
     button.onclick = () => action.result() && content.focus()
