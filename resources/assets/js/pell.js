@@ -536,8 +536,14 @@ export const init = settings => {
     button.appendChild(action.icon())
     button.title = action.title
     button.setAttribute('type', 'button')
-    button.onclick = () => action.result() && content.focus()
     button.setAttribute('data-showinpopup', action.showInPopUp)
+    button.onclick = () => {
+      action.result()
+      content.focus()
+    }
+
+    // var caretXY = getCaretPosition(content);
+    // console.log(caretXY);
 
     if (action.state) {
       const handler = () => button.classList[action.state() ? 'add' : 'remove'](classes.selected)
