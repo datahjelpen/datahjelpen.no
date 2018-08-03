@@ -25,21 +25,31 @@
 					<label class="form-label" for="article-form-entry_type">Status</label>
 					<select name="entry_type" id="article-form-entry_type" required>
 						<option selected disabled>Velg en</option>
-						<option value="post">Post</option>
-						<option value="draft">Draft</option>
+						@foreach ($entry_types as $entry_type)
+							@if (isset($entry) && $entry_type->id == $entry->entry_type->id)
+								<option value="{{ $entry_type->id }}" selected>{{ $entry_type->name }}</option>
+							@else
+								<option value="{{ $entry_type->id }}">{{ $entry_type->name }}</option>
+							@endif
+						@endforeach
 					</select>
 				</div>
 				<div class="form-group">
-					<label class="form-label" for="article-form-category">Kategori</label>
-					<select name="category" id="article-form-category" required>
+					<label class="form-label" for="article-form-entry_category">Kategori</label>
+					<select name="entry_category" id="article-form-entry_category" required>
 						<option selected disabled>Velg en</option>
-						<option value="post">Post</option>
-						<option value="draft">Draft</option>
+						@foreach ($entry_categories as $entry_category)
+							@if (isset($entry) && $entry_category->id == $entry->entry_category->id)
+								<option value="{{ $entry_category->id }}" selected>{{ $entry_category->name }}</option>
+							@else
+								<option value="{{ $entry_category->id }}">{{ $entry_category->name }}</option>
+							@endif
+						@endforeach
 					</select>
 				</div>
 				<div class="form-group">
 					<label class="form-label" for="article-form-content">Innhold</label>
-					<textarea class="form-input" id="article-form-content" name="content" rows="10">{!! old('content', isset($entry->name) ? $entry->name : null) !!}</textarea>
+					<textarea class="form-input" id="article-form-content" name="content" rows="10">{!! old('content', isset($entry) ? $entry->entry_content->first()->html_content : null) !!}</textarea>
 				</div>
 				<div class="form-groups">
 					<div class="form-group"></div>
@@ -82,7 +92,7 @@
 		window.pell.init({
 			element: articleEditor,
 			onChange: html => articleOutput.value = html,
-			defaultParagraphSeparator: 'div',
+			defaultParagraphSeparator: 'p',
 			styleWithCSS: false,
 		});
 

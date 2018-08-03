@@ -13,9 +13,19 @@ class Entry extends \Illuminate\Database\Eloquent\Model
         'author_id',
     ];
 
+    public function entry_category()
+    {
+        return $this->belongsTo('App\EntryCategory', 'entry_category_id', 'id');
+    }
+
     public function entry_type()
     {
         return $this->belongsTo('App\EntryType', 'entry_type_id', 'id');
+    }
+
+    public function entry_content()
+    {
+        return $this->hasMany('App\EntryContent');
     }
 
     public function author()

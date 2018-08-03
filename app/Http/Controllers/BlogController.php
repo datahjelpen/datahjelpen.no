@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use App\Entry;
 use App\EntryType;
 use App\EntryContent;
+use App\EntryCategory;
 use App\EntryContentType;
 
 class BlogController extends Controller
@@ -83,12 +84,15 @@ class BlogController extends Controller
         ->orWhere('name', 'like', '%'.ucwords(str_replace('-', ' ', $entry)).'%')
         ->firstOrFail();
 
-        return view('blog.entry.show', compact('entry'));
+        return view('blog.entry.show', compact('entry_types'));
     }
 
     public function create()
     {
-        return view('blog.entry.create');
+        $entry_types = EntryType::whereIn('slug', ['post', 'draft'])->get();
+        $entry_categories = EntryCategory::all();
+
+        return view('blog.entry.create', compact('entry_types', 'entry_categories'));
     }
 
     protected function validator(array $data, $entry_id = null)
@@ -96,8 +100,8 @@ class BlogController extends Controller
         return Validator::make($data, [
             'title' => 'required|string|max:255',
             'content' => 'nullable|string',
-            // 'category' => 'nullable|integer',
-            'entry_type' => 'nullable|string',
+            'entry_category' => 'required|integer',
+            'entry_type' => 'required|integer',
         ]);
     }
 
@@ -106,25 +110,39 @@ class BlogController extends Controller
         $this->validator($request->all())->validate();
         $user = Auth::user();
 
-        $entry_type = EntryType::where('slug', $request->entry_type)->firstOrFail();
+        $entry_type = EntryType::where('id', $request->entry_type)->firstOrFail();
+        $entry_category = EntryCategory::where('id', $request->entry_category)->firstOrFail();
+        $entry_content_type = EntryContentType::findOrFail(1);
 
         $entry = new Entry;
-        $entry->name = $request->title;
+        $entry->name = strip_tags($request->title);
         $entry->author_id = $user->id;
         $entry->entry_type_id = $entry_type->id;
+        $entry->entry_category_id = $entry_category->id;
 
         if ($entry->save()) {
-            Session::flash('success', 'Din post ble lagret.');
-        } else {
-            Session::flash('error', 'Noe gikk galt, vi kunne ikke lagre din post.');
+            $entry_content = new EntryContent;
+            $entry_content->order = 0;
+            $entry_content->html_content = $request->content;
+            $entry_content->entry_content_type_id = $entry_content_type->id;
+            $entry_content->entry_id = $entry->id;
+
+            if ($entry_content->save()) {
+                Session::flash('success', 'Din post ble lagret.');
+                return redirect()->route('blog.dashboard');
+            }
         }
 
+        Session::flash('error', 'Noe gikk galt, vi kunne ikke lagre din post.');
         return redirect()->route('blog.dashboard');
     }
 
     public function edit(Entry $entry)
     {
-        return view('blog.entry.create', compact('entry'));
+        $entry_types = EntryType::whereIn('slug', ['post', 'draft'])->get();
+        $entry_categories = EntryCategory::all();
+
+        return view('blog.entry.create', compact('entry', 'entry_types', 'entry_categories'));
     }
 
     public function update(Request $request, Entry $entry)
@@ -132,19 +150,27 @@ class BlogController extends Controller
         $this->validator($request->all())->validate();
         $user = Auth::user();
 
-        $entry_type = EntryType::where('slug', $request->entry_type)->firstOrFail();
+        $entry_type = EntryType::where('id', $request->entry_type)->firstOrFail();
+        $entry_category = EntryCategory::where('id', $request->entry_category)->firstOrFail();
+        $entry_content_type = EntryContentType::findOrFail(1);
 
-        $entry->name = $request->title;
+        $entry->name = strip_tags($request->title);
         $entry->author_id = $user->id;
         $entry->entry_type_id = $entry_type->id;
+        $entry->entry_category_id = $entry_category->id;
 
         if ($entry->save()) {
-            Session::flash('success', 'Din post ble lagret.');
-        } else {
-            Session::flash('error', 'Noe gikk galt, vi kunne ikke lagre din post.');
+            $entry_content = $entry->entry_content->first();
+            $entry->entry_content->html_content = $request->content;
+
+            if ($entry_content->save()) {
+                Session::flash('success', 'Din post ble lagret.');
+                return redirect()->route('blog.dashboard');
+            }
         }
 
-        return view('blog.entry.create', compact('entry'));
+        Session::flash('error', 'Noe gikk galt, vi kunne ikke lagre din post.');
+        return redirect()->route('blog.edit', $entry);
     }
 
     public function delete(Entry $entry)
