@@ -27,7 +27,7 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 // User
 Route::prefix('konto')->group(function () {
 	Route::get('/',          'UserController@show')->name('user');
-	Route::get('oppdater',   'UserController@edit')->name('user.edit');
+	Route::get('rediger',    'UserController@edit')->name('user.edit');
 	Route::patch('oppdater', 'UserController@update')->name('user.update');
 	Route::patch('oppdater-sensitiv', 'UserController@update_sensitive')->name('user.update_sensitive');
 	Route::get('slett',      'UserController@delete')->name('user.delete');
@@ -105,7 +105,7 @@ Route::prefix('blog')->group(function () {
 
 		Route::prefix('{entry}')->group(function () {
 			Route::get('/',          'BlogController@show')->name('blog.show');
-			Route::get('oppdater',   'BlogController@edit')->name('blog.edit');
+			Route::get('rediger',    'BlogController@edit')->name('blog.edit');
 			Route::patch('oppdater', 'BlogController@update')->name('blog.update');
 			Route::get('slett',      'BlogController@delete')->name('blog.delete');
 			Route::delete('slett',   'BlogController@destroy')->name('blog.destroy');
