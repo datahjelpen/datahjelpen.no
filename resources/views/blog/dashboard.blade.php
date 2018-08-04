@@ -15,6 +15,7 @@
 					<tr>
 						<td>{{ $entry->name }}</td>
 						<td><a href="{{ route('blog.edit', $entry) }}">Rediger</a></td>
+						<td><a href="{{ route('blog.show', $entry) }}">Vis</a></td>
 					</tr>
 					@endforeach
 				</tbody>

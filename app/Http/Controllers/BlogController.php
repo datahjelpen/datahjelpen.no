@@ -69,22 +69,19 @@ class BlogController extends Controller
         return view('blog2');
     }
 
-
-    // public function show(EntryType $entry_type, Entry $entry)
-    // {
-    //     return view('entry.show', compact('entry_type', 'entry'));
-    // }
-
-
     public function show($entry)
     {
-        $entry = Entry::where('name', 'like', '%'.$entry.'%')
-        ->orWhere('name', 'like', '%'.str_slug($entry).'%')
-        ->orWhere('name', 'like', '%'.urldecode($entry).'%')
-        ->orWhere('name', 'like', '%'.ucwords(str_replace('-', ' ', $entry)).'%')
-        ->firstOrFail();
+        if (is_numeric($entry)) {
+            $entry = Entry::findOrFail($entry);
+        } else if (is_string($entry)) {
+            $entry = Entry::where('name', 'like', '%'.str_slug($entry).'%')
+            ->orWhere('name', 'like', '%'.$entry.'%')
+            ->orWhere('name', 'like', '%'.urldecode($entry).'%')
+            ->orWhere('name', 'like', '%'.ucwords(str_replace('-', ' ', $entry)).'%')
+            ->firstOrFail();
+        }
 
-        return view('blog.entry.show', compact('entry_types'));
+        return view('blog.entry.show', compact('entry'));
     }
 
     public function create()
@@ -161,11 +158,11 @@ class BlogController extends Controller
 
         if ($entry->save()) {
             $entry_content = $entry->entry_content->first();
-            $entry->entry_content->html_content = $request->content;
+            $entry_content->html_content = $request->content;
 
             if ($entry_content->save()) {
                 Session::flash('success', 'Din post ble lagret.');
-                return redirect()->route('blog.dashboard');
+                return redirect()->route('blog.edit', $entry);
             }
         }
 

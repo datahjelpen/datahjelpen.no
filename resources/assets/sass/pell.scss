@@ -79,6 +79,10 @@ $pell-content-padding: 1rem !default;
 
 #article-title {
   cursor: text;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 #article-editor {
@@ -89,6 +93,14 @@ $pell-content-padding: 1rem !default;
   position: fixed;
   bottom: 0;
   right: 0;
+  max-width: 50%;
+}
+
+#article-show {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  max-width: 50%;
 }
 
 .context-menu {

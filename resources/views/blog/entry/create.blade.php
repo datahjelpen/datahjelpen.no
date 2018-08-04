@@ -9,7 +9,6 @@
 	</article>
 	<section class="page-section">
 		<div class="inner-wrapper">
-
 			@if (isset($entry))
 				<form method="POST" action="{{ route('blog.update', $entry) }}">
 					{{ method_field('PATCH') }}
@@ -55,6 +54,7 @@
 					<div class="form-group"></div>
 					<div class="form-group">
 						<button id="article-save" type="submit" class="button primary">Lagre</button>
+						<button type="submit" class="button primary">Lagre</button>
 					</div>
 				</div>
 			</form>
@@ -66,6 +66,7 @@
 						<button type="submit" class="button neutral">Slett</button>
 					</div>
 				</form>
+				<a id="article-show" class="button neutral" href="{{ route('blog.show', str_slug($entry->name)) }}">Vis</a>
 			@endif
 		</div>
 	</section>
@@ -80,6 +81,7 @@
 		articleTitle.addEventListener('input', () => {
 			articleFormTitle.value = articleTitle.innerHTML
 		});
+
 
 		articleFormTitle.addEventListener('input', () => {
 			articleTitle.innerHTML = articleFormTitle.value
@@ -99,5 +101,32 @@
 		let pellEditor = document.querySelector('#article-editor .pell-content');
 		articleTitle.innerHTML = articleFormTitle.value;
 		pellEditor.innerHTML = articleFormContent.value;
+
+		if (pellEditor.innerHTML.length == 0) {
+			pellEditor.innerHTML = '<p>Tekst her ...</p>';
+
+			pellEditor.addEventListener('focus', function handler() {
+				pellEditor.innerHTML = '';
+				this.removeEventListener('focus', handler);;
+			});
+		}
+
+		pellEditor.addEventListener('blur', function handler() {
+			if (pellEditor.innerHTML.length == 0) {
+				pellEditor.innerHTML = '<p>Tekst her ...</p>';
+
+				pellEditor.addEventListener('focus', function handler() {
+					pellEditor.innerHTML = '';
+					this.removeEventListener('focus', handler);;
+				});
+			}
+		});
+
+		articleTitle.addEventListener('keypress', (event) => {
+			if (event.which == 13 || event.keyCode == 13) {
+				event.preventDefault();
+				pellEditor.focus();
+			}
+		});
 	</script>
 @endsection
