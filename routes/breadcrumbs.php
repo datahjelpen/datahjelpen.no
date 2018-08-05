@@ -44,3 +44,19 @@ Breadcrumbs::for('user.disable_2fa', function ($trail) {
     $trail->push('Skru av 2fa', route('user.setup_2fa'));
 });
 // User end
+
+// Blog start
+Breadcrumbs::for('blog.dashboard', function ($trail) {
+    $trail->push('Blog dashboard', route('blog.dashboard'));
+});
+
+Breadcrumbs::for('blog.create', function ($trail) {
+    $trail->parent('blog.dashboard');
+    $trail->push('Ny artikkel', route('blog.create'));
+});
+
+Breadcrumbs::for('blog.edit', function ($trail, $entry) {
+    $trail->parent('blog.dashboard');
+    $trail->push('Ny artikkel', route('blog.edit', $entry));
+});
+// Blog end
