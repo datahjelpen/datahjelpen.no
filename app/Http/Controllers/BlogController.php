@@ -73,6 +73,8 @@ class BlogController extends Controller
     {
         if (is_numeric($entry)) {
             $entry = Entry::findOrFail($entry);
+
+            return redirect()->route('blog.show', str_slug($entry->name));
         } else if (is_string($entry)) {
             $entry = Entry::where('name', 'like', '%'.str_slug($entry).'%')
             ->orWhere('name', 'like', '%'.$entry.'%')
@@ -81,7 +83,19 @@ class BlogController extends Controller
             ->firstOrFail();
         }
 
+        $entry_type = EntryType::where('slug', 'post')->firstOrFail();
+        if ($entry->entry_type->id = $entry_type->id) {
+            $entry_content = $entry->entry_content->first();
+
+
+            if ($entry_content != null) {
+                $entry->content = $entry_content->html_content;
+
         return view('blog.entry.show', compact('entry'));
+    }
+        }
+
+        abort(404);
     }
 
     public function create()
