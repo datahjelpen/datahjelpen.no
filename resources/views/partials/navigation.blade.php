@@ -3,7 +3,7 @@
 		<ul class="main-navigation-brand">
 			<li>
 				<a href="{{ route('front-page') }}">
-					<img src="/images/logo/logo-only/g_p.svg" alt="{{ config('app.name') }} logo">
+					<img src="{{ asset(config('app.logo')) }}" alt="{{ config('app.name') }} logo">
 				</a>
 			</li>
 		</ul>
