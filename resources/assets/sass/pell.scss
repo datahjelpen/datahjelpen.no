@@ -86,7 +86,7 @@ $pell-content-padding: 1rem !default;
 }
 
 #article-editor {
-  margin-bottom: 30em;
+  // margin-bottom: 30em;
 }
 
 #article-save {
@@ -178,5 +178,15 @@ $pell-content-padding: 1rem !default;
         }
       }
     }
+  }
+}
+
+.form-group {
+  label {
+    font-weight: 400;
+  }
+
+  p {
+    font-weight: 300;
   }
 }

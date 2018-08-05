@@ -229,13 +229,86 @@ a.button {
 
 article {
   &.article-main {
-    margin: $pad-xl auto 0;
-    width: 100%;
-    max-width: $size-m;
-    // background-color: $white;
-    // padding: $pad-l;
-    // box-shadow: 0 40px 100px -50px rgba($indigo9, 0.3);
-    // border-radius: $border-radius-l;
+    .article {
+      &-header-image {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+
+        img {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        figcaption {
+          width: 100%;
+          max-width: $size-m;
+          margin: $pad-s auto 0;
+          color: $gray5_cold;
+        }
+      }
+
+      &-title {
+        margin: $pad-l auto 0;
+        line-height: 1.2em;
+
+        @media screen and (max-width: $size-m) {
+          font-size: 2.07em;
+        }
+      }
+
+      &-meta {
+        margin: $pad-l auto $pad-s;
+      }
+
+      &-body {
+        max-width: #{$base/10*22}em;
+        margin: $pad-xl 0;
+
+        h2 {
+          font-size: 1.73em;
+        }
+
+        h3 {
+          font-size: 1.44em;
+        }
+
+        h4 {
+          font-size: 1.20em;
+        }
+
+        h5 {
+          font-size: 1.20em;
+        }
+      }
+    }
+
+    .inner-wrapper {
+      margin: $pad-xl auto 0;
+      width: 100%;
+      max-width: $size-m;
+      position: relative;
+      padding: 0 $pad-m;
+
+      @media screen and (min-width: $size-m-up) {
+        padding: 0 $pad-s;
+
+        img {
+          cursor: pointer;
+
+          &:active {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 100%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -472,6 +545,16 @@ body {
       }
     }
   }
+
+  &.article {
+    &.article-header-image-box {
+      article.article-main .article-header-image img {
+        display: block;
+        margin: 0 auto;
+        max-width: $size-m;
+      }
+    }
+  }
 }
 
 footer {
@@ -614,6 +697,30 @@ footer {
 
     p {
       width: 100%;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  list-style-type: none;
+  width: $size-s;
+  max-width: 100%;
+  margin: $pad-l auto;
+  padding: 0;
+
+  li {
+    // flex-grow: 1;
+
+    .page-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: $pad-m $pad-l;
     }
   }
 }
