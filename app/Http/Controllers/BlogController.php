@@ -340,12 +340,17 @@ class BlogController extends Controller
 
     public function delete(Entry $entry)
     {
-        return view('dashboard.author.entry.delete', compact('entry_type', 'entry'));
+        return view('blog.entry.delete', compact('entry_type', 'entry'));
     }
 
     public function destroy(Entry $entry)
     {
+        foreach ($entry->entry_content as $entry_content) {
+            $entry_content->delete();
+        }
         $entry->delete();
-        return redirect()->route('dashboard.author.entry_type', [$entry_type, $entry]);
+        Session::flash('success', 'Artikkelen ble slettet.');
+
+        return redirect()->route('blog.dashboard');
     }
 }

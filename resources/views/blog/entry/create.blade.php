@@ -1,7 +1,6 @@
 @extends('partials.master')
 @section('content-main')
 	<link rel="stylesheet" href="{{ mix('/css/pell.css') }}">
-
 	<article class="article-main">
 		<figure class="article-header-image">
 			@if (isset($entry))
@@ -25,15 +24,6 @@
 			<div id="article-editor" class="article-body content-text"></div>
 		</div>
 	</article>
-
-
-
-
-
-
-
-
-
 	<section class="page-section">
 		<div class="inner-wrapper">
 			@if (isset($entry))
@@ -113,6 +103,11 @@
 								<i class="icon" data-feather="eye"></i>
 								<span>Vis</span>
 							</a>
+							<div><br><br></div>
+							<a class="button neutral" href="{{ route('blog.delete', $entry) }}">
+								<i class="icon" data-feather="trash"></i>
+								<span>Slett</span>
+							</a>
 						@endif
 					</div>
 					<div class="form-group">
@@ -131,18 +126,6 @@
 					<textarea class="form-input" id="article-form-content" name="content" rows="10" required>{!! old('content', isset($entry) ? $entry->content() : null) !!}</textarea>
 				</div>
 			</form>
-			@if (isset($entry))
-				<form method="POST" action="{{ route('blog.delete', $entry) }}">
-					{{ csrf_field() }}
-					{{ method_field('DELETE') }}
-					<div class="form-group">
-						<button type="submit" class="button neutral">
-							<i class="icon" data-feather="trash"></i>
-							<span>Slett</span>
-						</button>
-					</div>
-				</form>
-			@endif
 		</div>
 	</section>
 	<script src="{{ mix('/js/texteditor.js') }}"></script>
