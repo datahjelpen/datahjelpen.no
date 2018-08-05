@@ -52,7 +52,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('front-page');
+        $entry_type = EntryType::where('slug', 'post')->firstOrFail();
+        $entries = Entry::where('entry_type_id', $entry_type->id)->orderBy('created_at', 'DESC')->paginate(25);
+        return view('blog.index', compact('entries'));
     }
 
     public function dashboard()
