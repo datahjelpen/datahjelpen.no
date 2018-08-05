@@ -59,7 +59,7 @@
 				</div>
 				<div class="form-group">
 					<label class="form-label" for="article-form-image_header">Bilde (header)</label>
-					<input class="form-input" id="article-form-image_header" type="text" name="image_header" value="{{ old('image_header', isset($entry) ? $entry->image_header() : null) }}">
+					<input class="form-input" id="article-form-image_header" type="text" name="image_header" value="{{ old('image_header', isset($entry) ? ($entry->image_header() == asset(config('app.image'))) ? null : $entry->image_header() : null) }}">
 				</div>
 				<div class="form-group">
 					<label class="form-label" for="article-form-image_alt">Bilde (alt tekst)</label>
@@ -68,7 +68,7 @@
 				<div class="form-group">
 					<label class="form-label" for="article-form-image_overview">Bilde (oversikt)</label>
 					<p>Denne brukes i oversikt og på Google. Om den er blank brukes bilde (header) i stedet</p>
-					<input class="form-input" id="article-form-image_overview" type="text" name="image_overview" value="{{ old('image_overview', isset($entry) ? $entry->image_overview() : null) }}">
+					<input class="form-input" id="article-form-image_overview" type="text" name="image_overview" value="{{ old('image_overview', isset($entry) ? ($entry->image_overview() == asset(config('app.image'))) ? null : $entry->image_overview() : null) }}">
 				</div>
 				<div class="form-group">
 					<label class="form-label" for="article-form-entry_type">Status</label>
