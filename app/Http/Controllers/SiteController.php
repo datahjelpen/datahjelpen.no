@@ -23,11 +23,15 @@ class SiteController extends Controller
         $this->middleware('auth')->only('privacy_dpa');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function home()
+    {
+        if (Auth::check()) {
+            return redirect()->route('dashboard');
+        }
+
+        return redirect()->route('front-page');
+    }
+
     public function index()
     {
         return view('front-page');

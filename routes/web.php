@@ -1,8 +1,8 @@
 <?php
 
 Route::get('/',    'SiteController@index')->name('front-page');
-Route::get('home', 'SiteController@index');
-Route::get('hjem', 'SiteController@index')->name('home');
+Route::get('hjem', 'SiteController@index');
+Route::get('home', 'SiteController@home')->name('home');
 
 Route::get('goodbye', function () {
 	return view('auth.logout-success');
