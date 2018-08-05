@@ -18,6 +18,9 @@ return [
     'company_nr' => env('APP_COMPANY_NR', '917 406 626'),
     'email' => env('APP_EMAIL'),
     'email_support' => env('APP_EMAIL_SUPPORT'),
+    'logo' => 'images/logo/logo-only/g_p.svg',
+    'image' => 'image.jpg',
+    'description' => 'Vi skaper de digitale opplevelsene folk elsker',
     'user' => [
         'default_image' => 'avatars/full/default-user.png'
     ],
