@@ -88,7 +88,7 @@ class BlogController extends Controller
         }
 
         $entry_type = EntryType::where('slug', 'post')->firstOrFail();
-        if ($entry->entry_type->id = $entry_type->id) {
+        if ($entry->entry_type->id == $entry_type->id) {
             $entry->canonical_link = route('blog.show', str_slug($entry->name));
             $entry_content = $entry->entry_content->first();
 
