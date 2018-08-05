@@ -1,38 +1,51 @@
-@php
-	$title = ucfirst(str_replace('/', ' - ', Request::path()));
-
-	if ($title == ' - ') {
-		$title = config('app.name_legal');
-	} else {
-		$title .= ' | ' . config('app.name_legal');
-	}
-@endphp
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}"  prefix="og: http://ogp.me/ns#">
 <head>
 	<meta charset="utf-8">
+
+	@hasSection('content-head-meta-title')
+		@yield('content-head-meta-title')
+	@else
+		@php
+			$title = ucfirst(str_replace('/', ' - ', Request::path()));
+
+			if ($title == ' - ') {
+				$title = config('app.name_legal');
+			} else {
+				$title .= ' | ' . config('app.name_legal');
+			}
+		@endphp
+		@include('partials.head-meta-title', ['title' => $title])
+	@endif
+
+	@hasSection('content-head-meta-description')
+		@yield('content-head-meta-description')
+	@else
+		@include('partials.head-meta-description', ['description' => config('app.description')])
+	@endif
+
+	@hasSection('content-head-meta-image')
+		@yield('content-head-meta-image')
+	@else
+		@include('partials.head-meta-image', ['image' => asset(config('app.image'))])
+	@endif
+
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>{{ $title }}</title>
 	<link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
 	<meta name="author" content="Datahjelpen AS">
-	<meta name="description" content="Vi skaper de digitale opplevelsene som folk elsker">
-	<link rel="canonical" href="https://datahjelpen.no">
-	<!-- Open Graph data -->
-	<meta property="og:title" content="Datahjelpen AS">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://datahjelpen.no">
-	<meta property="og:image" content="https://datahjelpen.no/image.jpg">
-	<meta property="og:description" content="Vi skaper de digitale opplevelsene som folk elsker">
-	<!-- Twitter -->
+
+	@hasSection('content-head-meta-og_url_type')
+		@yield('content-head-meta-og_url_type')
+	@else
+		@include('partials.head-meta-og_url_type', ['url' => Request::url(), 'type' => 'website'])
+	@endif
+
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="@datahjelpen_no">
-	<meta name="twitter:title" content="Datahjelpen AS">
-	<meta name="twitter:description" content="Vi skaper de digitale opplevelsene som folk elsker">
 	<meta name="twitter:creator" content="@datahjelpen_no">
-	<meta name="twitter:image" content="https://datahjelpen.no/image.jpg">
 	<!-- App information -->
 	<link rel="manifest" href="/site.webmanifest">
 	<meta name="application-name" content="Datahjelpen AS">
@@ -49,6 +62,7 @@
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Rubik:400" rel="stylesheet">
 	<link href="https://cdn.datahjelpen.no/fonts/butler/butler-700.css" rel="stylesheet">
+	@yield('content-head-meta-extra')
 	{{-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72567544-8"></script> --}}
 {{-- 	<script>
 		window.dnt = false;
@@ -72,4 +86,3 @@
 		}
 	</script> --}}
 </head>
-<body>
