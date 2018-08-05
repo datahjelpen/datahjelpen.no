@@ -27,6 +27,7 @@ class BlogController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->only([
+            'dashboard',
             'create',
             'store',
             'edit',
@@ -36,6 +37,7 @@ class BlogController extends Controller
         ]);
 
         $this->middleware('role:author')->only([
+            'dashboard',
             'create',
             'store',
             'edit',
@@ -54,7 +56,25 @@ class BlogController extends Controller
     {
         $entry_type = EntryType::where('slug', 'post')->firstOrFail();
         $entries = Entry::where('entry_type_id', $entry_type->id)->orderBy('created_at', 'DESC')->paginate(25);
-        return view('blog.index', compact('entries'));
+
+        $area1 = [];
+        $area2 = [];
+        $area3 = [];
+
+        $i = 0;
+        foreach ($entries as $entry) {
+            if ($i > 3)  {
+                array_push($area3, $entry);
+            } else if ($i < 1)  {
+                array_push($area1, $entry);
+            } else if ($i <= 3) {
+                array_push($area2, $entry);
+            }
+
+            $i++;
+        }
+
+        return view('blog.index', compact('entries', 'area1', 'area2', 'area3'));
     }
 
     public function dashboard()
