@@ -1,6 +1,7 @@
 let mix = require('laravel-mix');
 
 mix.copy('resources/assets/images', 'public/images', false).version();
+mix.copy('resources/assets/root_folder', 'public', false).version();
 
 mix.js('resources/assets/js/app.js', 'public/js').version();
 mix.js('resources/assets/js/texteditor.js', 'public/js').version();
