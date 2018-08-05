@@ -7,6 +7,9 @@
 			<section>
 				<div>
 					<div class="footer-links-authed">
+						@role('author')
+							<a href="{{ route('blog.dashboard') }}"><i class="icon" data-feather="edit"></i><span>Blog dashboard</span></a>
+						@endrole
 						<a href="{{ route('user') }}"><i class="icon" data-feather="user"></i><span>Konto</span></a>
 						{{-- <a href="{{ route('dashboard') }}"><i class="icon" data-feather="layout"></i><span>Kontrollpanel</span></a> --}}
 						<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
