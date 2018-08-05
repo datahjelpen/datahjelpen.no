@@ -15,6 +15,8 @@ use App\EntryContent;
 use App\EntryCategory;
 use App\EntryContentType;
 
+Carbon::setLocale(config('app.locale'));
+
 class BlogController extends Controller
 {
     /**
@@ -41,6 +43,8 @@ class BlogController extends Controller
             'delete',
             'destroy'
         ]);
+
+        setlocale(LC_TIME, config('app.locale'));
     }
 
     /**
@@ -85,14 +89,17 @@ class BlogController extends Controller
 
         $entry_type = EntryType::where('slug', 'post')->firstOrFail();
         if ($entry->entry_type->id = $entry_type->id) {
+            $entry->canonical_link = route('blog.show', str_slug($entry->name));
             $entry_content = $entry->entry_content->first();
 
+            $entry->date = $entry->created_at->formatLocalized('%d. %h. %Y - %H:%M');
 
             if ($entry_content != null) {
                 $entry->content = $entry_content->html_content;
+                $entry->excerpt = substr(strip_tags($entry->content), 0, 350);
 
-        return view('blog.entry.show', compact('entry'));
-    }
+                return view('blog.entry.show', compact('entry'));
+            }
         }
 
         abort(404);
