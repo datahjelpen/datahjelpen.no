@@ -128,5 +128,8 @@
 				pellEditor.focus();
 			}
 		});
+
+		let pellActionbar = document.querySelector('.pell-actionbar');
+		document.body.style.marginTop = pellActionbar.scrollHeight + 'px';
 	</script>
 @endsection

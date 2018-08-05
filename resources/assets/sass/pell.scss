@@ -103,6 +103,10 @@ $pell-content-padding: 1rem !default;
   max-width: 50%;
 }
 
+#main-navigation {
+  display: none;
+}
+
 .context-menu {
   position: fixed;
   top: 10%;
