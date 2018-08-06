@@ -190,3 +190,17 @@ $pell-content-padding: 1rem !default;
     font-weight: 300;
   }
 }
+
+#article-editor {
+  img {
+    &:active {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: auto;
+      transform: none;
+    }
+  }
+}
