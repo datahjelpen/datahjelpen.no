@@ -95,7 +95,7 @@ Route::prefix('prosjekter')->group(function () {
 	Route::get('/', 'SiteController@projects')->name('projects');
 });
 
-Route::prefix('blog')->group(function () {
+Route::prefix('blogg')->group(function () {
 		Route::get('/', 'BlogController@index')->name('blog');
 
 		Route::get('dashboard', 'BlogController@dashboard')->name('blog.dashboard');
