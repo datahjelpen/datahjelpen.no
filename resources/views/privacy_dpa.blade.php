@@ -10,8 +10,8 @@
 					utveksling av slike opplysninger, samt om oppheving av direktiv 95/46/EF, Artikkel 28 og 29,
 					jf. Artikkel 32-36, inngås følgende avtale</p>
 					<p>mellom</p>
-					<p>(behandlingsansvarlig)</p>
 					<p>{{ $user->company }} (Org.nr.: {{ $user->company_nr }})</p>
+					<p>(behandlingsansvarlig)</p>
 					<p>og</p>
 					<p>{{ config('app.name_legal') }} (Org.nr.: {{ config('app.company_nr') }})</p>
 					<p>(databehandler)</p>
