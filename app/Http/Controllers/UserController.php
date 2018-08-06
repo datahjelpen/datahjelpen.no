@@ -350,6 +350,14 @@ class UserController extends Controller
 
     public function deleted()
     {
+        if (Auth::check()) {
+            $user = Auth::user();
+
+            if (!$user->delete) {
+                return redirect()->route('front-page');
+            }
+        }
+
         return view('user.deleted');
     }
 
