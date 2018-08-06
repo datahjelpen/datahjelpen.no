@@ -29,14 +29,14 @@
 					<a href="{{ route('front-page') }}#projects">Prosjekter</a>
 					<a href="{{ route('contact') }}">Kontakt</a>
 					<a href="{{ route('about') }}">Om oss</a>
-					@auth
-					@else
-						<a href="{{ route('login') }}">Kundelogin</a>
-					@endauth
 				</div>
 				<div class="footer-links-2">
 					<a href="{{ route('privacy') }}">Personvern{{--  & sikkerhet --}}</a>
 					{{-- <a href="{{ route('privacy.cookies') }}">Informasjonskaplser</a> --}}
+					@auth
+					@else
+						<a href="{{ route('login') }}">Kundelogin</a>
+					@endauth
 				</div>
 				<div class="footer-links-social">
 					<a href="https://fb.com/datahjelpen.no"><i class="icon" data-feather="facebook"></i></a>
