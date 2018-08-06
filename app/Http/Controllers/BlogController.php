@@ -36,6 +36,11 @@ class BlogController extends Controller
             'destroy'
         ]);
 
+        $this->middleware('deleted')->except([
+            'index',
+            'show'
+        ]);
+
         $this->middleware('role:author')->only([
             'dashboard',
             'create',
@@ -45,6 +50,7 @@ class BlogController extends Controller
             'delete',
             'destroy'
         ]);
+
     }
 
     /**
@@ -56,6 +62,14 @@ class BlogController extends Controller
     {
         $entry_type = EntryType::where('slug', 'post')->firstOrFail();
         $entries = Entry::where('entry_type_id', $entry_type->id)->orderBy('created_at', 'DESC')->paginate(25);
+
+        // $original_entries = $entries;
+        // foreach ($original_entries as $entry) { $entries->add($entry); }
+        // $original_entries = $entries;
+        // foreach ($original_entries as $entry) { $entries->add($entry); }
+        // $original_entries = $entries;
+        // foreach ($original_entries as $entry) { $entries->add($entry); }
+        // $entries->add($entries->first());
 
         $area1 = [];
         $area2 = [];
