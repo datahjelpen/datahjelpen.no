@@ -128,6 +128,38 @@ p {
 	&-max-width-100 {
 		max-width: 100%;
 	}
+
+	&-border-1-solid-black {
+		border: 1px solid $black;
+	}
+
+	&-border-1-dashed-black {
+		border: 1px dashed $black;
+	}
+
+	&-pad-xs {
+		padding: $pad-xs;
+	}
+
+	&-pad-s {
+		padding: $pad-s;
+	}
+
+	&-pad-m {
+		padding: $pad-m;
+	}
+
+	&-pad-l {
+		padding: $pad-l;
+	}
+
+	&-pad-xl {
+		padding: $pad-xl;
+	}
+
+	&-pad-xxl {
+		padding: $pad-xxl;
+	}
 }
 
 hgroup {

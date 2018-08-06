@@ -53,9 +53,7 @@ const ContextMenu = function() {
       let optionWidth100 = document.createElement('li');
       optionWidth100.classList.add('context-menu-option');
       optionWidth100.appendChild(document.createTextNode('Width: 100%'));
-      // if (context.target.classList.contains('content-width-100')) {
-      //   optionWidth100.classList.add('cmo-active')
-      // }
+      if (context.target.classList.contains('content-width-100')) optionWidth100.classList.add('cmo-active');
       optionWidth100.onclick = event => {
         context.target.classList.toggle('content-width-100');
       }
@@ -64,13 +62,81 @@ const ContextMenu = function() {
       let optionWidthMax100 = document.createElement('li');
       optionWidthMax100.classList.add('context-menu-option');
       optionWidthMax100.appendChild(document.createTextNode('Width: max 100%'));
-      // if (context.target.classList.contains('content-max-width-100')) {
-      //   optionWidthMax100.classList.add('cmo-active')
-      // }
+      if (context.target.classList.contains('content-max-width-100')) optionWidthMax100.classList.add('cmo-active');
       optionWidthMax100.onclick = event => {
         context.target.classList.toggle('content-max-width-100');
       }
       menuOptions.appendChild(optionWidthMax100);
+
+      this.contextMenu.appendChild(menuOptions);
+    }
+
+    if (features == 'borders') {
+      let menuOptions = document.createElement('ul');
+      menuOptions.classList.add('context-menu-options');
+
+      let optionBorder1SolidBlack = document.createElement('li');
+      optionBorder1SolidBlack.classList.add('context-menu-option');
+      optionBorder1SolidBlack.appendChild(document.createTextNode('Border: 1px solid black'));
+      optionBorder1SolidBlack.onclick = event => context.target.classList.toggle('content-border-1-solid-black');
+      if (context.target.classList.contains('content-border-1-solid-black')) optionBorder1SolidBlack.classList.add('cmo-active');
+      menuOptions.appendChild(optionBorder1SolidBlack);
+
+      let optionBorder1DashedBlack = document.createElement('li');
+      optionBorder1DashedBlack.classList.add('context-menu-option');
+      optionBorder1DashedBlack.appendChild(document.createTextNode('Border: 1px dashed black'));
+      optionBorder1DashedBlack.onclick = event => context.target.classList.toggle('content-border-1-dashed-black');
+      if (context.target.classList.contains('content-border-1-dashed-black')) optionBorder1DashedBlack.classList.add('cmo-active');
+      menuOptions.appendChild(optionBorder1DashedBlack);
+
+      this.contextMenu.appendChild(menuOptions);
+    }
+
+    if (features == 'paddings') {
+      let menuOptions = document.createElement('ul');
+      menuOptions.classList.add('context-menu-options');
+
+      let optionPadXS = document.createElement('li');
+      optionPadXS.classList.add('context-menu-option');
+      optionPadXS.appendChild(document.createTextNode('Padding: XS'));
+      optionPadXS.onclick = event => context.target.classList.toggle('content-pad-xs');
+      if (context.target.classList.contains('content-pad-xs')) optionPadXS.classList.add('cmo-active');
+      menuOptions.appendChild(optionPadXS);
+
+      let optionPadS = document.createElement('li');
+      optionPadS.classList.add('context-menu-option');
+      optionPadS.appendChild(document.createTextNode('Padding: S'));
+      optionPadS.onclick = event => context.target.classList.toggle('content-pad-s');
+      if (context.target.classList.contains('content-pad-s')) optionPadS.classList.add('cmo-active');
+      menuOptions.appendChild(optionPadS);
+
+      let optionPadM = document.createElement('li');
+      optionPadM.classList.add('context-menu-option');
+      optionPadM.appendChild(document.createTextNode('Padding: M'));
+      optionPadM.onclick = event => context.target.classList.toggle('content-pad-m');
+      if (context.target.classList.contains('content-pad-m')) optionPadM.classList.add('cmo-active');
+      menuOptions.appendChild(optionPadM);
+
+      let optionPadL = document.createElement('li');
+      optionPadL.classList.add('context-menu-option');
+      optionPadL.appendChild(document.createTextNode('Padding: L'));
+      optionPadL.onclick = event => context.target.classList.toggle('content-pad-l');
+      if (context.target.classList.contains('content-pad-l')) optionPadL.classList.add('cmo-active');
+      menuOptions.appendChild(optionPadL);
+
+      let optionPadXL = document.createElement('li');
+      optionPadXL.classList.add('context-menu-option');
+      optionPadXL.appendChild(document.createTextNode('Padding: XL'));
+      optionPadXL.onclick = event => context.target.classList.toggle('content-pad-xl');
+      if (context.target.classList.contains('content-pad-xl')) optionPadXL.classList.add('cmo-active');
+      menuOptions.appendChild(optionPadXL);
+
+      let optionPadXXL = document.createElement('li');
+      optionPadXXL.classList.add('context-menu-option');
+      optionPadXXL.appendChild(document.createTextNode('Padding: XXL'));
+      optionPadXXL.onclick = event => context.target.classList.toggle('content-pad-xxl');
+      if (context.target.classList.contains('content-pad-xxl')) optionPadXXL.classList.add('cmo-active');
+      menuOptions.appendChild(optionPadXXL);
 
       this.contextMenu.appendChild(menuOptions);
     }
@@ -155,10 +221,6 @@ function getCaretPosition(editableDiv) {
 
   return [caretX, caretY, focusedElement, lineElement];
 }
-
-
-
-
 
 export const exec = (command, value = null) => document.execCommand(command, false, value)
 
@@ -523,6 +585,8 @@ export const init = settings => {
 
     if (event.target.tagName == 'IMG') {
       pellContextMenu.generate('widths', event);
+      pellContextMenu.generate('borders', event);
+      pellContextMenu.generate('paddings', event);
     }
 
     pellContextMenu.show(event.clientX, event.clientY);
