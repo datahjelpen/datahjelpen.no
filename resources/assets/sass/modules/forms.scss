@@ -301,7 +301,7 @@ label {
 	&-checkbox {
 		.form-label {
 			&:before {
-				content: '\2714';
+				content: '\2714\fe0e';
 				color: $color-input-bg;
 				border-radius: $border-radius-s;
 			}
