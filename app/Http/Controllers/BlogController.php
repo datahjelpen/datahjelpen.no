@@ -91,6 +91,12 @@ class BlogController extends Controller
         return view('blog.index', compact('entries', 'area1', 'area2', 'area3'));
     }
 
+
+    public function indexRedirect()
+    {
+        return redirect()->route('blog');
+    }
+
     public function dashboard()
     {
         $entries = Entry::orderBy('created_at', 'DESC')->paginate(25);
