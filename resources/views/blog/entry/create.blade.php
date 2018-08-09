@@ -64,7 +64,7 @@
 					<label class="form-label" for="article-form-entry_type">Status</label>
 					<select name="entry_type" id="article-form-entry_type" required>
 						@if (isset($entry) && $entry->entry_type != null)
-							<option value="{{ $entry->entry_type->id }}" disabled>{{ $entry->entry_type->name }}</option>
+							<option value="{{ $entry->entry_type->id }}" selected disabled>{{ $entry->entry_type->name }}</option>
 						@else
 							<option selected disabled>Velg en</option>
 						@endif

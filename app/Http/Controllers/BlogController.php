@@ -285,6 +285,8 @@ class BlogController extends Controller
         $this->validator($request->all())->validate();
         $user = Auth::user();
 
+        $entry_type = EntryType::where('id', $request->entry_type)->firstOrFail();
+
         $ect_blog_title = EntryContentType::where('name', 'blog-title')->firstOrFail();
         $ect_blog_title_overview = EntryContentType::where('name', 'blog-title-overview')->firstOrFail();
         $ect_blog_content = EntryContentType::where('name', 'blog-content')->firstOrFail();
@@ -302,6 +304,7 @@ class BlogController extends Controller
         $entry->name = str_slug($slug);
         $entry->author_id = $user->id;
         $entry->css_id = $request->css_id;
+        $entry->entry_type_id = $entry_type->id;
         $entry->css_classlist = $request->css_classlist;
 
         if ($entry->save()) {
