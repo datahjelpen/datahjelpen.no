@@ -63,13 +63,12 @@
 				<div class="form-group">
 					<label class="form-label" for="article-form-entry_type">Status</label>
 					<select name="entry_type" id="article-form-entry_type" required>
-						@if (isset($entry) && $entry->entry_type != null)
-							<option value="{{ $entry->entry_type->id }}" selected disabled>{{ $entry->entry_type->name }}</option>
-						@else
-							<option selected disabled>Velg en</option>
-						@endif
 						@foreach ($entry_types as $entry_type)
+							@if (isset($entry) && $entry_type->id == $entry->entry_type->id)
+								<option value="{{ $entry_type->id }}" selected>{{ $entry_type->name }}</option>
+							@else
 							<option value="{{ $entry_type->id }}">{{ $entry_type->name }}</option>
+							@endif
 						@endforeach
 					</select>
 				</div>

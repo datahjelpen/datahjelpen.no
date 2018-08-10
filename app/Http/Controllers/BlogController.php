@@ -302,7 +302,6 @@ class BlogController extends Controller
         $ect_blog_image_overview = EntryContentType::where('name', 'blog-image-overview')->firstOrFail();
         $ect_blog_image_alt = EntryContentType::where('name', 'blog-image-alt')->firstOrFail();
 
-
         $slug = $request->slug;
         if ($slug == null) {
             $slug =  strip_tags($request->title);
