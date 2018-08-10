@@ -38,6 +38,7 @@ class BlogController extends Controller
 
         $this->middleware('deleted')->except([
             'index',
+            'indexRedirect',
             'show'
         ]);
 
