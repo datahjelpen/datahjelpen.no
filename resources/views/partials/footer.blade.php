@@ -29,6 +29,7 @@
 					<a href="{{ route('front-page') }}#projects">Prosjekter</a>
 					<a href="{{ route('contact') }}">Kontakt</a>
 					<a href="{{ route('about') }}">Om oss</a>
+					<a href="{{ route('blog') }}">Blogg</a>
 				</div>
 				<div class="footer-links-2">
 					<a href="{{ route('privacy') }}">Personvern{{--  & sikkerhet --}}</a>
