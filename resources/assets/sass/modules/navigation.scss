@@ -24,7 +24,8 @@
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
-		width: $size-s;
+		width: 100%;
+		// width: $size-s;
 
 		@media (min-width: $size-m-up ) {
 			height: 50%;
@@ -52,7 +53,7 @@
 			align-items: center;
 
 			@media (max-width: $size-m) {
-				height: 35%;
+				height: 30%;
 			}
 
 			li {
@@ -73,14 +74,20 @@
 
 		&-links {
 			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
+			flex-direction: row;
+			justify-content: center;
 			align-content: center;
 			align-items: center;
+			flex-wrap: wrap;
+
+			@media (max-width: $size-s) {
+				font-size: 0.9em;
+			}
 
 			@media (max-width: $size-m) {
 				padding-top: 1em;
-				height: 65%;
+				height: 70%;
+				max-width: 300px;
 			}
 
 			@media (min-width: $size-m-up ) {
@@ -99,6 +106,7 @@
 					border-radius: $border-radius-s;
 
 					@media (max-width: $size-m) {
+						padding: 0.5em 1em;
 					}
 
 					@media (min-width: $size-m-up ) {

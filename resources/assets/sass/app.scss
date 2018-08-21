@@ -602,7 +602,11 @@ body {
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             width: 100%;
+            display: block;
+            margin: auto;
           }
         }
 
@@ -637,6 +641,10 @@ body {
 
           .entry-image {
             height: 25em;
+
+            @media screen and (max-width: $size-m) {
+              height: 15em;
+            }
           }
         }
       }
