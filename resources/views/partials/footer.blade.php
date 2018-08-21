@@ -104,7 +104,7 @@
 					for (var i = 0; i < messages.length; i++) {
 						hideMessage(messages[i], i);
 					}
-				}, 5000);
+				}, 15000);
 			}
 
 			function hideMessage(message, timeout) {
