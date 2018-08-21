@@ -58,11 +58,6 @@
 			</div>
 			<div>
 				<div class="footer-location">
-					<p><strong>Sandefjord</strong></p>
-					<p>Søndre kullerød 2,</p>
-					<p>3241 Sandefjord</p>
-				</div>
-				<div class="footer-location">
 					<p><strong>Halden</strong></p>
 					<p>Grimsrødveien 6,</p>
 					<p>1786 Halden</p>
