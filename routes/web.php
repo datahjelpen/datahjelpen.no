@@ -105,6 +105,9 @@ Route::prefix('blogg')->group(function () {
 		Route::get('ny',   'BlogController@create')->name('blog.create');
 		Route::post('opprett',   'BlogController@store')->name('blog.store');
 
+		Route::get('windows-10-slett-midlertidige-filer', 'BlogController@blog1');
+		Route::get('mac-2-dropbox-kontoer', 'BlogController@blog2');
+
 		Route::prefix('{entry}')->group(function () {
 			Route::get('/',          'BlogController@show')->name('blog.show');
 			Route::get('rediger',    'BlogController@edit')->name('blog.edit');
@@ -113,6 +116,4 @@ Route::prefix('blogg')->group(function () {
 			Route::delete('slett',   'BlogController@destroy')->name('blog.destroy');
 		});
 
-		Route::get('windows-10-slett-midlertidige-filer', 'BlogController@blog1');
-		Route::get('mac-2-dropbox-kontoer', 'BlogController@blog2');
 });
