@@ -55,6 +55,7 @@ class CreateEntryTables extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('icon')->nullable();
+            $table->string('css_id')->nullable()->default(null);
             $table->string('css_classlist')->nullable()->default(null);
             $table->string('html_tag_open');
             $table->string('html_tag_close')->nullable()->default(null);
