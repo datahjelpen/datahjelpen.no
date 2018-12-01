@@ -1,5 +1,9 @@
 <?php
 
+if (App::environment('production')) {
+	URL::forceScheme('https');
+}
+
 Route::get('/',    'SiteController@index')->name('front-page');
 Route::get('hjem', 'SiteController@index');
 Route::get('home', 'SiteController@home')->name('home');
