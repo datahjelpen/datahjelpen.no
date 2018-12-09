@@ -1,4 +1,4 @@
-<section id="navigation-wrapper">
+<header id="navigation-wrapper">
 	<nav id="main-navigation">
 		<ul class="main-navigation-brand">
 			<li>
@@ -18,4 +18,4 @@
 	<nav>
 		{{ Breadcrumbs::render() }}
 	</nav>
-</section>
+</header>
