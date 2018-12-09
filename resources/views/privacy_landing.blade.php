@@ -8,7 +8,7 @@
 				<p>Hvis ikke dataene dine er sikre, er de heller ikke private. Derfor sørger vi for at alle våre tjenester er beskyttet.</p>
 				<p>Les om vår <a href="#">Sikkerhet</a></p> --}}
 
-				<h3>Vi selger ikke dine personlige opplysninger til noen.</h3>
+				<h3>Vi selger aldri dine personlige opplysninger til noen.</h3>
 				<p>Les vår <a href="{{ route('privacy.policy') }}">Personvernerklæring</a></p>
 				{{-- <p>Les om <a href="{{ route('privacy.cookies') }}">Informasjonskaplser</a></p> --}}
 			</div>
