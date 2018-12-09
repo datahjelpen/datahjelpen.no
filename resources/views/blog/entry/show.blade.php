@@ -27,7 +27,7 @@
 				<span itemprop="author">{{ $entry->author->name }}</span>
 				<span>—</span>
 				<span title="{{ $entry->created_at->toDateTimeString() }} ({{ $entry->created_at->diffForHumans() }})">{{ $entry->date() }}</span>
-				<div class="hidden">
+				<span class="hidden">
 					<meta itemprop="headline" content="{{ $entry->title_overview() }}">
 					<meta itemprop="description" content="{{ $entry->excerpt() }}">
 					<meta itemprop="image" content="{{ $entry->image_header() }}">
@@ -36,14 +36,14 @@
 					<meta itemprop="datePublished" content="{{ $entry->created_at->toIso8601String() }}">
 					<meta itemprop="dateModified" content="{{ $entry->updated_at->toIso8601String() }}">
 					<meta itemprop="mainEntityOfPage" content="{{ $entry->canonical_link() }}">
-					<div itemtype="https://schema.org/Organization" itemscope="itemscope" itemprop="publisher">
+					<span itemtype="https://schema.org/Organization" itemscope="itemscope" itemprop="publisher">
 						<meta itemprop="url" content="{{ config('app.url') }}">
 						<meta itemprop="name" content="{{ config('app.name_legal') }}">
 						<span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
 							<meta itemprop="url" content="{{ asset(config('app.logo')) }}">
 						</span>
-					</div>
-				</div>
+					</span>
+				</span>
 			</p>
 			<div class="article-body content-text" itemprop="articleBody">
 				{!! $entry->content() !!}
