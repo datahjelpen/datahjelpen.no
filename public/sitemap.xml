@@ -1,57 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?>
-<urlset
-		xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-			http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-	<url>
-		<loc>https://datahjelpen.no</loc>
-		<changefreq>monthly</changefreq>
-		<priority>1.00</priority>
-	</url>
-	<url>
-		<loc>https://datahjelpen.no/tjenester</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.9</priority>
-	</url>
-	<url>
-		<loc>https://datahjelpen.no/kontakt</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.9</priority>
-	</url>
-	<url>
-		<loc>https://datahjelpen.no/om</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.9</priority>
-	</url>
-	<url>
-		<loc>https://datahjelpen.no/tjenester/web_design</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	<url>
-		<loc>https://datahjelpen.no/tjenester/datahjelp</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	<url>
-		<loc>https://datahjelpen.no/tjenester/opplaring</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	<url>
-		<loc>https://datahjelpen.no/tjenester/markedsforing/google-adwords</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.7</priority>
-	</url>
-	<url>
-		<loc>https://datahjelpen.no/blog/windows-10-slett-midlertidige-filer</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>https://datahjelpen.no/blog/mac-2-dropbox-kontoer</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.6</priority>
-	</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://datahjelpen.no/</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/kontakt</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/om</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/personvern</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.10</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/personvern/personvernerklaring</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.10</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/login</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.20</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/takshopno</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/gourmethusetno</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/mac-os-hvordan-ha-2-dropbox-kontoer</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/windows-10-sletting-av-midlertidige-filer</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/dette-er-iphone-xs</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/pass-pa-ikea-svindel</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/endelig-kommer-denne-funksjonen-til-imessage</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/spesifikasjoner-galaxy-note-9</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/de-10-vanligste-feilene-i-webdesign</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://datahjelpen.no/blogg/velkommen</loc>
+  <lastmod>2019-01-07T12:03:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 </urlset>
