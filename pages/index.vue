@@ -2,9 +2,9 @@
   <div>
     <logo />
     <h1 class="title">{{thing}}</h1>
-    <h2 class="subtitle">My flawless Nuxt.js project</h2>
+    <h2 class="subtitle">{{ $t('hello') }}</h2>
     <div class="links">
-      <nuxt-link to="/about">About</nuxt-link>
+      <nuxt-link :to="localePath('about')">About</nuxt-link>
     </div>
   </div>
 </template>

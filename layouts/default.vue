@@ -5,9 +5,14 @@
   <div>
     <nav>
       <logo />
-      <a>Link 1</a>
-      <a>Link 2</a>
-      <a>Link 3</a>
+      <div>
+        <nuxt-link :to="localePath('index')">{{ $t('nav.home') }}</nuxt-link>
+        <nuxt-link :to="localePath('about')">{{ $t('nav.about') }}</nuxt-link>
+      </div>
+      <div>
+        <nuxt-link :to="switchLocalePath('nb')">🇳🇴</nuxt-link>
+        <nuxt-link :to="switchLocalePath('en')">🇬🇧</nuxt-link>
+      </div>
     </nav>
     <main>
       <nuxt />

@@ -48,13 +48,36 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'nuxt-i18n'
   ],
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+
+  /*
+   ** nuxt-i18n module configuration
+   ** See https://nuxt-community.github.io/nuxt-i18n/
+   */
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en-US.js'
+      },
+      {
+        code: 'nb',
+        file: 'nb-NO.js'
+      }
+    ],
+    lazy: true,
+    langDir: 'i18n/',
+    defaultLocale: 'nb'
+  },
+
   /*
    ** Build configuration
    */

@@ -4,3 +4,13 @@
     <p>About the business</p>
   </div>
 </template>
+<script>
+export default {
+  nuxtI18n: {
+    paths: {
+      en: '/about',
+      nb: '/om-oss'
+    }
+  }
+}
+</script>
