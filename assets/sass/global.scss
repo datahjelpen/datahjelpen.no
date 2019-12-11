@@ -1,0 +1,156 @@
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+html,
+body,
+#__nuxt,
+#__layout {
+  height: 100%;
+}
+
+html {
+  font-size: $font-base-size;
+  line-height: 1.6;
+  color: $color-fg-copy;
+  background-color: $color-bg;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 100%;
+  line-height: $font-base-line-height;
+  font-weight: $font-weight-body;
+  font-family: $font-family-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-fg-headings;
+  margin-top: 1.6rem;
+  margin-bottom: 0.8rem;
+  line-height: 1;
+  font-family: $font-family-headings;
+  font-weight: $font-weight-headings;
+}
+
+h1 {
+  font-size: $font-size-h2;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h1;
+  }
+}
+
+h2 {
+  font-size: $font-size-h3;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h2;
+  }
+}
+
+h3 {
+  font-size: $font-size-h4;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h3;
+  }
+}
+
+h4 {
+  font-size: $font-size-h5;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h4;
+  }
+}
+
+h5 {
+  font-size: $font-size-h6;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h5;
+  }
+}
+
+h6 {
+  font-size: $font-size-h6;
+  font-weight: $font-weight-body;
+}
+
+p {
+  margin: 0 0 0.8em;
+}
+
+button {
+  cursor: pointer;
+  display: inline-block;
+  font-size: inherit;
+  padding: 0.4em 0.8em;
+  line-height: 1;
+  color: $color-gray_cold900;
+  border: 1px solid $color-gray_cold500;
+  background-color: $color-gray_cold300;
+
+  &:focus,
+  &:hover {
+    color: $color-black;
+    border: 1px solid $color-gray_cold700;
+    background-color: $color-gray_cold100;
+  }
+
+  &.button-primary {
+    color: $color-black;
+    border-color: $color-primary500;
+    background-color: $color-primary500;
+
+    &:focus,
+    &:hover {
+      color: $color-primary500;
+      border-color: $color-black;
+      background-color: $color-black;
+    }
+  }
+}
+
+input,
+select,
+textarea {
+  font-size: inherit;
+}
+
+a {
+  color: $color-indigo500;
+
+  &:hover,
+  &:focus {
+    color: $color-indigo900;
+  }
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+// Page transition
+.page-enter-active,
+.page-leave-active {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(1, 0.5, 0, 1);
+  transition-duration: 200ms;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
