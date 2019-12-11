@@ -338,8 +338,8 @@ $color-error-gradient: linear-gradient(
 );
 
 /* Page elements */
-$color-fg-copy: $color-gray_cold700;
-$color-fg-headings: $color-gray_cold900;
+$color-fg-copy: $color-gray_cold900;
+$color-fg-headings: $color-black;
 
 $color-bg: $color-white;
 $color-page-borders: $color-gray_neutral300;
@@ -348,9 +348,9 @@ $color-navbar-bg: $color-white;
 
 /* Typography */
 $font-family-headings: 'Helvetica Now Display', sans-serif;
-$font-weight-headings: 700;
+$font-weight-headings: 900;
 $font-family-body: 'Helvetica Now Text', sans-serif;
-$font-weight-body: 400;
+$font-weight-body: 300;
 
 $font-base-size: 18px;
 $font-base-line-height: 1.618;
