@@ -1,6 +1,10 @@
 export default {
   nav: {
-    home: 'Frontpage',
-    about: 'About'
+    home: 'Home',
+    cases: 'Cases',
+    services: 'Services',
+    contact: 'Contact',
+    about: 'About',
+    blog: 'Blog'
   }
 }

@@ -4,10 +4,18 @@
 <template>
   <div>
     <nav>
-      <logo />
+      <Logo />
       <div>
         <nuxt-link :to="localePath('index')">{{ $t('nav.home') }}</nuxt-link>
+        <nuxt-link :to="localePath('cases')">{{ $t('nav.cases') }}</nuxt-link>
+        <nuxt-link :to="localePath('services')">{{
+          $t('nav.services')
+        }}</nuxt-link>
+        <nuxt-link :to="localePath('contact')">{{
+          $t('nav.contact')
+        }}</nuxt-link>
         <nuxt-link :to="localePath('about')">{{ $t('nav.about') }}</nuxt-link>
+        <nuxt-link :to="localePath('blog')">{{ $t('nav.blog') }}</nuxt-link>
       </div>
       <div>
         <nuxt-link :to="switchLocalePath('nb')">🇳🇴</nuxt-link>
