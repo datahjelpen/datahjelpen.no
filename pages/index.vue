@@ -13,7 +13,7 @@
         </div>
       </div>
       <div :class="$style.headerImage">
-        <DancingImage image="/demo/misc/masked-img-1.jpg" />
+        <DancingImage :image="headerImage" />
       </div>
     </header>
 
@@ -397,7 +397,8 @@ export default {
       title: this.$i18n.t('Vi skaper de digitale opplevelsene folk elsker'),
       intro_text: this.$i18n.t(
         'We believe that designing products and services in close partnership with our clients is the only way to have a real impact on their business.'
-      )
+      ),
+      headerImage: require('~/assets/test.jpg')
     }
   }
 }
