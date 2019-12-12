@@ -14,8 +14,10 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/svg": "^0.1.6",
+    "aos": "^2.3.4",
     "nuxt": "^2.10.2",
-    "nuxt-i18n": "^6.4.1"
+    "nuxt-i18n": "^6.4.1",
+    "particles.js": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",

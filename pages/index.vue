@@ -3,16 +3,20 @@
 </style>
 <template>
   <div :class="$style.root">
-    <header :class="$style.header">
+    <header id="particles-js" :class="$style.header">
       <div :class="$style.headerContent">
-        <h1>{{ title }}</h1>
-        <p>{{ intro_text }}</p>
-        <div :class="$style.headerContentLinks">
+        <h1 data-aos="fade-up" data-aos-delay="0">{{ title }}</h1>
+        <p data-aos="fade-up" data-aos-delay="100">{{ intro_text }}</p>
+        <div
+          data-aos="fade-up"
+          data-aos-delay="200"
+          :class="$style.headerContentLinks"
+        >
           <a :href="$t('#tjenester')">Våre tjenester</a>
           <a href="#">Kontakt oss</a>
         </div>
       </div>
-      <div :class="$style.headerImage">
+      <div :class="$style.headerImage" data-aos="fade-left" data-aos-delay="0">
         <DancingImage :image="headerImage" />
       </div>
     </header>
@@ -387,6 +391,18 @@
 
 <script>
 import DancingImage from '../components/DancingImage'
+
+if (process.client) {
+  const particlesJS = require('particles.js')
+
+  window.particlesJS.load(
+    'particles-js',
+    '/particlesjs-config.json',
+    function() {
+      console.log('callback - particles.js config loaded')
+    }
+  )
+}
 
 export default {
   components: {

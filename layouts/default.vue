@@ -34,6 +34,12 @@
 </template>
 <script>
 import Logo from '~/components/Logo'
+import AOSCSS from 'aos/dist/aos.css'
+import AOS from 'aos'
+
+if (process.client) {
+  AOS.init()
+}
 
 export default {
   components: {
