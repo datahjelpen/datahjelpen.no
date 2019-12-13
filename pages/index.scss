@@ -36,6 +36,10 @@
   }
 
   @media ($media-min-large) {
+    padding: $space-xlarge $space-large $space-large;
+  }
+
+  @media ($media-min-xlarge) {
     padding: $space-xxlarge $space-large $space-large;
   }
 }
