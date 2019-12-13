@@ -1,20 +1,39 @@
 .root {
   display: flex;
+  justify-content: center;
+  background-color: $color-white;
+  background-color: transparent;
+  width: 100%;
+  max-width: 100%;
+
+  & a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}
+
+.inner {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: flex-start;
   align-items: center;
   padding: $space-small;
-  background-color: $color-white;
-  background-color: transparent;
-}
+  width: $page_width;
+  max-width: 100%;
 
-.root a {
-  color: inherit;
+  @media ($media-min-medium) {
+    padding: $space-small $space-base;
+  }
 
-  &:hover,
-  &:focus {
-    color: inherit;
+  @media ($media-min-large) {
+    padding: $space-small $space-large;
   }
 }
 
@@ -22,7 +41,6 @@
   width: #{$size-medium}em;
 
   svg {
-    vertical-align: middle;
     display: block;
     width: 100%;
     height: auto;
@@ -35,6 +53,27 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  color: black;
+  background-color: white;
+  transform: translateY(-100%);
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.root[aria-expanded='true'] .links {
+  transform: translateY(0%);
+}
+
+.linksInner {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -42,40 +81,62 @@
   align-content: flex-start;
   align-items: flex-start;
   padding: $space-small;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  color: black;
-  background-color: white;
-  transform: translateY(-100%);
-  transition-property: transform;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.77, 0, 0.18, 1);
+  width: $page_width;
+  max-width: 100%;
 
-  @media ($media-min-small) {
-    padding: 20vh $space-small $space-small;
+  @media ($media-min-medium) {
+    padding: $space-small $space-base;
+  }
+
+  @media ($media-min-large) {
+    padding: $space-small $space-large;
   }
 }
 
-.root[aria-expanded='true'] .links {
-  transform: translateY(0%);
+.topBar {
+  position: sticky;
+  top: $space-small;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @media ($media-min-small) {
+    padding-bottom: $space-large;
+  }
+
+  @media ($media-min-xlarge) {
+    padding-bottom: $space-xlarge;
+  }
 }
 
 .mainLinks {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  font-size: 2em;
+  font-size: $font-size-h3;
   width: 100%;
+  max-width: $page_width;
+  padding-right: $space-medium;
 
-  @media ($media-min-small) {
+  @media ($media-min-medium) {
+    font-size: $font-size-h2;
     width: 50%;
   }
 
   > a {
     width: 100%;
 
+    @media ($media-min-small) {
+      width: 50%;
+    }
+
     @media ($media-min-medium) {
+      width: 100%;
+    }
+
+    @media ($media-min-large) {
       width: 50%;
     }
   }
@@ -87,12 +148,15 @@
   flex-wrap: wrap;
   width: 100%;
 
-  @media ($media-min-small) {
+  @media ($media-min-medium) {
     width: 50%;
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: $font-base-size;
+    font-weight: $font-weight-body;
+    font-family: $font-family-body;
+    color: $color-gray_cold600;
   }
 
   .otherLinksGroup {
@@ -119,10 +183,4 @@
     height: auto;
     max-height: 100%;
   }
-}
-
-.close {
-  position: absolute;
-  top: #{$size-small}em;
-  right: #{$size-small}em;
 }
