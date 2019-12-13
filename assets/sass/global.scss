@@ -14,9 +14,6 @@ body,
 
 html {
   font-size: $font-base-size;
-  line-height: 1.6;
-  color: $color-fg-copy;
-  background-color: $color-bg;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -26,6 +23,8 @@ body {
   line-height: $font-base-line-height;
   font-weight: $font-weight-body;
   font-family: $font-family-body;
+  color: $color-fg-copy;
+  background-color: $color-bg;
   overflow-x: hidden;
 }
 
