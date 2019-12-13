@@ -56,7 +56,11 @@ import AOSCSS from 'aos/dist/aos.css'
 import AOS from 'aos'
 
 if (process.client) {
-  AOS.init()
+  AOS.init({
+    duration: 300,
+    debounceDelay: 200, // the delay on debounce used while resizing window (advanced)
+    throttleDelay: 200 // the delay on throttle used while scrolling the page (advanced)
+  })
 }
 
 export default {
