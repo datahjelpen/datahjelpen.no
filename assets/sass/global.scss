@@ -155,3 +155,24 @@ img {
 .page-leave-active {
   opacity: 0;
 }
+
+// Allows JS to detect what media query we are on
+#devicecheck {
+  display: none;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  content: '';
+
+  @media ($media-max-small) {
+    content: 'mobile';
+  }
+
+  @media ($media-min-small) and ($media-max-medium) {
+    content: 'tablet';
+  }
+
+  @media ($media-min-medium) {
+    content: 'desktop';
+  }
+}

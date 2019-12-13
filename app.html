@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html {{ HTML_ATTRS }}>
   <head {{ HEAD_ATTRS }}>
-    {{
-      HEAD
-    }}
+    {{ HEAD }}
   </head>
   <body {{ BODY_ATTRS }}>
     {{ APP }}
+    <script>
+      ;(function() {
+        // Create the devicecheck element
+        var div = document.createElement('div')
+        div.setAttribute('id', 'devicecheck')
+        document.body.appendChild(div)
+
+        // Update variables
+        function window_is_sizeUpdate() {
+          var devicecheck = window
+            .getComputedStyle(document.getElementById('devicecheck'))
+            .getPropertyValue('content')
+
+          window.is_desktop =
+            devicecheck == '"desktop"' || devicecheck == 'desktop'
+          window.is_tablet =
+            devicecheck == '"tablet"' || devicecheck == 'tablet'
+          window.is_mobile =
+            devicecheck == '"mobile"' || devicecheck == 'mobile'
+
+          if (!window.is_mobile && !window.is_tablet) window.is_desktop = true
+        }
+
+        window_is_sizeUpdate() // Init
+      })()
+    </script>
   </body>
 </html>
