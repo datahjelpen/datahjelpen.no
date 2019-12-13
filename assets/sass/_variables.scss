@@ -195,36 +195,36 @@ $color-pink800: #a80d53;
 $color-pink900: #79093c;
 
 /* Branding */
-$color-primary000: $color-yellow000;
-$color-primary100: $color-yellow100;
-$color-primary200: $color-yellow200;
-$color-primary300: $color-yellow300;
-$color-primary400: $color-yellow400;
-$color-primary500: $color-yellow500;
-$color-primary600: $color-yellow600;
-$color-primary700: $color-yellow700;
-$color-primary800: $color-yellow800;
-$color-primary900: $color-yellow900;
+$color-primary000: $color-red000;
+$color-primary100: $color-red100;
+$color-primary200: $color-red200;
+$color-primary300: $color-red300;
+$color-primary400: $color-red400;
+$color-primary500: $color-red500;
+$color-primary600: $color-red600;
+$color-primary700: $color-red700;
+$color-primary800: $color-red800;
+$color-primary900: $color-red900;
 $color-primary-gradient: linear-gradient(
   135deg,
   $color-primary500 0%,
   $color-primary700 100%
 );
 
-$color-accent000: $color-green000;
-$color-accent100: $color-green100;
-$color-accent200: $color-green200;
-$color-accent300: $color-green300;
-$color-accent400: $color-green400;
-$color-accent500: $color-green500;
-$color-accent600: $color-green600;
-$color-accent700: $color-green700;
-$color-accent800: $color-green800;
-$color-accent900: $color-green900;
+$color-accent000: $color-blue000;
+$color-accent100: $color-blue100;
+$color-accent200: $color-blue200;
+$color-accent300: $color-blue300;
+$color-accent400: $color-blue400;
+$color-accent500: $color-blue500;
+$color-accent600: $color-blue600;
+$color-accent700: $color-blue700;
+$color-accent800: $color-blue800;
+$color-accent900: $color-blue900;
 $color-accent-gradient: linear-gradient(
   135deg,
-  $color-green500 0%,
-  $color-green700 100%
+  $color-blue500 0%,
+  $color-blue700 100%
 );
 
 .color-primary000 {
@@ -347,9 +347,9 @@ $color-page-borders: $color-gray_neutral300;
 $color-navbar-bg: $color-white;
 
 /* Typography */
-$font-family-headings: 'Helvetica Now Display', sans-serif;
+$font-family-headings: 'Helvetica Now Display', 'Helvetica Neue', sans-serif;
 $font-weight-headings: 900;
-$font-family-body: 'Helvetica Now Text', sans-serif;
+$font-family-body: 'Helvetica Now Text Light', 'Helvetica Neue', sans-serif;
 $font-weight-body: 300;
 
 $font-base-size: 18px;
