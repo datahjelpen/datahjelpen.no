@@ -7,9 +7,22 @@
   display: none;
 }
 </style>
+<style lang="scss">
+// bg for navbar
+.navigationBarBg {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  width: 100%;
+  height: #{$size-medium + $size-tiny * 2 + $size-small}em;
+  z-index: 2;
+}
+</style>
 <template>
   <div>
-    <NavigationBar :class="$style.navigationBar">
+    <NavigationBar id="main-nav" :class="$style.navigationBar">
       <nuxt-link slot="logo" :to="localePath('index')">
         <Logo />
       </nuxt-link>
@@ -35,8 +48,8 @@
         $t('nav.blog')
       }}</nuxt-link>
       <MenuIcon slot="toggle" />
-      <nuxt-link slot="links" :to="switchLocalePath('nb')">🇳🇴</nuxt-link>
-      <nuxt-link slot="links" :to="switchLocalePath('en')">🇬🇧</nuxt-link>
+      <!-- <nuxt-link slot="links" :to="switchLocalePath('nb')">🇳🇴</nuxt-link>
+      <nuxt-link slot="links" :to="switchLocalePath('en')">🇬🇧</nuxt-link> -->
     </NavigationBar>
     <main>
       <nuxt />
@@ -61,6 +74,18 @@ if (process.client) {
     debounceDelay: 200, // the delay on debounce used while resizing window (advanced)
     throttleDelay: 200 // the delay on throttle used while scrolling the page (advanced)
   })
+
+  if (document) {
+    const mainNav = document.querySelector('#main-nav')
+    const mainNavBg = document.querySelector('.navigationBarBg')
+
+    if (mainNav && !mainNavBg) {
+      const mainNavBgDefault = document.createElement('div')
+      mainNavBgDefault.classList.add('navigationBarBg')
+      mainNav.style.backgroundColor = 'white'
+      // mainNav.parentElement.insertBefore(mainNavBgDefault, mainNav)
+    }
+  }
 }
 
 export default {
