@@ -155,6 +155,69 @@ img {
   opacity: 0;
 }
 
+.button {
+  cursor: pointer;
+  padding: $space-small $space-base;
+  color: $color-white;
+  background-color: $color-gray_cold700;
+  border-radius: 0.25em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid $color-gray_cold700;
+  font-size: inherit;
+  line-height: 1;
+  text-align: center;
+  box-shadow: 0 10px 25px -15px rgba($color-gray_cold700, 0.8);
+  transition-property: box-shadow, transform, color, border-color,
+    background-color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+
+  &.button-primary {
+    color: $color-white;
+    border-color: $color-primary500;
+    background-color: $color-primary500;
+    box-shadow: 0 10px 25px -15px rgba($color-primary500, 0.8);
+  }
+
+  &.button-accent {
+    color: $color-white;
+    border-color: $color-accent500;
+    background-color: $color-accent500;
+    box-shadow: 0 10px 25px -15px rgba($color-accent500, 0.8);
+  }
+
+  &.button-blank {
+    color: $color-black;
+    border-color: $color-gray_cold300;
+    background-color: $color-gray_cold000;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: $color-white;
+      background-color: $color-primary500;
+      box-shadow: none;
+      transform: scale(1);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    z-index: 1;
+    color: $color-white;
+    border-color: $color-primary500;
+    background-color: $color-primary500;
+    box-shadow: 0 10px 30px -15px rgba($color-primary700, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+a.button {
+  display: inline-block;
+}
+
 // Allows JS to detect what media query we are on
 #devicecheck {
   display: none;
