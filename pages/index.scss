@@ -1,3 +1,7 @@
+.navigationBarBg {
+  background-color: white;
+}
+
 .root {
 }
 
@@ -5,11 +9,9 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-content: flex-start;
   align-items: flex-start;
-  width: 100%;
-  height: 1000px;
 
   > canvas {
     position: absolute;
@@ -23,12 +25,24 @@
   }
 }
 
+.headerInner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: $page_width;
+  height: 1000px;
+}
+
 .headerContent {
   position: relative;
   width: 100%;
   z-index: 3;
   padding: $space-small;
   max-width: #{$size-base * 30}em;
+  overflow: visible;
 
   @media ($media-min-medium) {
     width: 50%;
@@ -41,6 +55,26 @@
 
   @media ($media-min-xlarge) {
     padding: $space-xxlarge $space-large $space-large;
+  }
+
+  > h1 {
+    white-space: nowrap;
+    overflow: visible;
+    font-size: $font-size-h4;
+
+    @media ($media-min-large) {
+      font-size: $font-size-h1;
+    }
+
+    > span {
+      display: block;
+      overflow: visible;
+    }
+  }
+
+  > p {
+    margin-top: $space-base;
+    text-shadow: 0px 0px 1px white;
   }
 }
 
