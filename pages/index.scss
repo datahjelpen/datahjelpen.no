@@ -58,9 +58,17 @@
   }
 
   > h1 {
-    white-space: nowrap;
-    overflow: visible;
     font-size: $font-size-h4;
+
+    @media ($media-min-small) {
+      font-size: $font-size-h3;
+    }
+
+    @media ($media-min-medium) {
+      overflow: visible;
+      white-space: nowrap;
+      font-size: $font-size-h2;
+    }
 
     @media ($media-min-large) {
       font-size: $font-size-h1;
