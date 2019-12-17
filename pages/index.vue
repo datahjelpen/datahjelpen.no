@@ -17,7 +17,9 @@
             data-aos-delay="200"
             :class="$style.headerContentLinks"
           >
-            <a class="button button-primary" :href="$t('#tjenester')"
+            <a
+              class="button button-primary"
+              :href="'#' + services.sectionNameSlug"
               >Våre tjenester</a
             >
             <a class="button button-blank" href="#">Kontakt oss</a>
@@ -34,8 +36,34 @@
     </header>
     <div :class="'navigationBarBg ' + $style.navigationBarBg"></div>
 
+    <InfoSection1 :id="services.sectionNameSlug">
+      <div slot="header">
+        <h2>{{ services.sectionName }}</h2>
+        <h3>
+          {{ services.title }}
+        </h3>
+        <p>
+          {{ services.summary }}
+        </p>
+        <a class="button button-primary" :href="services.button.link">{{
+          services.button.text
+        }}</a>
+      </div>
+      <Card
+        v-for="(service, i) in services.items"
+        :slot="'item-' + (i + 1)"
+        :key="'service-card-' + i"
+      >
+        <img slot="icon" :src="service.icon" />
+        <h4 slot="title">{{ service.title }}</h4>
+        <p slot="content">
+          {{ service.summary }}
+        </p>
+      </Card>
+    </InfoSection1>
+
     <ul>
-      <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+      <li>
         <a href="http://avehtml.liquid-themes.com/index-creative.html"
           >http://avehtml.liquid-themes.com/index-creative.html</a
         >
@@ -108,30 +136,29 @@
     <br />
     <br />
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
   </div>
 </template>
 
 <script>
 import DancingImage from '../components/DancingImage'
 import ButtonGroup from '../components/ButtonGroup'
+import InfoSection1 from '../components/InfoSection1'
+import ServiceIconConsult from '~/assets/icons/consult.svg?raw'
+import ServiceIconDevelop from '~/assets/icons/develop.svg?raw'
+import ServiceIconDesign from '~/assets/icons/design.svg?raw'
+import Card from '../components/Card'
 
 if (process.client) {
   const particlesJS = require('particles.js')
-
   window.particlesJS.load('particles-js', '/particlesjs-config.json')
 }
 
 export default {
   components: {
     DancingImage,
-    ButtonGroup
+    ButtonGroup,
+    InfoSection1,
+    Card
   },
   data() {
     return {
@@ -142,7 +169,42 @@ export default {
       intro_text: this.$i18n.t(
         'We believe that designing products and services in close partnership with our clients is the only way to have a real impact on their business.'
       ),
-      headerImage: require('~/assets/test.jpg')
+      headerImage: require('~/assets/test.jpg'),
+      services: {
+        sectionNameSlug: this.$i18n.t('tjenester'),
+        sectionName: this.$i18n.t('Tjenester'),
+        title: this.$i18n.t('De beste løsningene for din bedrift'),
+        summary: this.$i18n.t(
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium blanditiis nulla, magnam qui aperiam vitae porro dolor sit voluptate sunt. Itaque distinctio officiis, voluptatum cumque est magni provident natus a.'
+        ),
+        button: {
+          text: 'Se alle tjenester',
+          link: ''
+        },
+        items: [
+          {
+            title: this.$i18n.t('Utvikling'),
+            summary: this.$i18n.t(
+              "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here."
+            ),
+            icon: ServiceIconDevelop
+          },
+          {
+            title: this.$i18n.t('Design'),
+            summary: this.$i18n.t(
+              "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective."
+            ),
+            icon: ServiceIconDesign
+          },
+          {
+            title: this.$i18n.t('Rådgivning'),
+            summary: this.$i18n.t(
+              "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color."
+            ),
+            icon: ServiceIconConsult
+          }
+        ]
+      }
     }
   }
 }
