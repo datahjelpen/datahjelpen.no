@@ -23,7 +23,7 @@ body {
   line-height: $font-base-line-height;
   font-weight: $font-weight-body;
   font-family: $font-family-body;
-  color: $color-fg-copy;
+  color: $color-fg-body;
   background-color: $color-bg;
   overflow-x: hidden;
 }
@@ -91,37 +91,6 @@ p {
   margin: 0 0 0.8em;
 }
 
-button {
-  cursor: pointer;
-  display: inline-block;
-  font-size: inherit;
-  padding: 0.4em 0.8em;
-  line-height: 1;
-  color: $color-gray_cold900;
-  border: 1px solid $color-gray_cold500;
-  background-color: $color-gray_cold300;
-
-  &:focus,
-  &:hover {
-    color: $color-black;
-    border: 1px solid $color-gray_cold700;
-    background-color: $color-gray_cold100;
-  }
-
-  &.button-primary {
-    color: $color-black;
-    border-color: $color-primary500;
-    background-color: $color-primary500;
-
-    &:focus,
-    &:hover {
-      color: $color-primary500;
-      border-color: $color-black;
-      background-color: $color-black;
-    }
-  }
-}
-
 input,
 select,
 textarea {
@@ -129,11 +98,24 @@ textarea {
 }
 
 a {
-  color: $color-indigo500;
+  color: $color-accent500;
+  text-decoration: none;
 
   &:hover,
   &:focus {
-    color: $color-indigo900;
+    color: $color-primary500;
+    text-decoration: underline;
+  }
+}
+
+.link {
+  color: $color-accent500;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $color-primary500;
+    text-decoration: underline;
   }
 }
 
@@ -162,7 +144,6 @@ img {
   background-color: $color-gray_cold700;
   border-radius: 0.25em;
   text-decoration: none;
-  text-transform: uppercase;
   border: 1px solid $color-gray_cold700;
   font-size: inherit;
   line-height: 1;
@@ -173,6 +154,10 @@ img {
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transform: scale(1);
+
+  &.button-small {
+    padding: $space-tiny $space-small;
+  }
 
   &.button-primary {
     color: $color-white;
@@ -188,7 +173,7 @@ img {
     box-shadow: 0 10px 25px -15px rgba($color-accent500, 0.8);
   }
 
-  &.button-blank {
+  &.button-light {
     color: $color-black;
     border-color: $color-gray_cold300;
     background-color: $color-gray_cold000;
@@ -216,6 +201,12 @@ img {
 
 a.button {
   display: inline-block;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
 
 // Allows JS to detect what media query we are on
