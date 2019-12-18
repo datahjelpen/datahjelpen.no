@@ -63,18 +63,22 @@
             services.button.text
           }}</a>
         </div>
-      <Card
-        v-for="(service, i) in services.items"
-        :slot="'item-' + (i + 1)"
-        :key="'service-card-' + i"
-      >
-        <img slot="icon" :src="service.icon" />
-        <h4 slot="title">{{ service.title }}</h4>
-        <p slot="content">
-          {{ service.summary }}
-        </p>
-      </Card>
-    </InfoSection1>
+        <Card
+          v-for="(service, i) in services.items"
+          :slot="'item-' + (i + 1)"
+          :key="'service-card-' + i"
+          :link="service.link"
+        >
+          <img slot="icon" :src="service.icon" />
+          <h4 slot="title">{{ service.title }}</h4>
+          <p slot="content">
+            {{ service.summary }}
+          </p>
+          <a class="link link-styled" :href="service.link" slot="link">{{
+            service.linkText
+          }}</a>
+        </Card>
+      </InfoSection1>
     </Layout>
 
     <ul>
@@ -162,6 +166,7 @@ import ServiceIconConsult from '~/assets/icons/consult.svg?raw'
 import ServiceIconDevelop from '~/assets/icons/develop.svg?raw'
 import ServiceIconDesign from '~/assets/icons/design.svg?raw'
 import Card from '../components/Card'
+import Layout from '../components/Layout'
 
 if (process.client) {
   const particlesJS = require('particles.js')
@@ -173,7 +178,8 @@ export default {
     DancingImage,
     ButtonGroup,
     InfoSection1,
-    Card
+    Card,
+    Layout
   },
   data() {
     return {
@@ -190,8 +196,8 @@ export default {
       headerImageAltMobile: '',
       services: {
         sectionNameSlug: this.$i18n.t('tjenester'),
-        sectionName: this.$i18n.t('Tjenester'),
-        title: this.$i18n.t('De beste løsningene for din bedrift'),
+        sectionName: this.$i18n.t('Våre tjenester'),
+        title: this.$i18n.t('Løsninger til din bedrift'),
         summary: this.$i18n.t(
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium blanditiis nulla, magnam qui aperiam vitae porro dolor sit voluptate sunt. Itaque distinctio officiis, voluptatum cumque est magni provident natus a.'
         ),
@@ -202,6 +208,8 @@ export default {
         items: [
           {
             title: this.$i18n.t('Utvikling'),
+            link: this.$i18n.t('tjenester') + '/' + this.$i18n.t('utvikling'),
+            linkText: this.$i18n.t('Les mer'),
             summary: this.$i18n.t(
               "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here."
             ),
@@ -209,6 +217,8 @@ export default {
           },
           {
             title: this.$i18n.t('Design'),
+            link: this.$i18n.t('tjenester') + '/' + this.$i18n.t('design'),
+            linkText: this.$i18n.t('Les mer'),
             summary: this.$i18n.t(
               "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective."
             ),
@@ -216,6 +226,8 @@ export default {
           },
           {
             title: this.$i18n.t('Rådgivning'),
+            link: this.$i18n.t('tjenester') + '/' + this.$i18n.t('rådgivning'),
+            linkText: this.$i18n.t('Les mer'),
             summary: this.$i18n.t(
               "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color."
             ),
