@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" 
-    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" height="64" width="64">
-    <g transform="matrix(2.6666666666666665,0,0,2.6666666666666665,0,0)">
+    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" height="24" width="24">
+    <g>
         <path d="M 21,7H3 " stroke="currentColor" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
         <path d="M 21,12H3 " stroke="currentColor" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
         <path d="M 21,17H3" stroke="currentColor" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
