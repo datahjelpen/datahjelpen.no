@@ -9,18 +9,9 @@
   justify-content: center;
   align-content: flex-start;
   align-items: center;
-  margin: auto;
-  width: $page-width;
-  max-width: 100%;
-  padding: 0 $space-small;
-
-  @media ($media-min-medium) {
-    padding: 0 $space-base;
-  }
 
   @media ($media-min-large) {
     flex-direction: row;
-    padding: 0 $space-large;
   }
 }
 

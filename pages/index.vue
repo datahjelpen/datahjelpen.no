@@ -3,6 +3,7 @@
 </style>
 <template>
   <div :class="$style.root">
+    <Layout type="full">
       <header id="particles-js" :class="$style.header">
         <div :class="$style.headerInner">
           <div :class="$style.headerContent">
@@ -41,8 +42,10 @@
           </div>
         </div>
       </header>
+    </Layout>
     <div :class="'navigationBarBg ' + $style.navigationBarBg"></div>
 
+    <Layout>
     <InfoSection1 :id="services.sectionNameSlug">
       <div slot="header">
         <h2>{{ services.sectionName }}</h2>
@@ -68,6 +71,7 @@
         </p>
       </Card>
     </InfoSection1>
+    </Layout>
 
     <ul>
       <li>
