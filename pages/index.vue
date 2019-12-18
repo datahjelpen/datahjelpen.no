@@ -46,19 +46,23 @@
     <div :class="'navigationBarBg ' + $style.navigationBarBg"></div>
 
     <Layout>
-    <InfoSection1 :id="services.sectionNameSlug">
-      <div slot="header">
-        <h2>{{ services.sectionName }}</h2>
-        <h3>
-          {{ services.title }}
-        </h3>
-        <p>
-          {{ services.summary }}
-        </p>
-        <a class="button button-primary" :href="services.button.link">{{
-          services.button.text
-        }}</a>
-      </div>
+      <InfoSection1 :id="services.sectionNameSlug">
+        <div slot="header">
+          <h2>{{ services.sectionName }}</h2>
+          <h3>
+            {{ services.title }}
+          </h3>
+        </div>
+        <div slot="content">
+          <p>
+            {{ services.summary }}
+          </p>
+        </div>
+        <div slot="footer">
+          <a class="button button-primary" :href="services.button.link">{{
+            services.button.text
+          }}</a>
+        </div>
       <Card
         v-for="(service, i) in services.items"
         :slot="'item-' + (i + 1)"

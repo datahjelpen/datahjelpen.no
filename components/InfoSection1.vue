@@ -15,7 +15,7 @@
   }
 }
 
-.header {
+.info {
   width: 100%;
 
   @media ($media-min-large) {
@@ -25,6 +25,43 @@
 
   @media ($media-min-xlarge) {
     width: 50%;
+  }
+}
+
+.header {
+  h2 {
+    color: $color-fg-pre-headings;
+    margin: 0;
+    font-size: $font-size-h5;
+    font-family: $font-family-body;
+    font-weight: $font-weight-body;
+
+    @media ($media-min-medium) {
+      font-size: $font-size-h4;
+    }
+  }
+
+  h3 {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: $font-size-h3;
+
+    @media ($media-min-medium) {
+      font-size: $font-size-h2;
+    }
+  }
+}
+
+.content {
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  p:first-child:last-child {
+    margin: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -76,9 +113,17 @@
 <template>
   <section :class="$style.root">
     <div :class="$style.inner">
-      <header :class="$style.header">
-        <slot name="header" />
-      </header>
+      <div :class="$style.info">
+        <header :class="$style.header">
+          <slot name="header" />
+        </header>
+        <div :class="$style.content">
+          <slot name="content" />
+        </div>
+        <div :class="$style.footer">
+          <slot name="footer" />
+        </div>
+      </div>
       <ul :class="$style.items">
         <li :class="$style.item">
           <slot name="item-1" />
