@@ -3,37 +3,44 @@
 </style>
 <template>
   <div :class="$style.root">
-    <header id="particles-js" :class="$style.header">
-      <div :class="$style.headerInner">
-        <div :class="$style.headerContent">
-          <h1 data-aos="fade-up" data-aos-delay="0">
-            <span v-for="(title, i) in titleParts" v-bind:key="'title-' + i">{{
-              title
-            }}</span>
-          </h1>
-          <p data-aos="fade-up" data-aos-delay="100">{{ intro_text }}</p>
-          <ButtonGroup
-            data-aos="fade-up"
-            data-aos-delay="200"
-            :class="$style.headerContentLinks"
-          >
-            <a
-              class="button button-primary"
-              :href="'#' + services.sectionNameSlug"
-              >Våre tjenester</a
+      <header id="particles-js" :class="$style.header">
+        <div :class="$style.headerInner">
+          <div :class="$style.headerContent">
+            <h1 data-aos="fade-up" data-aos-delay="0">
+              <span
+                v-for="(title, i) in titleParts"
+                v-bind:key="'title-' + i"
+                >{{ title }}</span
+              >
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="100">{{ intro_text }}</p>
+            <ButtonGroup
+              data-aos="fade-up"
+              data-aos-delay="200"
+              :class="$style.headerContentLinks"
             >
-            <a class="button button-blank" href="#">Kontakt oss</a>
-          </ButtonGroup>
+              <a
+                class="button button-primary"
+                :href="'#' + services.sectionNameSlug"
+                >Våre tjenester</a
+              >
+              <a class="button button-light" href="#">Kontakt oss</a>
+            </ButtonGroup>
+          </div>
+          <div
+            :class="$style.headerImage"
+            data-aos="fade-left"
+            data-aos-delay="0"
+          >
+            <DancingImage
+              :image="headerImage"
+              :alt="headerImageAlt"
+              :imageMobile="headerImageMobile"
+              :altMobile="headerImageAltMobile"
+            />
+          </div>
         </div>
-        <div
-          :class="$style.headerImage"
-          data-aos="fade-left"
-          data-aos-delay="0"
-        >
-          <DancingImage :image="headerImage" />
-        </div>
-      </div>
-    </header>
+      </header>
     <div :class="'navigationBarBg ' + $style.navigationBarBg"></div>
 
     <InfoSection1 :id="services.sectionNameSlug">
@@ -170,6 +177,9 @@ export default {
         'We believe that designing products and services in close partnership with our clients is the only way to have a real impact on their business.'
       ),
       headerImage: require('~/assets/test.jpg'),
+      headerImageAlt: '',
+      headerImageMobile: require('~/assets/header.jpg'),
+      headerImageAltMobile: '',
       services: {
         sectionNameSlug: this.$i18n.t('tjenester'),
         sectionName: this.$i18n.t('Tjenester'),

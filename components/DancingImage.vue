@@ -16,8 +16,7 @@
   }
 }
 
-.root svg:not(:root),
-.figure {
+.root svg:not(:root) {
   overflow: hidden;
 }
 
@@ -25,21 +24,35 @@
   margin: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  -webkit-clip-path: url('#masked-image-mobile');
-  clip-path: url('#masked-image-mobile');
 
   @media ($media-min-medium) {
+    height: 1000px;
     -webkit-clip-path: url('#masked-image');
     clip-path: url('#masked-image');
   }
 }
 
-.figure img {
-  visibility: hidden;
+.img {
+  display: none;
+  width: 100%;
+  height: 1000px;
+  object-fit: cover;
+
+  @media ($media-min-medium) {
+    display: block;
+  }
+}
+
+.imgMobile {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(130%) brightness(500%);
+  opacity: 0.15;
+
+  @media ($media-min-medium) {
+    display: none;
+  }
 }
 </style>
 <template>
@@ -61,17 +74,16 @@
             ></animate>
           </path>
         </clipPath>
-        <clipPath :id="id + '-mobile'">
-          <path fill="black" :d="shape0"></path>
-        </clipPath>
       </defs>
     </svg>
 
-    <figure
-      :class="$style.figure"
-      :style="'background-image: url(' + image + ');'"
-    >
-      <img :src="image" :alt="alt" />
+    <figure :class="$style.figure">
+      <img :class="$style.img" :src="image" :alt="alt" />
+      <img
+        :class="$style.imgMobile"
+        :src="imageMobile ? imageMobile : image"
+        :alt="altMobile ? altMobile : alt"
+      />
     </figure>
   </div>
 </template>
@@ -122,7 +134,16 @@ export default {
       type: String,
       required: true
     },
+    imageMobile: {
+      type: String,
+      required: false
+    },
     alt: {
+      type: String,
+      default: '',
+      required: false
+    },
+    altMobile: {
       type: String,
       default: '',
       required: false
