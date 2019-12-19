@@ -100,6 +100,44 @@
       </InfoSection1>
     </Layout>
 
+    <Layout>
+      <InfoSection1 :id="cases.sectionNameSlug">
+        <div slot="header">
+          <h2 data-aos="fade-up" data-aos-delay="0">
+            {{ cases.sectionName }}
+          </h2>
+          <h3 data-aos="fade-up" data-aos-delay="100">
+            {{ cases.title }}
+          </h3>
+        </div>
+        <div slot="content" data-aos="fade-up" data-aos-delay="200">
+          <p>
+            {{ cases.summary }}
+          </p>
+        </div>
+        <div
+          slot="footer"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-aos-offset="-100"
+        >
+          <a class="button button-primary" :href="cases.button.link">{{
+            cases.button.text
+          }}</a>
+        </div>
+        <Card
+          v-for="(customerCase, i) in cases.items"
+          :slot="'item-' + (i + 1)"
+          :key="'customerCase-card-' + i"
+          :link="customerCase.link"
+          data-aos="fade-left"
+          :data-aos-delay="i * 100"
+        >
+          <h4 slot="title">{{ customerCase.title }}</h4>
+        </Card>
+      </InfoSection1>
+    </Layout>
+
     <ul>
       <li>
         <a href="http://avehtml.liquid-themes.com/index-creative.html"
