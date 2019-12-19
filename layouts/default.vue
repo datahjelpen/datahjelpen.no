@@ -73,6 +73,8 @@ import AOS from 'aos'
 
 if (process.client) {
   AOS.init({
+    mirror: false,
+    once: true,
     duration: 300,
     debounceDelay: 200, // the delay on debounce used while resizing window (advanced)
     throttleDelay: 200 // the delay on throttle used while scrolling the page (advanced)
