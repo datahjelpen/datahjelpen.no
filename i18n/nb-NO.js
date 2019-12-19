@@ -1,7 +1,7 @@
 export default {
   nav: {
     home: 'Hjem',
-    cases: 'Caser',
+    cases: 'Kundecaser',
     services: 'Tjenester',
     contact: 'Kontakt',
     about: 'Om oss',
