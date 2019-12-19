@@ -3,6 +3,14 @@
   border-radius: 0.25em;
   background-color: $color-white;
   border: 1px solid $color-black;
+
+  a {
+    color: $color-primary500;
+  }
+
+  a:focus {
+    outline: none;
+  }
 }
 
 .inner {
@@ -61,13 +69,27 @@
     &:hover,
     &:focus {
       color: $color-primary500;
+      text-decoration: none;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      span {
+        text-decoration: underline;
+      }
     }
   }
 
   img {
     width: 2em;
     height: auto;
+  }
 
+  span {
     &:first-child {
       margin-right: $space-tiny;
     }
@@ -91,30 +113,19 @@
     padding: 0 $space-base $space-base;
   }
 }
-
-.link {
-  opacity: 0.2;
-  transition-property: opacity;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.root:hover .link {
-  opacity: 1;
-}
 </style>
 <template>
   <div :class="$style.root">
     <div :class="$style.inner">
-      <div :class="$style.title">
+      <div :class="$style.title" v-if="$slots.title || $slots.icon">
         <nuxt-link v-if="link" slot="links" :to="link">
-          <slot name="icon" />
+          <span aria-hidden="true" v-if="$slots.icon"><slot name="icon"/></span>
           <slot name="title" />
         </nuxt-link>
         <slot v-if="!link" name="icon" />
         <slot v-if="!link" name="title" />
       </div>
-      <div :class="$style.content">
+      <div :class="$style.content" v-if="$slots.content || $slots.link">
         <slot name="content" />
         <div :class="$style.link">
           <slot name="link" />
