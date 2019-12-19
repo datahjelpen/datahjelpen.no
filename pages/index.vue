@@ -7,25 +7,34 @@
       <header id="particles-js" :class="$style.header">
         <div :class="$style.headerInner">
           <div :class="$style.headerContent">
-            <h1 data-aos="fade-up" data-aos-delay="0">
+            <h1>
               <span
-                v-for="(title, i) in titleParts"
+                data-aos="fade-up"
+                :data-aos-delay="50 * i"
+                v-for="(title, i) in this.$store.state.headerTitle"
                 v-bind:key="'title-' + i"
                 >{{ title }}</span
               >
             </h1>
-            <p data-aos="fade-up" data-aos-delay="100">{{ intro_text }}</p>
+            <p data-aos="fade-up" data-aos-delay="100" data-aos-offset="-100">
+              {{ header.introText }}
+            </p>
             <ButtonGroup
               data-aos="fade-up"
               data-aos-delay="200"
+              data-aos-offset="-200"
               :class="$style.headerContentLinks"
             >
               <a
                 class="button button-primary"
-                :href="'#' + services.sectionNameSlug"
-                >Våre tjenester</a
+                :href="header.buttonPrimary.link"
+                >{{ header.buttonPrimary.text }}</a
               >
-              <a class="button button-light" href="#">Kontakt oss</a>
+              <a
+                class="button button-light"
+                :href="header.buttonSecondary.link"
+                >{{ header.buttonSecondary.text }}</a
+              >
             </ButtonGroup>
           </div>
           <div
@@ -34,31 +43,39 @@
             data-aos-delay="0"
           >
             <DancingImage
-              :image="headerImage"
-              :alt="headerImageAlt"
-              :imageMobile="headerImageMobile"
-              :altMobile="headerImageAltMobile"
+              :image="header.image"
+              :alt="header.imageAlt"
+              :imageMobile="header.imageMobile"
+              :altMobile="header.imageAltMobile"
             />
           </div>
         </div>
       </header>
     </Layout>
+
     <div :class="'navigationBarBg ' + $style.navigationBarBg"></div>
 
     <Layout>
       <InfoSection1 :id="services.sectionNameSlug">
         <div slot="header">
-          <h2>{{ services.sectionName }}</h2>
-          <h3>
+          <h2 data-aos="fade-up" data-aos-delay="0">
+            {{ services.sectionName }}
+          </h2>
+          <h3 data-aos="fade-up" data-aos-delay="100">
             {{ services.title }}
           </h3>
         </div>
-        <div slot="content">
+        <div slot="content" data-aos="fade-up" data-aos-delay="200">
           <p>
             {{ services.summary }}
           </p>
         </div>
-        <div slot="footer">
+        <div
+          slot="footer"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-aos-offset="-100"
+        >
           <a class="button button-primary" :href="services.button.link">{{
             services.button.text
           }}</a>
@@ -68,6 +85,8 @@
           :slot="'item-' + (i + 1)"
           :key="'service-card-' + i"
           :link="service.link"
+          data-aos="fade-left"
+          :data-aos-delay="i * 100"
         >
           <img slot="icon" :src="service.icon" />
           <h4 slot="title">{{ service.title }}</h4>
