@@ -22,6 +22,9 @@
 </style>
 <template>
   <div>
+    <a class="visually-hidden" aria-hidden="false" href="#main">{{
+      $t('Hopp over menyen, gå til innhold')
+    }}</a>
     <NavigationBar id="main-nav" :class="$style.navigationBar">
       <nuxt-link slot="logo" :to="localePath('index')">
         <Logo />
@@ -51,7 +54,7 @@
       <!-- <nuxt-link slot="links" :to="switchLocalePath('nb')">🇳🇴</nuxt-link>
       <nuxt-link slot="links" :to="switchLocalePath('en')">🇬🇧</nuxt-link> -->
     </NavigationBar>
-    <main>
+    <main id="main">
       <nuxt />
     </main>
     <footer>
