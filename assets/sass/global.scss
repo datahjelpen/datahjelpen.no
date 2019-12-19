@@ -124,6 +124,15 @@ img {
   vertical-align: middle;
 }
 
+.visually-hidden {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
 // Page transition
 .page-enter-active,
 .page-leave-active {
