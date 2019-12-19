@@ -137,7 +137,7 @@ img {
 .page-enter-active,
 .page-leave-active {
   transition-property: opacity;
-  transition-timing-function: cubic-bezier(1, 0.5, 0, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
 }
 
