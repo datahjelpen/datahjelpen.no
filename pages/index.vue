@@ -181,61 +181,27 @@ export default {
     Card,
     Layout
   },
-  data() {
-    return {
-      titleParts: [
-        this.$i18n.t('Vi skaper de digitale'),
-        this.$i18n.t('opplevelsene folk elsker')
-      ],
-      intro_text: this.$i18n.t(
-        'We believe that designing products and services in close partnership with our clients is the only way to have a real impact on their business.'
-      ),
-      headerImage: require('~/assets/test.jpg'),
-      headerImageAlt: '',
-      headerImageMobile: require('~/assets/header.jpg'),
-      headerImageAltMobile: '',
-      services: {
-        sectionNameSlug: this.$i18n.t('tjenester'),
-        sectionName: this.$i18n.t('Våre tjenester'),
-        title: this.$i18n.t('Løsninger til din bedrift'),
-        summary: this.$i18n.t(
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium blanditiis nulla, magnam qui aperiam vitae porro dolor sit voluptate sunt. Itaque distinctio officiis, voluptatum cumque est magni provident natus a.'
-        ),
-        button: {
-          text: 'Se alle tjenester',
-          link: ''
-        },
-        items: [
-          {
-            title: this.$i18n.t('Utvikling'),
-            link: this.$i18n.t('tjenester') + '/' + this.$i18n.t('utvikling'),
-            linkText: this.$i18n.t('Les mer'),
-            summary: this.$i18n.t(
-              "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here."
-            ),
-            icon: ServiceIconDevelop
-          },
-          {
-            title: this.$i18n.t('Design'),
-            link: this.$i18n.t('tjenester') + '/' + this.$i18n.t('design'),
-            linkText: this.$i18n.t('Les mer'),
-            summary: this.$i18n.t(
-              "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective."
-            ),
-            icon: ServiceIconDesign
-          },
-          {
-            title: this.$i18n.t('Rådgivning'),
-            link: this.$i18n.t('tjenester') + '/' + this.$i18n.t('rådgivning'),
-            linkText: this.$i18n.t('Les mer'),
-            summary: this.$i18n.t(
-              "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color."
-            ),
-            icon: ServiceIconConsult
-          }
-        ]
-      }
-    }
+  async asyncData({ app: { $axios, i18n } }) {
+    const url = '/i18n/' + i18n.locale + '/index.json'
+    const data = await $axios.get(url).then(res => {
+      return res.data
+    })
+
+    data.headerImage = data.headerImage
+    data.headerImageMobile = data.headerImageMobile
+
+    return { ...data }
+  },
+  created() {
+    let currentTitle = 0
+    this.$store.commit('setHeaderTitle', this.header.titleParts[currentTitle])
+    // setInterval(() => {
+    //   currentTitle += 1
+    //   if (currentTitle > this.headerTitleParts.length - 1) {
+    //     currentTitle = 0
+    //   }
+    //   this.$store.commit('setHeaderTitle', this.headerTitleParts[currentTitle])
+    // }, 4000)
   }
 }
 </script>
