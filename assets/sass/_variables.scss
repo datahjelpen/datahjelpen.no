@@ -1,7 +1,7 @@
 $color-white: #fff;
 $color-black: #000;
 
-/* Shades */
+// Shades
 $color-gray_warm000: #f9f9f8;
 $color-gray_warm100: #efedea;
 $color-gray_warm200: #e3e0db;
@@ -46,13 +46,13 @@ $color-gray_neutral700: #888888;
 $color-gray_neutral800: #6c6c6c;
 $color-gray_neutral900: #3f3f3f;
 
-/* Colors */
+// Colors
 $color-red000: #ffebea;
 $color-red100: #ffd6d3;
 $color-red200: #ffbcb9;
 $color-red300: #ff9e99;
 $color-red400: #ff756e;
-$color-red500: #ff2014;
+$color-red500: #e02;
 $color-red600: #e61c12;
 $color-red700: #ca190f;
 $color-red800: #a8150d;
@@ -144,7 +144,7 @@ $color-blue100: #c9e1ff;
 $color-blue200: #aad0ff;
 $color-blue300: #85bcff;
 $color-blue400: #56a2ff;
-$color-blue500: #147eff;
+$color-blue500: #146dff;
 $color-blue600: #1271e6;
 $color-blue700: #0f63c9;
 $color-blue800: #0d52a6;
@@ -155,7 +155,7 @@ $color-indigo100: #d7d5ff;
 $color-indigo200: #bebbff;
 $color-indigo300: #a19cff;
 $color-indigo400: #7972ff;
-$color-indigo500: #2014ff;
+$color-indigo500: #20e;
 $color-indigo600: #1c12e6;
 $color-indigo700: #190fc9;
 $color-indigo800: #140da6;
@@ -194,7 +194,7 @@ $color-pink700: #ca0f64;
 $color-pink800: #a80d53;
 $color-pink900: #79093c;
 
-/* Branding */
+// Branding
 $color-primary000: $color-red000;
 $color-primary100: $color-red100;
 $color-primary200: $color-red200;
@@ -275,7 +275,7 @@ $color-error-gradient: linear-gradient(
   $color-yellow700 100%
 );
 
-/* Page elements */
+// Page elements
 $color-fg-body: $color-gray_cold900;
 $color-fg-headings: $color-black;
 $color-fg-pre-headings: $color-gray_cold700;
@@ -285,7 +285,7 @@ $color-page-borders: $color-gray_neutral300;
 
 $color-navbar-bg: $color-white;
 
-/* Typography */
+// Typography
 $font-family-headings: 'Helvetica Now Display', 'Helvetica Neue', sans-serif;
 $font-weight-headings: 900;
 $font-family-body: 'Helvetica Now Text Light', 'Helvetica Neue', sans-serif;
@@ -302,14 +302,14 @@ $font-size-h4: 1.333em;
 $font-size-h5: 1em;
 $font-size-h6: 1em;
 
-/* Widths */
+// Widths
 $width-x-small: 20em;
 $width-small: 40em;
 $width-medium: 60em;
 $width-large: 80em;
 $width-x-large: 100em;
 
-/* Media queries */
+// Media queries
 $media-max-small: 'max-width: 449px';
 $media-min-small: 'min-width: 450px';
 
@@ -338,4 +338,4 @@ $space_large: #{$size_large}rem;
 $space_xlarge: #{$size_xlarge}rem;
 $space_xxlarge: #{$size_xxlarge}rem;
 
-$page_width: #{$size-base * 48}em;
+$page_width: #{$size-base * 50}em;
