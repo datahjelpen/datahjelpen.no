@@ -51,8 +51,8 @@
         $t('nav.blog')
       }}</nuxt-link>
       <MenuIcon slot="toggle" />
-      <!-- <nuxt-link slot="links" :to="switchLocalePath('nb')">🇳🇴</nuxt-link>
-      <nuxt-link slot="links" :to="switchLocalePath('en')">🇬🇧</nuxt-link> -->
+      <nuxt-link slot="links" :to="switchLocalePath('nb')">🇳🇴</nuxt-link>
+      <nuxt-link slot="links" :to="switchLocalePath('en')">🇬🇧</nuxt-link>
     </NavigationBar>
     <main id="main">
       <nuxt />
