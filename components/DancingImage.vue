@@ -33,25 +33,15 @@
 }
 
 .img {
-  display: none;
-  width: 100%;
-  height: 1000px;
-  object-fit: cover;
-
-  @media ($media-min-medium) {
-    display: block;
-  }
-}
-
-.imgMobile {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%) contrast(130%) brightness(500%);
-  opacity: 0.15;
 
   @media ($media-min-medium) {
-    display: none;
+    filter: none;
+    opacity: 1;
+    height: 1000px;
   }
 }
 </style>
@@ -78,11 +68,12 @@
     </svg>
 
     <figure :class="$style.figure">
-      <img :class="$style.img" :src="image" :alt="alt" />
       <img
-        :class="$style.imgMobile"
-        :src="imageMobile ? imageMobile : image"
-        :alt="altMobile ? altMobile : alt"
+        :class="$style.img"
+        :src="image"
+        :srcset="imageSrcSet"
+        :sizes="imageSizes"
+        :alt="alt"
       />
     </figure>
   </div>
@@ -91,6 +82,8 @@
 export default {
   data() {
     return {
+      imageSrcSet: this.imageMobile + ' 768w, ' + this.image + ' 1280w',
+      imageSizes: '(max-width: 767px) 768px, 1280px',
       shape0:
         'M190 15C134 42 99 84 66 153c-32 66-52 89-46 159 2 27 71 192 80 225 28 99-148 168-38 338 62 95 249-8 369 10 136 21 263 45 363 13 125-40 142-161 189-263 92-196 71-437-83-567-96-81-119 62-304 35C406 75 290-34 190 15z',
       shape1:
