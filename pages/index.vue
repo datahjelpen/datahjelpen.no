@@ -181,9 +181,6 @@
 import DancingImage from '../components/DancingImage'
 import ButtonGroup from '../components/ButtonGroup'
 import InfoSection1 from '../components/InfoSection1'
-import ServiceIconConsult from '~/assets/icons/consult.svg?raw'
-import ServiceIconDevelop from '~/assets/icons/develop.svg?raw'
-import ServiceIconDesign from '~/assets/icons/design.svg?raw'
 import Card from '../components/Card'
 import Layout from '../components/Layout'
 
