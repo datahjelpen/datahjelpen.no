@@ -100,17 +100,17 @@
       </InfoSection1>
     </Layout>
 
-    <Layout>
-      <InfoSection1 :id="cases.sectionNameSlug">
+    <Layout :class="$style.cases">
+      <InfoSection2 :id="cases.sectionNameSlug">
         <div slot="header">
-          <h2 data-aos="fade-up" data-aos-delay="0">
+          <h2 data-aos="fade-up" data-aos-delay="1000">
             {{ cases.sectionName }}
           </h2>
-          <h3 data-aos="fade-up" data-aos-delay="100">
+          <h3 data-aos="fade-up" data-aos-delay="200">
             {{ cases.title }}
           </h3>
         </div>
-        <div slot="content" data-aos="fade-up" data-aos-delay="200">
+        <div slot="content" data-aos="fade-up" data-aos-delay="300">
           <p>
             {{ cases.summary }}
           </p>
@@ -118,24 +118,33 @@
         <div
           slot="footer"
           data-aos="fade-up"
-          data-aos-delay="300"
+          data-aos-delay="400"
           data-aos-offset="-100"
         >
           <a class="button button-primary" :href="cases.button.link">{{
             cases.button.text
           }}</a>
         </div>
-        <Card
-          v-for="(customerCase, i) in cases.items"
-          :slot="'item-' + (i + 1)"
-          :key="'customerCase-card-' + i"
-          :link="customerCase.link"
-          data-aos="fade-left"
-          :data-aos-delay="i * 100"
-        >
-          <h4 slot="title">{{ customerCase.title }}</h4>
-        </Card>
-      </InfoSection1>
+        <MasonryGrid slot="items">
+          <ProjectCard
+            v-for="(customerCase, i) in cases.items"
+            :slot="'item-' + (i + 1)"
+            :key="'customerCase-card-' + i"
+            :link="customerCase.link"
+            :image="customerCase.image"
+            :overlay="customerCase.overlay"
+            :overlayHover="customerCase.overlayHover"
+            data-aos="zoom-in-up"
+            data-aos-delay="0"
+          >
+            <h4 slot="title">{{ customerCase.title }}</h4>
+            <p slot="content">{{ customerCase.summary }}</p>
+            <a class="link link-styled" :href="customerCase.link" slot="link">{{
+              customerCase.linkText
+            }}</a>
+          </ProjectCard>
+        </MasonryGrid>
+      </InfoSection2>
     </Layout>
 
     <ul>
@@ -219,8 +228,11 @@
 import DancingImage from '../components/DancingImage'
 import ButtonGroup from '../components/ButtonGroup'
 import InfoSection1 from '../components/InfoSection1'
+import InfoSection2 from '../components/InfoSection2'
 import Card from '../components/Card'
+import ProjectCard from '../components/ProjectCard'
 import Layout from '../components/Layout'
+import MasonryGrid from '../components/MasonryGrid'
 
 if (process.client) {
   const particlesJS = require('particles.js')
@@ -232,8 +244,11 @@ export default {
     DancingImage,
     ButtonGroup,
     InfoSection1,
+    InfoSection2,
     Card,
-    Layout
+    ProjectCard,
+    Layout,
+    MasonryGrid
   },
   async asyncData({ app: { $axios, i18n } }) {
     const url = '/i18n/' + i18n.locale + '/index.json'
