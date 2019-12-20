@@ -124,7 +124,7 @@
           <slot name="footer" />
         </div>
       </div>
-      <ul :class="$style.items">
+      <ul :class="$style.items" v-if="$slots['item-1']">
         <li :class="$style.item">
           <slot name="item-1" />
         </li>
