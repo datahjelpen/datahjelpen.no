@@ -11,17 +11,18 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: flex-start;
   align-items: center;
 
   @media ($media-min-large) {
     flex-direction: row;
+    justify-content: flex-start;
   }
 }
 
 .info {
-  width: 33em;
+  width: #{$size-base * 32}em;
   max-width: 100%;
   position: relative;
   margin-bottom: #{$size-base * 4em};
@@ -33,7 +34,7 @@
   left: 10em;
   right: 0;
   margin: auto;
-  width: 33em;
+  width: #{$size-base * 32}em;
   max-width: 100%;
   height: 100%;
   z-index: -1;
@@ -81,8 +82,13 @@
 }
 
 .items {
+  position: relative;
   width: 100%;
   display: block;
+
+  @media ($media-min-large) {
+    top: -#{$size-base * 4}em;
+  }
 }
 </style>
 <template>
