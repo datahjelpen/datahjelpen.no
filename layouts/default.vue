@@ -29,6 +29,7 @@
       <nuxt-link slot="logo" :to="localePath('index')">
         <Logo />
       </nuxt-link>
+
       <nuxt-link
         class="nuxt-link-home"
         slot="links"
@@ -50,11 +51,69 @@
       <nuxt-link slot="links" :to="localePath('blog')">{{
         $t('nav.blog')
       }}</nuxt-link>
+
       <MenuIcon slot="toggle" />
-      <nuxt-link slot="links" :to="switchLocalePath('nb')">🇳🇴</nuxt-link>
-      <nuxt-link slot="links" :to="switchLocalePath('en')">🇬🇧</nuxt-link>
+
+      <a slot="projectLinks" href="#">Nettside for BEWA</a>
+      <a slot="projectLinks" href="#">Nettbutikk for Takshop</a>
+      <a slot="projectLinks" href="#">Bewa Cloud</a>
+      <a slot="projectLinks" href="#">Gourmethuset</a>
+
+      <a
+        slot="someLinks"
+        href="https://twitter.com/datahjelpen_no"
+        rel="noreferrer noopener"
+        >Twitter</a
+      >
+      <a
+        slot="someLinks"
+        href="https://www.linkedin.com/company/datahjelpen"
+        rel="noreferrer noopener"
+        >LinkedIn</a
+      >
+      <a
+        slot="someLinks"
+        href="https://www.instagram.com/datahjelpen.no/"
+        rel="noreferrer noopener"
+        >Instagram</a
+      >
+      <a
+        slot="someLinks"
+        href="https://www.facebook.com/datahjelpen.no"
+        rel="noreferrer noopener"
+        >Facebook</a
+      >
+      <a
+        slot="someLinks"
+        href="https://github.com/datahjelpen"
+        rel="noreferrer noopener"
+        >GitHub</a
+      >
+
+      <nuxt-link slot="etcLinks" :to="switchLocalePath('nb')">
+        <i18nNoIcon/><span>Norsk</span>
+      </nuxt-link>
+      <nuxt-link slot="etcLinks" :to="switchLocalePath('en')">
+        <i18nEnIcon/><span>English</span>
+      </nuxt-link>
+
+      <div slot="contactLinks">
+        <p>
+          <strong>E-post:</strong>
+          <span>post@datahjelpen.no</span>
+        </p>
+        <p>
+          <strong>Telefon:</strong>
+          <span>465 31 170</span>
+        </p>
+      </div>
+      <div slot="contactLinks">
+        <p><strong>Sandefjord</strong></p>
+        <p>Rosenlundveien 1,</p>
+        <p>3225 Sandefjord</p>
+      </div>
     </NavigationBar>
-    <main id="main">
+    <main id="main" :class="$style.main">
       <nuxt />
     </main>
     <footer>
@@ -68,6 +127,8 @@
 import Logo from '~/components/Logo'
 import NavigationBar from '~/components/NavigationBar'
 import MenuIcon from '~/assets/icons/menu.svg?inline'
+import i18nNoIcon from '~/assets/icons/no.svg?inline'
+import i18nEnIcon from '~/assets/icons/uk.svg?inline'
 import AOSCSS from 'aos/dist/aos.css'
 import AOS from 'aos'
 
@@ -97,7 +158,9 @@ export default {
   components: {
     Logo,
     NavigationBar,
-    MenuIcon
+    MenuIcon,
+    i18nNoIcon,
+    i18nEnIcon
   }
 }
 </script>

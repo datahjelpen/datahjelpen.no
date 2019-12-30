@@ -299,6 +299,26 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+
+    > div {
+      margin-top: $space-tiny;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      strong {
+        color: $color-gray_cold800;
+      }
+
+      span {
+        white-space: nowrap;
+      }
+    }
   }
 }
 

@@ -43,21 +43,21 @@
             <slot name="links" />
           </div>
           <div :class="$style.megaMenuOtherLinks">
-            <div :class="$style.megaMenuOtherLinksGroup">
+            <div :class="$style.megaMenuOtherLinksGroup" v-if="$slots.projectLinks">
               <h2>{{ $t('Prosjekter') }}</h2>
-              <slot name="links" />
+              <slot name="projectLinks" />
             </div>
-            <div :class="$style.megaMenuOtherLinksGroup">
+            <div :class="$style.megaMenuOtherLinksGroup" v-if="$slots.etcLinks">
               <h2>{{ $t('Diverse') }}</h2>
-              <slot name="links" />
+              <slot name="etcLinks" />
             </div>
-            <div :class="$style.megaMenuOtherLinksGroup">
+            <div :class="$style.megaMenuOtherLinksGroup" v-if="$slots.someLinks">
               <h2>{{ $t('Sosiale medier') }}</h2>
-              <slot name="links" />
+              <slot name="someLinks" />
             </div>
-            <div :class="$style.megaMenuOtherLinksGroup">
+            <div :class="$style.megaMenuOtherLinksGroup" v-if="$slots.contactLinks">
               <h2>{{ $t('Kontakt') }}</h2>
-              <slot name="links" />
+              <slot name="contactLinks" />
             </div>
           </div>
         </div>
