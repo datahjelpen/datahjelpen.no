@@ -55,51 +55,6 @@
 
     <div :class="'navigationBarBg ' + $style.navigationBarBg"></div>
 
-    <Layout>
-      <InfoSection1 :id="services.sectionNameSlug">
-        <div slot="header">
-          <h2 data-aos="fade-up" data-aos-delay="0">
-            {{ services.sectionName }}
-          </h2>
-          <h3 data-aos="fade-up" data-aos-delay="100">
-            {{ services.title }}
-          </h3>
-        </div>
-        <div slot="content" data-aos="fade-up" data-aos-delay="200">
-          <p>
-            {{ services.summary }}
-          </p>
-        </div>
-        <div
-          slot="footer"
-          data-aos="fade-up"
-          data-aos-delay="300"
-          data-aos-offset="-100"
-        >
-          <a class="button button-primary" :href="services.button.link">{{
-            services.button.text
-          }}</a>
-        </div>
-        <Card
-          v-for="(service, i) in services.items"
-          :slot="'item-' + (i + 1)"
-          :key="'service-card-' + i"
-          :link="service.link"
-          data-aos="fade-left"
-          :data-aos-delay="i * 100"
-        >
-          <img slot="icon" :src="service.icon" />
-          <h4 slot="title">{{ service.title }}</h4>
-          <p slot="content">
-            {{ service.summary }}
-          </p>
-          <a class="link link-styled" :href="service.link" slot="link">{{
-            service.linkText
-          }}</a>
-        </Card>
-      </InfoSection1>
-    </Layout>
-
     <Layout :class="$style.cases">
       <InfoSection2 :id="cases.sectionNameSlug">
         <div slot="header">
@@ -145,6 +100,51 @@
           </ProjectCard>
         </MasonryGrid>
       </InfoSection2>
+    </Layout>
+
+    <Layout>
+      <InfoSection1 :id="services.sectionNameSlug">
+        <div slot="header">
+          <h2 data-aos="fade-up" data-aos-delay="0">
+            {{ services.sectionName }}
+          </h2>
+          <h3 data-aos="fade-up" data-aos-delay="100">
+            {{ services.title }}
+          </h3>
+        </div>
+        <div slot="content" data-aos="fade-up" data-aos-delay="200">
+          <p>
+            {{ services.summary }}
+          </p>
+        </div>
+        <div
+          slot="footer"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-aos-offset="-100"
+        >
+          <a class="button button-primary" :href="services.button.link">{{
+            services.button.text
+          }}</a>
+        </div>
+        <Card
+          v-for="(service, i) in services.items"
+          :slot="'item-' + (i + 1)"
+          :key="'service-card-' + i"
+          :link="service.link"
+          data-aos="fade-left"
+          :data-aos-delay="i * 100"
+        >
+          <img slot="icon" :src="service.icon" />
+          <h4 slot="title">{{ service.title }}</h4>
+          <p slot="content">
+            {{ service.summary }}
+          </p>
+          <a class="link link-styled" :href="service.link" slot="link">{{
+            service.linkText
+          }}</a>
+        </Card>
+      </InfoSection1>
     </Layout>
 
     <ul>
