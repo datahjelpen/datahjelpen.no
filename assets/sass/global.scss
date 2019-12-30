@@ -91,6 +91,13 @@ p {
   margin: 0 0 0.8em;
 }
 
+strong {
+  font-size: inherit;
+  font-family: $font-family-headings;
+  font-weight: $font-weight-headings;
+  font-weight: 700;
+}
+
 input,
 select,
 textarea {
