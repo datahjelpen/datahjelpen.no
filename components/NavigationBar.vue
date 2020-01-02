@@ -8,6 +8,7 @@
     :aria-expanded="this.$store.state.navigation.navExtended ? 'true' : 'false'"
     v-bind="$attrs"
   >
+    <div :class="$style.backdrop" @click="toggleMenu"></div>
     <div :class="$style.inner">
       <div :class="$style.logo">
         <slot name="logo" />
