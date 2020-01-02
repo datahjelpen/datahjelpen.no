@@ -82,9 +82,10 @@
         </div>
         <MasonryGrid slot="items">
           <ProjectCard
-            v-for="(customerCase, i) in cases.items"
+            v-for="(customerCase, slug, i) in cases.items"
             :slot="'item-' + (i + 1)"
             :key="'customerCase-card-' + i"
+            :title="customerCase.title"
             :link="customerCase.link"
             :image="customerCase.image"
             :overlay="customerCase.overlay"
@@ -92,11 +93,6 @@
             data-aos="zoom-in-up"
             data-aos-delay="0"
           >
-            <h4 slot="title">{{ customerCase.title }}</h4>
-            <p slot="content">{{ customerCase.summary }}</p>
-            <a class="link link-styled" :href="customerCase.link" slot="link">{{
-              customerCase.linkText
-            }}</a>
           </ProjectCard>
         </MasonryGrid>
       </InfoSection2>
@@ -251,13 +247,19 @@ export default {
     MasonryGrid
   },
   async asyncData({ app: { $axios, i18n } }) {
+    // Get index page data
     const url = '/i18n/' + i18n.locale + '/index.json'
     const data = await $axios.get(url).then(res => {
       return res.data
     })
 
-    data.headerImage = data.headerImage
-    data.headerImageMobile = data.headerImageMobile
+    // Get case studies data
+    const casesUrl = '/i18n/' + i18n.locale + '/case-studies.json'
+    const casesData = await $axios.get(casesUrl).then(res => {
+      return res.data
+    })
+
+    data.cases.items = casesData.items
 
     return { ...data }
   },

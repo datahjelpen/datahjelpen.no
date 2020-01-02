@@ -1,0 +1,85 @@
+{
+  "items": {
+    "2019-bewa-no": {
+      "title": "BEWA",
+      "link": "/case-studies/2019-bewa-no",
+      "linkText": "Les mer",
+      "summary": "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
+      "image": "/images/cases/2019-bewa-no/bewa.png",
+      "overlay": "",
+      "overlayHover": "linear-gradient(135deg,rgba(0,87,146,0.9) 0%,rgba(0,32,74,0.9) 100%);"
+    },
+    "2019-gourmethuset-no": {
+      "title": "Gourmethuset",
+      "link": "/case-studies/2019-gourmethuset-no",
+      "linkText": "Les mer",
+      "summary": "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective.",
+      "image": "/images/cases/2018-gourmethuset-no/poster.jpg",
+      "overlay": "",
+      "overlayHover": "linear-gradient(135deg, rgba(153,31,33, 0.9) 0%,rgba(50,11,13,0.9) 100%);"
+    },
+    "2019-takshop-no": {
+      "title": "Takshop.no",
+      "link": "/case-studies/2019-takshop-no",
+      "linkText": "Les mer",
+      "summary": "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective.",
+      "image": "/images/cases/2019-takshop-no/takshop.jpg",
+      "overlay": "",
+      "overlayHover": "linear-gradient(135deg,rgba(52,145,216,0.8) 0%,rgba(83,214,204, 0.8) 100%);"
+    },
+    "2019-hokas-no": {
+      "title": "Hokas",
+      "link": "/case-studies/2019-hokas-no",
+      "linkText": "Les mer",
+      "summary": "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
+      "image": "/images/cases/2019-bewa-no/hokas.jpg",
+      "overlay": "rgba(11,55,44,0.1)",
+      "overlayHover": "rgba(11,55,44,0.9)"
+    },
+    "2019-bewa-cloud": {
+      "title": "Bewa Cloud",
+      "link": "/case-studies/2019-bewa-cloud",
+      "linkText": "Les mer",
+      "summary": "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective.",
+      "image": "/images/cases/2019-bewa-cloud/bewa-cloud-1.png",
+      "overlay": "linear-gradient(135deg,rgba(0,16,238,0.25) 0%,rgba(0,10,50, 0.5) 100%);",
+      "overlayHover": "linear-gradient(135deg,rgba(0,16,238,0.8) 0%,rgba(0,10,50, 1) 100%);"
+    },
+    "2019-havnehotellet-i-halden-no": {
+      "title": "Havnehotellet i Halden",
+      "link": "/case-studies/2019-havnehotellet-i-halden-no",
+      "linkText": "Les mer",
+      "summary": "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color.",
+      "image": "/images/cases/2019-havnehotellet-i-halden/felles-forside.png",
+      "overlay": "linear-gradient(135deg,rgba(33,33,33,0.25) 0%,rgba(0,0,0,0.5) 100%);",
+      "overlayHover": "linear-gradient(135deg,rgba(52,145,216,0.8) 0%,rgba(83,214,204, 0.8) 100%);"
+    },
+    "2019-sirkusmedia-no": {
+      "title": "Sirkus Media",
+      "link": "/case-studies/2019-sirkusmedia-no",
+      "linkText": "Les mer",
+      "summary": "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color.",
+      "image": "/images/cases/2018-sirkusmedia-no/03-index.png",
+      "overlay": "linear-gradient(135deg,rgba(52,145,216,0.25) 0%,rgba(83,214,204, 0.25) 100%);",
+      "overlayHover": "linear-gradient(135deg,rgba(52,145,216,0.8) 0%,rgba(83,214,204, 0.8) 100%);"
+    },
+    "2018-lydia-ordegard-no": {
+      "title": "Lydia Ødegård",
+      "link": "/case-studies/2018-lydia-ordegard-no",
+      "linkText": "Les mer",
+      "summary": "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
+      "image": "/images/cases/2018-lydiaodegard-no/index.png",
+      "overlay": "linear-gradient(135deg,rgba(198,228,235,0.25) 0%,rgba(98,128,255, 0.25) 100%);",
+      "overlayHover": "linear-gradient(135deg,rgba(198,228,235,0.8) 0%,rgba(98,128,255, 0.8) 100%);"
+    },
+    "2016-loax-no": {
+      "title": "Bewa no",
+      "link": "/case-studies/2016-loax-no",
+      "linkText": "Les mer",
+      "summary": "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color.",
+      "image": "/images/cases/2017-bewa-no/bewa.png",
+      "overlay": "",
+      "overlayHover": "linear-gradient(135deg,rgba(52,145,216,0.8) 0%,rgba(83,214,204, 0.8) 100%);"
+    }
+  }
+}
