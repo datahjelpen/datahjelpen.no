@@ -2,12 +2,13 @@
 .root {
   position: relative;
   width: 100%;
+  max-width: 100%;
   height: 100%;
-  border-radius: 0.25em;
-  background-color: $color-gray_cold800;
-  background-image: $color-gray_cold-gradient_light;
+  border-radius: 0.33em;
+  background-color: $color-gray_cold300;
   box-shadow: 0 1em 2em -1em rgba($color-blue900, 0.33);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -38,23 +39,39 @@
 
 .bg {
   z-index: 0;
+  transform: scale(1);
+  transition-property: transform;
+}
+
+.bg,
+.overlay,
+.overlayHover {
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay,
 .overlayHover {
   z-index: 1;
   transition-property: opacity;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay {
+  opacity: 0;
   transition-delay: 0ms;
+
+  @media ($media-min-medium) {
+    opacity: 1;
+  }
 }
 
 .overlayHover {
-  opacity: 0;
+  opacity: 1;
   transition-delay: 100ms;
+
+  @media ($media-min-medium) {
+    opacity: 0;
+  }
 }
 
 .root:hover {
@@ -67,14 +84,51 @@
     opacity: 1;
     transition-delay: 0ms;
   }
+
+  .bg {
+    transform: scale(1.1);
+  }
 }
 
 .inner {
   z-index: 2;
   position: relative;
-  display: block;
-  width: auto;
-  height: auto;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  opacity: 1;
+
+  @media ($media-min-medium) {
+    opacity: 0;
+  }
+}
+
+div.inner {
+  transition-property: transform, opacity, height;
+  transform: translateY(0%);
+
+  @media ($media-min-medium) {
+    transform: translateY(-50%);
+  }
+}
+
+a.inner {
+  transition-property: opacity;
+  width: 100%;
+  height: 100%;
+}
+
+.root:hover .inner {
+  opacity: 1;
+}
+
+.root:hover div.inner {
+  transform: translateY(0%);
 }
 
 .title,
@@ -103,6 +157,10 @@
   color: $color-white;
   padding: $space-small;
   text-align: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  word-break: break-word;
   font-size: $font-size-h5;
 
   @media ($media-min-small) {
@@ -111,7 +169,7 @@
 
   @media ($media-min-medium) {
     font-size: $font-size-h3;
-    padding: $space-base;
+    padding: $space-small $space-base;
   }
 
   @media ($media-min-large) {
@@ -183,31 +241,26 @@
 .content {
   color: $color-gray_cold000;
   padding: 0 $space-small $space-small;
-  opacity: 0;
-  height: 0;
-  transition-property: transform, opacity, height;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateY(50%);
 
   @media ($media-min-medium) {
     padding: 0 $space-base $space-base;
   }
 }
 
-.root:hover .content {
-  opacity: 1;
-  transform: translateY(0%);
-  height: 8em;
+.link {
+  color: $color-white;
 }
 </style>
 <template>
-  <div :class="$style.root">
+  <div :class="$style.root" @mouseenter="hover">
     <div :class="$style.bg" v-if="image" :style="imageStyle"></div>
     <div :class="$style.overlay" :style="overlayStyle"></div>
     <div :class="$style.overlayHover" :style="overlayHoverStyle"></div>
 
-    <div :class="$style.inner">
+    <div
+      :class="$style.inner"
+      v-if="$slots.title || $slots.icon || $slots.content"
+    >
       <div :class="$style.title" v-if="$slots.title || $slots.icon">
         <nuxt-link v-if="link" slot="links" :to="link">
           <span aria-hidden="true" v-if="$slots.icon"><slot name="icon"/></span>
@@ -223,9 +276,21 @@
         </div>
       </div>
     </div>
+    <nuxt-link
+      :class="$style.inner"
+      v-else-if="title && link"
+      slot="links"
+      :to="link"
+    >
+      <div :class="$style.title">
+        <h4 :data-title="title">{{ title }}</h4>
+      </div>
+    </nuxt-link>
   </div>
 </template>
 <script>
+let running = false
+
 export default {
   computed: {
     overlayStyle() {
@@ -239,6 +304,10 @@ export default {
     }
   },
   props: {
+    title: {
+      type: String,
+      required: false
+    },
     image: {
       type: String,
       required: false
@@ -254,6 +323,37 @@ export default {
     link: {
       type: String,
       required: false
+    }
+  },
+  methods: {
+    hover: function(evt) {
+      const element = evt.target
+      const titleElement = element
+        .querySelector('.' + this.$style.title)
+        .querySelector('h1,h2,h3,h4,h5,h6')
+      const title = titleElement.getAttribute('data-title')
+      let titleSplit = title.split('')
+
+      // The time for each frame. The longer the title, the shorter each frame is
+      const animationFrameTime = Math.round(Math.pow(1.1, -title.length) * 100)
+
+      titleElement.innerHTML = ''
+
+      // If we already have an animation running, stop it and start over
+      if (running) {
+        clearTimeout(running)
+      }
+
+      function animate() {
+        titleSplit.length > 0
+          ? (titleElement.innerHTML += titleSplit.shift())
+          : clearTimeout(running)
+
+        running = setTimeout(animate, animationFrameTime)
+      }
+
+      // Start the animation
+      animate()
     }
   }
 }
