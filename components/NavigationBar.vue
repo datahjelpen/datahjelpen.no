@@ -1,6 +1,11 @@
 <style lang="scss" module>
 @import 'NavigationBar';
 </style>
+<style lang="scss">
+.nuxt-link-exact-active {
+  text-decoration: underline !important;
+}
+</style>
 <template>
   <nav
     :id="id"
@@ -44,7 +49,10 @@
             <slot name="links" />
           </div>
           <div :class="$style.megaMenuOtherLinks">
-            <div :class="$style.megaMenuOtherLinksGroup" v-if="$slots.projectLinks">
+            <div
+              :class="$style.megaMenuOtherLinksGroup"
+              v-if="$slots.projectLinks"
+            >
               <h2>{{ $t('Prosjekter') }}</h2>
               <slot name="projectLinks" />
             </div>
@@ -52,11 +60,17 @@
               <h2>{{ $t('Diverse') }}</h2>
               <slot name="etcLinks" />
             </div>
-            <div :class="$style.megaMenuOtherLinksGroup" v-if="$slots.someLinks">
+            <div
+              :class="$style.megaMenuOtherLinksGroup"
+              v-if="$slots.someLinks"
+            >
               <h2>{{ $t('Sosiale medier') }}</h2>
               <slot name="someLinks" />
             </div>
-            <div :class="$style.megaMenuOtherLinksGroup" v-if="$slots.contactLinks">
+            <div
+              :class="$style.megaMenuOtherLinksGroup"
+              v-if="$slots.contactLinks"
+            >
               <h2>{{ $t('Kontakt') }}</h2>
               <slot name="contactLinks" />
             </div>
@@ -68,6 +82,57 @@
 </template>
 <script>
 import CloseIcon from '~/assets/icons/close.svg?inline'
+function updatePageScroll(id, navExtended, styles) {
+  let scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
+
+  if (scrollBarWidth > 30) {
+    scrollBarWidth = 15
+  }
+
+  const navBarElement = document.querySelector('#' + id)
+  let focusElement = navBarElement
+
+  if (navExtended) {
+    document.body.style.overflow = 'hidden'
+    document.body.style.paddingRight = scrollBarWidth + 'px'
+    focusElement = navBarElement.querySelector('.' + styles.close)
+  } else {
+    document.body.style.overflow = ''
+    document.body.style.paddingRight = ''
+    focusElement = navBarElement.querySelector('.' + styles.toggle)
+  }
+
+  focusElement.focus()
+}
+
+// Make sure the user can scroll
+function freePageScroll() {
+  document.body.style.overflow = ''
+  document.body.style.paddingRight = ''
+}
+
+// Set a background color on the navbar if there is no elements with the navigationBarBg
+// class on the page
+function updateNavbarBg() {
+  const mainNav = document.querySelector('#main-nav')
+  const mainNavBg = document.querySelector('.navigationBarBg')
+
+  if (mainNav) {
+    if (mainNavBg) {
+      mainNav.style.backgroundColor = ''
+    } else {
+      mainNav.style.backgroundColor = 'white'
+
+      // const mainNavBgDefault = document.createElement('div')
+      // mainNavBgDefault.classList.add('navigationBarBg')
+      // mainNav.parentElement.insertBefore(mainNavBgDefault, mainNav)
+    }
+  }
+}
+
+if (process.client) {
+  updateNavbarBg()
+}
 
 export default {
   components: {
@@ -79,27 +144,11 @@ export default {
 
       // Hide scrollbar. Also add padding to prevent page moving
       if (window && document) {
-        let scrollBarWidth =
-          window.innerWidth - document.documentElement.clientWidth
-
-        if (scrollBarWidth > 30) {
-          scrollBarWidth = 15
-        }
-
-        const navBarElement = document.querySelector('#' + this.id)
-        let focusElement = navBarElement
-
-        if (this.$store.state.navigation.navExtended) {
-          document.body.style.overflow = 'hidden'
-          document.body.style.paddingRight = scrollBarWidth + 'px'
-          focusElement = navBarElement.querySelector('.' + this.$style.close)
-        } else {
-          document.body.style.overflow = ''
-          document.body.style.paddingRight = ''
-          focusElement = navBarElement.querySelector('.' + this.$style.toggle)
-        }
-
-        focusElement.focus()
+        updatePageScroll(
+          this.id,
+          this.$store.state.navigation.navExtended,
+          this.$style
+        )
       }
     }
   },
@@ -108,6 +157,11 @@ export default {
       // Make sure the sidebar closes when route changes
       if (this.$store.state.navigation.navExtended) {
         this.$store.commit('navigation/toggle')
+      }
+
+      if (document) {
+        freePageScroll()
+        setTimeout(updateNavbarBg, 1000)
       }
     }
   },
