@@ -74,6 +74,15 @@
   }
 }
 
+.megaMenuOtherLinks a {
+  margin-top: $space-small;
+  line-height: 1;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
 .inner {
   display: flex;
   flex-direction: row;
