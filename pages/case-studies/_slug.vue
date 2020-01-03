@@ -1,76 +1,63 @@
 <style lang="scss" module>
-// @import 'single';
+@import 'single';
 </style>
 <template>
   <div :class="$style.root">
     <Layout type="full">
-      <Header>
-        <div>
-          <h1>{{ item.title }}</h1>
-          <p>{{ item.summary }}</p>
-        </div>
-        <div>
-          <dl>
-            <dt>Date</dt>
-            <dd>{{ item.slug }}</dd>
+      <header :class="$style.header">
+        <Layout :class="$style.headerTop">
+          <div :class="$style.headerTitleWrapper">
+            <span>{{ $t('Kundecase') }}</span>
+            <h1>{{ item.title }}</h1>
+          </div>
+          <div :class="$style.headerInfo">
+            <p>{{ item.summary }}</p>
+            <dl v-if="item.date || item.client">
+              <dt v-if="item.date">{{ $t('Dato') }}</dt>
+              <dd v-if="item.date">{{ item.date }}</dd>
 
-            <dt>Client</dt>
-            <dd>{{ item.slug }}</dd>
-          </dl>
-        </div>
-        <img :src="item.image" alt="" />
-      </Header>
+              <dt v-if="item.client">{{ $t('Kunde') }}</dt>
+              <dd v-if="item.client">{{ item.client }}</dd>
+            </dl>
+          </div>
+        </Layout>
+        <img :src="item.image" :alt="item.title" />
+      </header>
     </Layout>
 
-    <div :class="'navigationBarBg ' + $style.navigationBarBg"></div>
-
-    <Layout>
-      <InfoSection1>
-        <div slot="header">
-          <h2 data-aos="fade-up" data-aos-delay="0">
-            lorem ipsum
-          </h2>
-          <h3 data-aos="fade-up" data-aos-delay="100">
-            lorem ipsum
-          </h3>
-        </div>
-        <div slot="content" data-aos="fade-up" data-aos-delay="200">
-          <p>
-            lorem ipsum
-          </p>
-        </div>
-        <div
-          slot="footer"
-          data-aos="fade-up"
-          data-aos-delay="300"
-          data-aos-offset="-100"
-        >
-          <a class="button button-primary" :href="'#'">Lorem ipsum</a>
-        </div>
-      </InfoSection1>
+    <Layout v-if="item.textHeading">
+      <h2>{{ item.textHeading }}</h2>
+    </Layout>
+    <Layout type="cols-2" v-if="item.text.length">
+      <p v-for="(text, i) in item.text" :key="'case-study-text-' + i">
+        {{ text }}
+      </p>
     </Layout>
   </div>
 </template>
 
 <script>
-import InfoSection1 from '../../components/InfoSection1'
 import Layout from '../../components/Layout'
 
 export default {
   components: {
-    InfoSection1,
     Layout
   },
-  async asyncData({ app: { $axios, i18n }, params }) {
+  async asyncData({ app: { $axios, i18n }, params, error }) {
     const url = '/i18n/' + i18n.locale + '/case-studies.json'
     const data = await $axios.get(url).then(res => {
       return res.data
     })
 
     data.item = data.items[params.slug]
-    data.item.slug = params.slug
 
-    return { ...data }
+    if (data.item) {
+      data.item.slug = params.slug
+
+      return { ...data }
+    }
+
+    return error({ statusCode: 404, message: 'Case study was not found' })
   }
 }
 </script>
