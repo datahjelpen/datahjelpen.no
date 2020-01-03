@@ -335,7 +335,7 @@ export default {
       let titleSplit = title.split('')
 
       // The time for each frame. The longer the title, the shorter each frame is
-      const animationFrameTime = Math.round(Math.pow(1.1, -title.length) * 100)
+      const animationFrameTime = Math.round(Math.pow(1.025, -title.length) * 50)
 
       titleElement.innerHTML = ''
 
