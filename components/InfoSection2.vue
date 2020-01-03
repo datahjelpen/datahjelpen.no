@@ -1,6 +1,8 @@
 <style lang="scss" module>
 .root {
   display: block;
+  width: 100%;
+  max-width: 100%;
 
   &:hover .shadow {
     animation-play-state: running;
@@ -94,7 +96,10 @@
 <template>
   <section :class="$style.root">
     <div :class="$style.inner">
-      <div :class="$style.info">
+      <div
+        :class="$style.info"
+        v-if="$slots.header || $slots.content || $slots.footer"
+      >
         <header :class="$style.header">
           <slot name="header" />
         </header>
