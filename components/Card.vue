@@ -1,6 +1,6 @@
 <style lang="scss" module>
 .root {
-  border-radius: 0.25em;
+  border-radius: 0.33em;
   background-color: $color-white;
   border: 1px solid $color-black;
 
