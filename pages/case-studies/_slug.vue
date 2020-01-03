@@ -21,7 +21,7 @@
             </dl>
           </div>
         </Layout>
-        <img :src="item.image" :alt="item.title" />
+        <img :src="item.imageHeader" :alt="item.title" />
       </header>
     </Layout>
 

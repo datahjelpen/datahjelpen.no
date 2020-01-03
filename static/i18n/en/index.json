@@ -47,5 +47,17 @@
         "icon": "/icons/consult.svg"
       }
     ]
+  },
+
+  "cases": {
+    "sectionNameSlug": "kundecaser",
+    "sectionName": "Hva har vi gjort?",
+    "title": "Noen av de mange jobbene vi er stolte av",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium blanditiis nulla, magnam qui aperiam vitae porro dolor sit voluptate sunt. Itaque distinctio officiis, voluptatum cumque est magni provident natus a.",
+    "button": {
+      "text": "Se alle caser",
+      "link": ""
+    },
+    "items": []
   }
 }

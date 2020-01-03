@@ -87,7 +87,7 @@
             :key="'customerCase-card-' + i"
             :title="customerCase.title"
             :link="customerCase.link"
-            :image="customerCase.image"
+            :image="customerCase.poster"
             :overlay="customerCase.overlay"
             :overlayHover="customerCase.overlayHover"
             data-aos="zoom-in-up"
