@@ -268,18 +268,6 @@ if (process.client) {
     debounceDelay: 200, // the delay on debounce used while resizing window (advanced)
     throttleDelay: 200 // the delay on throttle used while scrolling the page (advanced)
   })
-
-  if (document) {
-    const mainNav = document.querySelector('#main-nav')
-    const mainNavBg = document.querySelector('.navigationBarBg')
-
-    if (mainNav && !mainNavBg) {
-      const mainNavBgDefault = document.createElement('div')
-      mainNavBgDefault.classList.add('navigationBarBg')
-      mainNav.style.backgroundColor = 'white'
-      // mainNav.parentElement.insertBefore(mainNavBgDefault, mainNav)
-    }
-  }
 }
 
 export default {
