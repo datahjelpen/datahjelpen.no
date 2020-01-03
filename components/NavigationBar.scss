@@ -19,7 +19,6 @@
     }
   }
 
-
   .backdrop {
     opacity: 0;
     content: ' ';
@@ -42,7 +41,7 @@
       background-color: rgba($color-gray_cold900, 0.4);
     }
   }
-  
+
   &[aria-expanded='true'] .backdrop {
     transition-duration: 0ms, 800ms, 250ms;
     transition-delay: 0ms, 0ms, 0ms;
@@ -340,6 +339,7 @@
   cursor: pointer;
   flex-shrink: 0;
   width: #{$size-medium}em;
+  height: #{$size-medium}em;
   padding: $space-tiny;
   border-radius: 100%;
   color: $color-black;
