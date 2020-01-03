@@ -36,7 +36,7 @@
         :to="localePath('index')"
         >{{ $t('nav.home') }}</nuxt-link
       >
-      <nuxt-link slot="links" :to="localePath('cases')">{{
+      <nuxt-link slot="links" :to="localePath('case-studies')">{{
         $t('nav.cases')
       }}</nuxt-link>
       <nuxt-link slot="links" :to="localePath('services')">{{
@@ -54,10 +54,49 @@
 
       <MenuIcon slot="toggle" />
 
-      <a slot="projectLinks" href="#">Nettside for BEWA</a>
-      <a slot="projectLinks" href="#">Nettbutikk for Takshop</a>
-      <a slot="projectLinks" href="#">Bewa Cloud</a>
-      <a slot="projectLinks" href="#">Gourmethuset</a>
+      <nuxt-link
+        slot="projectLinks"
+        :to="
+          localePath({
+            name: 'case-studies-slug',
+            params: { slug: '2019-bewa-no' }
+          })
+        "
+        >Nettside for BEWA</nuxt-link
+      >
+      <nuxt-link
+        slot="projectLinks"
+        :to="
+          localePath({
+            name: 'case-studies-slug',
+            params: { slug: '2019-takshop-no' }
+          })
+        "
+      >
+        Nettbutikk for Takshop</nuxt-link
+      >
+      <nuxt-link
+        slot="projectLinks"
+        :to="
+          localePath({
+            name: 'case-studies-slug',
+            params: { slug: '2019-bewa-cloud' }
+          })
+        "
+      >
+        Bewa Cloud</nuxt-link
+      >
+      <nuxt-link
+        slot="projectLinks"
+        :to="
+          localePath({
+            name: 'case-studies-slug',
+            params: { slug: '2019-gourmethuset-no' }
+          })
+        "
+      >
+        Nettbuikk for kjøkkenutstyr og gourmet</nuxt-link
+      >
 
       <a
         slot="someLinks"
@@ -91,10 +130,10 @@
       >
 
       <nuxt-link slot="etcLinks" :to="switchLocalePath('nb')">
-        <i18nNoIcon/><span>Norsk</span>
+        <i18nNoIcon /><span>Norsk</span>
       </nuxt-link>
       <nuxt-link slot="etcLinks" :to="switchLocalePath('en')">
-        <i18nEnIcon/><span>English</span>
+        <i18nEnIcon /><span>English</span>
       </nuxt-link>
 
       <div slot="contactLinks">
