@@ -25,10 +25,26 @@
       </header>
     </Layout>
 
-    <Layout v-if="item.textHeading">
-      <h2>{{ item.textHeading }}</h2>
+    <Layout
+      v-for="(section, i) in item.content"
+      :key="'content-section-' + i"
+      type="full"
+      :margin="section.margin"
+      :bg="section.bg"
+    >
+      <Layout
+        :type="section.layout"
+        :padded="section.padded"
+        :sticky="section.attributes && section.attributes.sticky"
+      >
+        <div
+          v-for="(text, j) in section.text"
+          :key="'content-section-' + i + '-' + j"
+        >
+          <Markdown>{{ text }}</Markdown>
+        </div>
+      </Layout>
     </Layout>
-    <Layout type="cols-2" v-if="item.text.length">
       <p v-for="(text, i) in item.text" :key="'case-study-text-' + i">
         {{ text }}
       </p>
@@ -38,10 +54,12 @@
 
 <script>
 import Layout from '../../components/Layout'
+import Markdown from '../../components/Markdown'
 
 export default {
   components: {
-    Layout
+    Layout,
+    Markdown
   },
   async asyncData({ app: { $axios, i18n }, params, error }) {
     const url = '/i18n/' + i18n.locale + '/case-studies.json'

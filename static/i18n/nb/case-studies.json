@@ -1,4 +1,12 @@
 {
+  "sectionNameSlug": "kundecaser",
+  "sectionName": "Hva har vi gjort?",
+  "sectionTitle": "Noen av de jobbene vi er stolte av",
+  "sectionSummary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium blanditiis nulla, magnam qui aperiam vitae porro dolor sit voluptate sunt. Itaque distinctio officiis, voluptatum cumque est magni provident natus a.",
+  "sectionButton": {
+    "text": "Se alle caser",
+    "link": "/case-studies"
+  },
   "items": {
     "2019-bewa-no": {
       "title": "Nettside for BEWA",
@@ -7,10 +15,58 @@
       "link": "/case-studies/2019-bewa-no",
       "linkText": "Les mer",
       "summary": "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
-      "textHeading": "Lorem ipsum",
-      "text": [
-        "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
-        "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective."
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "",
+            "## Nettbutikk \nGourmethuset trengte en ny nettbutikk. \n\n**Våres rolle:** \nDesign, rådgivning og programmering"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "bg": "light",
+          "attributes": {
+            "sticky": 0
+          },
+          "text": [
+            "## Design \nVi lagde utkast/mockup til design og stilen til den nye nettsiden.",
+            "![alt](/images/cases/2018-gourmethuset-no/forside.png)"
+          ]
+        },
+        {
+          "layout": "full",
+          "text": ["![alt](/images/cases/2018-gourmethuset-no/graphic-2.jpg)"]
+        },
+        {
+          "layout": "text",
+          "padded": true,
+          "text": [
+            "> Nok et vellykket prosjekt med Datahjelpen! Vi har jobbet med dem på flere prosjekter, og samarbeidet med dem fører alltid til fantastiske resultater.\n\n ![](/images/cases/2018-gourmethuset-no/quote-avatar.jpg)\n\nOla Nordmann\n\nDaglig leder, Selskap AS"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "attributes": {
+            "sticky": 1
+          },
+          "text": [
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-3.jpg)",
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-1.jpg)"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "bg": "light",
+          "text": [
+            "## Rådgivning \n\nLorem ipsum dolor sit amet",
+            "## Programmering \n\nLorem ipsum dolor sit amet"
+          ]
+        }
       ],
       "poster": "/images/cases/2019-bewa-no/bewa.png",
       "imageHeader": "/images/cases/2019-bewa-no/bewa.png",
@@ -23,10 +79,59 @@
       "date": "2019",
       "link": "/case-studies/2019-gourmethuset-no",
       "linkText": "Les mer",
-      "summary": "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective.",
-      "textHeading": "Lorem ipsum",
-      "text": [
-        "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective."
+      "summary": "Gourmethuset trenkte en ny nettside for å drive med direktesalg og engroshandel til alle kunder med kjøkkenmaskiner, kjøkkenutstyr, kokkeklær og gourmetartikler.",
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "",
+            "## Nettbutikk \nGourmethuset trengte en ny nettbutikk. \n\n**Våres rolle:** \nDesign, rådgivning og programmering"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "bg": "light",
+          "attributes": {
+            "sticky": 0
+          },
+          "text": [
+            "## Design \nVi lagde utkast/mockup til design og stilen til den nye nettsiden.",
+            "![alt](/images/cases/2018-gourmethuset-no/forside.png)"
+          ]
+        },
+        {
+          "layout": "full",
+          "text": ["![alt](/images/cases/2018-gourmethuset-no/graphic-2.jpg)"]
+        },
+        {
+          "layout": "text",
+          "padded": true,
+          "text": [
+            "> Nok et vellykket prosjekt med Datahjelpen! Vi har jobbet med dem på flere prosjekter, og samarbeidet med dem fører alltid til fantastiske resultater.\n\n ![](/images/cases/2018-gourmethuset-no/quote-avatar.jpg)\n\nOla Nordmann\n\nDaglig leder, Selskap AS"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "attributes": {
+            "sticky": 1
+          },
+          "text": [
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-3.jpg)",
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-1.jpg)"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "bg": "light",
+          "text": [
+            "## Rådgivning \n\nLorem ipsum dolor sit amet",
+            "## Programmering \n\nLorem ipsum dolor sit amet"
+          ]
+        }
       ],
       "poster": "/images/cases/2018-gourmethuset-no/project.jpg",
       "imageHeader": "/images/cases/2018-gourmethuset-no/header.jpg",
@@ -40,9 +145,58 @@
       "link": "/case-studies/2019-takshop-no",
       "linkText": "Les mer",
       "summary": "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective.",
-      "textHeading": "Lorem ipsum",
-      "text": [
-        "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective."
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "",
+            "## Nettbutikk \nGourmethuset trengte en ny nettbutikk. \n\n**Våres rolle:** \nDesign, rådgivning og programmering"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "bg": "light",
+          "attributes": {
+            "sticky": 0
+          },
+          "text": [
+            "## Design \nVi lagde utkast/mockup til design og stilen til den nye nettsiden.",
+            "![alt](/images/cases/2018-gourmethuset-no/forside.png)"
+          ]
+        },
+        {
+          "layout": "full",
+          "text": ["![alt](/images/cases/2018-gourmethuset-no/graphic-2.jpg)"]
+        },
+        {
+          "layout": "text",
+          "padded": true,
+          "text": [
+            "> Nok et vellykket prosjekt med Datahjelpen! Vi har jobbet med dem på flere prosjekter, og samarbeidet med dem fører alltid til fantastiske resultater.\n\n ![](/images/cases/2018-gourmethuset-no/quote-avatar.jpg)\n\nOla Nordmann\n\nDaglig leder, Selskap AS"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "attributes": {
+            "sticky": 1
+          },
+          "text": [
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-3.jpg)",
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-1.jpg)"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "bg": "light",
+          "text": [
+            "## Rådgivning \n\nLorem ipsum dolor sit amet",
+            "## Programmering \n\nLorem ipsum dolor sit amet"
+          ]
+        }
       ],
       "poster": "/images/cases/2019-takshop-no/project.jpg",
       "imageHeader": "/images/cases/2019-takshop-no/takshop-2.jpg",
@@ -56,9 +210,58 @@
       "link": "/case-studies/2019-hokas-no",
       "linkText": "Les mer",
       "summary": "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
-      "textHeading": "Lorem ipsum",
-      "text": [
-        "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here."
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "",
+            "## Nettbutikk \nGourmethuset trengte en ny nettbutikk. \n\n**Våres rolle:** \nDesign, rådgivning og programmering"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "bg": "light",
+          "attributes": {
+            "sticky": 0
+          },
+          "text": [
+            "## Design \nVi lagde utkast/mockup til design og stilen til den nye nettsiden.",
+            "![alt](/images/cases/2018-gourmethuset-no/forside.png)"
+          ]
+        },
+        {
+          "layout": "full",
+          "text": ["![alt](/images/cases/2018-gourmethuset-no/graphic-2.jpg)"]
+        },
+        {
+          "layout": "text",
+          "padded": true,
+          "text": [
+            "> Nok et vellykket prosjekt med Datahjelpen! Vi har jobbet med dem på flere prosjekter, og samarbeidet med dem fører alltid til fantastiske resultater.\n\n ![](/images/cases/2018-gourmethuset-no/quote-avatar.jpg)\n\nOla Nordmann\n\nDaglig leder, Selskap AS"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "attributes": {
+            "sticky": 1
+          },
+          "text": [
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-3.jpg)",
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-1.jpg)"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "bg": "light",
+          "text": [
+            "## Rådgivning \n\nLorem ipsum dolor sit amet",
+            "## Programmering \n\nLorem ipsum dolor sit amet"
+          ]
+        }
       ],
       "poster": "/images/cases/2019-bewa-no/hokas.jpg",
       "imageHeader": "/images/cases/2019-bewa-no/hokas.jpg",
@@ -72,9 +275,58 @@
       "link": "/case-studies/2019-bewa-cloud",
       "linkText": "Les mer",
       "summary": "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective.",
-      "textHeading": "Lorem ipsum",
-      "text": [
-        "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective."
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "",
+            "## Nettbutikk \nGourmethuset trengte en ny nettbutikk. \n\n**Våres rolle:** \nDesign, rådgivning og programmering"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "bg": "light",
+          "attributes": {
+            "sticky": 0
+          },
+          "text": [
+            "## Design \nVi lagde utkast/mockup til design og stilen til den nye nettsiden.",
+            "![alt](/images/cases/2018-gourmethuset-no/forside.png)"
+          ]
+        },
+        {
+          "layout": "full",
+          "text": ["![alt](/images/cases/2018-gourmethuset-no/graphic-2.jpg)"]
+        },
+        {
+          "layout": "text",
+          "padded": true,
+          "text": [
+            "> Nok et vellykket prosjekt med Datahjelpen! Vi har jobbet med dem på flere prosjekter, og samarbeidet med dem fører alltid til fantastiske resultater.\n\n ![](/images/cases/2018-gourmethuset-no/quote-avatar.jpg)\n\nOla Nordmann\n\nDaglig leder, Selskap AS"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "attributes": {
+            "sticky": 1
+          },
+          "text": [
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-3.jpg)",
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-1.jpg)"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "bg": "light",
+          "text": [
+            "## Rådgivning \n\nLorem ipsum dolor sit amet",
+            "## Programmering \n\nLorem ipsum dolor sit amet"
+          ]
+        }
       ],
       "poster": "/images/cases/2019-bewa-cloud/project.jpg",
       "imageHeader": "/images/cases/2019-bewa-cloud/bewa-cloud-1.png",
@@ -87,8 +339,59 @@
       "date": "2019",
       "link": "/case-studies/2019-havnehotellet-i-halden-no",
       "linkText": "Les mer",
-      "textHeading": "Lorem ipsum",
-      "text": [],
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "",
+            "## Nettbutikk \nGourmethuset trengte en ny nettbutikk. \n\n**Våres rolle:** \nDesign, rådgivning og programmering"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "bg": "light",
+          "attributes": {
+            "sticky": 0
+          },
+          "text": [
+            "## Design \nVi lagde utkast/mockup til design og stilen til den nye nettsiden.",
+            "![alt](/images/cases/2018-gourmethuset-no/forside.png)"
+          ]
+        },
+        {
+          "layout": "full",
+          "text": ["![alt](/images/cases/2018-gourmethuset-no/graphic-2.jpg)"]
+        },
+        {
+          "layout": "text",
+          "padded": true,
+          "text": [
+            "> Nok et vellykket prosjekt med Datahjelpen! Vi har jobbet med dem på flere prosjekter, og samarbeidet med dem fører alltid til fantastiske resultater.\n\n ![](/images/cases/2018-gourmethuset-no/quote-avatar.jpg)\n\nOla Nordmann\n\nDaglig leder, Selskap AS"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "attributes": {
+            "sticky": 1
+          },
+          "text": [
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-3.jpg)",
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-1.jpg)"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "bg": "light",
+          "text": [
+            "## Rådgivning \n\nLorem ipsum dolor sit amet",
+            "## Programmering \n\nLorem ipsum dolor sit amet"
+          ]
+        }
+      ],
       "poster": "/images/cases/2019-havnehotellet-i-halden/felles-forside.png",
       "imageHeader": "/images/cases/2019-havnehotellet-i-halden/felles-forside.png",
       "overlay": "",
@@ -101,9 +404,58 @@
       "link": "/case-studies/2019-sirkusmedia-no",
       "linkText": "Les mer",
       "summary": "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color.",
-      "textHeading": "Lorem ipsum",
-      "text": [
-        "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color."
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "",
+            "## Nettbutikk \nGourmethuset trengte en ny nettbutikk. \n\n**Våres rolle:** \nDesign, rådgivning og programmering"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "bg": "light",
+          "attributes": {
+            "sticky": 0
+          },
+          "text": [
+            "## Design \nVi lagde utkast/mockup til design og stilen til den nye nettsiden.",
+            "![alt](/images/cases/2018-gourmethuset-no/forside.png)"
+          ]
+        },
+        {
+          "layout": "full",
+          "text": ["![alt](/images/cases/2018-gourmethuset-no/graphic-2.jpg)"]
+        },
+        {
+          "layout": "text",
+          "padded": true,
+          "text": [
+            "> Nok et vellykket prosjekt med Datahjelpen! Vi har jobbet med dem på flere prosjekter, og samarbeidet med dem fører alltid til fantastiske resultater.\n\n ![](/images/cases/2018-gourmethuset-no/quote-avatar.jpg)\n\nOla Nordmann\n\nDaglig leder, Selskap AS"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "attributes": {
+            "sticky": 1
+          },
+          "text": [
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-3.jpg)",
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-1.jpg)"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "bg": "light",
+          "text": [
+            "## Rådgivning \n\nLorem ipsum dolor sit amet",
+            "## Programmering \n\nLorem ipsum dolor sit amet"
+          ]
+        }
       ],
       "poster": "/images/cases/2018-sirkusmedia-no/03-index.png",
       "imageHeader": "/images/cases/2018-sirkusmedia-no/03-index.png",
@@ -117,9 +469,58 @@
       "link": "/case-studies/2018-lydia-ordegard-no",
       "linkText": "Les mer",
       "summary": "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
-      "textHeading": "Lorem ipsum",
-      "text": [
-        "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here."
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "",
+            "## Nettbutikk \nGourmethuset trengte en ny nettbutikk. \n\n**Våres rolle:** \nDesign, rådgivning og programmering"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "bg": "light",
+          "attributes": {
+            "sticky": 0
+          },
+          "text": [
+            "## Design \nVi lagde utkast/mockup til design og stilen til den nye nettsiden.",
+            "![alt](/images/cases/2018-gourmethuset-no/forside.png)"
+          ]
+        },
+        {
+          "layout": "full",
+          "text": ["![alt](/images/cases/2018-gourmethuset-no/graphic-2.jpg)"]
+        },
+        {
+          "layout": "text",
+          "padded": true,
+          "text": [
+            "> Nok et vellykket prosjekt med Datahjelpen! Vi har jobbet med dem på flere prosjekter, og samarbeidet med dem fører alltid til fantastiske resultater.\n\n ![](/images/cases/2018-gourmethuset-no/quote-avatar.jpg)\n\nOla Nordmann\n\nDaglig leder, Selskap AS"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "attributes": {
+            "sticky": 1
+          },
+          "text": [
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-3.jpg)",
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-1.jpg)"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "bg": "light",
+          "text": [
+            "## Rådgivning \n\nLorem ipsum dolor sit amet",
+            "## Programmering \n\nLorem ipsum dolor sit amet"
+          ]
+        }
       ],
       "poster": "/images/cases/2018-lydiaodegard-no/index.png",
       "imageHeader": "/images/cases/2018-lydiaodegard-no/index.png",
@@ -133,9 +534,58 @@
       "link": "/case-studies/2016-loax-no",
       "linkText": "Les mer",
       "summary": "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color.",
-      "textHeading": "Lorem ipsum",
-      "text": [
-        "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color."
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "",
+            "## Nettbutikk \nGourmethuset trengte en ny nettbutikk. \n\n**Våres rolle:** \nDesign, rådgivning og programmering"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "bg": "light",
+          "attributes": {
+            "sticky": 0
+          },
+          "text": [
+            "## Design \nVi lagde utkast/mockup til design og stilen til den nye nettsiden.",
+            "![alt](/images/cases/2018-gourmethuset-no/forside.png)"
+          ]
+        },
+        {
+          "layout": "full",
+          "text": ["![alt](/images/cases/2018-gourmethuset-no/graphic-2.jpg)"]
+        },
+        {
+          "layout": "text",
+          "padded": true,
+          "text": [
+            "> Nok et vellykket prosjekt med Datahjelpen! Vi har jobbet med dem på flere prosjekter, og samarbeidet med dem fører alltid til fantastiske resultater.\n\n ![](/images/cases/2018-gourmethuset-no/quote-avatar.jpg)\n\nOla Nordmann\n\nDaglig leder, Selskap AS"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "attributes": {
+            "sticky": 1
+          },
+          "text": [
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-3.jpg)",
+            "![alt](/images/cases/2018-gourmethuset-no/graphic-1.jpg)"
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "bg": "light",
+          "text": [
+            "## Rådgivning \n\nLorem ipsum dolor sit amet",
+            "## Programmering \n\nLorem ipsum dolor sit amet"
+          ]
+        }
       ],
       "poster": "/images/cases/2016-loax-no/1-1.jpg",
       "imageHeader": "/images/cases/2016-loax-no/1-1.jpg",
