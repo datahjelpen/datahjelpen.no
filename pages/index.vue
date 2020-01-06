@@ -62,12 +62,12 @@
             {{ cases.sectionName }}
           </h2>
           <h3 data-aos="fade-up" data-aos-delay="200">
-            {{ cases.title }}
+            {{ cases.sectionTitle }}
           </h3>
         </div>
         <div slot="content" data-aos="fade-up" data-aos-delay="300">
           <p>
-            {{ cases.summary }}
+            {{ cases.sectionSummary }}
           </p>
         </div>
         <div
@@ -76,8 +76,8 @@
           data-aos-delay="400"
           data-aos-offset="-100"
         >
-          <a class="button button-primary" :href="cases.button.link">{{
-            cases.button.text
+          <a class="button button-primary" :href="cases.sectionButton.link">{{
+            cases.sectionButton.text
           }}</a>
         </div>
         <MasonryGrid slot="items">
@@ -184,7 +184,7 @@ export default {
       return res.data
     })
 
-    data.cases.items = casesData.items
+    data.cases = casesData
 
     return { ...data }
   },

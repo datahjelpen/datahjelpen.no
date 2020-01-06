@@ -33,9 +33,9 @@
   </Layout>
 </template>
 <script>
+import Layout from '../../components/Layout'
 import InfoSection2 from '../../components/InfoSection2'
 import ProjectCard from '../../components/ProjectCard'
-import Layout from '../../components/Layout'
 import MasonryGrid from '../../components/MasonryGrid'
 
 export default {

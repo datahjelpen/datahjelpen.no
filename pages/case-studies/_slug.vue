@@ -45,20 +45,58 @@
         </div>
       </Layout>
     </Layout>
-      <p v-for="(text, i) in item.text" :key="'case-study-text-' + i">
-        {{ text }}
-      </p>
+
+    <Layout>
+      <InfoSection2>
+        <div slot="header">
+          <h2>
+            {{ sectionName }}
+          </h2>
+          <h3>
+            {{ sectionTitle }}
+          </h3>
+        </div>
+        <div slot="content">
+          <p>
+            {{ sectionSummary }}
+          </p>
+        </div>
+        <div slot="footer">
+          <a class="button button-primary" :href="sectionButton.link">{{
+            sectionButton.text
+          }}</a>
+        </div>
+        <MasonryGrid slot="items">
+          <ProjectCard
+            v-for="(customerCase, slug, i) in items"
+            :slot="'item-' + (i + 1)"
+            :key="'customerCase-card-' + i"
+            :title="customerCase.title"
+            :link="customerCase.link"
+            :image="customerCase.poster"
+            :overlay="customerCase.overlay"
+            :overlayHover="customerCase.overlayHover"
+          >
+          </ProjectCard>
+        </MasonryGrid>
+      </InfoSection2>
     </Layout>
   </div>
 </template>
 
 <script>
 import Layout from '../../components/Layout'
+import InfoSection2 from '../../components/InfoSection2'
+import ProjectCard from '../../components/ProjectCard'
+import MasonryGrid from '../../components/MasonryGrid'
 import Markdown from '../../components/Markdown'
 
 export default {
   components: {
     Layout,
+    InfoSection2,
+    ProjectCard,
+    MasonryGrid,
     Markdown
   },
   async asyncData({ app: { $axios, i18n }, params, error }) {
@@ -71,6 +109,16 @@ export default {
 
     if (data.item) {
       data.item.slug = params.slug
+
+      if (data.item.sectionName) {
+        data.sectionName = data.item.sectionName
+      }
+      if (data.item.sectionTitle) {
+        data.sectionTitle = data.item.sectionTitle
+      }
+      if (data.item.sectionSummary) {
+        data.sectionSummary = data.item.sectionSummary
+      }
 
       return { ...data }
     }
