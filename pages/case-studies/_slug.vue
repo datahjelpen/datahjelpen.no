@@ -36,6 +36,10 @@
         :type="section.layout"
         :padded="section.padded"
         :sticky="section.attributes && section.attributes.sticky"
+        :borders="section.attributes && section.attributes.borders"
+        :widths="section.attributes && section.attributes.widths"
+        :hAlign="section.attributes && section.attributes['h-align']"
+        :vAlign="section.attributes && section.attributes['v-align']"
       >
         <div
           v-for="(text, j) in section.text"

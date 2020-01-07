@@ -142,6 +142,72 @@ img {
   }
 }
 
+.border-0 > :nth-child(1) > :first-child {
+  border: 1px solid $color-gray_cold200;
+}
+
+.border-1 > :nth-child(2) > :first-child {
+  border: 1px solid $color-gray_cold200;
+}
+
+.border-2 > :nth-child(3) > :first-child {
+  border: 1px solid $color-gray_cold200;
+}
+
+.width-0-small > :nth-child(1) > :first-child,
+.width-1-small > :nth-child(2) > :first-child,
+.width-2-small > :nth-child(3) > :first-child {
+  width: #{$size-base * 2}em;
+}
+
+.width-0-medium > :nth-child(1) > :first-child,
+.width-1-medium > :nth-child(2) > :first-child,
+.width-2-medium > :nth-child(3) > :first-child {
+  width: #{$size-base * 4}em;
+}
+
+.width-0-large > :nth-child(1) > :first-child,
+.width-1-large > :nth-child(2) > :first-child,
+.width-2-large > :nth-child(3) > :first-child {
+  width: #{$size-base * 8}em;
+}
+
+.hAlign-0-start > :nth-child(1),
+.hAlign-1-start > :nth-child(2),
+.hAlign-2-start > :nth-child(3) {
+  justify-self: start;
+}
+
+.hAlign-0-center > :nth-child(1),
+.hAlign-1-center > :nth-child(2),
+.hAlign-2-center > :nth-child(3) {
+  justify-self: center;
+}
+
+.hAlign-0-end > :nth-child(1),
+.hAlign-1-end > :nth-child(2),
+.hAlign-2-end > :nth-child(3) {
+  justify-self: end;
+}
+
+.vAlign-0-start > :nth-child(1),
+.vAlign-1-start > :nth-child(2),
+.vAlign-2-start > :nth-child(3) {
+  align-self: start;
+}
+
+.vAlign-0-center > :nth-child(1),
+.vAlign-1-center > :nth-child(2),
+.vAlign-2-center > :nth-child(3) {
+  align-self: center;
+}
+
+.vAlign-0-end > :nth-child(1),
+.vAlign-1-end > :nth-child(2),
+.vAlign-2-end > :nth-child(3) {
+  align-self: end;
+}
+
 blockquote {
   position: relative;
   margin: $space-small auto;
@@ -235,16 +301,57 @@ blockquote {
 <script>
 export default {
   data() {
+    let classList = [
+      this.padded ? this.$style['padded-extra'] : null,
+      this.margin ? this.$style['margin-extra'] : this.$style['margin-default'],
+      this.$style['layout' + this.type],
+      this.$style['bg' + this.bg]
+    ]
+
+    if (this.sticky != null) {
+      let stickyClasses = []
+      this.sticky.forEach(sticky => {
+        stickyClasses.push(this.$style['sticky-' + sticky])
+      })
+      classList.push(stickyClasses)
+    }
+
+    if (this.borders != null) {
+      let borderClasses = []
+      this.borders.forEach(border => {
+        borderClasses.push(this.$style['border-' + border])
+      })
+      classList.push(borderClasses)
+    }
+
+    if (this.widths != null) {
+      let widthClasses = []
+      this.widths.forEach((width, i) => {
+        widthClasses.push(this.$style['width-' + i + '-' + width])
+      })
+      classList.push(widthClasses)
+    }
+
+    if (this.hAlign != null) {
+      let hAlignClasses = []
+      this.hAlign.forEach((hAlign, i) => {
+        hAlignClasses.push(this.$style['hAlign-' + i + '-' + hAlign])
+      })
+      console.log(hAlignClasses)
+      classList.push(hAlignClasses)
+    }
+
+    if (this.vAlign != null) {
+      let vAlignClasses = []
+      this.vAlign.forEach((vAlign, i) => {
+        vAlignClasses.push(this.$style['vAlign-' + i + '-' + vAlign])
+      })
+      console.log(vAlignClasses)
+      classList.push(vAlignClasses)
+    }
+
     return {
-      classList: [
-        this.padded ? this.$style['padded-extra'] : null,
-        this.margin
-          ? this.$style['margin-extra']
-          : this.$style['margin-default'],
-        this.$style['layout' + this.type],
-        this.$style['bg' + this.bg],
-        this.sticky != null ? this.$style['sticky-' + this.sticky] : null
-      ]
+      classList
     }
   },
   props: {
@@ -300,7 +407,27 @@ export default {
       default: false
     },
     sticky: {
-      type: Number,
+      type: Array,
+      required: false,
+      default: null
+    },
+    borders: {
+      type: Array,
+      required: false,
+      default: null
+    },
+    widths: {
+      type: Array,
+      required: false,
+      default: null
+    },
+    hAlign: {
+      type: Array,
+      required: false,
+      default: null
+    },
+    vAlign: {
+      type: Array,
       required: false,
       default: null
     }
