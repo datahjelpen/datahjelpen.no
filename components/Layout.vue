@@ -1,4 +1,8 @@
 <style lang="scss" module>
+p:first-of-type:last-of-type {
+  margin-bottom: 0;
+}
+
 .layoutdefault,
 .layoutcols-1-3,
 .layoutcols-3-1,
