@@ -341,7 +341,6 @@ export default {
       this.hAlign.forEach((hAlign, i) => {
         hAlignClasses.push(this.$style['hAlign-' + i + '-' + hAlign])
       })
-      console.log(hAlignClasses)
       classList.push(hAlignClasses)
     }
 
@@ -350,7 +349,6 @@ export default {
       this.vAlign.forEach((vAlign, i) => {
         vAlignClasses.push(this.$style['vAlign-' + i + '-' + vAlign])
       })
-      console.log(vAlignClasses)
       classList.push(vAlignClasses)
     }
 
