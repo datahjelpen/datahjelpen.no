@@ -105,12 +105,12 @@
             {{ services.sectionName }}
           </h2>
           <h3 data-aos="fade-up" data-aos-delay="100">
-            {{ services.title }}
+            {{ services.sectionTitle }}
           </h3>
         </div>
         <div slot="content" data-aos="fade-up" data-aos-delay="200">
           <p>
-            {{ services.summary }}
+            {{ services.sectionSummary }}
           </p>
         </div>
         <div
@@ -119,12 +119,14 @@
           data-aos-delay="300"
           data-aos-offset="-100"
         >
-          <a class="button button-primary" :href="services.button.link">{{
-            services.button.text
-          }}</a>
+          <a
+            class="button button-primary"
+            :href="services.sectionButton.link"
+            >{{ services.sectionButton.text }}</a
+          >
         </div>
         <Card
-          v-for="(service, i) in services.items"
+          v-for="(service, slug, i) in services.items"
           :slot="'item-' + (i + 1)"
           :key="'service-card-' + i"
           :link="service.link"
@@ -178,26 +180,33 @@ export default {
       return res.data
     })
 
+    // Get services data
+    const servicesUrl = '/i18n/' + i18n.locale + '/services.json'
+    const servicesData = await $axios.get(servicesUrl).then(res => {
+      return res.data
+    })
+
     // Get case studies data
     const casesUrl = '/i18n/' + i18n.locale + '/case-studies.json'
     const casesData = await $axios.get(casesUrl).then(res => {
       return res.data
     })
 
+    data.services = servicesData
     data.cases = casesData
 
     return { ...data }
   },
-  created() {
+  mounted() {
     let currentTitle = 0
     this.$store.commit('setHeaderTitle', this.header.titleParts[currentTitle])
-    // setInterval(() => {
-    //   currentTitle += 1
-    //   if (currentTitle > this.headerTitleParts.length - 1) {
-    //     currentTitle = 0
-    //   }
-    //   this.$store.commit('setHeaderTitle', this.headerTitleParts[currentTitle])
-    // }, 4000)
+    setInterval(() => {
+      currentTitle += 1
+      if (currentTitle > this.header.titleParts.length - 1) {
+        currentTitle = 0
+      }
+      this.$store.commit('setHeaderTitle', this.header.titleParts[currentTitle])
+    }, 4000)
   }
 }
 </script>

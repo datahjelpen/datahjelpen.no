@@ -21,40 +21,6 @@
       "link": ""
     }
   },
-  "services": {
-    "sectionNameSlug": "tjenester",
-    "sectionName": "Hva gjør vi?",
-    "title": "Løsninger for din bedrift",
-    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium blanditiis nulla, magnam qui aperiam vitae porro dolor sit voluptate sunt. Itaque distinctio officiis, voluptatum cumque est magni provident natus a.",
-    "button": {
-      "text": "Se alle tjenester",
-      "link": ""
-    },
-    "items": [
-      {
-        "title": "Utvikling",
-        "link": "tjenester/utvikling",
-        "linkText": "Les mer",
-        "summary": "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
-        "icon": "/icons/develop.svg"
-      },
-      {
-        "title": "Design",
-        "link": "tjenester/design",
-        "linkText": "Les mer",
-        "summary": "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective.",
-        "icon": "/icons/design.svg"
-      },
-      {
-        "title": "Rådgivning",
-        "link": "tjenester/rådgivning",
-        "linkText": "Les mer",
-        "summary": "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color.",
-        "icon": "/icons/consult.svg"
-      }
-    ]
-  },
-  "cases": {
-    "items": []
-  }
+  "services": {},
+  "cases": {}
 }

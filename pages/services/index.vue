@@ -24,8 +24,10 @@
 .cardWrapper {
   width: 50%;
   padding: $space-small;
+  width: (100%/2);
 
   @media ($media-min-medium) {
+    width: (100%/3);
     padding: $space-base;
   }
 }
@@ -36,7 +38,7 @@
     <div :class="$style.cards">
       <div
         :class="$style.cardWrapper"
-        v-for="(service, i) in services.items"
+        v-for="(service, i) in items"
         :key="'service-card-' + i"
       >
         <Card :link="service.link">
@@ -63,21 +65,12 @@ export default {
     Layout
   },
   async asyncData({ app: { $axios, i18n } }) {
-    // Get index page data
-    const url = '/i18n/' + i18n.locale + '/index.json'
+    const url = '/i18n/' + i18n.locale + '/services.json'
     const data = await $axios.get(url).then(res => {
       return res.data
     })
 
-    // Get case studies data
-    const casesUrl = '/i18n/' + i18n.locale + '/case-studies.json'
-    const casesData = await $axios.get(casesUrl).then(res => {
-      return res.data
-    })
-
-    data.cases.items = casesData.items
-
-    return { ...data }
+    return data
   }
 }
 </script>

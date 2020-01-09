@@ -1,0 +1,54 @@
+{
+  "sectionNameSlug": "tjenester",
+  "sectionName": "Hva gjør vi?",
+  "sectionTitle": "Løsninger for din bedrift",
+  "sectionSummary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium blanditiis nulla, magnam qui aperiam vitae porro dolor sit voluptate sunt. Itaque distinctio officiis, voluptatum cumque est magni provident natus a.",
+  "sectionButton": {
+    "text": "Se alle tjenester",
+    "link": ""
+  },
+  "items": {
+    "utvikling": {
+      "title": "Utvikling",
+      "link": "/services/utvikling",
+      "linkText": "Les mer",
+      "summary": "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
+      "icon": "/icons/develop.svg",
+      "content": [
+        {
+          "layout": "default",
+          "text": [""]
+        }
+      ],
+      "sectionName": "Vi gjør mer!"
+    },
+    "design": {
+      "title": "Design",
+      "link": "/services/design",
+      "linkText": "Les mer",
+      "summary": "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective.",
+      "icon": "/icons/design.svg",
+      "content": [
+        {
+          "layout": "default",
+          "text": [""]
+        }
+      ],
+      "sectionName": "Vi gjør mer!"
+    },
+    "rådgivning": {
+      "title": "Rådgivning",
+      "link": "/services/rådgivning",
+      "linkText": "Les mer",
+      "summary": "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color.",
+      "icon": "/icons/consult.svg",
+      "content": [
+        {
+          "layout": "default",
+          "text": [""]
+        }
+      ],
+      "sectionName": "Vi gjør mer!"
+    }
+  }
+}
