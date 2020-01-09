@@ -14,7 +14,18 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.datahjelpen.no/fonts/butler/butler-700-300.css'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color

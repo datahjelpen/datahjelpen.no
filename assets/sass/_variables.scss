@@ -286,13 +286,16 @@ $color-page-borders: $color-gray_neutral300;
 $color-navbar-bg: $color-white;
 
 // Typography
-$font-family-headings: 'Helvetica Now Display', 'Helvetica Neue', sans-serif;
-$font-weight-headings: 900;
-$font-family-body: 'Helvetica Now Text Light', 'Helvetica Neue', sans-serif;
+$font-family-headings: 'Butler', serif;
+$font-weight-headings: 700;
+$font-weight-headings-light: 300;
+$font-family-body: 'Roboto', sans-serif;
 $font-weight-body: 300;
+$font-weight-body-heavy: 700;
 
 $font-base-size: 18px;
 $font-base-line-height: 1.618;
+$font-base-line-height-headings: 1;
 
 $font-size-super: 4.209em;
 $font-size-h1: 3.157em;

@@ -241,6 +241,8 @@
   width: 100%;
   max-width: $page_width;
   padding-right: $space-medium;
+  font-weight: $font-weight-body;
+  font-family: $font-family-body;
 
   @media ($media-min-medium) {
     font-size: $font-size-h2;
@@ -302,9 +304,8 @@
 
   h2 {
     font-size: $font-base-size;
-    font-weight: $font-weight-body;
-    font-family: $font-family-body;
     color: $color-gray_cold700;
+    font-weight: $font-weight-headings-light;
   }
 
   .megaMenuOtherLinksGroup {

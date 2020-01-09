@@ -37,7 +37,7 @@ h6 {
   color: $color-fg-headings;
   margin-top: 1.6rem;
   margin-bottom: 0.8rem;
-  line-height: 1;
+  line-height: $font-base-line-height-headings;
   font-family: $font-family-headings;
   font-weight: $font-weight-headings;
 }
