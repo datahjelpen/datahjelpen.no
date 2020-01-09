@@ -239,6 +239,12 @@ a.button {
   }
 }
 
+::selection {
+  color: $color-white;
+  background-color: $color-primary500;
+  text-shadow: none;
+}
+
 // Allows JS to detect what media query we are on
 #devicecheck {
   display: none;
