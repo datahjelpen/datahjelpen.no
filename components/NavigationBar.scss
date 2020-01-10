@@ -302,16 +302,17 @@
     width: 50%;
   }
 
-  h2 {
-    font-size: $font-base-size;
-    color: $color-gray_cold700;
-    font-weight: $font-weight-headings-light;
-  }
-
   .megaMenuOtherLinksGroup {
     display: flex;
     flex-direction: column;
     width: 50%;
+
+    h2 {
+      font-size: $font-base-size;
+      color: $color-gray_cold700;
+      font-weight: $font-weight-headings-light;
+      margin-top: #{$size-base}rem;
+    }
 
     > div {
       margin-top: $space-tiny;
