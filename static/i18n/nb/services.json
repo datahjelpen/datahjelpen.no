@@ -2,53 +2,127 @@
   "sectionNameSlug": "tjenester",
   "sectionName": "Hva gjør vi?",
   "sectionTitle": "Løsninger for din bedrift",
-  "sectionSummary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium blanditiis nulla, magnam qui aperiam vitae porro dolor sit voluptate sunt. Itaque distinctio officiis, voluptatum cumque est magni provident natus a.",
+  "sectionSummary": "",
   "sectionButton": {
     "text": "Se alle tjenester",
-    "link": ""
+    "link": "/services"
   },
   "items": {
     "utvikling": {
       "title": "Utvikling",
       "link": "/services/utvikling",
       "linkText": "Les mer",
-      "summary": "Use absolutely no pressure. Just like an angel's wing. Maybe there's a happy little Evergreen that lives here.",
+      "summary": "",
       "icon": "/icons/develop.svg",
+      "color": "green",
+      "sectionName": "Vi gjør mer!",
       "content": [
         {
-          "layout": "default",
-          "text": [""]
+          "layout": "cols-2",
+          "padded": true,
+          "margin": true,
+          "text": [
+            "## Nettsider & webapps\n\n Vi skreddersyr nettsider og webapplikasjoner med teknologier som HTML, CSS, Javascript, React, Vue og Laravel. I tillegg kan vi bygge sider med blant annet Wordpress, Squarespace og Webflow.",
+            "## Nettbutikk\n\n Datahjelpen lager nettbutikker med blant annet Woocommerce, Shopify og Snipcart. Vi kan lage din nye nettbutikk fra bunn av eller legge til e-commerce funksjonalitet på din eksisterende side."
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "margin": true,
+          "bg": "light",
+          "text": [
+            "## Integrasjon\n\nIntegrer interne eller eksterne programmer med andre.",
+            "## Program\n\nEget program til din PC eller Mac."
+          ]
         }
-      ],
-      "sectionName": "Vi gjør mer!"
+      ]
     },
     "design": {
       "title": "Design",
       "link": "/services/design",
       "linkText": "Les mer",
-      "summary": "I thought today we would do a happy little picture. Just take out whatever you don't want. It'll change your entire perspective.",
+      "summary": "",
       "icon": "/icons/design.svg",
+      "color": "yellow",
+      "sectionName": "Vi gjør mer!",
       "content": [
         {
-          "layout": "default",
-          "text": [""]
+          "layout": "cols-2",
+          "padded": true,
+          "margin": true,
+          "text": [
+            "## UI & UX\n\n Vi lager UI & UX design for din nettside eller app!",
+            "## Branding\n\n Datahjelpen gir idéen din sin egen stil."
+          ]
         }
-      ],
-      "sectionName": "Vi gjør mer!"
+      ]
     },
-    "rådgivning": {
+    "radgivning": {
       "title": "Rådgivning",
-      "link": "/services/rådgivning",
+      "link": "/services/radgivning",
       "linkText": "Les mer",
-      "summary": "There are no mistakes. You can fix anything that happens. I'm going to mix up a little color.",
+      "summary": "",
       "icon": "/icons/consult.svg",
+      "color": "blue",
+      "sectionName": "Vi gjør mer!",
       "content": [
         {
           "layout": "default",
+          "padded": true,
           "text": [""]
         }
-      ],
-      "sectionName": "Vi gjør mer!"
+      ]
+    },
+    "drift": {
+      "title": "Drift",
+      "link": "/services/drift",
+      "linkText": "Les mer",
+      "summary": "",
+      "icon": "/icons/operations.svg",
+      "color": "hacker",
+      "sectionName": "Vi gjør mer!",
+      "content": [
+        {
+          "layout": "cols-3",
+          "margin": true,
+          "padded": true,
+          "text": ["## Webhotell", "## E-post", "## Backup"]
+        }
+      ]
+    },
+    "support": {
+      "title": "Support",
+      "link": "/services/support",
+      "linkText": "Les mer",
+      "summary": "",
+      "icon": "/icons/support.svg",
+      "color": "red",
+      "sectionName": "Vi gjør mer!",
+      "content": [
+        {
+          "layout": "default",
+          "padded": true,
+          "text": [""]
+        }
+      ]
+    },
+    "digital-markedsforing": {
+      "title": "Digital markedsføring",
+      "link": "/services/digital-markedsforing",
+      "linkText": "Les mer",
+      "summary": "",
+      "icon": "/icons/marketing.svg",
+      "color": "blue",
+      "sectionName": "Vi gjør mer!",
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "text": ["## Google Ads", "## Nyhetsbrev"]
+        }
+      ]
     }
   }
 }
