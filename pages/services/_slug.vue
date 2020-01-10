@@ -1,18 +1,65 @@
 <style lang="scss" module>
 @import '../case-studies/single';
 
-.header h1 {
-  > span {
-    color: $color-fg-headings;
-    vertical-align: middle;
+.header {
+  background-color: $color-gray_cold000;
+  background-image: url('/images/grid.png');
+  background-size: 12em;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  padding: $space-base 0;
+
+  @media ($media-min-medium) {
+    padding: $space-large 0;
   }
 
-  > img {
-    display: inline-block;
-    width: #{$size-base}em;
-    height: #{$size-base}em;
-    margin-right: #{$size-base}rem;
+  h1 {
+    > span {
+      color: $color-fg-headings;
+      vertical-align: middle;
+    }
+
+    > img {
+      display: inline-block;
+      width: #{$size-base}em;
+      height: #{$size-base}em;
+      margin-right: #{$size-base}rem;
+    }
   }
+
+  &.green {
+    background-color: $color-green000;
+  }
+
+  &.yellow {
+    background-color: $color-yellow000;
+  }
+
+  &.blue {
+    background-color: $color-cyan000;
+  }
+
+  &.red {
+    background-color: $color-violet000;
+  }
+
+  &.hacker {
+    color: $color-green100;
+    background-color: $color-green600;
+    background-color: $color-green800;
+
+    span {
+      color: $color-green300;
+    }
+
+    h1 > span {
+      color: $color-green100;
+    }
+  }
+}
+
+.headerTitleWrapper h1 {
+  width: 100%;
 }
 
 .cards {
@@ -41,7 +88,7 @@
 <template>
   <div :class="$style.root">
     <Layout type="full">
-      <header :class="$style.header">
+      <header :class="$style.header + ' ' + this.headerBgStyleClass">
         <Layout :class="$style.headerTop">
           <div :class="$style.headerTitleWrapper">
             <span>{{ $t('Tjeneste') }}</span>
