@@ -72,7 +72,7 @@
         </div>
         <MasonryGrid slot="items">
           <ProjectCard
-            v-for="(customerCase, slug, i) in items"
+            v-for="(customerCase, slug, i) in otherCases"
             :slot="'item-' + (i + 1)"
             :key="'customerCase-card-' + i"
             :title="customerCase.title"
@@ -128,6 +128,19 @@ export default {
     }
 
     return error({ statusCode: 404, message: 'Case study was not found' })
+  },
+  computed: {
+    // All services except the current one
+    otherCases() {
+      let otherCases = this.items
+      for (const slug in this.items) {
+        if (slug == this.item.slug) {
+          delete otherCases[slug]
+        }
+      }
+
+      return otherCases
+    }
   }
 }
 </script>

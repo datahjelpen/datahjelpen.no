@@ -113,7 +113,7 @@
         <div :class="$style.cards" slot="items">
           <div
             :class="$style.cardWrapper"
-            v-for="(service, i) in items"
+            v-for="(service, i) in otherServices"
             :key="'service-card-' + i"
           >
             <Card :link="service.link">
@@ -175,6 +175,22 @@ export default {
     }
 
     return error({ statusCode: 404, message: 'Service was not found' })
+  },
+  computed: {
+    // All services except the current one
+    otherServices() {
+      let otherServices = this.items
+      for (const slug in this.items) {
+        if (slug == this.item.slug) {
+          delete otherServices[slug]
+        }
+      }
+
+      return otherServices
+    },
+    headerBgStyleClass() {
+      return this.$style[this.item.color]
+    }
   }
 }
 </script>
