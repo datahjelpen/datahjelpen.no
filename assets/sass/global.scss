@@ -35,8 +35,8 @@ h4,
 h5,
 h6 {
   color: $color-fg-headings;
-  margin-top: 1.6rem;
-  margin-bottom: 0.8rem;
+  margin-top: #{$size-base}rem;
+  margin-bottom: #{$size-small}rem;
   line-height: $font-base-line-height-headings;
   font-family: $font-family-headings;
   font-weight: $font-weight-headings;
