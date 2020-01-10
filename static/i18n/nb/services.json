@@ -15,11 +15,11 @@
       "summary": "",
       "icon": "/icons/develop.svg",
       "color": "green",
+      "bg": "/images/abstract-co-workers.png",
       "sectionName": "Vi gjør mer!",
       "content": [
         {
           "layout": "cols-2",
-          "padded": true,
           "margin": true,
           "text": [
             "## Nettsider & webapps\n\n Vi skreddersyr nettsider og webapplikasjoner med teknologier som HTML, CSS, Javascript, React, Vue og Laravel. I tillegg kan vi bygge sider med blant annet Wordpress, Squarespace og Webflow.",
@@ -45,6 +45,8 @@
       "summary": "",
       "icon": "/icons/design.svg",
       "color": "yellow",
+      "bg": "/images/workshop.png",
+      "bgStyle": "filter: hue-rotate(200deg);",
       "sectionName": "Vi gjør mer!",
       "content": [
         {
@@ -65,6 +67,8 @@
       "summary": "",
       "icon": "/icons/consult.svg",
       "color": "blue",
+      "bg": "/images/abstract-brainstorm.png",
+      "bgStyle": "filter: hue-rotate(160deg);",
       "sectionName": "Vi gjør mer!",
       "content": [
         {
@@ -81,6 +85,8 @@
       "summary": "",
       "icon": "/icons/operations.svg",
       "color": "hacker",
+      "bg": "/images/operations.png",
+      "bgStyle": "filter: hue-rotate(290deg);",
       "sectionName": "Vi gjør mer!",
       "content": [
         {
@@ -97,7 +103,9 @@
       "linkText": "Les mer",
       "summary": "",
       "icon": "/icons/support.svg",
-      "color": "red",
+      "color": "violet",
+      "bg": "/images/support.png",
+      "bgStyle": "filter: hue-rotate(300deg);",
       "sectionName": "Vi gjør mer!",
       "content": [
         {
@@ -114,6 +122,8 @@
       "summary": "",
       "icon": "/icons/marketing.svg",
       "color": "blue",
+      "bg": "/images/marketing.png",
+      "bgStyle": "filter: hue-rotate(160deg);",
       "sectionName": "Vi gjør mer!",
       "content": [
         {

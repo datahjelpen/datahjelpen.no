@@ -2,11 +2,8 @@
 @import '../case-studies/single';
 
 .header {
+  position: relative;
   background-color: $color-gray_cold000;
-  background-image: url('/images/grid.png');
-  background-size: 12em;
-  background-repeat: repeat;
-  background-attachment: fixed;
   padding: $space-base 0;
 
   @media ($media-min-medium) {
@@ -28,19 +25,46 @@
   }
 
   &.green {
-    background-color: $color-green000;
+    color: $color-green000;
+    background-color: $color-green500;
+
+    span {
+      color: $color-green200;
+    }
+
+    h1 > span {
+      color: $color-white;
+    }
   }
 
   &.yellow {
-    background-color: $color-yellow000;
+    background-color: $color-yellow200;
   }
 
   &.blue {
-    background-color: $color-cyan000;
+    color: $color-blue000;
+    background-color: $color-blue500;
+
+    span {
+      color: $color-blue100;
+    }
+
+    h1 > span {
+      color: $color-white;
+    }
   }
 
-  &.red {
-    background-color: $color-violet000;
+  &.violet {
+    color: $color-violet000;
+    background-color: $color-violet500;
+
+    span {
+      color: $color-violet200;
+    }
+
+    h1 > span {
+      color: $color-white;
+    }
   }
 
   &.hacker {
@@ -60,6 +84,26 @@
 
 .headerTitleWrapper h1 {
   width: 100%;
+}
+
+.headerTop {
+  position: relative;
+  z-index: 2;
+}
+
+.headerBg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.1;
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat;
+  mix-blend-mode: luminosity;
 }
 
 .cards {
@@ -89,6 +133,10 @@
   <div :class="$style.root">
     <Layout type="full">
       <header :class="$style.header + ' ' + this.headerBgStyleClass">
+        <div
+          :class="$style.headerBg"
+          :style="'background-image:url(' + item.bg + ');' + item.bgStyle"
+        ></div>
         <Layout :class="$style.headerTop">
           <div :class="$style.headerTitleWrapper">
             <span>{{ $t('Tjeneste') }}</span>
