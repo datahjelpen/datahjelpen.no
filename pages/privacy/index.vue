@@ -169,8 +169,8 @@ export default {
   },
   nuxtI18n: {
     paths: {
-      en: '/privacy/policy',
-      nb: '/personvern/personvernerklaering'
+      en: '/privacy',
+      nb: '/personvern'
     }
   }
 }
