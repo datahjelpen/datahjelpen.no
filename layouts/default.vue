@@ -28,6 +28,7 @@
     <NavigationBar id="main-nav" :class="$style.navigationBar">
       <nuxt-link slot="logo" :to="localePath('index')">
         <Logo />
+        <span>Datahjelpen AS</span>
       </nuxt-link>
 
       <nuxt-link
