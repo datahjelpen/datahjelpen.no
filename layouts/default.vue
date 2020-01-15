@@ -74,18 +74,18 @@
           })
         "
       >
-        Nettbutikk for Takshop</nuxt-link
+        Nettbutikk for håndverkere</nuxt-link
       >
       <nuxt-link
         slot="projectLinks"
         :to="
           localePath({
             name: 'case-studies-slug',
-            params: { slug: '2019-bewa-cloud' }
+            params: { slug: '2018-lydia-ordegard-no' }
           })
         "
       >
-        Bewa Cloud</nuxt-link
+        Nettside & branding for Lydia</nuxt-link
       >
       <nuxt-link
         slot="projectLinks"
@@ -96,7 +96,7 @@
           })
         "
       >
-        Nettbuikk for kjøkkenutstyr og gourmet</nuxt-link
+        Nettbuikk for Gourmethuset</nuxt-link
       >
 
       <a
