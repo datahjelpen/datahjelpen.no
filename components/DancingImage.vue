@@ -70,7 +70,7 @@
     <figure :class="$style.figure">
       <img
         :class="$style.img"
-        :src="image"
+        :src="imageMobile"
         :srcset="imageSrcSet"
         :sizes="imageSizes"
         :alt="alt"
