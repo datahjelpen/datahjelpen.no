@@ -161,6 +161,9 @@
 import Layout from '../../components/Layout'
 
 export default {
+  head: {
+    title: 'Personvernerklæring - Datahjelpen AS'
+  },
   components: {
     Layout
   },

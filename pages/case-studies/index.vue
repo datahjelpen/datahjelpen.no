@@ -39,6 +39,9 @@ import ProjectCard from '../../components/ProjectCard'
 import MasonryGrid from '../../components/MasonryGrid'
 
 export default {
+  head: {
+    title: 'Kundecaser - Datahjelpen AS'
+  },
   components: {
     InfoSection2,
     ProjectCard,

@@ -57,6 +57,11 @@ import Card from '../../components/Card'
 import Markdown from '../../components/Markdown'
 
 export default {
+  head() {
+    return {
+      title: this.item.title + ' - Databloggen - Datahjelpen AS'
+    }
+  },
   components: {
     Layout,
     Card,

@@ -245,6 +245,11 @@ import Markdown from '../../components/Markdown'
 import Card from '../../components/Card'
 
 export default {
+  head() {
+    return {
+      title: this.item.title + ' - Tjenester - Datahjelpen AS'
+    }
+  },
   components: {
     Layout,
     InfoSection2,

@@ -71,6 +71,9 @@ import Layout from '../components/Layout'
 import Card from '../components/Card'
 
 export default {
+  head: {
+    title: 'Kontakt oss - Datahjelpen AS'
+  },
   components: {
     Layout,
     Card

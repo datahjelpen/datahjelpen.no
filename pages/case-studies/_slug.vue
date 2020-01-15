@@ -96,6 +96,11 @@ import MasonryGrid from '../../components/MasonryGrid'
 import Markdown from '../../components/Markdown'
 
 export default {
+  head() {
+    return {
+      title: this.item.title + ' - Kundecaser - Datahjelpen AS'
+    }
+  },
   components: {
     Layout,
     InfoSection2,

@@ -64,6 +64,11 @@ import Layout from '../../components/Layout'
 import Card from '../../components/Card'
 
 export default {
+  head() {
+    return {
+      title: 'Databloggen - Datahjelpen AS'
+    }
+  },
   components: {
     Layout,
     Card

@@ -163,6 +163,9 @@ if (process.client) {
 }
 
 export default {
+  head: {
+    title: 'Teknologibyrå - Datahjelpen AS'
+  },
   components: {
     DancingImage,
     ButtonGroup,
