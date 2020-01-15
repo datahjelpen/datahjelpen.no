@@ -84,7 +84,7 @@
     }
   }
 
-  img {
+  .icon {
     width: 2em;
     height: auto;
   }
@@ -119,7 +119,9 @@
     <div :class="$style.inner">
       <div :class="$style.title" v-if="$slots.title || $slots.icon">
         <nuxt-link v-if="link" slot="links" :to="link">
-          <span aria-hidden="true" v-if="$slots.icon"><slot name="icon"/></span>
+          <span aria-hidden="true" v-if="$slots.icon" :class="$style.icon"
+            ><slot name="icon"
+          /></span>
           <slot name="title" />
         </nuxt-link>
         <slot v-if="!link" name="icon" />
