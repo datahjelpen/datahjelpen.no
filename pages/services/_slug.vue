@@ -39,6 +39,14 @@
 
   &.yellow {
     background-color: $color-yellow200;
+
+    span {
+      color: $color-yellow700;
+    }
+
+    h1 > span {
+      color: $color-black;
+    }
   }
 
   &.blue {
