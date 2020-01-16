@@ -83,7 +83,11 @@ export default {
     ],
     lazy: true,
     langDir: 'i18n/',
-    defaultLocale: 'nb'
+    defaultLocale: 'nb',
+    vueI18n: {
+      fallbackLocale: 'nb',
+    },
+    detectBrowserLanguage: false
   },
 
   /*
