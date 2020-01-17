@@ -62,7 +62,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: 'https://cdn.datahjelpen.no/datahjelpen-no'
+  },
 
   /*
    ** nuxt-i18n module configuration
@@ -81,7 +83,11 @@ export default {
     ],
     lazy: true,
     langDir: 'i18n/',
-    defaultLocale: 'nb'
+    defaultLocale: 'nb',
+    vueI18n: {
+      fallbackLocale: 'nb',
+    },
+    detectBrowserLanguage: false
   },
 
   /*
