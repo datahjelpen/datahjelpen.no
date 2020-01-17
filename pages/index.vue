@@ -5,7 +5,7 @@
   <div :class="$style.root">
     <Layout type="full">
       <header id="particles-js" :class="$style.header">
-        <div :class="$style.headerInner">
+        <div :class="$style.headerInner" v-if="header">
           <div :class="$style.headerContent">
             <h1>
               <span
@@ -55,7 +55,7 @@
 
     <div :class="'navigationBarBg ' + $style.navigationBarBg"></div>
 
-    <Layout :class="$style.cases">
+    <Layout :class="$style.cases" v-if="cases">
       <InfoSection2 :id="cases.sectionNameSlug">
         <div slot="header">
           <h2 data-aos="fade-up" data-aos-delay="1000">
@@ -98,7 +98,7 @@
       </InfoSection2>
     </Layout>
 
-    <Layout>
+    <Layout v-if="services">
       <InfoSection1 :id="services.sectionNameSlug">
         <div slot="header">
           <h2 data-aos="fade-up" data-aos-delay="0">
@@ -195,21 +195,28 @@ export default {
       return res.data
     })
 
-    data.services = servicesData
-    data.cases = casesData
+    if (data && typeof data === 'object') {
+      data.services = servicesData
+      data.cases = casesData
 
-    return { ...data }
+      return { ...data }
+    }
   },
   mounted() {
-    let currentTitle = 0
-    this.$store.commit('setHeaderTitle', this.header.titleParts[currentTitle])
-    setInterval(() => {
-      currentTitle += 1
-      if (currentTitle > this.header.titleParts.length - 1) {
-        currentTitle = 0
-      }
+    if (typeof header === 'object') {
+      let currentTitle = 0
       this.$store.commit('setHeaderTitle', this.header.titleParts[currentTitle])
-    }, 4000)
+      setInterval(() => {
+        currentTitle += 1
+        if (currentTitle > this.header.titleParts.length - 1) {
+          currentTitle = 0
+        }
+        this.$store.commit(
+          'setHeaderTitle',
+          this.header.titleParts[currentTitle]
+        )
+      }, 4000)
+    }
   }
 }
 </script>

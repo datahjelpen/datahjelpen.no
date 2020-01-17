@@ -114,22 +114,24 @@ export default {
       return res.data
     })
 
-    data.item = data.items[params.slug]
+    if (data && typeof data === 'object') {
+      data.item = data.items[params.slug]
 
-    if (data.item) {
-      data.item.slug = params.slug
+      if (data.item) {
+        data.item.slug = params.slug
 
-      if (data.item.sectionName) {
-        data.sectionName = data.item.sectionName
-      }
-      if (data.item.sectionTitle) {
-        data.sectionTitle = data.item.sectionTitle
-      }
-      if (data.item.sectionSummary) {
-        data.sectionSummary = data.item.sectionSummary
-      }
+        if (data.item.sectionName) {
+          data.sectionName = data.item.sectionName
+        }
+        if (data.item.sectionTitle) {
+          data.sectionTitle = data.item.sectionTitle
+        }
+        if (data.item.sectionSummary) {
+          data.sectionSummary = data.item.sectionSummary
+        }
 
-      return { ...data }
+        return { ...data }
+      }
     }
 
     return error({ statusCode: 404, message: 'Case study was not found' })

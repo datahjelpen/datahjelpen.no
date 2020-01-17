@@ -13,7 +13,7 @@
 }
 </style>
 <template>
-  <Layout :class="$style.root">
+  <Layout :class="$style.root" v-if="cases">
     <h1>{{ $t('Kundecaser') }}</h1>
     <InfoSection2 :id="cases.sectionNameSlug">
       <MasonryGrid slot="items">
@@ -61,9 +61,10 @@ export default {
       return res.data
     })
 
-    data.cases.items = casesData.items
-
-    return { ...data }
+    if (data && typeof data === 'object') {
+      data.cases.items = casesData.items
+      return { ...data }
+    }
   }
 }
 </script>

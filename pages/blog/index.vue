@@ -32,7 +32,7 @@
 }
 </style>
 <template>
-  <Layout :class="$style.root">
+  <Layout :class="$style.root" v-if="items">
     <h1>{{ $t('Databloggen') }}</h1>
     <div :class="$style.cards">
       <div

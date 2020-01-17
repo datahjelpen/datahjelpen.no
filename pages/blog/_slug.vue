@@ -2,8 +2,8 @@
 @import '../case-studies/single';
 </style>
 <template>
-  <div :class="$style.root">
-    <Layout type="full">
+  <div :class="$style.root" v-if="item">
+    <Layout type="full" v-if="header">
       <header :class="$style.header">
         <Layout :class="$style.headerTop">
           <div :class="$style.headerTitleWrapper">
@@ -73,12 +73,14 @@ export default {
       return res.data
     })
 
-    data.item = data.items[params.slug]
+    if (data && typeof data === 'object') {
+      data.item = data.items[params.slug]
 
-    if (data.item) {
-      data.item.slug = params.slug
+      if (data.item) {
+        data.item.slug = params.slug
 
-      return { ...data }
+        return { ...data }
+      }
     }
 
     return error({ statusCode: 404, message: 'Blog post was not found' })
