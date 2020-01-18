@@ -64,7 +64,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    proxy: true
+    proxy: true,
+    baseURL: 'https://cdn.datahjelpen.no/datahjelpen-no'
   },
 
   /*
