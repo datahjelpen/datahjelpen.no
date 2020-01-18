@@ -260,9 +260,14 @@ export default {
   },
   async asyncData({ app: { $axios, i18n }, params, error }) {
     const url = '/i18n/' + i18n.locale + '/services.json'
-    const data = await $axios.get(url).then(res => {
-      return res.data
-    })
+    const data = await $axios
+      .get(url)
+      .then(res => {
+        return res.data
+      })
+      .catch(e => {
+        return null
+      })
 
     if (data && typeof data === 'object') {
       data.item = data.items[params.slug]
