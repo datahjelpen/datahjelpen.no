@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 24 24" width="24" height="24">
+    <circle fill="#d2ffea" cx="12" cy="12" r="12"></circle>
+    <g>
+        <path d="M 19.5,12c0-1.381-1.119-2.5-2.5-2.5H7c-1.381,0-2.5,1.119-2.5,2.5s1.119,2.5,2.5,2.5h10 C18.381,14.5,19.5,13.381,19.5,12z " stroke="#13413c" fill="#d7d2cb" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M 8.25,11.75C8.112,11.75,8,11.862,8,12s0.112,0.25,0.25,0.25S8.5,12.138,8.5,12S8.388,11.75,8.25,11.75 L8.25,11.75 " stroke="#14f3ff" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M 10.75,11.75c-0.138,0-0.25,0.112-0.25,0.25s0.112,0.25,0.25,0.25S11,12.138,11,12S10.888,11.75,10.75,11.75 L10.75,11.75 " stroke="#146dff" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M 19.5,17c0-1.381-1.119-2.5-2.5-2.5H7c-1.381,0-2.5,1.119-2.5,2.5s1.119,2.5,2.5,2.5h10 C18.381,19.5,19.5,18.381,19.5,17z " stroke="#13413c" fill="#d7d2cb" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M 8.25,16.75C8.112,16.75,8,16.862,8,17s0.112,0.25,0.25,0.25S8.5,17.138,8.5,17 S8.388,16.75,8.25,16.75L8.25,16.75 " stroke="#12e787" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M 10.75,16.75c-0.138,0-0.25,0.112-0.25,0.25s0.112,0.25,0.25,0.25S11,17.138,11,17 S10.888,16.75,10.75,16.75L10.75,16.75 " stroke="#146dff" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M 19.5,7c0-1.381-1.119-2.5-2.5-2.5H7C5.619,4.5,4.5,5.619,4.5,7S5.619,9.5,7,9.5h10C18.381,9.5,19.5,8.381,19.5,7z " stroke="#13413c" fill="#d7d2cb" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M 8.25,6.75C8.112,6.75,8,6.862,8,7s0.112,0.25,0.25,0.25S8.5,7.138,8.5,7S8.388,6.75,8.25,6.75 L8.25,6.75 " stroke="#146dff" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M 10.75,6.75c-0.138,0-0.25,0.112-0.25,0.25s0.112,0.25,0.25,0.25S11,7.138,11,7S10.888,6.75,10.75,6.75L10.75,6.75 " stroke="#14f3ff" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+    </g>
+</svg>

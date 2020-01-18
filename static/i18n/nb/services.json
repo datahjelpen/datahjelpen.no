@@ -1,0 +1,138 @@
+{
+  "sectionNameSlug": "tjenester",
+  "sectionName": "Hva gjør vi?",
+  "sectionTitle": "Løsninger for din bedrift",
+  "sectionSummary": "",
+  "sectionButton": {
+    "text": "Se alle tjenester",
+    "link": "/services"
+  },
+  "items": {
+    "utvikling": {
+      "title": "Utvikling",
+      "link": "/services/utvikling",
+      "linkText": "Les mer",
+      "summary": "",
+      "icon": "/icons/develop.svg",
+      "color": "green",
+      "bg": "/images/abstract-co-workers.png",
+      "sectionName": "Vi gjør mer!",
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "text": [
+            "## Nettsider & webapps\n\n Vi skreddersyr nettsider og webapplikasjoner med teknologier som HTML, CSS, Javascript, React, Vue og Laravel. I tillegg kan vi bygge sider med blant annet Wordpress, Squarespace og Webflow.",
+            "## Nettbutikk\n\n Datahjelpen lager nettbutikker med blant annet Woocommerce, Shopify og Snipcart. Vi kan lage din nye nettbutikk fra bunn av eller legge til e-commerce funksjonalitet på din eksisterende side."
+          ]
+        },
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "margin": true,
+          "bg": "light",
+          "text": [
+            "## Integrasjon\n\nIntegrer interne eller eksterne programmer med andre.",
+            "## Program\n\nEget program til din PC eller Mac."
+          ]
+        }
+      ]
+    },
+    "design": {
+      "title": "Design",
+      "link": "/services/design",
+      "linkText": "Les mer",
+      "summary": "",
+      "icon": "/icons/design.svg",
+      "color": "yellow",
+      "bg": "/images/workshop.png",
+      "bgStyle": "filter: hue-rotate(200deg);",
+      "sectionName": "Vi gjør mer!",
+      "content": [
+        {
+          "layout": "cols-2",
+          "padded": true,
+          "margin": true,
+          "text": [
+            "## UI & UX\n\n Vi lager UI & UX design for din nettside eller app!",
+            "## Branding\n\n Datahjelpen gir idéen din sin egen stil."
+          ]
+        }
+      ]
+    },
+    "radgivning": {
+      "title": "Rådgivning",
+      "link": "/services/radgivning",
+      "linkText": "Les mer",
+      "summary": "",
+      "icon": "/icons/consult.svg",
+      "color": "blue",
+      "bg": "/images/abstract-brainstorm.png",
+      "bgStyle": "filter: hue-rotate(160deg);",
+      "sectionName": "Vi gjør mer!",
+      "content": [
+        {
+          "layout": "default",
+          "padded": true,
+          "text": [""]
+        }
+      ]
+    },
+    "drift": {
+      "title": "Drift",
+      "link": "/services/drift",
+      "linkText": "Les mer",
+      "summary": "",
+      "icon": "/icons/operations.svg",
+      "color": "hacker",
+      "bg": "/images/operations.png",
+      "bgStyle": "filter: hue-rotate(290deg);",
+      "sectionName": "Vi gjør mer!",
+      "content": [
+        {
+          "layout": "cols-3",
+          "margin": true,
+          "padded": true,
+          "text": ["## Webhotell", "## E-post", "## Backup"]
+        }
+      ]
+    },
+    "support": {
+      "title": "Support",
+      "link": "/services/support",
+      "linkText": "Les mer",
+      "summary": "",
+      "icon": "/icons/support.svg",
+      "color": "violet",
+      "bg": "/images/support.png",
+      "bgStyle": "filter: hue-rotate(300deg);",
+      "sectionName": "Vi gjør mer!",
+      "content": [
+        {
+          "layout": "default",
+          "padded": true,
+          "text": [""]
+        }
+      ]
+    },
+    "digital-markedsforing": {
+      "title": "Digital markedsføring",
+      "link": "/services/digital-markedsforing",
+      "linkText": "Les mer",
+      "summary": "",
+      "icon": "/icons/marketing.svg",
+      "color": "blue",
+      "bg": "/images/marketing.png",
+      "bgStyle": "filter: hue-rotate(160deg);",
+      "sectionName": "Vi gjør mer!",
+      "content": [
+        {
+          "layout": "cols-2",
+          "margin": true,
+          "padded": true,
+          "text": ["## Google Ads", "## Nyhetsbrev"]
+        }
+      ]
+    }
+  }
+}

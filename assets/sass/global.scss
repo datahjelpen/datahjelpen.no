@@ -1,0 +1,267 @@
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+html,
+body,
+#__nuxt,
+#__layout {
+  height: 100%;
+}
+
+html {
+  font-size: $font-base-size;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 100%;
+  line-height: $font-base-line-height;
+  font-weight: $font-weight-body;
+  font-family: $font-family-body;
+  color: $color-fg-body;
+  background-color: $color-bg;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-fg-headings;
+  margin-top: #{$size-base}rem;
+  margin-bottom: #{$size-small}rem;
+  line-height: $font-base-line-height-headings;
+  font-family: $font-family-headings;
+  font-weight: $font-weight-headings;
+}
+
+h1 {
+  font-size: $font-size-h2;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h1;
+  }
+}
+
+h2 {
+  font-size: $font-size-h3;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h2;
+  }
+}
+
+h3 {
+  font-size: $font-size-h4;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h3;
+  }
+}
+
+h4 {
+  font-size: $font-size-h5;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h4;
+  }
+}
+
+h5 {
+  font-size: $font-size-h6;
+
+  @media ($media-min-small) {
+    font-size: $font-size-h5;
+  }
+}
+
+h6 {
+  font-size: $font-size-h6;
+  font-weight: $font-weight-body;
+}
+
+p {
+  margin: 0 0 0.8em;
+}
+
+strong {
+  font-size: inherit;
+  font-family: $font-family-headings;
+  font-weight: $font-weight-headings;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  font-size: inherit;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: $space-tiny;
+  line-height: 1;
+  border: 1px solid $color-gray_cold500;
+
+  &:focus {
+    border: 1px solid $color-black;
+  }
+}
+
+a {
+  color: $color-accent500;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $color-primary500;
+    text-decoration: underline;
+  }
+}
+
+.link {
+  color: $color-accent500;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $color-primary500;
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.visually-hidden {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+// Page transition
+.page-enter-active,
+.page-leave-active {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.button {
+  cursor: pointer;
+  padding: $space-small $space-base;
+  color: $color-white;
+  background-color: $color-gray_cold700;
+  border-radius: 0.25em;
+  text-decoration: none;
+  border: 1px solid $color-gray_cold700;
+  font-size: inherit;
+  line-height: 1;
+  text-align: center;
+  box-shadow: 0 10px 25px -15px rgba($color-gray_cold700, 0.8);
+  transition-property: box-shadow, transform, color, border-color,
+    background-color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+
+  &.button-small {
+    padding: $space-tiny $space-small;
+  }
+
+  &.button-primary {
+    color: $color-white;
+    border-color: $color-primary500;
+    background-color: $color-primary500;
+    box-shadow: 0 10px 25px -15px rgba($color-primary500, 0.8);
+  }
+
+  &.button-accent {
+    color: $color-white;
+    border-color: $color-accent500;
+    background-color: $color-accent500;
+    box-shadow: 0 10px 25px -15px rgba($color-accent500, 0.8);
+  }
+
+  &.button-light {
+    color: $color-black;
+    border-color: $color-gray_cold300;
+    background-color: $color-gray_cold000;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: $color-white;
+      background-color: $color-primary500;
+      box-shadow: none;
+      transform: scale(1);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    z-index: 1;
+    color: $color-white;
+    border-color: $color-primary500;
+    background-color: $color-primary500;
+    box-shadow: 0 10px 30px -15px rgba($color-primary700, 0.8);
+    transform: scale(1.05);
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+a.button {
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+::selection {
+  color: $color-white;
+  background-color: $color-primary500;
+  text-shadow: none;
+}
+
+// Allows JS to detect what media query we are on
+#devicecheck {
+  display: none;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  content: '';
+
+  @media ($media-max-small) {
+    content: 'mobile';
+  }
+
+  @media ($media-min-small) and ($media-max-medium) {
+    content: 'tablet';
+  }
+
+  @media ($media-min-medium) {
+    content: 'desktop';
+  }
+}
