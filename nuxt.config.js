@@ -54,6 +54,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     '@nuxtjs/svg',
     'nuxt-i18n'
   ],
@@ -63,7 +64,15 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://cdn.datahjelpen.no/datahjelpen-no'
+    proxy: true
+  },
+
+  /*
+   ** Proxy module configuration
+   ** See https://github.com/nuxt-community/proxy-module
+   */
+  proxy: {
+    '/i18n/*/*.json': 'https://cdn.datahjelpen.no/datahjelpen-no/i18n/*/*.json'
   },
 
   /*
@@ -85,7 +94,7 @@ export default {
     langDir: 'i18n/',
     defaultLocale: 'nb',
     vueI18n: {
-      fallbackLocale: 'nb',
+      fallbackLocale: 'nb'
     },
     detectBrowserLanguage: false
   },
