@@ -32,9 +32,10 @@
 }
 </style>
 <template>
-  <Layout :class="$style.root" v-if="items">
-    <h1>{{ $t('Databloggen') }}</h1>
-    <div :class="$style.cards">
+  <Layout :class="$style.root">
+    <h1 v-if="page.heading">{{ page.heading }}</h1>
+    <p v-if="page.intro">{{ page.intro }}</p>
+    <div :class="$style.cards" v-if="items">
       <div
         :class="$style.cardWrapper"
         v-for="(post, i) in items"
@@ -75,9 +76,22 @@ export default {
   },
   async asyncData({ app: { $axios, i18n } }) {
     const url = '/i18n/' + i18n.locale + '/blog.json'
-    const data = await $axios.get(url).then(res => {
-      return res.data
-    })
+    const data = await $axios
+      .get(url)
+      .then(res => {
+        res.data.page = {
+          heading: i18n.t('Databloggen')
+        }
+        return res.data
+      })
+      .catch(e => {
+        return {
+          page: {
+            heading: i18n.t('Databloggen'),
+            intro: i18n.t('Noe gikk feil. Vi klarte ikke hente data ...')
+          }
+        }
+      })
 
     return data
   },

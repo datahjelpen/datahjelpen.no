@@ -34,7 +34,8 @@
 </style>
 <template>
   <Layout :class="$style.root">
-    <h1>{{ $t('Tjenester') }}</h1>
+    <h1 v-if="page.heading">{{ page.heading }}</h1>
+    <p v-if="page.intro">{{ page.intro }}</p>
     <div :class="$style.cards">
       <div
         :class="$style.cardWrapper"
@@ -69,9 +70,22 @@ export default {
   },
   async asyncData({ app: { $axios, i18n } }) {
     const url = '/i18n/' + i18n.locale + '/services.json'
-    const data = await $axios.get(url).then(res => {
-      return res.data
-    })
+    const data = await $axios
+      .get(url)
+      .then(res => {
+        res.data.page = {
+          heading: i18n.t('Tjenester')
+        }
+        return res.data
+      })
+      .catch(e => {
+        return {
+          page: {
+            heading: i18n.t('Tjenester'),
+            intro: i18n.t('Noe gikk feil. Vi klarte ikke hente data ...')
+          }
+        }
+      })
 
     return data
   }

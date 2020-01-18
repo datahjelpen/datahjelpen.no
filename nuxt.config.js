@@ -72,7 +72,12 @@ export default {
    ** See https://github.com/nuxt-community/proxy-module
    */
   proxy: {
-    '/i18n/*/*.json': 'https://cdn.datahjelpen.no/datahjelpen-no/i18n/*/*.json'
+    '/i18n/*/**.json': {
+      target: 'https://cdn.datahjelpen.no',
+      pathRewrite: {
+        '^/i18n': '/datahjelpen-no/i18n'
+      }
+    }
   },
 
   /*
