@@ -203,7 +203,7 @@ export default {
     }
   },
   mounted() {
-    if (typeof header === 'object') {
+    if (typeof this.header === 'object') {
       let currentTitle = 0
       this.$store.commit('setHeaderTitle', this.header.titleParts[currentTitle])
       setInterval(() => {
