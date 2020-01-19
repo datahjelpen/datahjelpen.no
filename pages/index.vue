@@ -147,9 +147,6 @@
         >
           <img slot="icon" :src="service.icon" />
           <h4 slot="title">{{ service.title }}</h4>
-          <p slot="content">
-            {{ service.summary }}
-          </p>
         </Card>
       </InfoSection1>
     </Layout>
