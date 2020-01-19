@@ -1,5 +1,5 @@
 <style lang="scss" module>
-@import '../case-studies/single';
+@import '../../case-studies/single';
 
 .header {
   position: relative;
@@ -237,17 +237,23 @@
 </template>
 
 <script>
-import Layout from '../../components/Layout'
-import InfoSection2 from '../../components/InfoSection2'
-import ProjectCard from '../../components/ProjectCard'
-import MasonryGrid from '../../components/MasonryGrid'
-import Markdown from '../../components/Markdown'
-import Card from '../../components/Card'
+import Layout from '../../../components/Layout'
+import InfoSection2 from '../../../components/InfoSection2'
+import ProjectCard from '../../../components/ProjectCard'
+import MasonryGrid from '../../../components/MasonryGrid'
+import Markdown from '../../../components/Markdown'
+import Card from '../../../components/Card'
 
 export default {
   head() {
     return {
       title: this.item.title + ' - Tjenester - Datahjelpen AS'
+    }
+  },
+  nuxtI18n: {
+    paths: {
+      en: '/services/:slug',
+      nb: '/tjenester/:slug'
     }
   },
   components: {

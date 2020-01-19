@@ -48,9 +48,17 @@
           <p slot="content">
             {{ service.summary }}
           </p>
-          <a class="link link-styled" :href="service.link" slot="link">{{
-            service.linkText
-          }}</a>
+          <nuxt-link
+            class="link link-styled"
+            :to="
+              localePath({
+                name: 'service-slug',
+                params: { slug: 'service.link' }
+              })
+            "
+            slot="link"
+            >{{ service.linkText }}</nuxt-link
+          >
         </Card>
       </div>
     </div>
@@ -63,6 +71,12 @@ import Layout from '../../components/Layout'
 export default {
   head: {
     title: 'Tjenester - Datahjelpen AS'
+  },
+  nuxtI18n: {
+    paths: {
+      en: '/services',
+      nb: '/tjenester'
+    }
   },
   components: {
     Card,
