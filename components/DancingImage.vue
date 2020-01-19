@@ -24,6 +24,7 @@
   margin: 0;
   width: 100%;
   height: 100%;
+  background-color: $color-black;
 
   @media ($media-min-medium) {
     height: 1000px;
@@ -37,6 +38,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.75;
 
   @media ($media-min-medium) {
     filter: none;
@@ -68,13 +70,7 @@
     </svg>
 
     <figure :class="$style.figure">
-      <img
-        :class="$style.img"
-        :src="imageMobile"
-        :srcset="imageSrcSet"
-        :sizes="imageSizes"
-        :alt="alt"
-      />
+      <img :class="$style.img" :src="image" :alt="alt" />
     </figure>
   </div>
 </template>
@@ -82,8 +78,6 @@
 export default {
   data() {
     return {
-      imageSrcSet: this.imageMobile + ' 768w, ' + this.image + ' 1280w',
-      imageSizes: '(max-width: 767px) 768px, 1280px',
       shape0:
         'M190 15C134 42 99 84 66 153c-32 66-52 89-46 159 2 27 71 192 80 225 28 99-148 168-38 338 62 95 249-8 369 10 136 21 263 45 363 13 125-40 142-161 189-263 92-196 71-437-83-567-96-81-119 62-304 35C406 75 290-34 190 15z',
       shape1:

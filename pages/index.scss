@@ -44,7 +44,7 @@
   position: relative;
   width: 100%;
   z-index: 3;
-  padding: $space-base $space-small;
+  padding: $space-medium $space-small;
   max-width: #{$size-base * 30}em;
   overflow: visible;
 
@@ -59,10 +59,10 @@
 
   > h1 {
     margin-top: 0;
-    font-size: $font-size-h4;
+    font-size: $font-size-h3;
 
-    @media ($media-min-small) {
-      font-size: $font-size-h3;
+    @media ($media-max-medium) {
+      color: $color-white;
     }
 
     @media ($media-min-medium) {
@@ -83,6 +83,10 @@
 
   > p {
     margin-top: $space-base;
+
+    @media ($media-max-medium) {
+      color: $color-gray_cold000;
+    }
   }
 }
 

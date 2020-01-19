@@ -392,7 +392,7 @@
 
 .toggle {
   background-color: rgba($color-white, 0.25);
-  backdrop-filter: blur(0.5em) brightness(150%) contrast(150%);
+  backdrop-filter: blur(1em) brightness(400%) contrast(150%);
 
   @supports not (backdrop-filter: blur()) {
     @media ($media-min-small) {
