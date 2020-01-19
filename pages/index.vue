@@ -163,6 +163,8 @@ import ProjectCard from '../components/ProjectCard'
 import Layout from '../components/Layout'
 import MasonryGrid from '../components/MasonryGrid'
 
+let titleInterval
+
 if (process.client) {
   const particlesJS = require('particles.js')
   window.particlesJS.load('particles-js', '/particlesjs-config.json')
@@ -201,9 +203,10 @@ export default {
   },
   mounted() {
     if (typeof this.header === 'object') {
+      console.log('run', titleInterval)
       let currentTitle = 0
       this.$store.commit('setHeaderTitle', this.header.titleParts[currentTitle])
-      setInterval(() => {
+      titleInterval = setInterval(() => {
         currentTitle += 1
         if (currentTitle > this.header.titleParts.length - 1) {
           currentTitle = 0
@@ -212,8 +215,11 @@ export default {
           'setHeaderTitle',
           this.header.titleParts[currentTitle]
         )
-      }, 4000)
+      }, 5000)
     }
+  },
+  destroyed() {
+    clearInterval(titleInterval)
   }
 }
 </script>
