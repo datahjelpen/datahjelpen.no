@@ -62,6 +62,12 @@ export default {
       title: this.item.title + ' - Databloggen - Datahjelpen AS'
     }
   },
+  nuxtI18n: {
+    paths: {
+      en: '/blog/:slug',
+      nb: '/blogg/:slug'
+    }
+  },
   components: {
     Layout,
     Card,

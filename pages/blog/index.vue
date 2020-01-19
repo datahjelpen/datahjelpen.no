@@ -42,19 +42,29 @@
         :key="'post-card-' + i"
       >
         <Layout type="cols-2" :vAlign="alignment">
-          <nuxt-link :to="post.link">
+          <nuxt-link
+            :to="
+              localePath({
+                name: 'blog-slug',
+                params: { slug: i }
+              })
+            "
+          >
             <img :src="post.poster" :alt="post.title" />
           </nuxt-link>
           <div>
-            <nuxt-link :to="post.link">
+            <nuxt-link
+              :to="
+                localePath({
+                  name: 'blog-slug',
+                  params: { slug: i }
+                })
+              "
+            >
               <h3>{{ post.title }}</h3>
             </nuxt-link>
             <p>{{ post.summary }}</p>
           </div>
-
-          <!-- <a class="link link-styled" :href="post.link" slot="link">{{
-            post.linkText
-          }}</a> -->
         </Layout>
       </div>
     </div>
