@@ -42,7 +42,14 @@
         v-for="(service, i) in items"
         :key="'service-card-' + i"
       >
-        <Card :link="service.link">
+        <Card
+          :link="
+            localePath({
+              name: 'services-slug',
+              params: { slug: i }
+            })
+          "
+        >
           <img slot="icon" :src="service.icon" />
           <h4 slot="title">{{ service.title }}</h4>
           <p slot="content">
@@ -52,8 +59,8 @@
             class="link link-styled"
             :to="
               localePath({
-                name: 'service-slug',
-                params: { slug: 'service.link' }
+                name: 'services-slug',
+                params: { slug: i }
               })
             "
             slot="link"

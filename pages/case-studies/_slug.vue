@@ -101,6 +101,12 @@ export default {
       title: this.item.title + ' - Kundecaser - Datahjelpen AS'
     }
   },
+  nuxtI18n: {
+    paths: {
+      en: '/case-studies/:slug',
+      nb: '/kundecaser/:slug'
+    }
+  },
   components: {
     Layout,
     InfoSection2,

@@ -219,15 +219,30 @@
             v-for="(service, i) in otherServices"
             :key="'service-card-' + i"
           >
-            <Card :link="service.link">
+            <Card
+              :link="
+                localePath({
+                  name: 'services-slug',
+                  params: { slug: i }
+                })
+              "
+            >
               <img slot="icon" :src="service.icon" />
               <h4 slot="title">{{ service.title }}</h4>
               <p slot="content">
                 {{ service.summary }}
               </p>
-              <a class="link link-styled" :href="service.link" slot="link">{{
-                service.linkText
-              }}</a>
+              <nuxt-link
+                class="link link-styled"
+                :to="
+                  localePath({
+                    name: 'services-slug',
+                    params: { slug: i }
+                  })
+                "
+                slot="link"
+                >{{ service.linkText }}</nuxt-link
+              >
             </Card>
           </div>
         </div>

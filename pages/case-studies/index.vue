@@ -23,7 +23,12 @@
           :slot="'item-' + (i + 1)"
           :key="'customerCase-card-' + i"
           :title="customerCase.title"
-          :link="customerCase.link"
+          :link="
+            localePath({
+              name: 'case-studies-slug',
+              params: { slug: slug }
+            })
+          "
           :image="customerCase.poster"
           :overlay="customerCase.overlay"
           :overlayHover="customerCase.overlayHover"
@@ -42,6 +47,12 @@ import MasonryGrid from '../../components/MasonryGrid'
 export default {
   head: {
     title: 'Kundecaser - Datahjelpen AS'
+  },
+  nuxtI18n: {
+    paths: {
+      en: '/case-studies',
+      nb: '/kundecaser'
+    }
   },
   components: {
     InfoSection2,

@@ -25,15 +25,15 @@
               data-aos-offset="-200"
               :class="$style.headerContentLinks"
             >
-              <a
+              <nuxt-link
                 class="button button-primary"
-                :href="header.buttonPrimary.link"
-                >{{ header.buttonPrimary.text }}</a
+                :to="header.buttonPrimary.link"
+                >{{ header.buttonPrimary.text }}</nuxt-link
               >
-              <a
+              <nuxt-link
                 class="button button-light"
-                :href="header.buttonSecondary.link"
-                >{{ header.buttonSecondary.text }}</a
+                :to="header.buttonSecondary.link"
+                >{{ header.buttonSecondary.text }}</nuxt-link
               >
             </ButtonGroup>
           </div>
@@ -76,9 +76,11 @@
           data-aos-delay="400"
           data-aos-offset="-100"
         >
-          <a class="button button-primary" :href="cases.sectionButton.link">{{
-            cases.sectionButton.text
-          }}</a>
+          <nuxt-link
+            class="button button-primary"
+            :to="cases.sectionButton.link"
+            >{{ cases.sectionButton.text }}</nuxt-link
+          >
         </div>
         <MasonryGrid slot="items">
           <ProjectCard
@@ -86,7 +88,12 @@
             :slot="'item-' + (i + 1)"
             :key="'customerCase-card-' + i"
             :title="customerCase.title"
-            :link="customerCase.link"
+            :link="
+              localePath({
+                name: 'case-studies-slug',
+                params: { slug: slug }
+              })
+            "
             :image="customerCase.poster"
             :overlay="customerCase.overlay"
             :overlayHover="customerCase.overlayHover"
@@ -119,17 +126,22 @@
           data-aos-delay="300"
           data-aos-offset="-100"
         >
-          <a
+          <nuxt-link
             class="button button-primary"
-            :href="services.sectionButton.link"
-            >{{ services.sectionButton.text }}</a
+            :to="services.sectionButton.link"
+            >{{ services.sectionButton.text }}</nuxt-link
           >
         </div>
         <Card
           v-for="(service, slug, i) in services.items"
           :slot="'item-' + (i + 1)"
           :key="'service-card-' + i"
-          :link="service.link"
+          :link="
+            localePath({
+              name: 'services-slug',
+              params: { slug: slug }
+            })
+          "
           data-aos="fade-left"
           :data-aos-delay="i * 100"
         >
@@ -138,9 +150,6 @@
           <p slot="content">
             {{ service.summary }}
           </p>
-          <a class="link link-styled" :href="service.link" slot="link">{{
-            service.linkText
-          }}</a>
         </Card>
       </InfoSection1>
     </Layout>
