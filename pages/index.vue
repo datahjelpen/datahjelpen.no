@@ -177,52 +177,20 @@ export default {
     MasonryGrid
   },
   async asyncData({ app: { $axios, i18n } }) {
-    // Get index page data
-    const url = '/i18n/' + i18n.locale + '/index.json'
-    const data = await $axios
-      .get(url)
-      .then(res => {
-        res.data.page = {
-          heading: i18n.t('Databloggen')
-        }
-        return res.data
-      })
-      .catch(e => {
-        return {
-          page: {
-            heading: i18n.t('Databloggen'),
-            intro: i18n.t('Noe gikk feil. Vi klarte ikke hente data ...')
-          }
-        }
-      })
+    // Get page data
+    const [indexRes, servicesRes, casesRes] = await Promise.all([
+      $axios.get('/i18n/' + i18n.locale + '/index.json'),
+      $axios.get('/i18n/' + i18n.locale + '/services.json'),
+      $axios.get('/i18n/' + i18n.locale + '/case-studies.json')
+    ]).catch(e => {
+      return []
+    })
 
-    // Get services data
-    const servicesUrl = '/i18n/' + i18n.locale + '/services.json'
-    const servicesData = await $axios
-      .get(servicesUrl)
-      .then(res => {
-        return res.data
-      })
-      .catch(e => {
-        return null
-      })
+    if (indexRes && typeof indexRes.data === 'object') {
+      indexRes.data.services = servicesRes.data
+      indexRes.data.cases = casesRes.data
 
-    // Get case studies data
-    const casesUrl = '/i18n/' + i18n.locale + '/case-studies.json'
-    const casesData = await $axios
-      .get(casesUrl)
-      .then(res => {
-        return res.data
-      })
-      .catch(e => {
-        return null
-      })
-
-    if (data && typeof data === 'object') {
-      data.services = servicesData
-      data.cases = casesData
-
-      return { ...data }
+      return { ...indexRes.data }
     }
   },
   mounted() {
