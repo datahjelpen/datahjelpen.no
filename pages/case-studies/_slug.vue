@@ -76,7 +76,12 @@
             :slot="'item-' + (i + 1)"
             :key="'customerCase-card-' + i"
             :title="customerCase.title"
-            :link="customerCase.link"
+            :link="
+              localePath({
+                name: 'case-studies-slug',
+                params: { slug: slug }
+              })
+            "
             :image="customerCase.poster"
             :overlay="customerCase.overlay"
             :overlayHover="customerCase.overlayHover"
