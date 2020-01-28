@@ -3,7 +3,7 @@
 </style>
 <template>
   <div :class="$style.root" v-if="item">
-    <Layout type="full" v-if="header">
+    <Layout type="full">
       <header :class="$style.header">
         <Layout :class="$style.headerTop">
           <div :class="$style.headerTitleWrapper">
@@ -21,7 +21,6 @@
             </dl>
           </div>
         </Layout>
-        <!-- <img :src="item.imageHeader" :alt="item.title" /> -->
       </header>
     </Layout>
 
