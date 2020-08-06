@@ -39,12 +39,12 @@
                     <button class="primary" type="submit">Registrer</button>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <a class="button" href="{{ route('login.oauth', 'google') }}">
                         <img class="icon" src="/images/google-logo.svg" alt="G logo">
                         <span>Login via Google</span>
                     </a>
-                </div>
+                </div> -->
 
                 <p>Eksisterende kunde? <a href="{{ route('login') }}">login</a></p>
             </form>
