@@ -25,6 +25,8 @@ class SiteController extends Controller
 
     public function home()
     {
+        return redirect()->route('dashboard');
+
         if (Auth::check()) {
             return redirect()->route('dashboard');
         }
@@ -34,16 +36,19 @@ class SiteController extends Controller
 
     public function index()
     {
+        return redirect()->route('dashboard');
         return view('front-page');
     }
 
     public function about()
     {
+        return redirect()->away('https://datahjelpen.no/om-oss');
         return view('about');
     }
 
     public function contact()
     {
+        return redirect()->away('https://datahjelpen.no/kontakt');
         $user = Auth::user();
 
         if ($user != null) {
@@ -83,6 +88,7 @@ class SiteController extends Controller
 
     public function services()
     {
+        return redirect()->away('https://datahjelpen.no/tjenester/');
         Session::flash('info', 'Vi holder på å oppdatere nettstedet vårt. Denne siden kommer snart...');
         return redirect()->route('front-page');
     }
@@ -100,17 +106,20 @@ class SiteController extends Controller
 
     public function projects()
     {
+        return redirect()->away('https://datahjelpen.no/kundecaser/');
         Session::flash('info', 'Vi holder på å oppdatere nettstedet vårt. Denne siden kommer snart...');
         return redirect()->route('front-page');
     }
 
     public function privacy_landing()
     {
+        return redirect()->away('https://datahjelpen.no/personvern/');
         return view('privacy_landing');
     }
 
     public function privacy_policy()
     {
+        return redirect()->away('https://datahjelpen.no/personvern/');
         return view('privacy_policy');
     }
 
