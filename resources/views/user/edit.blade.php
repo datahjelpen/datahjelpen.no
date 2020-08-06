@@ -34,7 +34,7 @@
 						<input id="form-user-company_nr" name="company_nr" type="text" class="form-input" value="{{ old('company_nr', $user->company_nr) }}">
 					</div>
 				</div>
-				<div class="form-group form-group-checkbox">
+				<div class="form-group form-group-checkbox" style="display:none;">
 					<input class="form-input form-input-checkbox" id="agree_tos" name="agree_tos" type="checkbox" {{ old('agree_tos', $user->agree_tos) ? 'checked' : '' }}>
 					<label class="form-label" for="agree_tos">Jeg har lest og godtatt <a href="{{ route('tos') }}" target="_blank">tjenestevilkårene</a></label>
 				</div>

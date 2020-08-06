@@ -16,7 +16,7 @@
 			<p><strong>Selskap:</strong> <span>{{ $user->company ? $user->company : 'Ikke registrert' }}</span></p>
 			<p><strong>Selskap org. nr.:</strong> <span>{{ $user->company_nr ? $user->company_nr : 'Ikke registrert' }}</span></p>
 
-			<p><strong>Godtatt tjenestevilkår:</strong> <span>{{ $user->agree_tos ? 'Ja' : 'Nei' }}</span></p>
+			<!-- <p><strong>Godtatt tjenestevilkår:</strong> <span>{{ $user->agree_tos ? 'Ja' : 'Nei' }}</span></p> -->
 			<p><strong>Godtatt personvernserklæringen:</strong> <span>{{ $user->agree_privacy ? 'Ja' : 'Nei' }}</span></p>
 			<p><strong>Godtatt databehandleravtale:</strong> <span>{{ $user->agree_dpa ? 'Ja' : 'Nei' }}</span></p>
 

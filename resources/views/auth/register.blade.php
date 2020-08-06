@@ -32,7 +32,7 @@
 
                 <div class="form-group form-group-checkbox{{ $errors->has('agree_to_tos_privacy') ? ' error' : null }}">
                     <input class="form-input form-input-checkbox" id="agree_to_tos_privacy" name="agree_to_tos_privacy" type="checkbox" {{ old('agree_to_tos_privacy') ? 'checked' : '' }}>
-                    <label class="form-label" for="agree_to_tos_privacy">Jeg har lest og forstått, og godtar <a href="{{ route('tos') }}" target="_blank">tjenestevilkårene</a> og <a href="{{ route('privacy.policy') }}" target="_blank">personvernserklæringen</a></label>
+                    <label class="form-label" for="agree_to_tos_privacy">Jeg har lest og forstått, og godtar <a href="{{ route('privacy.policy') }}" target="_blank">personvernserklæringen</a></label>
                 </div>
 
                 <div class="form-group">
