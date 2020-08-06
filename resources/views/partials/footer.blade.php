@@ -25,11 +25,11 @@
 		<section>
 			<div>
 				<div class="footer-links-1">
-					<a href="{{ route('front-page') }}#services">Tjenester</a>
-					<a href="{{ route('front-page') }}#projects">Prosjekter</a>
-					<a href="{{ route('contact') }}">Kontakt</a>
-					<a href="{{ route('about') }}">Om oss</a>
-					<a href="{{ route('blog') }}">Blogg</a>
+					<a href="https://datahjelpen.no/tjenester">Tjenester</a>
+					<a href="https://datahjelpen.no/kundecaser">Prosjekter</a>
+					<a href="https://datahjelpen.no/kontakt">Kontakt</a>
+					<a href="https://datahjelpen.no/om-oss">Om oss</a>
+					<a href="https://datahjelpen.no/blogg">Blogg</a>
 				</div>
 				<div class="footer-links-2">
 					<a href="{{ route('privacy') }}">Personvern{{--  & sikkerhet --}}</a>
