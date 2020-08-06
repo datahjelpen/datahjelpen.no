@@ -8,11 +8,12 @@
 			</li>
 		</ul>
 		<ul class="main-navigation-links">
-			<li><a href="{{ route('front-page') }}#services">Tjenester</a></li>
+			<!-- <li><a href="{{ route('front-page') }}#services">Tjenester</a></li>
 			<li><a href="{{ route('front-page') }}#projects">Prosjekter</a></li>
 			<li><a href="{{ route('contact') }}">Kontakt</a></li>
 			<li><a href="{{ route('about') }}">Om oss</a></li>
-			<li><a href="{{ route('blog') }}">Blogg</a></li>
+			<li><a href="{{ route('blog') }}">Blogg</a></li> -->
+			<li><a href="route('dashboard')">Kundeweb</a></li>
 		</ul>
 	</nav>
 	<nav>
