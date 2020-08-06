@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Laravel\Scout\Searchable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -12,7 +11,7 @@ use App\Notifications\PasswordReset;
 
 class User extends Authenticatable
 {
-    use Notifiable, Searchable, HasApiTokens, HasRoles;
+    use Notifiable, HasApiTokens, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -35,11 +34,6 @@ class User extends Authenticatable
         'password', 'remember_token', 'secret_2fa', 'confirmation_code'
     ];
 
-    public function searchableAs()
-    {
-        return 'name';
-    }
-
     /**
      * Ecrypt the user's 2fa secret.
      *
@@ -48,7 +42,7 @@ class User extends Authenticatable
      */
     public function set2faSecretAttribute($value)
     {
-         $this->attributes['secret_2fa'] = encrypt($value);
+        $this->attributes['secret_2fa'] = encrypt($value);
     }
 
     public function hasProvider()
