@@ -130,6 +130,9 @@
         >GitHub</a
       >
 
+      <nuxt-link slot="etcLinks" :to="localePath('privacy')">
+        <span>{{ $t('nav.privacy') }}</span>
+      </nuxt-link>
       <nuxt-link slot="etcLinks" :to="switchLocalePath('nb')">
         <i18nNoIcon /><span>Norsk</span>
       </nuxt-link>
