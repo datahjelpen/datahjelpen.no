@@ -5,7 +5,8 @@ export default {
     services: 'Tjenester',
     contact: 'Kontakt',
     about: 'Om oss',
-    blog: 'Blogg'
+    blog: 'Blogg',
+    privacy: 'Personvernerklæring'
   },
   Kontakt: 'Kontakt',
   'Kontakt oss': 'Kontakt oss',
