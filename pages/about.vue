@@ -1,13 +1,3 @@
-<style lang="scss" module>
-.root {
-  margin: $space-large auto;
-}
-
-.card {
-  margin: 0 auto;
-  width: #{$size-base * 28}em;
-}
-</style>
 <template>
   <Layout :class="$style.root">
     <Card :class="$style.card">
@@ -53,3 +43,13 @@ export default {
   }
 }
 </script>
+<style lang="scss" module>
+.root {
+  margin: $space-large auto;
+}
+
+.card {
+  margin: 0 auto;
+  width: #{$size-base * 28}em;
+}
+</style>
