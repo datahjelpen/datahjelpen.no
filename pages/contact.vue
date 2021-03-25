@@ -83,6 +83,14 @@ export default {
         return false
       }
 
+      if (
+        this.email !== null &&
+        (this.email.indexOf('@datahjelpen.no') !== -1 || this.email.indexOf('@datahjelpen.org') !== -1)
+      ) {
+        alert(this.$t('Du kan ikke sende fra en av Datahjelpen sine e-post addresser.'))
+        return false
+      }
+
       event.target.submit()
     }
   },
