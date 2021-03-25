@@ -22,36 +22,19 @@
 </style>
 <template>
   <div>
-    <a class="visually-hidden" aria-hidden="false" href="#main">{{
-      $t('Hopp over menyen, gå til innhold')
-    }}</a>
+    <a class="visually-hidden" aria-hidden="false" href="#main">{{ $t('Hopp over menyen, gå til innhold') }}</a>
     <NavigationBar id="main-nav" :class="$style.navigationBar">
       <nuxt-link slot="logo" :to="localePath('index')">
         <Logo />
         <span>Datahjelpen AS</span>
       </nuxt-link>
 
-      <nuxt-link
-        class="nuxt-link-home"
-        slot="links"
-        :to="localePath('index')"
-        >{{ $t('nav.home') }}</nuxt-link
-      >
-      <nuxt-link slot="links" :to="localePath('case-studies')">{{
-        $t('nav.cases')
-      }}</nuxt-link>
-      <nuxt-link slot="links" :to="localePath('services')">{{
-        $t('nav.services')
-      }}</nuxt-link>
-      <nuxt-link slot="links" :to="localePath('contact')">{{
-        $t('nav.contact')
-      }}</nuxt-link>
-      <nuxt-link slot="links" :to="localePath('about')">{{
-        $t('nav.about')
-      }}</nuxt-link>
-      <nuxt-link slot="links" :to="localePath('blog')">{{
-        $t('nav.blog')
-      }}</nuxt-link>
+      <nuxt-link class="nuxt-link-home" slot="links" :to="localePath('index')">{{ $t('nav.home') }}</nuxt-link>
+      <nuxt-link slot="links" :to="localePath('case-studies')">{{ $t('nav.cases') }}</nuxt-link>
+      <nuxt-link slot="links" :to="localePath('services')">{{ $t('nav.services') }}</nuxt-link>
+      <nuxt-link slot="links" :to="localePath('contact')">{{ $t('nav.contact') }}</nuxt-link>
+      <nuxt-link slot="links" :to="localePath('about')">{{ $t('nav.about') }}</nuxt-link>
+      <nuxt-link slot="links" :to="localePath('blog')">{{ $t('nav.blog') }}</nuxt-link>
 
       <MenuIcon slot="toggle" />
 
@@ -99,46 +82,17 @@
         Nettbuikk for Gourmethuset</nuxt-link
       >
 
-      <a
-        slot="someLinks"
-        href="https://twitter.com/datahjelpen_no"
-        rel="noreferrer noopener"
-        >Twitter</a
-      >
-      <a
-        slot="someLinks"
-        href="https://www.linkedin.com/company/datahjelpen"
-        rel="noreferrer noopener"
-        >LinkedIn</a
-      >
-      <a
-        slot="someLinks"
-        href="https://www.instagram.com/datahjelpen.no/"
-        rel="noreferrer noopener"
-        >Instagram</a
-      >
-      <a
-        slot="someLinks"
-        href="https://www.facebook.com/datahjelpen.no"
-        rel="noreferrer noopener"
-        >Facebook</a
-      >
-      <a
-        slot="someLinks"
-        href="https://github.com/datahjelpen"
-        rel="noreferrer noopener"
-        >GitHub</a
-      >
+      <a slot="someLinks" href="https://twitter.com/datahjelpen_no" rel="noreferrer noopener">Twitter</a>
+      <a slot="someLinks" href="https://www.linkedin.com/company/datahjelpen" rel="noreferrer noopener">LinkedIn</a>
+      <a slot="someLinks" href="https://www.instagram.com/datahjelpen.no/" rel="noreferrer noopener">Instagram</a>
+      <a slot="someLinks" href="https://www.facebook.com/datahjelpen.no" rel="noreferrer noopener">Facebook</a>
+      <a slot="someLinks" href="https://github.com/datahjelpen" rel="noreferrer noopener">GitHub</a>
 
-      <nuxt-link slot="etcLinks" :to="localePath('privacy')">
-        <span>{{ $t('nav.privacy') }}</span>
-      </nuxt-link>
-      <nuxt-link slot="etcLinks" :to="switchLocalePath('nb')">
-        <i18nNoIcon /><span>Norsk</span>
-      </nuxt-link>
-      <nuxt-link slot="etcLinks" :to="switchLocalePath('en')">
-        <i18nEnIcon /><span>English</span>
-      </nuxt-link>
+      <nuxt-link slot="etcLinks" :to="localePath('privacy')"
+        ><span>{{ $t('nav.privacy') }}</span></nuxt-link
+      >
+      <nuxt-link slot="etcLinks" :to="switchLocalePath('nb')"> <i18nNoIcon /><span>Norsk</span> </nuxt-link>
+      <nuxt-link slot="etcLinks" :to="switchLocalePath('en')"> <i18nEnIcon /><span>English</span> </nuxt-link>
 
       <div slot="contactLinks">
         <p>
@@ -152,8 +106,8 @@
       </div>
       <div slot="contactLinks">
         <p><strong>Sandefjord</strong></p>
-        <p>Rosenlundveien 1,</p>
-        <p>3225 Sandefjord</p>
+        <p>Hunsrødkroken 7,</p>
+        <p>3231 Sandefjord</p>
       </div>
     </NavigationBar>
     <main id="main" :class="$style.main">
@@ -164,27 +118,19 @@
         <section>
           <div>
             <div :class="$style.footerLinks1">
-              <nuxt-link
-                class="nuxt-link-home"
-                slot="links"
-                :to="localePath('index')"
-                >{{ $t('nav.home') }}</nuxt-link
+              <nuxt-link class="nuxt-link-home" :to="localePath('index')">{{ $t('nav.home') }}</nuxt-link>
+              <nuxt-link :to="localePath('case-studies')">{{ $t('nav.cases') }}</nuxt-link>
+              <nuxt-link :to="localePath('services')">{{ $t('nav.services') }}</nuxt-link>
+              <nuxt-link :to="localePath('contact')">{{ $t('nav.contact') }}</nuxt-link>
+              <nuxt-link :to="localePath('about')">{{ $t('nav.about') }}</nuxt-link>
+              <nuxt-link :to="localePath('blog')">{{ $t('nav.blog') }}</nuxt-link>
+            </div>
+            <div :class="$style.footerLinks1">
+              <nuxt-link :to="localePath('privacy')"
+                ><span>{{ $t('nav.privacy') }}</span></nuxt-link
               >
-              <nuxt-link slot="links" :to="localePath('case-studies')">{{
-                $t('nav.cases')
-              }}</nuxt-link>
-              <nuxt-link slot="links" :to="localePath('services')">{{
-                $t('nav.services')
-              }}</nuxt-link>
-              <nuxt-link slot="links" :to="localePath('contact')">{{
-                $t('nav.contact')
-              }}</nuxt-link>
-              <nuxt-link slot="links" :to="localePath('about')">{{
-                $t('nav.about')
-              }}</nuxt-link>
-              <nuxt-link slot="links" :to="localePath('blog')">{{
-                $t('nav.blog')
-              }}</nuxt-link>
+              <a href="https://datahjelpen.statuspage.io/">{{ $t('System status') }}</a>
+              <a href="http://clientweb.datahjelpen.no/">{{ $t('Kundeweb') }}</a>
             </div>
             <div :class="$style.footerLinksSocial">
               <a href="https://twitter.com/datahjelpen_no"
@@ -215,9 +161,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <path
-                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                  ></path>
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                   <rect x="2" y="9" width="4" height="12"></rect>
                   <circle cx="4" cy="4" r="2"></circle></svg
               ></a>
@@ -234,9 +178,7 @@
                   stroke-linejoin="round"
                 >
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path
-                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                  ></path>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg
               ></a>
               <a href="https://fb.com/datahjelpen.no"
@@ -251,9 +193,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <path
-                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                  ></path></svg
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg
               ></a>
 
               <a href="https://github.com/datahjelpen"
@@ -280,26 +220,21 @@
           <div>
             <div :class="$style.footerContact">
               <p><strong>Kontakt</strong></p>
-              <p>
-                <span>E-post: </span
-                ><a href="mailto:post@datahjelpen.no">post@datahjelpen.no</a>
-              </p>
+              <p><span>E-post: </span><a href="mailto:post@datahjelpen.no">post@datahjelpen.no</a></p>
               <p><span>Telefon:</span><a href="tlf:46531170">465 31 170</a></p>
             </div>
           </div>
           <div>
             <div :class="$style.footerLocation">
               <p><strong>Sandefjord</strong></p>
-              <p>Rosenlundveien 1,</p>
-              <p>3225 Sandefjord</p>
+              <p>Hunsrødkroken 7,</p>
+              <p>3231 Sandefjord</p>
             </div>
           </div>
         </section>
         <section>
           <div :class="$style.footerCopyright">
-            <p>
-              © Copyright 2016-{{ new Date().getFullYear() }} - Datahjelpen AS
-            </p>
+            <p>© Copyright 2016-{{ new Date().getFullYear() }} - Datahjelpen AS</p>
           </div>
         </section>
       </div>
