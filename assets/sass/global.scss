@@ -175,8 +175,7 @@ img {
   line-height: 1;
   text-align: center;
   box-shadow: 0 10px 25px -15px rgba($color-gray_cold700, 0.8);
-  transition-property: box-shadow, transform, color, border-color,
-    background-color;
+  transition-property: box-shadow, transform, color, border-color, background-color;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transform: scale(1);
@@ -226,6 +225,21 @@ img {
 
   &::-moz-focus-inner {
     border: 0;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    color: $color-gray_cold500;
+    border-style: dashed;
+    border-color: $color-gray_cold500;
+    background-color: $color-gray_cold100;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      transform: scale(1);
+    }
   }
 }
 
