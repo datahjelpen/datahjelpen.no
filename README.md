@@ -1,10 +1,10 @@
 # datahjelpen.no
 
-> My flawless Nuxt.js project
+> Vi skaper de digitale opplevelsene folk elsker
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm run install
 
