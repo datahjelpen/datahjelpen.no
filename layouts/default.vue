@@ -100,7 +100,7 @@
           <span>post@datahjelpen.no</span>
         </p>
         <p>
-          <strong>Telefon:</strong>
+          <strong>SMS:</strong>
           <span>465 31 170</span>
         </p>
       </div>
@@ -221,7 +221,7 @@
             <div :class="$style.footerContact">
               <p><strong>Kontakt</strong></p>
               <p><span>E-post: </span><a href="mailto:post@datahjelpen.no">post@datahjelpen.no</a></p>
-              <p><span>Telefon:</span><a href="tlf:46531170">465 31 170</a></p>
+              <p><span>SMS:</span><a href="tlf:46531170">465 31 170</a></p>
             </div>
           </div>
           <div>

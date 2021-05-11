@@ -10,7 +10,7 @@
           <a href="mailto:post@datahjelpen.no">post@datahjelpen.no</a>
         </p>
         <p>
-          <span>Telefon:</span>
+          <span>SMS:</span>
           <a href="tel:465 31 170">(+47) 465 31 170</a>
         </p>
         <form action="https://formcarry.com/s/GdmTpULmLWB" method="POST" @submit="submit">

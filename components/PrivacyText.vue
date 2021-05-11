@@ -6,14 +6,11 @@
     </p>
     <p>
       <strong>Sist oppdatert:</strong>
-      <time datetime="2021-03-25">25. {{ $t('mars') }} 2021</time>
+      <time datetime="2021-05-11">11. {{ $t('mai') }} 2021</time>
     </p>
     <p><strong>Siste endringer:</strong></p>
     <ul>
-      <li>Oppdaterte informasjon angående hvordan man kan slette sine data.</li>
-      <li>Oppdaterte informasjon angående personopplysninger som behandles.</li>
-      <li>Oppdaterte bedriften sin addresse.</li>
-      <li>La til seksjon for siste endringer.</li>
+      <li>Oppdaterte kontaktinformasjon.</li>
     </ul>
 
     <h2>Innledning</h2>
@@ -133,7 +130,7 @@
     </p>
 
     <h2>9. Slik kontakter du oss</h2>
-    <p>Telefon: <a href="tel:+47 465 31 170">+47 465 31 170</a></p>
+    <p>SMS: <a href="tel:+47 465 31 170">+47 465 31 170</a></p>
     <p>
       E-post:
       <a href="mailto:personvern@datahjelpen.no">personvern@datahjelpen.no</a>
