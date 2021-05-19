@@ -6,7 +6,7 @@
     </p>
     <p>
       <strong>Sist oppdatert:</strong>
-      <time datetime="2021-05-11">11. {{ $t('mai') }} 2021</time>
+      <time datetime="2021-05-19">19. {{ $t('mai') }} 2021</time>
     </p>
     <p><strong>Siste endringer:</strong></p>
     <ul>
@@ -135,6 +135,6 @@
       E-post:
       <a href="mailto:personvern@datahjelpen.no">personvern@datahjelpen.no</a>
     </p>
-    <p>Datahjelpen AS, Hunsrødkroken 7 3231 Sandefjord.</p>
+    <p>Datahjelpen AS, Øvre Haslevei 75B, 3229 Sandefjord.</p>
   </div>
 </template>

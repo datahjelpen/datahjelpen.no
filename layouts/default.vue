@@ -106,8 +106,8 @@
       </div>
       <div slot="contactLinks">
         <p><strong>Sandefjord</strong></p>
-        <p>Hunsrødkroken 7,</p>
-        <p>3231 Sandefjord</p>
+        <p>Øvre Haslevei 75B,</p>
+        <p>3229 Sandefjord</p>
       </div>
     </NavigationBar>
     <main id="main" :class="$style.main">
@@ -227,8 +227,8 @@
           <div>
             <div :class="$style.footerLocation">
               <p><strong>Sandefjord</strong></p>
-              <p>Hunsrødkroken 7,</p>
-              <p>3231 Sandefjord</p>
+              <p>Øvre Haslevei 75B,</p>
+              <p>3229 Sandefjord</p>
             </div>
           </div>
         </section>
