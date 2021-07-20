@@ -86,7 +86,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    proxy: true,
+    proxy: false,
     baseURL: 'https://cdn.datahjelpen.no/datahjelpen-no'
   },
 
@@ -95,12 +95,12 @@ export default {
    ** See https://github.com/nuxt-community/proxy-module
    */
   proxy: {
-    '/i18n/*/**.json': {
-      target: 'https://cdn.datahjelpen.no',
-      pathRewrite: {
-        '^/i18n': '/datahjelpen-no/i18n'
-      }
-    }
+    // '/i18n/*/**.json': {
+    //   target: 'https://cdn.datahjelpen.no',
+    //   pathRewrite: {
+    //     '^/i18n': '/datahjelpen-no/i18n'
+    //   }
+    // }
   },
 
   /*
