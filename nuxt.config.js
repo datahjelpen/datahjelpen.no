@@ -87,7 +87,7 @@ export default {
    */
   axios: {
     proxy: false,
-    baseURL: 'https://cdn.datahjelpen.no/datahjelpen-no'
+    baseURL: 'https://api.datahjelpen.cloud/cdn/datahjelpen-no'
   },
 
   /*
