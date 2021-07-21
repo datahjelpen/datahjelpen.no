@@ -13,8 +13,9 @@
           <span>SMS:</span>
           <a href="tel:465 31 170">(+47) 465 31 170</a>
         </p>
-        <form action="https://formcarry.com/s/GdmTpULmLWB" method="POST" @submit="submit">
+        <form action="/takk-for-melding" method="POST" @submit="submit" data-netlify="true">
           <input type="hidden" name="_gotcha" />
+          <input type="hidden" name="form-name" value="contact" />
           <div :class="$style.formGroup">
             <label>{{ $t('Navn') }}</label>
             <input type="text" name="name" required autofocus />
